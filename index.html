@@ -30,44 +30,32 @@
             <!-- 实时新闻 -->
             <div id="realtime" class="sub-content active">
                 <!-- 市场概览 -->
-                <div class="market-bar">
-                    <div class="market-item up">
+                <div class="market-bar" id="marketBar">
+                    <div class="market-item" id="shIndex">
                         <span class="market-label">上证</span>
-                        <span class="market-val">3,412.56</span>
-                        <span class="market-change">+1.23%</span>
+                        <span class="market-val">--</span>
+                        <span class="market-change">--</span>
                     </div>
-                    <div class="market-item down">
+                    <div class="market-item" id="hkIndex">
                         <span class="market-label">恒生</span>
-                        <span class="market-val">18,234.12</span>
-                        <span class="market-change">-0.45%</span>
+                        <span class="market-val">--</span>
+                        <span class="market-change">--</span>
                     </div>
-                    <div class="market-item up">
+                    <div class="market-item" id="usIndex">
                         <span class="market-label">纳斯达克</span>
-                        <span class="market-val">16,892.34</span>
-                        <span class="market-change">+0.89%</span>
+                        <span class="market-val">--</span>
+                        <span class="market-change">--</span>
                     </div>
                 </div>
 
-                <!-- 外汇提示 -->
-                <div class="alert-card forex">
-                    <div class="alert-icon">💱</div>
-                    <div class="alert-content">
-                        <div class="alert-title">外汇提示</div>
-                        <div class="alert-text">日元跌至160关口，日本央行干预预期升温</div>
-                    </div>
-                </div>
+                <!-- 提示卡片 -->
+                <div id="alertArea"></div>
 
-                <!-- 股市动向 -->
-                <div class="alert-card stock">
-                    <div class="alert-icon">📈</div>
-                    <div class="alert-content">
-                        <div class="alert-title">股市动向</div>
-                        <div class="alert-text">A股放量上涨，北向资金净流入超80亿</div>
-                    </div>
+                <!-- 热门新闻 -->
+                <div class="section-header">
+                    <span class="section-label">🔥 热门 TOP 10</span>
+                    <span class="refresh-hint" id="refreshHint">下拉刷新</span>
                 </div>
-
-                <!-- 热门新闻 TOP10 -->
-                <div class="section-label">🔥 热门 TOP 10</div>
                 <div id="hotNewsList" class="news-list"></div>
             </div>
 
@@ -75,9 +63,9 @@
             <div id="daily" class="sub-content">
                 <div class="filter-row">
                     <button class="filter-btn active" data-investor="all">全部</button>
-                    <button class="filter-btn" data-investor="templeton">🌍 邓</button>
-                    <button class="filter-btn" data-investor="buffett">💰 巴</button>
-                    <button class="filter-btn" data-investor="munger">🧠 芒</button>
+                    <button class="filter-btn" data-investor="templeton">🌍 邓普顿</button>
+                    <button class="filter-btn" data-investor="buffett">💰 巴菲特</button>
+                    <button class="filter-btn" data-investor="munger">🧠 芒格</button>
                 </div>
                 <div id="dailyList" class="date-list"></div>
                 <div id="briefingDetail" class="detail-area"></div>
