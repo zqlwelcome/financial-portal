@@ -31,6 +31,7 @@ async function loadHotNews(forceRefresh = false) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
     
+    // 强制刷新时跳过所有缓存
     if (!forceRefresh && newsCache.length > 0 && (Date.now() - lastRefreshTime) < REFRESH_INTERVAL) {
         renderNewsList(newsCache);
         return;
@@ -38,19 +39,27 @@ async function loadHotNews(forceRefresh = false) {
     
     el.innerHTML = '<div class="empty-hint">🔄 获取最新新闻...</div>';
     
+    // 强制刷新时清除缓存标记，确保真正请求
+    if (forceRefresh) {
+        lastRefreshTime = 0;
+    }
+    
     try {
-        const response = await fetch(`data/hot-news.json?t=${Date.now()}`, {
+        const ts = Date.now();
+        const response = await fetch(`data/hot-news.json?t=${ts}`, {
             cache: 'no-store',
-            headers: { 'Cache-Control': 'no-cache' }
+            headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
         });
         
         if (response.ok) {
             const data = await response.json();
             if (data.news && data.news.length > 0) {
+                // 检查是否真的是新数据：对比第一条新闻的标题
+                const isNew = newsCache.length === 0 || !newsCache[0] || newsCache[0].title !== data.news[0].title;
                 newsCache = data.news;
                 lastRefreshTime = Date.now();
                 renderNewsList(newsCache);
-                updateRefreshHint(data.updateTime);
+                updateRefreshHint(data.updateTime || (isNew ? '刚刚更新' : '已是最新'));
                 return;
             }
         }
@@ -58,11 +67,18 @@ async function loadHotNews(forceRefresh = false) {
         console.log('加载新闻失败:', e);
     }
     
+    // 网络请求失败时尝试本地缓存
     const cached = localStorage.getItem('hot_news_cache');
     if (cached) {
-        newsCache = JSON.parse(cached);
-        renderNewsList(newsCache);
-    } else {
+        try {
+            newsCache = JSON.parse(cached);
+            renderNewsList(newsCache);
+        } catch(e) {
+            if (newsCache.length === 0) {
+                el.innerHTML = '<div class="empty-hint">暂无新闻</div>';
+            }
+        }
+    } else if (newsCache.length === 0) {
         el.innerHTML = '<div class="empty-hint">暂无新闻</div>';
     }
 }
@@ -75,8 +91,10 @@ async function loadAlerts(forceRefresh = false) {
     }
     
     try {
-        const response = await fetch(`data/alerts.json?t=${Date.now()}`, {
-            cache: 'no-store'
+        const ts = Date.now();
+        const response = await fetch(`data/alerts.json?t=${ts}`, {
+            cache: 'no-store',
+            headers: { 'Cache-Control': 'no-cache' }
         });
         if (response.ok) {
             alertsCache = await response.json();
@@ -161,7 +179,14 @@ async function forceRefreshAll() {
     lastRefreshTime = 0;
     expandedAlert = null;
     expandedNews = null;
-    await Promise.all([loadHotNews(true), loadAlerts(true)]);
+    try {
+        await Promise.all([loadHotNews(true), loadAlerts(true)]);
+    } catch(e) {
+        console.log('刷新失败:', e);
+        // 尝试独立刷新
+        await loadHotNews(true);
+        await loadAlerts(true);
+    }
 }
 
 // ===== 定时自动刷新 =====
@@ -176,7 +201,7 @@ function startAutoRefresh() {
 
 // ===== 页面可见时检查 =====
 document.addEventListener('visibilitychange', () => {
-    if (!document.hidden && (Date.now() - lastRefreshTime) > REFRESH_INTERVAL) {
+    if (!document.hidden) {
         loadHotNews(true);
     }
 });
