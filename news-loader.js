@@ -1,67 +1,99 @@
 /**
- * 热门新闻 - 从JSON文件加载
+ * 新闻和提示 - 自动刷新版
  */
 
-// ===== 加载热门新闻 =====
-async function loadHotNews() {
-    try {
-        const response = await fetch('data/hot-news.json?t=' + Date.now());
-        if (response.ok) {
-            const data = await response.json();
-            return data.news || [];
-        }
-    } catch (e) {
-        console.log('加载新闻失败，使用缓存');
-    }
-    
-    // 从localStorage读取缓存
-    const cached = localStorage.getItem('hot_news_cache');
-    return cached ? JSON.parse(cached) : [];
-}
+// ===== 缓存 =====
+let newsCache = [];
+let alertsCache = null;
+let lastRefreshTime = 0;
+const REFRESH_INTERVAL = 10 * 60 * 1000; // 10分钟
 
-// ===== 保存新闻缓存 =====
-function saveNewsCache(news) {
-    localStorage.setItem('hot_news_cache', JSON.stringify(news));
-    localStorage.setItem('hot_news_time', Date.now());
-}
-
-// ===== 检查是否需要刷新 =====
-function shouldRefresh() {
-    const lastTime = localStorage.getItem('hot_news_time');
-    if (!lastTime) return true;
-    
-    const elapsed = Date.now() - parseInt(lastTime);
-    const tenMinutes = 10 * 60 * 1000;
-    return elapsed > tenMinutes;
-}
-
-// ===== 渲染热门新闻 =====
-async function renderHotNews() {
+// ===== 加载新闻 =====
+async function loadHotNews(forceRefresh = false) {
     const el = document.getElementById('hotNewsList');
     
-    // 显示加载状态
-    el.innerHTML = '<div class="empty-hint">加载中...</div>';
-    
-    let news = await loadHotNews();
-    
-    // 如果没有新闻或需要刷新
-    if (news.length === 0 || shouldRefresh()) {
-        // 尝试从网络获取
-        try {
-            const freshNews = await fetchFreshNews();
-            if (freshNews.length > 0) {
-                news = freshNews;
-                saveNewsCache(news);
-            }
-        } catch (e) {
-            console.log('获取新鲜新闻失败');
-        }
-    }
-    
-    if (news.length === 0) {
-        el.innerHTML = '<div class="empty-hint">暂无新闻</div>';
+    if (!forceRefresh && newsCache.length > 0 && (Date.now() - lastRefreshTime) < REFRESH_INTERVAL) {
+        renderNewsList(newsCache);
         return;
     }
+    
+    el.innerHTML = '<div class="empty-hint">🔄 刷新中...</div>';
+    
+    try {
+        const response = await fetch(`data/hot-news.json?t=${Date.now()}`);
+        if (response.ok) {
+            const data = await response.json();
+            if (data.news && data.news.length > 0) {
+                newsCache = data.news;
+                lastRefreshTime = Date.now();
+                renderNewsList(newsCache);
+                updateRefreshTime(data.updateTime);
+            }
+        }
+    } catch (e) {
+        console.log('加载新闻失败:', e);
+    }
+    
+    if (newsCache.length === 0) {
+        const cached = localStorage.getItem('hot_news_cache');
+        if (cached) {
+            newsCache = JSON.parse(cached);
+            renderNewsList(newsCache);
+        } else {
+            el.innerHTML = '<div class="empty-hint">暂无新闻</div>';
+        }
+    }
+}
+
+// ===== 加载提示（外汇/股市）=====
+async function loadAlerts(forceRefresh = false) {
+    if (!forceRefresh && alertsCache) {
+        renderAlerts(alertsCache);
+        return;
+    }
+    
+    try {
+        const response = await fetch(`data/alerts.json?t=${Date.now()}`);
+        if (response.ok) {
+            alertsCache = await response.json();
+            renderAlerts(alertsCache);
+        }
+    } catch (e) {
+        console.log('加载提示失败:', e);
+        // 使用默认提示
+        renderAlerts({
+            forex: { icon: '💱', title: '外汇提示', text: '日元跌破160关口，关注日本央行干预' },
+            stock: { icon: '📈', title: '股市动向', text: 'A股放量上涨，北向资金连续3日净流入' }
+        });
+    }
+}
+
+// ===== 渲染提示 =====
+function renderAlerts(data) {
+    const el = document.getElementById('alertArea');
+    if (!el) return;
+    
+    el.innerHTML = `
+        <div class="alert-card forex">
+            <div class="alert-icon">${data.forex.icon}</div>
+            <div class="alert-content">
+                <div class="alert-title">${data.forex.title}</div>
+                <div class="alert-text">${data.forex.text}</div>
+            </div>
+        </div>
+        <div class="alert-card stock">
+            <div class="alert-icon">${data.stock.icon}</div>
+            <div class="alert-content">
+                <div class="alert-title">${data.stock.title}</div>
+                <div class="alert-text">${data.stock.text}</div>
+            </div>
+        </div>
+    `;
+}
+
+// ===== 渲染新闻列表 =====
+function renderNewsList(news) {
+    const el = document.getElementById('hotNewsList');
     
     el.innerHTML = news.map((item, index) => `
         <div class="news-item ${expandedNews === index ? 'expanded' : ''}" onclick="toggleNews(${index})">
@@ -77,56 +109,50 @@ async function renderHotNews() {
             </div>
         </div>
     `).join('');
+    
+    localStorage.setItem('hot_news_cache', JSON.stringify(news));
 }
 
-// ===== 获取新鲜新闻（模拟API调用）=====
-async function fetchFreshNews() {
-    // 这里可以对接真实API，如：
-    // - 新浪财经API
-    // - 财联社API
-    // - 或使用web_search获取
-    
-    // 目前使用模拟数据
-    const now = new Date();
-    const timeStr = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-    
-    return [
-        { source: "财联社", time: timeStr, title: "A股市场动态更新", summary: "实时市场数据刷新中", detail: "系统正在获取最新市场数据..." },
-        { source: "华尔街见闻", time: timeStr, title: "全球市场速递", summary: "海外市场最新动态", detail: "系统正在获取最新海外市场数据..." }
-    ];
+// ===== 更新时间显示 =====
+function updateRefreshTime(time) {
+    const hint = document.getElementById('refreshHint');
+    if (hint && time) {
+        hint.textContent = `更新于 ${time}`;
+    }
 }
 
-// ===== 定时刷新 =====
+// ===== 强制刷新 =====
+async function forceRefreshAll() {
+    newsCache = [];
+    alertsCache = null;
+    lastRefreshTime = 0;
+    await Promise.all([loadHotNews(true), loadAlerts(true)]);
+}
+
+// ===== 定时自动刷新 =====
 let refreshTimer = null;
 
 function startAutoRefresh() {
-    // 每10分钟刷新一次
-    refreshTimer = setInterval(async () => {
-        console.log('自动刷新新闻...');
-        const news = await fetchFreshNews();
-        if (news.length > 0) {
-            saveNewsCache(news);
-            renderHotNews();
-        }
-    }, 10 * 60 * 1000);
+    if (refreshTimer) clearInterval(refreshTimer);
+    
+    refreshTimer = setInterval(() => {
+        console.log('自动刷新...');
+        loadHotNews(true);
+        loadAlerts(true);
+    }, REFRESH_INTERVAL);
 }
 
-function stopAutoRefresh() {
-    if (refreshTimer) {
-        clearInterval(refreshTimer);
-        refreshTimer = null;
+// ===== 页面可见时检查 =====
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && (Date.now() - lastRefreshTime) > REFRESH_INTERVAL) {
+        loadHotNews(true);
+        loadAlerts(true);
     }
-}
+});
 
 // ===== 初始化 =====
 document.addEventListener('DOMContentLoaded', () => {
-    renderHotNews();
+    loadHotNews();
+    loadAlerts();
     startAutoRefresh();
-});
-
-// 页面可见性变化时刷新
-document.addEventListener('visibilitychange', () => {
-    if (!document.hidden && shouldRefresh()) {
-        renderHotNews();
-    }
 });
