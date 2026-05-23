@@ -678,3 +678,9 @@ function initShare() {
     });
     document.getElementById('shareModal').addEventListener('click', (e) => { if (e.target.id === 'shareModal') { document.getElementById('shareModal').classList.add('hidden'); } });
 }
+// ===== 技能模块初始化 =====
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof renderSkillModules === 'function') {
+        renderSkillModules();
+    }
+});
