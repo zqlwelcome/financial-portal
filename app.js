@@ -2,11 +2,22 @@
  * 学习门户 - Apple Style
  */
 
+// ===== Config =====
+const CONFIG = {
+    DATA_URL: 'data/briefings/',  // GitHub Pages 路径
+    TYPES: ['morning', 'noon', 'evening', 'night'],
+    TYPE_LABELS: {
+        morning: '🌅 早间',
+        noon: '☀️ 午间',
+        evening: '🌆 晚间',
+        night: '🌙 深夜'
+    }
+};
+
 // ===== Storage =====
 const STORAGE = {
-    NEWS: 'portal_news',
     CHECKIN: 'portal_checkin',
-    THEME: 'portal_theme'
+    CACHE: 'portal_briefings_cache'
 };
 
 // ===== AI PM Knowledge Base =====
@@ -74,15 +85,16 @@ const KNOWLEDGE = [
 ];
 
 // ===== State =====
-let currentDate = new Date();
 let checkedDays = JSON.parse(localStorage.getItem(STORAGE.CHECKIN) || '[]');
-let newsData = JSON.parse(localStorage.getItem(STORAGE.NEWS) || '[]');
+let briefingsCache = JSON.parse(localStorage.getItem(STORAGE.CACHE) || '{}');
+let allBriefings = [];
+let selectedDate = null;
 
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', () => {
     initScrollEffects();
     initDatePicker();
-    renderNews();
+    loadBriefings();
     renderDailyCard();
     renderProgress();
     initCheckin();
@@ -92,89 +104,190 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== Scroll Effects =====
 function initScrollEffects() {
-    // Nav background on scroll
     const nav = document.querySelector('.nav');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.style.background = 'rgba(251, 251, 253, 0.9)';
-        } else {
-            nav.style.background = 'rgba(251, 251, 253, 0.72)';
-        }
+        nav.style.background = window.scrollY > 50 
+            ? 'rgba(251, 251, 253, 0.9)' 
+            : 'rgba(251, 251, 253, 0.72)';
     });
 
-    // Smooth scroll for nav links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = document.querySelector(link.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
         });
     });
 }
 
-// ===== Date Picker =====
-function initDatePicker() {
-    document.getElementById('prevDay').addEventListener('click', () => {
-        currentDate.setDate(currentDate.getDate() - 1);
-        updateDateDisplay();
-        renderNews();
-    });
-
-    document.getElementById('nextDay').addEventListener('click', () => {
-        currentDate.setDate(currentDate.getDate() + 1);
-        updateDateDisplay();
-        renderNews();
-    });
-
-    updateDateDisplay();
-}
-
-function updateDateDisplay() {
+// ===== Load Briefings =====
+async function loadBriefings() {
+    allBriefings = [];
     const today = new Date();
-    const diff = Math.floor((today - currentDate) / (1000 * 60 * 60 * 24));
     
-    let display = `${currentDate.getMonth() + 1}月${currentDate.getDate()}日`;
-    if (diff === 0) display = '今天';
-    else if (diff === 1) display = '昨天';
-    else if (diff === -1) display = '明天';
+    // 尝试加载最近30天的简报
+    for (let i = 0; i < 30; i++) {
+        const date = new Date(today);
+        date.setDate(date.getDate() - i);
+        const dateStr = formatDateKey(date);
+        
+        for (const type of CONFIG.TYPES) {
+            const filename = `${dateStr}-${type}.json`;
+            const url = CONFIG.DATA_URL + filename;
+            
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    const data = await response.json();
+                    allBriefings.push({
+                        date: dateStr,
+                        type: type,
+                        time: data.time || getDefaultTime(type),
+                        content: data.content,
+                        label: CONFIG.TYPE_LABELS[type]
+                    });
+                }
+            } catch (e) {
+                // 文件不存在，跳过
+            }
+        }
+    }
     
-    document.getElementById('currentDate').textContent = display;
+    // 按日期和时间排序
+    allBriefings.sort((a, b) => {
+        if (a.date !== b.date) return b.date.localeCompare(a.date);
+        return a.time.localeCompare(b.time);
+    });
+    
+    // 缓存到本地
+    localStorage.setItem(STORAGE.CACHE, JSON.stringify(allBriefings));
+    
+    // 渲染日期列表
+    renderDateList();
+    
+    // 默认选中今天
+    const todayStr = formatDateKey(today);
+    selectDate(todayStr);
 }
 
-// ===== News =====
-function renderNews() {
+function getDefaultTime(type) {
+    const times = { morning: '08:00', noon: '12:00', evening: '19:00', night: '00:00' };
+    return times[type] || '00:00';
+}
+
+function formatDateKey(date) {
+    return date.toISOString().split('T')[0];
+}
+
+// ===== Date List =====
+function renderDateList() {
     const container = document.getElementById('newsList');
-    const dateStr = currentDate.toISOString().split('T')[0];
-    const dayNews = newsData.filter(n => n.date === dateStr);
     
-    if (dayNews.length === 0) {
+    // 按日期分组
+    const grouped = {};
+    allBriefings.forEach(b => {
+        if (!grouped[b.date]) grouped[b.date] = [];
+        grouped[b.date].push(b);
+    });
+    
+    const dates = Object.keys(grouped).sort().reverse();
+    
+    if (dates.length === 0) {
         container.innerHTML = `
             <div class="empty-state">
                 <div class="empty-icon">📰</div>
-                <p>暂无新闻</p>
+                <p>暂无简报</p>
+                <p class="empty-hint">每日 8:00 / 12:00 / 19:00 / 00:00 自动更新</p>
             </div>
         `;
         return;
     }
     
-    container.innerHTML = dayNews.map(news => `
-        <div class="news-card">
-            <div class="news-card-header">
-                <span class="news-tag">${getCategoryName(news.category)}</span>
-                <span class="news-time">${news.time || ''}</span>
+    container.innerHTML = dates.map(date => {
+        const items = grouped[date];
+        const displayDate = formatDateDisplay(date);
+        const isSelected = date === selectedDate;
+        
+        return `
+            <div class="date-group ${isSelected ? 'selected' : ''}" onclick="selectDate('${date}')">
+                <div class="date-header">
+                    <span class="date-day">${displayDate}</span>
+                    <span class="date-count">${items.length}条简报</span>
+                </div>
+                <div class="date-types">
+                    ${items.map(item => `<span class="type-badge">${item.label}</span>`).join('')}
+                </div>
             </div>
-            <h3>${news.title}</h3>
-            <p class="news-summary">${news.summary}</p>
-            ${news.analysis ? `<p class="news-analysis">💡 ${news.analysis}</p>` : ''}
+        `;
+    }).join('');
+}
+
+function formatDateDisplay(dateStr) {
+    const date = new Date(dateStr);
+    const today = new Date();
+    const diff = Math.floor((today - date) / (1000 * 60 * 60 * 24));
+    
+    if (diff === 0) return '今天';
+    if (diff === 1) return '昨天';
+    if (diff === 2) return '前天';
+    
+    return `${date.getMonth() + 1}月${date.getDate()}日`;
+}
+
+// ===== Select Date =====
+function selectDate(dateStr) {
+    selectedDate = dateStr;
+    
+    const items = allBriefings.filter(b => b.date === dateStr);
+    renderDateList();
+    renderBriefingDetail(items);
+}
+
+function renderBriefingDetail(items) {
+    const detailContainer = document.getElementById('briefingDetail');
+    
+    if (!items || items.length === 0) {
+        detailContainer.innerHTML = '';
+        detailContainer.classList.add('hidden');
+        return;
+    }
+    
+    detailContainer.classList.remove('hidden');
+    detailContainer.innerHTML = items.map(item => `
+        <div class="briefing-card">
+            <div class="briefing-header">
+                <span class="briefing-type">${item.label}</span>
+                <span class="briefing-time">${item.time}</span>
+            </div>
+            <div class="briefing-content">${formatContent(item.content)}</div>
         </div>
     `).join('');
 }
 
-function getCategoryName(cat) {
-    const names = { market: '市场动态', policy: '政策解读', company: '公司财报', global: '国际财经' };
-    return names[cat] || cat;
+function formatContent(content) {
+    // 简单格式化：将换行转为 <br>，保留 emoji
+    return content
+        .replace(/\n/g, '<br>')
+        .replace(/•/g, '<span class="bullet">•</span>');
+}
+
+// ===== Date Picker =====
+function initDatePicker() {
+    document.getElementById('prevDay').addEventListener('click', () => {
+        const dates = [...new Set(allBriefings.map(b => b.date))].sort();
+        const currentIdx = dates.indexOf(selectedDate);
+        if (currentIdx < dates.length - 1) {
+            selectDate(dates[currentIdx + 1]);
+        }
+    });
+
+    document.getElementById('nextDay').addEventListener('click', () => {
+        const dates = [...new Set(allBriefings.map(b => b.date))].sort();
+        const currentIdx = dates.indexOf(selectedDate);
+        if (currentIdx > 0) {
+            selectDate(dates[currentIdx - 1]);
+        }
+    });
 }
 
 // ===== Daily Card =====
@@ -186,7 +299,6 @@ function renderDailyCard() {
     document.getElementById('pmTitle').textContent = knowledge.title;
     document.getElementById('pmContent').innerHTML = knowledge.content;
     
-    // Check if already checked in
     const todayStr = today.toISOString().split('T')[0];
     if (checkedDays.includes(todayStr)) {
         showCheckedState();
@@ -205,10 +317,6 @@ function initCheckin() {
             showCheckedState();
             renderProgress();
             updateStats();
-            
-            // Animation
-            this.style.transform = 'scale(1.1)';
-            setTimeout(() => this.style.transform = '', 200);
         }
     });
 }
@@ -246,7 +354,6 @@ function renderProgress() {
 
 // ===== Stats =====
 function updateStats() {
-    // Calculate streak
     let streak = 0;
     const today = new Date();
     
@@ -262,7 +369,6 @@ function updateStats() {
         }
     }
     
-    // Total days (from first checkin)
     const totalDays = checkedDays.length > 0 ? 
         Math.floor((today - new Date(checkedDays[0])) / (1000 * 60 * 60 * 24)) + 1 : 0;
     
@@ -275,7 +381,6 @@ function updateStats() {
 // ===== Modal =====
 function initModal() {
     const modal = document.getElementById('addNewsModal');
-    const form = document.getElementById('newsForm');
     
     document.getElementById('addNews').addEventListener('click', () => {
         modal.classList.remove('hidden');
@@ -287,27 +392,5 @@ function initModal() {
     
     modal.addEventListener('click', (e) => {
         if (e.target === modal) modal.classList.add('hidden');
-    });
-    
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const news = {
-            id: Date.now(),
-            title: document.getElementById('newsTitle').value,
-            source: document.getElementById('newsSource').value,
-            summary: document.getElementById('newsSummary').value,
-            category: document.getElementById('newsCategory').value,
-            analysis: document.getElementById('newsAnalysis').value,
-            date: new Date().toISOString().split('T')[0],
-            time: new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })
-        };
-        
-        newsData.unshift(news);
-        localStorage.setItem(STORAGE.NEWS, JSON.stringify(newsData));
-        
-        form.reset();
-        modal.classList.add('hidden');
-        renderNews();
     });
 }
