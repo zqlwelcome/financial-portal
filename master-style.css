@@ -1,168 +1,151 @@
 /* ===== 总结页签样式 ===== */
-.schedule-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 16px;
-    box-shadow: var(--shadow);
-    margin-bottom: 16px;
-}
 
-.schedule-title {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-
-.schedule-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.schedule-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px;
-    background: var(--bg);
-    border-radius: 8px;
-}
-
-.schedule-time {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--primary);
-    min-width: 50px;
-}
-
-.schedule-info { flex: 1; }
-
-.schedule-label {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 2px;
-}
-
-.schedule-desc {
-    font-size: 11px;
-    color: var(--text2);
-}
-
-/* 大师选择卡片 */
-.master-section {
-    margin-bottom: 16px;
+/* 今日推送时间线 */
+.schedule-section {
+    margin-bottom: 20px;
 }
 
 .section-title {
     font-size: 15px;
     font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.master-cards {
-    display: flex;
-    gap: 8px;
-}
-
-.master-card {
-    flex: 1;
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 12px 8px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: all 0.2s;
-    border: 2px solid transparent;
-}
-
-.master-card:active { transform: scale(0.95); }
-
-.master-card.selected {
-    border-color: var(--primary);
-    background: rgba(99,102,241,0.05);
-}
-
-.mc-icon { font-size: 24px; display: block; margin-bottom: 4px; }
-.mc-name { font-size: 12px; font-weight: 600; display: block; }
-.mc-hint { font-size: 10px; color: var(--text2); }
-
-/* 大师详情 */
-.master-profile {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: var(--radius);
-    padding: 16px;
-    color: white;
     margin-bottom: 12px;
 }
 
-.mp-header {
+.schedule-timeline {
+    position: relative;
+    padding-left: 20px;
+}
+
+.schedule-timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -20px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 3px solid var(--card);
+}
+
+.timeline-content {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 12px;
+    box-shadow: var(--shadow);
+}
+
+.timeline-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
+    gap: 8px;
+    margin-bottom: 6px;
 }
 
-.mp-icon { font-size: 32px; }
-.mp-name { font-size: 16px; font-weight: 700; }
-.mp-title { font-size: 11px; opacity: 0.8; }
+.timeline-time {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+}
 
-.mp-quote {
+.timeline-label {
     font-size: 12px;
-    font-style: italic;
-    opacity: 0.9;
+    color: var(--text2);
 }
 
-/* 观点卡片 */
-.view-card {
+.timeline-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+/* 本周大师观点 */
+.master-section {
+    margin-top: 20px;
+}
+
+.master-block {
     background: var(--card);
     border-radius: var(--radius);
     padding: 14px;
     box-shadow: var(--shadow);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-.view-event {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-}
-
-.view-row {
+.master-header {
     display: flex;
+    align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-.view-col { flex: 1; }
+.mh-icon { font-size: 28px; }
+.mh-name { font-size: 14px; font-weight: 600; }
+.mh-title { font-size: 11px; color: var(--text2); }
 
-.view-label {
+.master-quote {
     font-size: 11px;
-    font-weight: 600;
+    font-style: italic;
     color: var(--text2);
-    margin-bottom: 4px;
+    padding: 8px 10px;
+    background: var(--bg);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--primary);
 }
 
-.view-text {
+.weekly-views {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.weekly-card {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.wc-event {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+}
+
+.wc-view {
     font-size: 12px;
     line-height: 1.5;
-}
-
-.view-tip {
-    background: #fff9e6;
-    border-radius: 6px;
-    padding: 8px 10px;
-    font-size: 11px;
-    color: #856404;
     margin-bottom: 6px;
 }
 
-.view-action {
-    background: #e8f5e9;
-    border-radius: 6px;
-    padding: 8px 10px;
+.wc-tip {
+    font-size: 11px;
+    color: #856404;
+    background: #fff9e6;
+    padding: 6px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+}
+
+.wc-action {
     font-size: 11px;
     color: #155724;
+    background: #e8f5e9;
+    padding: 6px 8px;
+    border-radius: 4px;
 }
