@@ -395,7 +395,20 @@ body {
     border-radius: var(--radius);
     padding: 14px;
     box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all 0.15s;
 }
+.today-item:active { transform: scale(0.98); }
+
+.ti-arrow {
+    font-size: 18px;
+    color: var(--text3);
+    margin-left: auto;
+    transition: transform 0.2s;
+}
+
+.today-item .ti-text { display: block; }
+.today-item.expanded .ti-text { display: block; }
 
 .ti-icon {
     font-size: 22px;
