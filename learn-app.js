@@ -11,8 +11,7 @@ const COURSES = [
         icon: "🎯",
         duration: "45分钟",
         videos: [
-            { title: "AI产品经理是什么？", source: "B站", url: "https://www.bilibili.com/video/BV1GJ411x7h7", type: "bilibili" },
-            { title: "What is an AI Product Manager?", source: "YouTube", url: "https://www.youtube.com/watch?v=example1", type: "youtube" }
+            { title: "AI产品经理是什么？需要哪些能力？", source: "B站", url: "https://www.bilibili.com/video/BV1GJ411x7h7", type: "bilibili" }
         ],
         content: `
             <div class="lesson-section">
@@ -65,7 +64,7 @@ const COURSES = [
         icon: "🧠",
         duration: "60分钟",
         videos: [
-            { title: "5分钟搞懂机器学习", source: "B站", url: "https://www.bilibili.com/video/BV1Wv411h7kN", type: "bilibili" }
+            { title: "5分钟搞懂机器学习、深度学习、AI区别", source: "B站", url: "https://www.bilibili.com/video/BV1Wv411h7kN", type: "bilibili" }
         ],
         content: `
             <div class="lesson-section">
@@ -175,7 +174,7 @@ const COURSES = [
         icon: "🎨",
         duration: "50分钟",
         videos: [
-            { title: "AI产品设计原则", source: "B站", url: "https://www.bilibili.com/video/BV1xx411c7mD", type: "bilibili" }
+            { title: "AI产品设计原则与用户体验", source: "B站", url: "https://www.bilibili.com/video/BV1xx411c7mD", type: "bilibili" }
         ],
         content: `
             <div class="lesson-section">
@@ -272,7 +271,7 @@ const COURSES = [
         icon: "🚀",
         duration: "60分钟",
         videos: [
-            { title: "AI产品从0到1", source: "B站", url: "https://www.bilibili.com/video/BV1xW411n7FY", type: "bilibili" }
+            { title: "AI产品从0到1完整流程", source: "B站", url: "https://www.bilibili.com/video/BV1xW411n7FY", type: "bilibili" }
         ],
         content: `
             <div class="lesson-section">
@@ -317,9 +316,7 @@ const COURSES = [
         desc: "商业价值和未来趋势",
         icon: "🌟",
         duration: "50分钟",
-        videos: [
-            { title: "AI产品商业化", source: "YouTube", url: "https://www.youtube.com/watch?v=example7", type: "youtube" }
-        ],
+        videos: [],
         content: `
             <div class="lesson-section">
                 <h3>📖 今日学习目标</h3>
@@ -380,7 +377,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== 渲染课程列表 =====
 function renderCourseList() {
     const el = document.getElementById('courseList');
-    const today = new Date();
     
     el.innerHTML = COURSES.map((course, index) => {
         const isCompleted = progress.completed.includes(course.day);
@@ -417,7 +413,6 @@ function updateProgressOverview() {
     document.getElementById('streakCount').textContent = progress.streak;
     document.getElementById('totalStars').textContent = progress.stars;
     
-    // 更新环形进度
     const ring = document.getElementById('progressRing');
     const circumference = 283;
     const offset = circumference - (percent / 100) * circumference;
@@ -435,15 +430,15 @@ function openDay(day) {
     
     title.textContent = `Day ${course.day}: ${course.title}`;
     
-    // 构建内容
     let html = course.content;
     
-    // 添加视频
-    if (course.videos.length > 0) {
+    // 添加视频（只显示有效链接）
+    const validVideos = course.videos.filter(v => v.url && !v.url.includes('example'));
+    if (validVideos.length > 0) {
         html += `
             <div class="lesson-section">
                 <h3>🎬 推荐视频</h3>
-                ${course.videos.map(v => `
+                ${validVideos.map(v => `
                     <a href="${v.url}" target="_blank" class="video-card">
                         <div class="video-thumb">${v.type === 'bilibili' ? '📺' : '▶️'}</div>
                         <div class="video-info">
@@ -479,7 +474,6 @@ function completeDay(day) {
         renderCourseList();
         updateProgressOverview();
         
-        // 显示奖励
         showReward(day);
     }
 }
@@ -505,12 +499,10 @@ function checkQuiz(quizId, option, isCorrect) {
     const container = document.getElementById(quizId);
     const feedback = document.getElementById(`${quizId}-feedback`);
     
-    // 禁用所有选项
     container.querySelectorAll('.quiz-option').forEach(opt => {
         opt.style.pointerEvents = 'none';
     });
     
-    // 标记选中项
     if (isCorrect) {
         option.classList.add('correct');
         feedback.textContent = '✅ 正确！' + getQuizFeedback(quizId);
@@ -519,7 +511,6 @@ function checkQuiz(quizId, option, isCorrect) {
         localStorage.setItem('ai_pm_progress', JSON.stringify(progress));
     } else {
         option.classList.add('wrong');
-        // 显示正确答案
         container.querySelectorAll('.quiz-option').forEach((opt, index) => {
             if (getCorrectIndex(quizId) === index) {
                 opt.classList.add('correct');
