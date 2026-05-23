@@ -4,152 +4,244 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AI产品经理学习</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="alert-style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 学习页样式 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Noto Sans SC", sans-serif; background: #f2f2f7; color: #1c1c1e; }
         
         .nav { position: fixed; top: 0; left: 0; right: 0; height: 44px; background: rgba(242,242,247,0.92); backdrop-filter: saturate(180%) blur(20px); border-bottom: 0.5px solid rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; padding: 0 16px; z-index: 100; }
-        .nav-back { font-size: 15px; color: #007AFF; text-decoration: none; font-weight: 500; }
+        .nav-back { font-size: 15px; color: #007AFF; text-decoration: none; }
         .nav-title { font-size: 17px; font-weight: 600; }
-        .nav-right { width: 50px; }
+        .nav-spacer { width: 50px; }
         
         .main { padding: 60px 16px 24px; max-width: 500px; margin: 0 auto; }
         
-        /* 进度卡片 */
-        .progress-card { background: linear-gradient(135deg, #5856d6, #af52de); border-radius: 16px; padding: 24px; color: white; margin-bottom: 20px; }
-        .progress-top { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-        .progress-ring { width: 72px; height: 72px; position: relative; }
-        .progress-ring svg { transform: rotate(-90deg); width: 100%; height: 100%; }
-        .progress-ring circle { fill: none; stroke-width: 6; stroke-linecap: round; }
-        .ring-bg { stroke: rgba(255,255,255,0.2); }
-        .ring-fill { stroke: white; transition: stroke-dashoffset 0.5s; }
-        .ring-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; font-weight: 700; }
-        .progress-info h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        /* 进度概览 */
+        .progress-banner { background: linear-gradient(135deg, #5856d6, #af52de); border-radius: 16px; padding: 20px; color: white; margin-bottom: 20px; }
+        .progress-row { display: flex; align-items: center; gap: 16px; }
+        .progress-circle { width: 64px; height: 64px; position: relative; }
+        .progress-circle svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+        .progress-circle circle { fill: none; stroke-width: 5; stroke-linecap: round; }
+        .pbg { stroke: rgba(255,255,255,0.2); }
+        .pfill { stroke: white; transition: stroke-dashoffset 0.5s; }
+        .ptext { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 16px; font-weight: 700; }
+        .progress-info h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
         .progress-info p { font-size: 13px; opacity: 0.8; }
-        .progress-stats { display: flex; gap: 20px; font-size: 13px; opacity: 0.9; }
+        .progress-stats { display: flex; gap: 16px; margin-top: 12px; font-size: 13px; opacity: 0.9; }
         
-        /* 课程列表 */
-        .course-list { display: flex; flex-direction: column; gap: 12px; }
+        /* 课程大纲 */
+        .outline-title { font-size: 15px; font-weight: 600; color: #8e8e93; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        .course-section { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .course-list { display: flex; flex-direction: column; gap: 10px; }
         
-        .section-header { display: flex; align-items: center; gap: 12px; padding: 16px; cursor: pointer; transition: background 0.2s; }
-        .section-header:active { background: #f8f8f8; }
+        .course-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
         
-        .section-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
-        .icon-purple { background: linear-gradient(135deg, #5856d6, #af52de); }
-        .icon-blue { background: linear-gradient(135deg, #007AFF, #5856d6); }
-        .icon-green { background: linear-gradient(135deg, #34c759, #30b350); }
-        .icon-orange { background: linear-gradient(135deg, #ff9500, #ff6b00); }
-        .icon-red { background: linear-gradient(135deg, #ff3b30, #ff6b6b); }
+        .card-header { display: flex; align-items: center; gap: 12px; padding: 14px; cursor: pointer; }
+        .card-header:active { background: #f8f8f8; }
         
-        .section-info { flex: 1; }
-        .section-title { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
-        .section-subtitle { font-size: 12px; color: #8e8e93; }
+        .card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+        .bg-purple { background: linear-gradient(135deg, #5856d6, #af52de); }
+        .bg-blue { background: linear-gradient(135deg, #007AFF, #5856d6); }
+        .bg-green { background: linear-gradient(135deg, #34c759, #30b350); }
+        .bg-orange { background: linear-gradient(135deg, #ff9500, #ff6b00); }
+        .bg-red { background: linear-gradient(135deg, #ff3b30, #ff6b6b); }
         
-        .section-meta { display: flex; align-items: center; gap: 8px; }
-        .section-progress { font-size: 12px; color: #8e8e93; }
-        .section-arrow { font-size: 16px; color: #c7c7cc; transition: transform 0.2s; }
+        .card-info { flex: 1; }
+        .card-title { font-size: 15px; font-weight: 600; }
+        .card-sub { font-size: 12px; color: #8e8e93; margin-top: 2px; }
         
-        /* 展开的课程内容 */
-        .course-content { display: none; padding: 0 16px 16px; }
-        .course-content.expanded { display: block; }
+        .card-right { display: flex; align-items: center; gap: 8px; }
+        .card-progress { font-size: 12px; color: #8e8e93; }
+        .card-arrow { font-size: 14px; color: #c7c7cc; transition: transform 0.2s; }
+        .card-arrow.open { transform: rotate(90deg); }
         
-        .course-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8f8f8; border-radius: 10px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; }
-        .course-item:active { transform: scale(0.98); background: #f0f0f0; }
-        .course-item.completed { background: #e8f5e9; }
+        /* 课时列表 */
+        .lessons { display: none; padding: 0 14px 14px; }
+        .lessons.show { display: block; }
         
-        .item-check { width: 24px; height: 24px; border-radius: 50%; border: 2px solid #d1d1d6; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
-        .item-check.done { background: #34c759; border-color: #34c759; color: white; }
+        .lesson-item { display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f8f8; border-radius: 10px; margin-bottom: 6px; cursor: pointer; }
+        .lesson-item:active { background: #f0f0f0; }
+        .lesson-item.done { background: #e8f5e9; }
         
-        .item-info { flex: 1; }
-        .item-title { font-size: 14px; font-weight: 500; }
-        .item-duration { font-size: 11px; color: #8e8e93; margin-top: 2px; }
+        .lesson-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #d1d1d6; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+        .lesson-check.ok { background: #34c759; border-color: #34c759; color: white; }
         
-        .item-arrow { color: #c7c7cc; font-size: 14px; }
+        .lesson-info { flex: 1; }
+        .lesson-title { font-size: 14px; font-weight: 500; }
+        .lesson-time { font-size: 11px; color: #8e8e93; }
         
         /* 弹窗 */
         .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); display: flex; align-items: flex-end; z-index: 200; }
         .modal.hidden { display: none; }
-        .modal-sheet { background: #f2f2f7; width: 100%; max-height: 95vh; border-radius: 16px 16px 0 0; display: flex; flex-direction: column; animation: slideUp 0.3s ease; }
+        .modal-sheet { background: #f2f2f7; width: 100%; max-height: 95vh; border-radius: 16px 16px 0 0; display: flex; flex-direction: column; animation: slideUp 0.25s ease; }
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
         
-        .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(242,242,247,0.92); backdrop-filter: blur(20px); border-bottom: 0.5px solid rgba(0,0,0,0.1); flex-shrink: 0; }
-        .modal-header h2 { font-size: 17px; font-weight: 600; flex: 1; text-align: center; }
-        .modal-close { width: 30px; height: 30px; border-radius: 50%; background: rgba(118,118,128,0.12); border: none; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .modal-top { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(242,242,247,0.95); backdrop-filter: blur(20px); border-bottom: 0.5px solid rgba(0,0,0,0.1); flex-shrink: 0; position: sticky; top: 0; z-index: 1; }
+        .modal-top h2 { font-size: 17px; font-weight: 600; flex: 1; text-align: center; }
+        .modal-x { width: 30px; height: 30px; border-radius: 50%; background: rgba(118,118,128,0.12); border: none; font-size: 14px; cursor: pointer; }
         .modal-spacer { width: 30px; }
         
-        .modal-body { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 16px; }
+        .modal-scroll { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 16px; }
         
-        /* 课程内容样式 */
-        .lesson-block { background: white; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
-        .lesson-block h4 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
-        .lesson-block p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; color: #3a3a3c; }
-        .lesson-block ul { padding-left: 18px; margin: 8px 0; }
-        .lesson-block li { font-size: 14px; line-height: 1.7; color: #3a3a3c; margin-bottom: 4px; }
+        /* 内容样式 */
+        .block { background: white; border-radius: 12px; padding: 16px; margin-bottom: 10px; }
+        .block h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+        .block p { font-size: 14px; line-height: 1.7; margin-bottom: 6px; color: #3a3a3c; }
+        .block ul { padding-left: 16px; margin: 8px 0; }
+        .block li { font-size: 14px; line-height: 1.7; color: #3a3a3c; }
         
-        .key-point { background: #fff3cd; border-radius: 8px; padding: 12px; margin-top: 10px; font-size: 13px; line-height: 1.6; color: #664d03; }
+        .tip { background: #fff3cd; border-radius: 8px; padding: 12px; margin-top: 8px; font-size: 13px; line-height: 1.6; color: #664d03; }
         
-        .qa-item { background: white; border-radius: 10px; padding: 14px; margin-bottom: 8px; }
+        .qa { background: white; border-radius: 10px; padding: 14px; margin-bottom: 8px; }
         .qa-q { font-size: 14px; font-weight: 600; color: #007AFF; margin-bottom: 6px; }
         .qa-a { font-size: 13px; line-height: 1.6; color: #3a3a3c; }
         
-        .checkin-btn { width: 100%; padding: 14px; background: #007AFF; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 12px; }
-        .checkin-btn:active { transform: scale(0.98); }
-        .checkin-btn.done { background: #34c759; }
+        .done-btn { width: 100%; padding: 14px; background: #007AFF; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 12px; }
+        .done-btn:active { transform: scale(0.98); }
+        .done-btn.completed { background: #34c759; }
     </style>
 </head>
 <body>
     <nav class="nav">
         <a href="index.html" class="nav-back">← 返回</a>
-        <span class="nav-title">AI产品经理学习</span>
-        <div class="nav-right"></div>
+        <span class="nav-title">AI产品经理</span>
+        <div class="nav-spacer"></div>
     </nav>
     
     <main class="main">
-        <!-- 进度卡片 -->
-        <div class="progress-card">
-            <div class="progress-top">
-                <div class="progress-ring">
+        <div class="progress-banner">
+            <div class="progress-row">
+                <div class="progress-circle">
                     <svg viewBox="0 0 100 100">
-                        <circle class="ring-bg" cx="50" cy="50" r="45"/>
-                        <circle class="ring-fill" cx="50" cy="50" r="45" id="progressRing"/>
+                        <circle class="pbg" cx="50" cy="50" r="45"/>
+                        <circle class="pfill" cx="50" cy="50" r="45" id="ring"/>
                     </svg>
-                    <div class="ring-text"><span id="progressPercent">0</span>%</div>
+                    <div class="ptext"><span id="pct">0</span>%</div>
                 </div>
                 <div class="progress-info">
-                    <h3>学习进度</h3>
-                    <p>已完成 <span id="completedCount">0</span>/20 课时</p>
+                    <h2>学习进度</h2>
+                    <p>已完成 <span id="done">0</span>/15 课时</p>
                 </div>
             </div>
             <div class="progress-stats">
-                <span>🔥 连续 <span id="streakCount">0</span> 天</span>
-                <span>⭐ <span id="totalStars">0</span> 颗星</span>
+                <span>🔥 连续 <span id="streak">0</span> 天</span>
+                <span>⭐ <span id="stars">0</span> 颗星</span>
             </div>
         </div>
         
-        <!-- 课程列表 -->
-        <div class="course-list" id="courseList"></div>
+        <div class="outline-title">课程大纲</div>
+        <div class="course-list" id="list"></div>
     </main>
     
-    <!-- 课程详情弹窗 -->
-    <div class="modal hidden" id="courseModal">
+    <div class="modal hidden" id="modal">
         <div class="modal-sheet">
-            <div class="modal-header">
+            <div class="modal-top">
                 <div class="modal-spacer"></div>
-                <h2 id="modalTitle">课程详情</h2>
-                <button class="modal-close" id="modalClose">✕</button>
+                <h2 id="mtitle">详情</h2>
+                <button class="modal-x" id="mx">✕</button>
             </div>
-            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-scroll" id="mbody"></div>
         </div>
     </div>
     
     <script src="course-data.js"></script>
-    <script src="course-app.js"></script>
+    <script>
+        let prog = JSON.parse(localStorage.getItem('prog') || '{}');
+        let openSec = null;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            render();
+            updateStats();
+            document.getElementById('mx').onclick = () => document.getElementById('modal').classList.add('hidden');
+            document.getElementById('modal').onclick = e => { if (e.target.id === 'modal') document.getElementById('modal').classList.add('hidden'); };
+        });
+        
+        function render() {
+            const el = document.getElementById('list');
+            el.innerHTML = COURSES.map(s => {
+                const done = s.lessons.filter(l => prog[l.id]).length;
+                const open = openSec === s.id;
+                return `
+                    <div class="course-card">
+                        <div class="card-header" onclick="toggle('${s.id}')">
+                            <div class="card-icon ${s.bg}">${s.icon}</div>
+                            <div class="card-info">
+                                <div class="card-title">${s.title}</div>
+                                <div class="card-sub">${s.sub}</div>
+                            </div>
+                            <div class="card-right">
+                                <span class="card-progress">${done}/${s.lessons.length}</span>
+                                <span class="card-arrow ${open ? 'open' : ''}">›</span>
+                            </div>
+                        </div>
+                        <div class="lessons ${open ? 'show' : ''}">
+                            ${s.lessons.map(l => `
+                                <div class="lesson-item ${prog[l.id] ? 'done' : ''}" onclick="openLesson('${s.id}','${l.id}')">
+                                    <div class="lesson-check ${prog[l.id] ? 'ok' : ''}">${prog[l.id] ? '✓' : ''}</div>
+                                    <div class="lesson-info">
+                                        <div class="lesson-title">${l.title}</div>
+                                        <div class="lesson-time">${l.time}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>`;
+            }).join('');
+        }
+        
+        function toggle(id) { openSec = openSec === id ? null : id; render(); }
+        
+        function openLesson(sid, lid) {
+            const s = COURSES.find(x => x.id === sid);
+            const l = s?.lessons.find(x => x.id === lid);
+            if (!l) return;
+            document.getElementById('mtitle').textContent = l.title;
+            document.getElementById('mbody').innerHTML = l.content + `
+                <button class="done-btn ${prog[lid] ? 'completed' : ''}" onclick="done('${lid}')">${prog[lid] ? '✓ 已完成' : '✓ 完成'}</button>`;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+        
+        function done(id) {
+            if (!prog[id]) {
+                prog[id] = true;
+                localStorage.setItem('prog', JSON.stringify(prog));
+                document.querySelector('.done-btn').classList.add('completed');
+                document.querySelector('.done-btn').textContent = '✓ 已完成';
+                updateStats();
+                render();
+                toast('打卡成功 +1⭐');
+            }
+        }
+        
+        function updateStats() {
+            const all = COURSES.flatMap(s => s.lessons);
+            const d = all.filter(l => prog[l.id]).length;
+            const p = Math.round(d / all.length * 100);
+            document.getElementById('pct').textContent = p;
+            document.getElementById('done').textContent = d;
+            document.getElementById('stars').textContent = d;
+            const r = document.getElementById('ring');
+            r.style.strokeDashoffset = 283 - (p / 100) * 283;
+            
+            let streak = 0;
+            const today = new Date().toDateString();
+            const last = localStorage.getItem('lastDay');
+            if (last !== today && d > 0) {
+                streak = parseInt(localStorage.getItem('streak') || '0') + 1;
+                localStorage.setItem('lastDay', today);
+                localStorage.setItem('streak', streak);
+            } else {
+                streak = parseInt(localStorage.getItem('streak') || '0');
+            }
+            document.getElementById('streak').textContent = streak;
+        }
+        
+        function toast(msg) {
+            const t = document.createElement('div');
+            t.style.cssText = 'position:fixed;top:60px;left:50%;transform:translateX(-50%);background:#34c759;color:white;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:500;z-index:300';
+            t.textContent = msg;
+            document.body.appendChild(t);
+            setTimeout(() => t.remove(), 2000);
+        }
+    </script>
 </body>
 </html>
