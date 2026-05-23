@@ -24,14 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initMainTabs();
     initSubTabs();
     loadMarketData();
-    renderAlerts();
-    renderHotNews();
     renderDailySummary();
     renderDailyCard();
     renderProgress();
     initCheckin();
     initPullRefresh();
     setInterval(loadMarketData, 30000);
+    // 新闻和提示由news-loader.js初始化
 });
 
 function updateNavTime() {
@@ -53,8 +52,8 @@ function initMainTabs() {
     });
 }
 
-function refreshAll() { loadMarketData(); renderAlerts(); renderHotNews(); }
-function refreshRealtime() { loadMarketData(); renderHotNews(); }
+function refreshAll() { loadMarketData(); loadAlerts(true); loadHotNews(true); }
+function refreshRealtime() { loadMarketData(); forceRefreshAll(); }
 
 // ===== 切换子标签时渲染内容 =====
 function initSubTabs() {
@@ -90,25 +89,6 @@ function updateMarketItem(id, value, change) {
     el.className = `market-item ${isUp ? 'up' : 'down'}`;
     el.querySelector('.market-val').textContent = value.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     el.querySelector('.market-change').textContent = `${isUp ? '+' : ''}${change.toFixed(2)}%`;
-}
-
-// ===== 提示卡片 =====
-function renderAlerts() {
-    document.getElementById('alertArea').innerHTML = `
-        <div class="alert-card forex">
-            <div class="alert-icon">💱</div>
-            <div class="alert-content">
-                <div class="alert-title">外汇提示</div>
-                <div class="alert-text">日元跌破160关口，关注日本央行干预</div>
-            </div>
-        </div>
-        <div class="alert-card stock">
-            <div class="alert-icon">📈</div>
-            <div class="alert-content">
-                <div class="alert-title">股市动向</div>
-                <div class="alert-text">A股放量上涨，北向资金连续3日净流入</div>
-            </div>
-        </div>`;
 }
 
 // ===== 热门新闻（从news-loader.js加载）=====
