@@ -1,146 +1,226 @@
-/* ===== 大师标签 ===== */
-.master-tabs {
+/* ===== 苹果风格分段控制器 ===== */
+.segment-control {
     display: flex;
-    gap: 6px;
+    background: rgba(118,118,128,0.12);
+    border-radius: 8px;
+    padding: 2px;
     margin-bottom: 12px;
-    overflow-x: auto;
 }
 
-.master-tabs::-webkit-scrollbar { display: none; }
-
-.mtab {
-    padding: 8px 12px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--card);
+.segment {
+    flex: 1;
+    padding: 7px 4px;
+    border: none;
+    background: none;
     font-size: 12px;
     font-weight: 500;
-    color: var(--text2);
+    color: #1c1c1e;
     cursor: pointer;
-    white-space: nowrap;
+    border-radius: 6px;
     transition: all 0.2s;
+    white-space: nowrap;
 }
 
-.mtab.active {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
+.segment.active {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    font-weight: 600;
 }
 
-.summary-content {
-    max-height: calc(100vh - 200px);
+.summary-scroll {
+    max-height: calc(100vh - 180px);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* ===== 今日推送 ===== */
-.today-schedule {
+/* ===== 今日推送头部 ===== */
+.today-header {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 10px;
+    margin-bottom: 12px;
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--border);
 }
 
-.schedule-item {
+.th-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--primary);
+    border-radius: 8px;
     display: flex;
-    gap: 12px;
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 12px;
-    box-shadow: var(--shadow);
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
 }
 
-.si-time {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--primary);
-    min-width: 45px;
+.th-title {
+    font-size: 15px;
+    font-weight: 600;
 }
 
-.si-content { flex: 1; }
-
-.si-label {
+.th-sub {
     font-size: 11px;
     color: var(--text2);
+}
+
+/* 今日列表 */
+.today-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.today-item {
+    display: flex;
+    gap: 10px;
+    background: var(--card);
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.ti-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.ti-content { flex: 1; }
+
+.ti-head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     margin-bottom: 4px;
 }
 
-.si-text {
+.ti-time {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.ti-label {
+    font-size: 11px;
+    color: var(--text2);
+    padding: 1px 6px;
+    background: rgba(118,118,128,0.08);
+    border-radius: 4px;
+}
+
+.ti-text {
     font-size: 13px;
     line-height: 1.5;
+    color: #3a3a3c;
 }
 
 /* ===== 大师头部 ===== */
 .master-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: var(--radius);
+    gap: 12px;
     padding: 14px;
+    border-radius: 10px;
     color: white;
     margin-bottom: 10px;
 }
 
-.mh-icon { font-size: 28px; }
-.mh-name { font-size: 14px; font-weight: 600; }
-.mh-title { font-size: 11px; opacity: 0.8; }
-
-.master-quote {
-    font-size: 11px;
-    font-style: italic;
-    color: var(--text2);
-    padding: 8px 10px;
-    background: var(--card);
-    border-radius: 6px;
-    margin-bottom: 12px;
-    border-left: 3px solid var(--primary);
-}
-
-/* ===== 周度观点列表 ===== */
-.weekly-list {
+.mh-avatar {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
 }
 
-.weekly-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 12px;
-    box-shadow: var(--shadow);
+.mh-name {
+    font-size: 16px;
+    font-weight: 600;
 }
 
-.wc-event {
+.mh-sub {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+/* 大师引言 */
+.master-quote {
+    font-size: 12px;
+    color: var(--text2);
+    font-style: italic;
+    padding: 10px 12px;
+    background: rgba(118,118,128,0.06);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.mq-mark {
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* 大师标签 */
+.master-label {
     font-size: 13px;
     font-weight: 600;
+    color: var(--text2);
     margin-bottom: 8px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--border);
+    padding-left: 2px;
 }
 
-.wc-view {
-    font-size: 12px;
+/* 观点列表 */
+.view-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.view-card {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.vc-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+}
+
+.vc-view {
+    font-size: 13px;
     line-height: 1.5;
+    color: #3a3a3c;
     margin-bottom: 8px;
 }
 
-.wc-row {
-    margin-bottom: 4px;
+.vc-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.wc-tip {
+.vc-tag {
     font-size: 11px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    line-height: 1.4;
+}
+
+.vc-tag.tip {
+    background: #fff3cd;
     color: #856404;
-    background: #fff9e6;
-    padding: 6px 8px;
-    border-radius: 4px;
-    display: block;
 }
 
-.wc-action {
-    font-size: 11px;
+.vc-tag.action {
+    background: #d4edda;
     color: #155724;
-    background: #e8f5e9;
-    padding: 6px 8px;
-    border-radius: 4px;
-    display: block;
 }
