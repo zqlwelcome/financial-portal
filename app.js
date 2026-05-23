@@ -2,19 +2,7 @@
  * 学习门户 - 主应用
  */
 
-// ===== 热门新闻 =====
-const HOT_NEWS = [
-    { rank: 1, time: "12:30", source: "财联社", title: "A股三大指数午间收涨 沪指重返3400点", summary: "成交额超8000亿，市场情绪回暖", detail: "今日A股市场全面上涨，沪指涨1.23%重返3400点，深成指涨1.45%，创业板指涨1.89%。成交额达8234亿元，较昨日放量15%。北向资金净流入82.3亿元，连续3日净流入。板块方面，券商、新能源、半导体领涨。市场分析人士认为，政策面持续利好叠加资金面宽松，短期市场有望继续反弹。" },
-    { rank: 2, time: "12:15", source: "华尔街见闻", title: "美联储会议纪要：官员对通胀走势存在分歧", summary: "6月维持利率不变概率超90%", detail: "美联储公布4月会议纪要，多数官员认为通胀回落速度慢于预期，但对年内降息仍持开放态度。市场预计6月维持利率不变的概率达92%，首次降息可能在9月。纪要显示，部分官员对服务业通胀粘性表示担忧。受此影响，美元指数小幅走强至104.5。" },
-    { rank: 3, time: "11:58", source: "证券时报", title: "宁德时代发布固态电池量产时间表", summary: "2027年小批量装车，股价涨超5%", detail: "宁德时代在投资者日活动上宣布，全固态电池研发取得突破性进展，计划2027年实现小批量装车。该电池能量密度达500Wh/kg，是现有产品的两倍。公司同时宣布将投入50亿元用于固态电池产线建设。消息刺激宁德时代股价涨5.2%。" },
-    { rank: 4, time: "11:30", source: "第一财经", title: "个人养老金制度全面推开 投资范围扩大", summary: "新增REITs和指数基金", detail: "人社部宣布个人养老金制度在全国范围内全面实施，投资范围新增公募REITs、指数基金和FOF基金。每年缴存上限维持12000元，可享受税收优惠。目前已有超过5000万人开户，累计缴存金额超过280亿元。" },
-    { rank: 5, time: "11:05", source: "Bloomberg", title: "日元汇率跌至160关口 干预预期升温", summary: "美元强势运行，日本财务省发出警告", detail: "日元兑美元汇率跌破160心理关口，创34年新低。日本财务省官员再次发出警告，表示将采取适当措施应对汇率过度波动。市场分析认为，美日利差持续扩大是日元贬值主因。" },
-    { rank: 6, time: "10:42", source: "新华社", title: "4月社融增量超预期 信贷结构改善", summary: "企业中长期贷款回暖", detail: "央行公布4月金融数据，社会融资规模增量为3.2万亿元，同比多增1.2万亿元，超出市场预期。企业中长期贷款增加1.2万亿元，显示实体经济融资需求回暖。M2增速维持在8.5%的合理水平。" },
-    { rank: 7, time: "10:15", source: "路透社", title: "比特币突破11万美元创历史新高", summary: "机构资金持续流入ETF", detail: "比特币价格突破11万美元关口，创历史新高，总市值突破2.1万亿美元。现货比特币ETF单日净流入达15亿美元，创近期新高。分析师认为，机构资金持续入场、减半效应叠加宏观流动性宽松是主要推动力。" },
-    { rank: 8, time: "09:45", source: "21世纪经济", title: "国际油价突破85美元 OPEC+减产持续", summary: "能源板块受益", detail: "布伦特原油期货价格突破85美元/桶，创近一个月新高。OPEC+成员国减产协议执行良好，沙特自愿减产100万桶/日的措施延长至二季度末。国内能源板块受益上涨。" },
-    { rank: 9, time: "09:20", source: "央行官网", title: "央行开展1000亿元MLF操作 利率不变", summary: "流动性合理充裕", detail: "央行今日开展1000亿元中期借贷便利（MLF）操作，中标利率维持2.50%不变。市场人士认为，央行维持流动性合理充裕的基调不变，短端利率有望保持稳定。" },
-    { rank: 10, time: "09:00", source: "上交所", title: "北向资金早盘净流入超50亿", summary: "外资加仓消费和新能源", detail: "截至午间收盘，北向资金净流入52.3亿元。外资重点加仓白酒、新能源、半导体板块。贵州茅台获净买入8.2亿元居首，宁德时代获净买入6.5亿元。" }
-];
+// ===== 热门新闻（从news-loader.js加载）=====
 
 // ===== AI PM知识库 =====
 const KNOWLEDGE = [
@@ -116,28 +104,7 @@ function renderAlerts() {
         </div>`;
 }
 
-// ===== 热门新闻 =====
-function renderHotNews() {
-    document.getElementById('hotNewsList').innerHTML = HOT_NEWS.map(news => `
-        <div class="news-item ${expandedNews === news.rank ? 'expanded' : ''}" onclick="toggleNews(${news.rank})">
-            <div class="news-rank ${news.rank <= 3 ? 'hot' : ''}">${news.rank}</div>
-            <div class="news-body">
-                <div class="news-head">
-                    <span class="news-source">${news.source}</span>
-                    <span class="news-time">${news.time}</span>
-                </div>
-                <div class="news-title">${news.title}</div>
-                <div class="news-summary">${news.summary}</div>
-                <div class="news-detail">${news.detail}</div>
-            </div>
-        </div>
-    `).join('');
-}
-
-function toggleNews(rank) {
-    expandedNews = expandedNews === rank ? null : rank;
-    renderHotNews();
-}
+// ===== 热门新闻（从news-loader.js加载）=====
 
 // ===== 下拉刷新 =====
 function initPullRefresh() {
