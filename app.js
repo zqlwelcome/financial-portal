@@ -1,148 +1,133 @@
 /**
- * 个人学习门户 - 主逻辑
+ * 学习门户 - Apple Style
  */
 
-// ===== 数据存储 =====
-const STORAGE_KEYS = {
-    NEWS: 'learning_portal_news',
-    CHECKIN: 'learning_portal_checkin',
-    STREAK: 'learning_portal_streak',
-    THEME: 'learning_portal_theme'
+// ===== Storage =====
+const STORAGE = {
+    NEWS: 'portal_news',
+    CHECKIN: 'portal_checkin',
+    THEME: 'portal_theme'
 };
 
-// ===== AI产品经理知识点库 =====
-const AI_PM_KNOWLEDGE = [
+// ===== AI PM Knowledge Base =====
+const KNOWLEDGE = [
     {
-        id: 1,
         title: "AI产品经理核心能力模型",
-        content: `<p><strong>四大核心能力：</strong></p>
-<ul>
-<li>🎯 <strong>技术理解力</strong> - 理解ML/DL基础原理，能与工程师有效沟通</li>
-<li>📊 <strong>数据思维</strong> - 数据驱动决策，理解数据质量对模型的影响</li>
-<li>💡 <strong>产品设计力</strong> - 将AI能力转化为用户价值，设计人机协作流程</li>
-<li>🤝 <strong>跨团队协作</strong> - 协调算法、工程、业务团队高效运转</li>
-</ul>
-<p style="margin-top:12px;color:rgba(255,255,255,0.7)">💡 今日金句：AI产品经理不是要成为技术专家，而是要成为"技术翻译官"</p>`,
-        category: "基础能力"
+        content: `
+            <p><strong>四大核心能力：</strong></p>
+            <ul>
+                <li>🎯 <strong>技术理解力</strong> — 理解ML/DL基础原理，能与工程师有效沟通</li>
+                <li>📊 <strong>数据思维</strong> — 数据驱动决策，理解数据质量对模型的影响</li>
+                <li>💡 <strong>产品设计力</strong> — 将AI能力转化为用户价值，设计人机协作流程</li>
+                <li>🤝 <strong>跨团队协作</strong> — 协调算法、工程、业务团队高效运转</li>
+            </ul>
+        `
     },
     {
-        id: 2,
         title: "AI产品需求文档(PRD)要点",
-        content: `<p><strong>AI产品PRD特殊之处：</strong></p>
-<ul>
-<li>📝 <strong>数据需求</strong> - 明确训练数据来源、标注规范、数据量要求</li>
-<li>📈 <strong>效果指标</strong> - 定义模型评估指标（准确率、召回率、F1等）</li>
-<li>⚡ <strong>性能要求</strong> - 响应时间、并发量、资源限制</li>
-<li>🔄 <strong>迭代策略</strong> - 模型冷启动方案、AB测试计划</li>
-</ul>
-<p style="margin-top:12px;color:rgba(255,255,255,0.7)">💡 记住：AI产品的不确定性更高，PRD要预留"实验空间"</p>`,
-        category: "文档技能"
+        content: `
+            <p><strong>AI产品PRD特殊之处：</strong></p>
+            <ul>
+                <li>📝 <strong>数据需求</strong> — 明确训练数据来源、标注规范、数据量要求</li>
+                <li>📈 <strong>效果指标</strong> — 定义模型评估指标（准确率、召回率、F1等）</li>
+                <li>⚡ <strong>性能要求</strong> — 响应时间、并发量、资源限制</li>
+                <li>🔄 <strong>迭代策略</strong> — 模型冷启动方案、AB测试计划</li>
+            </ul>
+        `
     },
     {
-        id: 3,
         title: "机器学习项目全流程",
-        content: `<p><strong>AI产品经理需了解的流程：</strong></p>
-<ol>
-<li>📋 <strong>问题定义</strong> - 这个问题适合用ML解决吗？</li>
-<li>📊 <strong>数据准备</strong> - 数据采集、清洗、标注、划分</li>
-<li>🧠 <strong>模型开发</strong> - 特征工程、模型选择、训练调参</li>
-<li>✅ <strong>模型评估</strong> - 离线评估、在线AB测试</li>
-<li>🚀 <strong>部署上线</strong> - 模型服务化、监控告警</li>
-<li>🔄 <strong>持续迭代</strong> - 数据反馈、模型更新</li>
-</ol>
-<p style="margin-top:12px;color:rgba(255,255,255,0.7)">💡 PM重点关注：问题定义和效果评估，这两个环节PM主导</p>`,
-        category: "技术理解"
+        content: `
+            <p><strong>AI产品经理需了解的流程：</strong></p>
+            <ol>
+                <li>📋 <strong>问题定义</strong> — 这个问题适合用ML解决吗？</li>
+                <li>📊 <strong>数据准备</strong> — 数据采集、清洗、标注、划分</li>
+                <li>🧠 <strong>模型开发</strong> — 特征工程、模型选择、训练调参</li>
+                <li>✅ <strong>模型评估</strong> — 离线评估、在线AB测试</li>
+                <li>🚀 <strong>部署上线</strong> — 模型服务化、监控告警</li>
+            </ol>
+        `
     },
     {
-        id: 4,
         title: "大模型产品设计原则",
-        content: `<p><strong>LLM时代的产品思维：</strong></p>
-<ul>
-<li>🎯 <strong>Prompt Engineering</strong> - 设计优质的提示词模板</li>
-<li>🛡️ <strong>安全边界</strong> - 内容过滤、幻觉检测、用户引导</li>
-<li>💰 <strong>成本控制</strong> - Token优化、模型分级、缓存策略</li>
-<li>📊 <strong>效果评估</strong> - 人工评估 + 自动评估结合</li>
-</ul>
-<p style="margin-top:12px;color:rgba(255,255,255,0.7)">💡 大模型产品核心：在"能力边界"和"用户期望"之间找到平衡</p>`,
-        category: "前沿趋势"
+        content: `
+            <p><strong>LLM时代的产品思维：</strong></p>
+            <ul>
+                <li>🎯 <strong>Prompt Engineering</strong> — 设计优质的提示词模板</li>
+                <li>🛡️ <strong>安全边界</strong> — 内容过滤、幻觉检测、用户引导</li>
+                <li>💰 <strong>成本控制</strong> — Token优化、模型分级、缓存策略</li>
+                <li>📊 <strong>效果评估</strong> — 人工评估 + 自动评估结合</li>
+            </ul>
+        `
     },
     {
-        id: 5,
         title: "AI产品指标体系搭建",
-        content: `<p><strong>三层指标体系：</strong></p>
-<ul>
-<li>📊 <strong>业务指标</strong> - DAU、留存率、转化率、GMV</li>
-<li>🤖 <strong>模型指标</strong> - 准确率、响应时间、调用量</li>
-<li>💡 <strong>体验指标</strong> - 用户满意度、NPS、投诉率</li>
-</ul>
-<p style="margin-top:12px;color:rgba(255,255,255,0.7)">💡 关键：业务指标是北极星，模型指标是手段，体验指标是保障</p>`,
-        category: "数据能力"
+        content: `
+            <p><strong>三层指标体系：</strong></p>
+            <ul>
+                <li>📊 <strong>业务指标</strong> — DAU、留存率、转化率、GMV</li>
+                <li>🤖 <strong>模型指标</strong> — 准确率、响应时间、调用量</li>
+                <li>💡 <strong>体验指标</strong> — 用户满意度、NPS、投诉率</li>
+            </ul>
+        `
     }
 ];
 
-// ===== 应用状态 =====
+// ===== State =====
 let currentDate = new Date();
-let checkedDays = JSON.parse(localStorage.getItem(STORAGE_KEYS.CHECKIN) || '[]');
-let newsData = JSON.parse(localStorage.getItem(STORAGE_KEYS.NEWS) || '[]');
+let checkedDays = JSON.parse(localStorage.getItem(STORAGE.CHECKIN) || '[]');
+let newsData = JSON.parse(localStorage.getItem(STORAGE.NEWS) || '[]');
 
-// ===== 初始化 =====
+// ===== Init =====
 document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-    initTabs();
-    initNews();
-    initAI_PM();
+    initScrollEffects();
+    initDatePicker();
+    renderNews();
+    renderDailyCard();
+    renderProgress();
+    initCheckin();
     initModal();
-    updateStreak();
+    updateStats();
 });
 
-// ===== 主题切换 =====
-function initTheme() {
-    const theme = localStorage.getItem(STORAGE_KEYS.THEME) || 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-    
-    document.getElementById('themeToggle').addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem(STORAGE_KEYS.THEME, next);
-        document.getElementById('themeToggle').textContent = next === 'dark' ? '☀️' : '🌙';
+// ===== Scroll Effects =====
+function initScrollEffects() {
+    // Nav background on scroll
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.style.background = 'rgba(251, 251, 253, 0.9)';
+        } else {
+            nav.style.background = 'rgba(251, 251, 253, 0.72)';
+        }
     });
-    
-    document.getElementById('themeToggle').textContent = theme === 'dark' ? '☀️' : '🌙';
-}
 
-// ===== 标签切换 =====
-function initTabs() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const tab = btn.dataset.tab;
-            
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-            
-            btn.classList.add('active');
-            document.getElementById(tab).classList.add('active');
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 }
 
-// ===== 新闻模块 =====
-function initNews() {
-    renderNewsList();
-    
+// ===== Date Picker =====
+function initDatePicker() {
     document.getElementById('prevDay').addEventListener('click', () => {
         currentDate.setDate(currentDate.getDate() - 1);
         updateDateDisplay();
+        renderNews();
     });
-    
+
     document.getElementById('nextDay').addEventListener('click', () => {
         currentDate.setDate(currentDate.getDate() + 1);
         updateDateDisplay();
+        renderNews();
     });
-    
+
     updateDateDisplay();
 }
 
@@ -150,122 +135,118 @@ function updateDateDisplay() {
     const today = new Date();
     const diff = Math.floor((today - currentDate) / (1000 * 60 * 60 * 24));
     
-    let display = formatDate(currentDate);
+    let display = `${currentDate.getMonth() + 1}月${currentDate.getDate()}日`;
     if (diff === 0) display = '今天';
     else if (diff === 1) display = '昨天';
+    else if (diff === -1) display = '明天';
     
     document.getElementById('currentDate').textContent = display;
-    renderNewsList();
 }
 
-function formatDate(date) {
-    return `${date.getMonth() + 1}月${date.getDate()}日`;
-}
-
-function renderNewsList() {
+// ===== News =====
+function renderNews() {
     const container = document.getElementById('newsList');
     const dateStr = currentDate.toISOString().split('T')[0];
     const dayNews = newsData.filter(n => n.date === dateStr);
     
     if (dayNews.length === 0) {
         container.innerHTML = `
-            <div class="card" style="text-align:center; color: var(--text-secondary);">
-                <p>📭 今日暂无新闻</p>
-                <p style="font-size:12px; margin-top:8px;">点击右下角 + 添加</p>
+            <div class="empty-state">
+                <div class="empty-icon">📰</div>
+                <p>暂无新闻</p>
             </div>
         `;
         return;
     }
     
     container.innerHTML = dayNews.map(news => `
-        <div class="card" onclick="showNewsDetail(${news.id})">
-            <div class="card-header">
-                <span class="card-tag">${getCategoryName(news.category)}</span>
-                <span class="card-date">${news.time || ''}</span>
+        <div class="news-card">
+            <div class="news-card-header">
+                <span class="news-tag">${getCategoryName(news.category)}</span>
+                <span class="news-time">${news.time || ''}</span>
             </div>
             <h3>${news.title}</h3>
-            <div class="card-content">${news.summary}</div>
-            ${news.analysis ? `
-                <div class="analysis-tags">
-                    <span class="analysis-tag">💡 三视角点评已添加</span>
-                </div>
-            ` : ''}
+            <p class="news-summary">${news.summary}</p>
+            ${news.analysis ? `<p class="news-analysis">💡 ${news.analysis}</p>` : ''}
         </div>
     `).join('');
 }
 
 function getCategoryName(cat) {
-    const names = {
-        market: '市场动态',
-        policy: '政策解读',
-        company: '公司财报',
-        global: '国际财经'
-    };
+    const names = { market: '市场动态', policy: '政策解读', company: '公司财报', global: '国际财经' };
     return names[cat] || cat;
 }
 
-// ===== AI产品经理模块 =====
-function initAI_PM() {
-    renderDailyKnowledge();
-    renderKnowledgeList();
-    updateProgress();
-    initCheckin();
-}
-
-function renderDailyKnowledge() {
+// ===== Daily Card =====
+function renderDailyCard() {
     const today = new Date();
-    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-    const knowledge = AI_PM_KNOWLEDGE[dayOfYear % AI_PM_KNOWLEDGE.length];
+    const dayIndex = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24)) % KNOWLEDGE.length;
+    const knowledge = KNOWLEDGE[dayIndex];
     
-    document.getElementById('pmDate').textContent = formatDate(today);
     document.getElementById('pmTitle').textContent = knowledge.title;
     document.getElementById('pmContent').innerHTML = knowledge.content;
     
-    // 检查今日是否已打卡
+    // Check if already checked in
     const todayStr = today.toISOString().split('T')[0];
     if (checkedDays.includes(todayStr)) {
-        document.getElementById('checkinBtn').classList.add('checked');
-        document.getElementById('checkinBtn').innerHTML = '<span class="checkin-icon">✓</span><span>已打卡</span>';
-        document.getElementById('checkinStatus').classList.remove('hidden');
+        showCheckedState();
     }
 }
 
-function renderKnowledgeList() {
-    const container = document.getElementById('knowledgeItems');
-    container.innerHTML = AI_PM_KNOWLEDGE.map(k => `
-        <div class="item">
-            <span class="item-icon">📖</span>
-            <div class="item-content">
-                <div class="item-title">${k.title}</div>
-                <div class="item-desc">${k.category}</div>
-            </div>
-        </div>
-    `).join('');
-}
-
+// ===== Checkin =====
 function initCheckin() {
     document.getElementById('checkinBtn').addEventListener('click', function() {
         const today = new Date().toISOString().split('T')[0];
         
         if (!checkedDays.includes(today)) {
             checkedDays.push(today);
-            localStorage.setItem(STORAGE_KEYS.CHECKIN, JSON.stringify(checkedDays));
+            localStorage.setItem(STORAGE.CHECKIN, JSON.stringify(checkedDays));
             
-            this.classList.add('checked');
-            this.innerHTML = '<span class="checkin-icon">✓</span><span>已打卡</span>';
-            document.getElementById('checkinStatus').classList.remove('hidden');
+            showCheckedState();
+            renderProgress();
+            updateStats();
             
-            updateStreak();
-            updateProgress();
-            
-            // 动画效果
+            // Animation
             this.style.transform = 'scale(1.1)';
             setTimeout(() => this.style.transform = '', 200);
         }
     });
 }
 
-function updateStreak() {
+function showCheckedState() {
+    document.getElementById('checkinBtn').classList.add('checked');
+    document.getElementById('checkinBtn').innerHTML = `
+        <span class="btn-content">
+            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M20 6L9 17l-5-5"/>
+            </svg>
+            <span>已完成</span>
+        </span>
+    `;
+    document.getElementById('checkinStatus').classList.remove('hidden');
+}
+
+// ===== Progress =====
+function renderProgress() {
+    const today = new Date();
+    let completed = 0;
+    
+    for (let i = 1; i <= today.getDate(); i++) {
+        const date = new Date(today.getFullYear(), today.getMonth(), i);
+        const dateStr = date.toISOString().split('T')[0];
+        if (checkedDays.includes(dateStr)) completed++;
+    }
+    
+    const rate = Math.round((completed / today.getDate()) * 100);
+    
+    document.getElementById('completedCount').textContent = completed;
+    document.getElementById('completionRate').textContent = rate + '%';
+    document.getElementById('progressFill').style.width = rate + '%';
+}
+
+// ===== Stats =====
+function updateStats() {
+    // Calculate streak
     let streak = 0;
     const today = new Date();
     
@@ -281,37 +262,28 @@ function updateStreak() {
         }
     }
     
+    // Total days (from first checkin)
+    const totalDays = checkedDays.length > 0 ? 
+        Math.floor((today - new Date(checkedDays[0])) / (1000 * 60 * 60 * 24)) + 1 : 0;
+    
+    document.getElementById('totalDays').textContent = totalDays;
+    document.getElementById('totalCheckins').textContent = checkedDays.length;
+    document.getElementById('streakDays').textContent = streak;
     document.getElementById('streakCount').textContent = streak;
 }
 
-function updateProgress() {
-    const today = new Date();
-    const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
-    const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-    
-    let completed = 0;
-    for (let i = 1; i <= today.getDate(); i++) {
-        const date = new Date(today.getFullYear(), today.getMonth(), i);
-        const dateStr = date.toISOString().split('T')[0];
-        if (checkedDays.includes(dateStr)) completed++;
-    }
-    
-    const rate = Math.round((completed / today.getDate()) * 100);
-    
-    document.getElementById('completedCount').textContent = completed;
-    document.getElementById('completionRate').textContent = rate + '%';
-    document.getElementById('progressFill').style.width = rate + '%';
-}
-
-// ===== 弹窗功能 =====
+// ===== Modal =====
 function initModal() {
     const modal = document.getElementById('addNewsModal');
-    const fab = document.getElementById('addNews');
-    const closeBtn = modal.querySelector('.close-btn');
     const form = document.getElementById('newsForm');
     
-    fab.addEventListener('click', () => modal.classList.remove('hidden'));
-    closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    document.getElementById('addNews').addEventListener('click', () => {
+        modal.classList.remove('hidden');
+    });
+    
+    document.getElementById('modalClose').addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
     
     modal.addEventListener('click', (e) => {
         if (e.target === modal) modal.classList.add('hidden');
@@ -332,15 +304,10 @@ function initModal() {
         };
         
         newsData.unshift(news);
-        localStorage.setItem(STORAGE_KEYS.NEWS, JSON.stringify(newsData));
+        localStorage.setItem(STORAGE.NEWS, JSON.stringify(newsData));
         
         form.reset();
         modal.classList.add('hidden');
-        renderNewsList();
+        renderNews();
     });
-}
-
-function showNewsDetail(id) {
-    // 可以扩展为详情页
-    console.log('查看新闻详情:', id);
 }
