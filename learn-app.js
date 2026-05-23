@@ -11,7 +11,7 @@ const COURSES = [
         icon: "🎯",
         duration: "45分钟",
         videos: [
-            { title: "AI产品经理是什么？需要哪些能力？", source: "B站", url: "https://www.bilibili.com/video/BV1GJ411x7h7", type: "bilibili" }
+            // 视频链接待验证
         ],
         content: `
             <div class="lesson-section">
