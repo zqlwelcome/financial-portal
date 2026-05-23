@@ -17,7 +17,7 @@ const KNOWLEDGE = [
 let checkedDays = JSON.parse(localStorage.getItem('checkin') || '[]');
 
 // ===== Init =====
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     updateNavTime();
     setInterval(updateNavTime, 60000);
     initMainTabs();
