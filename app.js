@@ -15,7 +15,6 @@ const KNOWLEDGE = [
 
 // ===== State =====
 let checkedDays = JSON.parse(localStorage.getItem('checkin') || '[]');
-let expandedNews = null;
 
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', () => {
