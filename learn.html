@@ -3,85 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AI产品经理7天学习计划</title>
-    <link rel="stylesheet" href="learn-style.css">
-    <link rel="stylesheet" href="skill-style.css">
+    <title>AI产品经理学习</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="alert-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 学习页样式 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Noto Sans SC", sans-serif; background: #f2f2f7; color: #1c1c1e; }
+        
+        .nav { position: fixed; top: 0; left: 0; right: 0; height: 44px; background: rgba(242,242,247,0.92); backdrop-filter: saturate(180%) blur(20px); border-bottom: 0.5px solid rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; padding: 0 16px; z-index: 100; }
+        .nav-back { font-size: 15px; color: #007AFF; text-decoration: none; font-weight: 500; }
+        .nav-title { font-size: 17px; font-weight: 600; }
+        .nav-right { width: 50px; }
+        
+        .main { padding: 60px 16px 24px; max-width: 500px; margin: 0 auto; }
+        
+        /* 进度卡片 */
+        .progress-card { background: linear-gradient(135deg, #5856d6, #af52de); border-radius: 16px; padding: 24px; color: white; margin-bottom: 20px; }
+        .progress-top { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .progress-ring { width: 72px; height: 72px; position: relative; }
+        .progress-ring svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+        .progress-ring circle { fill: none; stroke-width: 6; stroke-linecap: round; }
+        .ring-bg { stroke: rgba(255,255,255,0.2); }
+        .ring-fill { stroke: white; transition: stroke-dashoffset 0.5s; }
+        .ring-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; font-weight: 700; }
+        .progress-info h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .progress-info p { font-size: 13px; opacity: 0.8; }
+        .progress-stats { display: flex; gap: 20px; font-size: 13px; opacity: 0.9; }
+        
+        /* 课程列表 */
+        .course-list { display: flex; flex-direction: column; gap: 12px; }
+        
+        .course-section { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        
+        .section-header { display: flex; align-items: center; gap: 12px; padding: 16px; cursor: pointer; transition: background 0.2s; }
+        .section-header:active { background: #f8f8f8; }
+        
+        .section-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+        .icon-purple { background: linear-gradient(135deg, #5856d6, #af52de); }
+        .icon-blue { background: linear-gradient(135deg, #007AFF, #5856d6); }
+        .icon-green { background: linear-gradient(135deg, #34c759, #30b350); }
+        .icon-orange { background: linear-gradient(135deg, #ff9500, #ff6b00); }
+        .icon-red { background: linear-gradient(135deg, #ff3b30, #ff6b6b); }
+        
+        .section-info { flex: 1; }
+        .section-title { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
+        .section-subtitle { font-size: 12px; color: #8e8e93; }
+        
+        .section-meta { display: flex; align-items: center; gap: 8px; }
+        .section-progress { font-size: 12px; color: #8e8e93; }
+        .section-arrow { font-size: 16px; color: #c7c7cc; transition: transform 0.2s; }
+        
+        /* 展开的课程内容 */
+        .course-content { display: none; padding: 0 16px 16px; }
+        .course-content.expanded { display: block; }
+        
+        .course-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8f8f8; border-radius: 10px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; }
+        .course-item:active { transform: scale(0.98); background: #f0f0f0; }
+        .course-item.completed { background: #e8f5e9; }
+        
+        .item-check { width: 24px; height: 24px; border-radius: 50%; border: 2px solid #d1d1d6; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+        .item-check.done { background: #34c759; border-color: #34c759; color: white; }
+        
+        .item-info { flex: 1; }
+        .item-title { font-size: 14px; font-weight: 500; }
+        .item-duration { font-size: 11px; color: #8e8e93; margin-top: 2px; }
+        
+        .item-arrow { color: #c7c7cc; font-size: 14px; }
+        
+        /* 弹窗 */
+        .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); display: flex; align-items: flex-end; z-index: 200; }
+        .modal.hidden { display: none; }
+        .modal-sheet { background: #f2f2f7; width: 100%; max-height: 95vh; border-radius: 16px 16px 0 0; display: flex; flex-direction: column; animation: slideUp 0.3s ease; }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        
+        .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(242,242,247,0.92); backdrop-filter: blur(20px); border-bottom: 0.5px solid rgba(0,0,0,0.1); flex-shrink: 0; }
+        .modal-header h2 { font-size: 17px; font-weight: 600; flex: 1; text-align: center; }
+        .modal-close { width: 30px; height: 30px; border-radius: 50%; background: rgba(118,118,128,0.12); border: none; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .modal-spacer { width: 30px; }
+        
+        .modal-body { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 16px; }
+        
+        /* 课程内容样式 */
+        .lesson-block { background: white; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .lesson-block h4 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+        .lesson-block p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; color: #3a3a3c; }
+        .lesson-block ul { padding-left: 18px; margin: 8px 0; }
+        .lesson-block li { font-size: 14px; line-height: 1.7; color: #3a3a3c; margin-bottom: 4px; }
+        
+        .key-point { background: #fff3cd; border-radius: 8px; padding: 12px; margin-top: 10px; font-size: 13px; line-height: 1.6; color: #664d03; }
+        
+        .qa-item { background: white; border-radius: 10px; padding: 14px; margin-bottom: 8px; }
+        .qa-q { font-size: 14px; font-weight: 600; color: #007AFF; margin-bottom: 6px; }
+        .qa-a { font-size: 13px; line-height: 1.6; color: #3a3a3c; }
+        
+        .checkin-btn { width: 100%; padding: 14px; background: #007AFF; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 12px; }
+        .checkin-btn:active { transform: scale(0.98); }
+        .checkin-btn.done { background: #34c759; }
+    </style>
 </head>
 <body>
-    <!-- 顶部 -->
     <nav class="nav">
         <a href="index.html" class="nav-back">← 返回</a>
         <span class="nav-title">AI产品经理学习</span>
-        <button class="nav-share" id="shareBtn">📤</button>
+        <div class="nav-right"></div>
     </nav>
-
-    <!-- 主内容 -->
+    
     <main class="main">
-        <!-- 进度总览 -->
-        <div class="progress-overview" id="progressOverview">
-            <div class="progress-ring">
-                <svg viewBox="0 0 100 100">
-                    <circle class="ring-bg" cx="50" cy="50" r="45"/>
-                    <circle class="ring-fill" cx="50" cy="50" r="45" id="progressRing"/>
-                </svg>
-                <div class="ring-text">
-                    <span id="progressPercent">0</span>%
+        <!-- 进度卡片 -->
+        <div class="progress-card">
+            <div class="progress-top">
+                <div class="progress-ring">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="ring-bg" cx="50" cy="50" r="45"/>
+                        <circle class="ring-fill" cx="50" cy="50" r="45" id="progressRing"/>
+                    </svg>
+                    <div class="ring-text"><span id="progressPercent">0</span>%</div>
+                </div>
+                <div class="progress-info">
+                    <h3>学习进度</h3>
+                    <p>已完成 <span id="completedCount">0</span>/20 课时</p>
                 </div>
             </div>
-            <div class="progress-info">
-                <h3>学习进度</h3>
-                <p>已完成 <strong id="completedDays">0</strong>/7 天</p>
-                <div class="streak-info">
-                    <span>🔥 连续 <strong id="streakCount">0</strong> 天</span>
-                    <span>⭐ 获得 <strong id="totalStars">0</strong> 颗星</span>
-                </div>
+            <div class="progress-stats">
+                <span>🔥 连续 <span id="streakCount">0</span> 天</span>
+                <span>⭐ <span id="totalStars">0</span> 颗星</span>
             </div>
         </div>
-
-        <!-- 7天课程列表 -->
+        
+        <!-- 课程列表 -->
         <div class="course-list" id="courseList"></div>
-
-        <!-- 四大能力模块 -->
-        <div class="section-title" style="margin: 20px 0 12px; font-size: 16px; font-weight: 600;">💪 四大核心能力</div>
-        <div id="pmContent"></div>
     </main>
-
-    <!-- 每日详情弹窗 -->
-    <div class="modal hidden" id="dayModal">
+    
+    <!-- 课程详情弹窗 -->
+    <div class="modal hidden" id="courseModal">
         <div class="modal-sheet">
-            <div class="modal-handle"></div>
             <div class="modal-header">
-                <h2 id="modalTitle">Day 1</h2>
+                <div class="modal-spacer"></div>
+                <h2 id="modalTitle">课程详情</h2>
                 <button class="modal-close" id="modalClose">✕</button>
             </div>
-            <div class="modal-body" id="modalBody">
-                <!-- 动态内容 -->
-            </div>
+            <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
-
-    <!-- 分享弹窗 -->
-    <div class="modal hidden" id="shareModal">
-        <div class="modal-sheet small">
-            <div class="modal-handle"></div>
-            <h3>分享学习进度</h3>
-            <div class="share-content">
-                <div class="share-card" id="shareCard">
-                    <div class="share-title">📚 AI产品经理学习打卡</div>
-                    <div class="share-progress">
-                        已完成 <span id="shareDays">0</span>/7 天
-                    </div>
-                    <div class="share-stars" id="shareStars"></div>
-                    <div class="share-link" id="shareLink"></div>
-                </div>
-                <button class="copy-btn" id="copyBtn">复制链接</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="skill-modules.js"></script>
-    <script src="learn-app.js"></script>
+    
+    <script src="course-data.js"></script>
+    <script src="course-app.js"></script>
 </body>
 </html>
