@@ -97,31 +97,6 @@
         </section>
     </main>
 
-    <!-- 新增按钮 -->
-    <button class="fab" id="addNews">+</button>
-
-    <!-- 新增弹窗 -->
-    <div class="modal hidden" id="addNewsModal">
-        <div class="modal-sheet">
-            <div class="modal-handle"></div>
-            <h3>添加新闻</h3>
-            <form id="newsForm">
-                <input type="text" id="newsTitle" required placeholder="标题">
-                <input type="text" id="newsSource" placeholder="来源">
-                <textarea id="newsSummary" rows="2" placeholder="摘要"></textarea>
-                <select id="newsCategory">
-                    <option value="market">市场动态</option>
-                    <option value="policy">政策解读</option>
-                    <option value="company">公司财报</option>
-                    <option value="global">国际财经</option>
-                </select>
-                <textarea id="newsAnalysis" rows="2" placeholder="三视角点评"></textarea>
-                <button type="submit" class="submit-btn">保存</button>
-            </form>
-            <button class="close-btn" id="modalClose">取消</button>
-        </div>
-    </div>
-
     <script src="app.js"></script>
 </body>
 </html>
