@@ -1,14 +1,14 @@
 /**
- * 总结页签 - 层次清晰版
+ * 总结页签 - 推送数据从JSON文件加载
  */
 
-// ===== 今日推送内容 =====
-const TODAY_SCHEDULE = [
-    { time: '08:00', label: '早间', icon: '🌅', content: '美联储鸽派信号提振市场，A股高开。北向资金早盘净流入超80亿，白酒新能源领涨。重点关注下午美国CPI数据。' },
-    { time: '12:00', label: '午间', icon: '☀️', content: 'A股放量上涨，沪指涨1.5%重返3400点。成交额突破万亿，券商板块涨4.2%领涨。北向资金净流入超120亿。' },
-    { time: '19:00', label: '晚间', icon: '🌆', content: '美股期货走强，市场等待晚间CPI数据。比特币站稳10.5万，欧央行暗示6月降息。明日关注3450点压力位。' },
-    { time: '00:00', label: '深夜', icon: '🌙', content: '美股收盘上涨，标普500涨0.8%。CPI数据符合预期，降息预期不变。黄金小幅上涨至2380美元。' }
-];
+// ===== 推送时间配置 =====
+const PUSH_SLOTS = {
+    morning:  { time: '08:00', label: '早间', icon: '🌅' },
+    noon:     { time: '12:00', label: '午间', icon: '☀️' },
+    evening:  { time: '19:00', label: '晚间', icon: '🌆' },
+    night:    { time: '00:00', label: '深夜', icon: '🌙' }
+};
 
 // ===== 大师周度观点 =====
 const WEEKLY_MASTERS = {
@@ -68,42 +68,111 @@ function initMasterTabs() {
 }
 
 // ===== 渲染内容 =====
-function renderSummaryContent() {
+async function renderSummaryContent() {
     const el = document.getElementById('summaryContent');
     if (!el) return;
     
     if (currentView === 'today') {
-        renderTodayView(el);
+        await renderTodayView(el);
     } else {
         renderMasterView(el, currentView);
     }
 }
 
+// ===== 加载今日推送 =====
+async function loadTodayBriefings() {
+    const today = new Date();
+    const dateStr = today.toISOString().slice(0, 10);
+    const slots = ['morning', 'noon', 'evening', 'night'];
+    const results = [];
+
+    for (const slot of slots) {
+        const path = `data/briefings/${dateStr}-${slot}.json`;
+        try {
+            const resp = await fetch(path);
+            if (!resp.ok) continue;
+            const data = await resp.json();
+            const slotInfo = PUSH_SLOTS[slot];
+            results.push({
+                time: data.time || slotInfo.time,
+                label: slotInfo.label,
+                icon: slotInfo.icon,
+                content: data.content
+            });
+        } catch(e) {
+            // 没有推送文件就跳过
+        }
+    }
+    return results;
+}
+
 // ===== 今日视图 =====
-function renderTodayView(el) {
+async function renderTodayView(el) {
+    // 先显示加载状态
     el.innerHTML = `
         <div class="today-header">
             <div class="th-icon">📢</div>
             <div class="th-info">
                 <div class="th-title">今日财经推送</div>
-                <div class="th-sub">每日4次更新：08:00 · 12:00 · 19:00 · 00:00</div>
+                <div class="th-sub">加载中...</div>
+            </div>
+        </div>
+        <div style="text-align:center;padding:40px 0;color:#8e8e93;">
+            <div class="loading-spinner" style="font-size:32px;animation:pulse 1s infinite;">⏳</div>
+        </div>
+    `;
+
+    const briefings = await loadTodayBriefings();
+
+    if (briefings.length === 0) {
+        el.innerHTML = `
+            <div class="today-header">
+                <div class="th-icon">📢</div>
+                <div class="th-info">
+                    <div class="th-title">今日财经推送</div>
+                    <div class="th-sub">暂无推送</div>
+                </div>
+            </div>
+            <div class="empty-state" style="text-align:center;padding:40px 0;color:#8e8e93;font-size:14px;">
+                <div style="font-size:48px;margin-bottom:12px;">📭</div>
+                <div>今天还没有推送内容</div>
+                <div style="margin-top:8px;font-size:12px;color:#aeaeb2;">推送时间：08:00 · 12:00 · 19:00 · 00:00</div>
+            </div>
+        `;
+        return;
+    }
+
+    el.innerHTML = `
+        <div class="today-header">
+            <div class="th-icon">📢</div>
+            <div class="th-info">
+                <div class="th-title">今日财经推送</div>
+                <div class="th-sub">已推送 ${briefings.length} 条</div>
             </div>
         </div>
         <div class="today-list">
-            ${TODAY_SCHEDULE.map(s => `
-                <div class="today-item">
+            ${briefings.map(s => `
+                <div class="today-item" onclick="togglePushContent(this)">
                     <div class="ti-icon">${s.icon}</div>
                     <div class="ti-content">
                         <div class="ti-head">
                             <span class="ti-time">${s.time}</span>
                             <span class="ti-label">${s.label}</span>
+                            <span class="ti-arrow">›</span>
                         </div>
-                        <div class="ti-text">${s.content}</div>
+                        <div class="ti-text">${s.content.replace(/\n/g, '<br>')}</div>
                     </div>
                 </div>
             `).join('')}
         </div>
     `;
+}
+
+// ===== 推送内容展开收起 =====
+function togglePushContent(item) {
+    item.classList.toggle('expanded');
+    const arrow = item.querySelector('.ti-arrow');
+    if (arrow) arrow.textContent = item.classList.contains('expanded') ? '⌄' : '›';
 }
 
 // ===== 大师视图 =====
