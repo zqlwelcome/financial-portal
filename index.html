@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>学习门户</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="master-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -30,8 +29,7 @@
 
             <!-- 实时新闻 -->
             <div id="realtime" class="sub-content active">
-                <!-- 市场概览 -->
-                <div class="market-bar" id="marketBar">
+                <div class="market-bar">
                     <div class="market-item" id="shIndex">
                         <span class="market-label">上证</span>
                         <span class="market-val">--</span>
@@ -48,11 +46,7 @@
                         <span class="market-change">--</span>
                     </div>
                 </div>
-
-                <!-- 提示卡片 -->
                 <div id="alertArea"></div>
-
-                <!-- 热门新闻 -->
                 <div class="section-header">
                     <span class="section-label">🔥 热门 TOP 10</span>
                     <span class="refresh-hint" id="refreshHint">下拉刷新</span>
@@ -60,16 +54,16 @@
                 <div id="hotNewsList" class="news-list"></div>
             </div>
 
-            <!-- 每日总结 -->
+            <!-- 总结 -->
             <div id="daily" class="sub-content">
-                <div class="filter-row">
-                    <button class="filter-btn active" data-investor="all">全部</button>
-                    <button class="filter-btn" data-investor="templeton">🌍 邓普顿</button>
-                    <button class="filter-btn" data-investor="buffett">💰 巴菲特</button>
-                    <button class="filter-btn" data-investor="munger">🧠 芒格</button>
+                <!-- 大师标签 -->
+                <div class="master-tabs">
+                    <button class="mtab active" data-view="today">📢 今日</button>
+                    <button class="mtab" data-view="templeton">🌍 邓</button>
+                    <button class="mtab" data-view="buffett">💰 巴</button>
+                    <button class="mtab" data-view="munger">🧠 芒</button>
                 </div>
-                <div id="dailyList" class="date-list"></div>
-                <div id="briefingDetail" class="detail-area"></div>
+                <div id="summaryContent" class="summary-content"></div>
             </div>
         </section>
 
@@ -107,7 +101,6 @@
 
     <script src="daily-data.js"></script>
     <script src="news-loader.js"></script>
-    <script src="master-views.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
