@@ -9,13 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 顶部导航 -->
     <nav class="nav">
         <span class="nav-logo">📚 学习门户</span>
+        <span class="nav-time" id="navTime"></span>
     </nav>
 
     <main class="main">
-        <!-- 主标签 -->
         <div class="tabs">
             <button class="tab active" data-tab="finance">📰 财经</button>
             <button class="tab" data-tab="ai-pm">🤖 AI产品</button>
@@ -23,43 +22,74 @@
 
         <!-- ===== 财经区 ===== -->
         <section id="finance" class="section active">
-            <!-- 子菜单 -->
             <div class="sub-tabs">
-                <button class="sub-tab active" data-sub="realtime">⚡ 实时新闻</button>
-                <button class="sub-tab" data-sub="daily">📊 每日总结</button>
+                <button class="sub-tab active" data-sub="realtime">⚡ 实时</button>
+                <button class="sub-tab" data-sub="daily">📊 总结</button>
             </div>
 
-            <!-- 子菜单：实时新闻 -->
+            <!-- 实时新闻 -->
             <div id="realtime" class="sub-content active">
-                <div id="realtimeList" class="news-list">
-                    <div class="empty-hint">加载中...</div>
+                <!-- 市场概览 -->
+                <div class="market-bar">
+                    <div class="market-item up">
+                        <span class="market-label">上证</span>
+                        <span class="market-val">3,412.56</span>
+                        <span class="market-change">+1.23%</span>
+                    </div>
+                    <div class="market-item down">
+                        <span class="market-label">恒生</span>
+                        <span class="market-val">18,234.12</span>
+                        <span class="market-change">-0.45%</span>
+                    </div>
+                    <div class="market-item up">
+                        <span class="market-label">纳斯达克</span>
+                        <span class="market-val">16,892.34</span>
+                        <span class="market-change">+0.89%</span>
+                    </div>
                 </div>
+
+                <!-- 外汇提示 -->
+                <div class="alert-card forex">
+                    <div class="alert-icon">💱</div>
+                    <div class="alert-content">
+                        <div class="alert-title">外汇提示</div>
+                        <div class="alert-text">日元跌至160关口，日本央行干预预期升温</div>
+                    </div>
+                </div>
+
+                <!-- 股市动向 -->
+                <div class="alert-card stock">
+                    <div class="alert-icon">📈</div>
+                    <div class="alert-content">
+                        <div class="alert-title">股市动向</div>
+                        <div class="alert-text">A股放量上涨，北向资金净流入超80亿</div>
+                    </div>
+                </div>
+
+                <!-- 热门新闻 TOP10 -->
+                <div class="section-label">🔥 热门 TOP 10</div>
+                <div id="hotNewsList" class="news-list"></div>
             </div>
 
-            <!-- 子菜单：每日总结 -->
+            <!-- 每日总结 -->
             <div id="daily" class="sub-content">
-                <!-- 视角筛选 -->
                 <div class="filter-row">
                     <button class="filter-btn active" data-investor="all">全部</button>
-                    <button class="filter-btn" data-investor="templeton">🌍 邓普顿</button>
-                    <button class="filter-btn" data-investor="buffett">💰 巴菲特</button>
-                    <button class="filter-btn" data-investor="munger">🧠 芒格</button>
+                    <button class="filter-btn" data-investor="templeton">🌍 邓</button>
+                    <button class="filter-btn" data-investor="buffett">💰 巴</button>
+                    <button class="filter-btn" data-investor="munger">🧠 芒</button>
                 </div>
-
-                <!-- 日期列表 -->
                 <div id="dailyList" class="date-list"></div>
-
-                <!-- 简报详情 -->
                 <div id="briefingDetail" class="detail-area"></div>
             </div>
         </section>
 
-        <!-- ===== AI产品经理区 ===== -->
+        <!-- AI产品经理区 -->
         <section id="ai-pm" class="section">
             <div class="status-bar">
                 <div class="streak">
                     <span class="streak-num" id="streakDays">0</span>
-                    <span class="streak-label">连续打卡</span>
+                    <span class="streak-label">连续</span>
                 </div>
                 <div class="progress-mini">
                     <span id="completionRate">0%</span>
@@ -68,21 +98,19 @@
                     </div>
                 </div>
             </div>
-
             <div class="knowledge-card">
                 <div class="kcard-header">
-                    <span class="kcard-badge">今日必学</span>
+                    <span class="kcard-badge">今日</span>
                     <span class="kcard-title" id="pmTitle">加载中...</span>
                 </div>
                 <div class="kcard-body" id="pmContent"></div>
                 <button class="checkin-btn" id="checkinBtn">✓ 打卡</button>
             </div>
-
             <div class="skills-row">
-                <div class="skill-item"><span class="skill-icon">🎯</span><span class="skill-name">技术理解</span></div>
-                <div class="skill-item"><span class="skill-icon">📊</span><span class="skill-name">数据思维</span></div>
-                <div class="skill-item"><span class="skill-icon">💡</span><span class="skill-name">产品设计</span></div>
-                <div class="skill-item"><span class="skill-icon">🤝</span><span class="skill-name">团队协作</span></div>
+                <div class="skill-item"><span>🎯</span><span>技术</span></div>
+                <div class="skill-item"><span>📊</span><span>数据</span></div>
+                <div class="skill-item"><span>💡</span><span>设计</span></div>
+                <div class="skill-item"><span>🤝</span><span>协作</span></div>
             </div>
         </section>
     </main>
