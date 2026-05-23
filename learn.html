@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI产品经理7天学习计划</title>
+    <link rel="stylesheet" href="learn-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部 -->
+    <nav class="nav">
+        <a href="index.html" class="nav-back">← 返回</a>
+        <span class="nav-title">AI产品经理学习</span>
+        <button class="nav-share" id="shareBtn">📤</button>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main">
+        <!-- 进度总览 -->
+        <div class="progress-overview" id="progressOverview">
+            <div class="progress-ring">
+                <svg viewBox="0 0 100 100">
+                    <circle class="ring-bg" cx="50" cy="50" r="45"/>
+                    <circle class="ring-fill" cx="50" cy="50" r="45" id="progressRing"/>
+                </svg>
+                <div class="ring-text">
+                    <span id="progressPercent">0</span>%
+                </div>
+            </div>
+            <div class="progress-info">
+                <h3>学习进度</h3>
+                <p>已完成 <strong id="completedDays">0</strong>/7 天</p>
+                <div class="streak-info">
+                    <span>🔥 连续 <strong id="streakCount">0</strong> 天</span>
+                    <span>⭐ 获得 <strong id="totalStars">0</strong> 颗星</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7天课程列表 -->
+        <div class="course-list" id="courseList"></div>
+    </main>
+
+    <!-- 每日详情弹窗 -->
+    <div class="modal hidden" id="dayModal">
+        <div class="modal-sheet">
+            <div class="modal-handle"></div>
+            <div class="modal-header">
+                <h2 id="modalTitle">Day 1</h2>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- 动态内容 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 分享弹窗 -->
+    <div class="modal hidden" id="shareModal">
+        <div class="modal-sheet small">
+            <div class="modal-handle"></div>
+            <h3>分享学习进度</h3>
+            <div class="share-content">
+                <div class="share-card" id="shareCard">
+                    <div class="share-title">📚 AI产品经理学习打卡</div>
+                    <div class="share-progress">
+                        已完成 <span id="shareDays">0</span>/7 天
+                    </div>
+                    <div class="share-stars" id="shareStars"></div>
+                    <div class="share-link" id="shareLink"></div>
+                </div>
+                <button class="copy-btn" id="copyBtn">复制链接</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="learn-app.js"></script>
+</body>
+</html>
