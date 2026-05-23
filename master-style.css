@@ -1,124 +1,168 @@
-/* ===== 大师观点样式 ===== */
-.master-tabs {
-    display: flex;
-    gap: 8px;
+/* ===== 总结页签样式 ===== */
+.schedule-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
     margin-bottom: 16px;
 }
 
-.master-tab {
-    flex: 1;
-    padding: 10px 8px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--card);
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text2);
-    cursor: pointer;
-    transition: all 0.2s;
+.schedule-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
-.master-tab.active {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.master-header {
+.schedule-item {
     display: flex;
     align-items: center;
     gap: 12px;
+    padding: 10px;
+    background: var(--bg);
+    border-radius: 8px;
+}
+
+.schedule-time {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+    min-width: 50px;
+}
+
+.schedule-info { flex: 1; }
+
+.schedule-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.schedule-desc {
+    font-size: 11px;
+    color: var(--text2);
+}
+
+/* 大师选择卡片 */
+.master-section {
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.master-cards {
+    display: flex;
+    gap: 8px;
+}
+
+.master-card {
+    flex: 1;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 12px 8px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.master-card:active { transform: scale(0.95); }
+
+.master-card.selected {
+    border-color: var(--primary);
+    background: rgba(99,102,241,0.05);
+}
+
+.mc-icon { font-size: 24px; display: block; margin-bottom: 4px; }
+.mc-name { font-size: 12px; font-weight: 600; display: block; }
+.mc-hint { font-size: 10px; color: var(--text2); }
+
+/* 大师详情 */
+.master-profile {
     background: linear-gradient(135deg, #667eea, #764ba2);
     border-radius: var(--radius);
     padding: 16px;
-    margin-bottom: 12px;
     color: white;
+    margin-bottom: 12px;
 }
 
-.master-icon {
-    font-size: 36px;
-}
-
-.master-name {
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.master-title {
-    font-size: 12px;
-    opacity: 0.8;
-}
-
-.master-quote {
-    font-style: italic;
-    color: var(--text2);
-    font-size: 13px;
-    padding: 12px 16px;
-    background: var(--card);
-    border-radius: var(--radius);
-    margin-bottom: 16px;
-    border-left: 3px solid var(--primary);
-}
-
-.master-views {
+.mp-header {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 12px;
+    margin-bottom: 8px;
 }
 
+.mp-icon { font-size: 32px; }
+.mp-name { font-size: 16px; font-weight: 700; }
+.mp-title { font-size: 11px; opacity: 0.8; }
+
+.mp-quote {
+    font-size: 12px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* 观点卡片 */
 .view-card {
     background: var(--card);
     border-radius: var(--radius);
     padding: 14px;
     box-shadow: var(--shadow);
+    margin-bottom: 10px;
 }
 
 .view-event {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
 }
 
-.view-section {
+.view-row {
+    display: flex;
+    gap: 10px;
     margin-bottom: 10px;
 }
 
+.view-col { flex: 1; }
+
 .view-label {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     color: var(--text2);
     margin-bottom: 4px;
 }
 
 .view-text {
-    font-size: 13px;
-    line-height: 1.6;
+    font-size: 12px;
+    line-height: 1.5;
 }
 
 .view-tip {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
     background: #fff9e6;
-    border-radius: 8px;
-    padding: 10px;
-    margin-top: 10px;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    color: #856404;
+    margin-bottom: 6px;
 }
-
-.tip-icon { font-size: 16px; flex-shrink: 0; }
-.tip-text { font-size: 12px; font-weight: 500; color: #856404; }
 
 .view-action {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
     background: #e8f5e9;
-    border-radius: 8px;
-    padding: 10px;
-    margin-top: 8px;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    color: #155724;
 }
-
-.action-icon { font-size: 16px; flex-shrink: 0; }
-.action-text { font-size: 12px; font-weight: 500; color: #155724; }
