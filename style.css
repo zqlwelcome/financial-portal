@@ -272,7 +272,53 @@ body {
     justify-content: center;
     align-items: center;
     gap: 24px;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
+}
+
+/* ===== Investor Filter ===== */
+.investor-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 32px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.investor-filter::-webkit-scrollbar {
+    display: none;
+}
+
+.investor-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border: 1px solid var(--border);
+    border-radius: 980px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.investor-btn:hover {
+    border-color: #667eea;
+}
+
+.investor-btn.active {
+    background: var(--gradient-1);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.investor-icon {
+    font-size: 16px;
 }
 
 .date-arrow {

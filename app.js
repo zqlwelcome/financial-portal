@@ -89,11 +89,13 @@ let checkedDays = JSON.parse(localStorage.getItem(STORAGE.CHECKIN) || '[]');
 let briefingsCache = JSON.parse(localStorage.getItem(STORAGE.CACHE) || '{}');
 let allBriefings = [];
 let selectedDate = null;
+let selectedInvestor = 'all';
 
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', () => {
     initScrollEffects();
     initDatePicker();
+    initInvestorFilter();
     loadBriefings();
     renderDailyCard();
     renderProgress();
@@ -118,6 +120,85 @@ function initScrollEffects() {
             if (target) target.scrollIntoView({ behavior: 'smooth' });
         });
     });
+}
+
+// ===== Investor Filter =====
+function initInvestorFilter() {
+    document.querySelectorAll('.investor-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.investor-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedInvestor = btn.dataset.investor;
+            
+            // 重新渲染当前选中日期的简报
+            if (selectedDate) {
+                const items = allBriefings.filter(b => b.date === selectedDate);
+                renderBriefingDetail(items);
+            }
+        });
+    });
+}
+
+function filterContentByInvestor(content, investor) {
+    if (investor === 'all') return content;
+    
+    const lines = content.split('\n');
+    const filtered = [];
+    let inTargetSection = false;
+    let sectionFound = false;
+    
+    const investorKeywords = {
+        templeton: ['邓普顿', 'templeton'],
+        buffett: ['巴菲特', 'buffett'],
+        munger: ['芒格', 'munger']
+    };
+    
+    const keywords = investorKeywords[investor] || [];
+    
+    for (const line of lines) {
+        const lowerLine = line.toLowerCase();
+        
+        // 检查是否是视角部分的标题
+        if (lowerLine.includes('三视角') || lowerLine.includes('速评')) {
+            filtered.push(line);
+            inTargetSection = true;
+            continue;
+        }
+        
+        // 在视角部分中
+        if (inTargetSection) {
+            const isTargetInvestor = keywords.some(kw => lowerLine.includes(kw));
+            if (isTargetInvestor) {
+                filtered.push(line);
+                sectionFound = true;
+            }
+            // 如果遇到新的部分标题，停止过滤
+            if (line.startsWith('⚡') || line.startsWith('🎯') || line.startsWith('📌')) {
+                inTargetSection = false;
+            }
+        } else {
+            // 非视角部分，保留标题和其他重要信息
+            if (line.startsWith('📊') || line.startsWith('🔥') || line.startsWith('📌') || 
+                line.startsWith('💡') || line.startsWith('⚡') || line.startsWith('🎯')) {
+                filtered.push(line);
+            } else if (!inTargetSection && filtered.length > 0 && keywords.length === 0) {
+                filtered.push(line);
+            }
+        }
+    }
+    
+    // 如果找到了目标投资人内容，返回过滤后的内容
+    if (sectionFound) {
+        // 添加投资人标签
+        const investorLabels = {
+            templeton: '🌍 邓普顿视角',
+            buffett: '💰 巴菲特视角',
+            munger: '🧠 芒格视角'
+        };
+        return `${investorLabels[investor]}\n\n${filtered.join('\n')}`;
+    }
+    
+    return content;
 }
 
 // ===== Load Briefings =====
@@ -253,15 +334,20 @@ function renderBriefingDetail(items) {
     }
     
     detailContainer.classList.remove('hidden');
-    detailContainer.innerHTML = items.map(item => `
-        <div class="briefing-card">
-            <div class="briefing-header">
-                <span class="briefing-type">${item.label}</span>
-                <span class="briefing-time">${item.time}</span>
+    detailContainer.innerHTML = items.map(item => {
+        // 根据选中的投资人过滤内容
+        const displayContent = filterContentByInvestor(item.content, selectedInvestor);
+        
+        return `
+            <div class="briefing-card">
+                <div class="briefing-header">
+                    <span class="briefing-type">${item.label}</span>
+                    <span class="briefing-time">${item.time}</span>
+                </div>
+                <div class="briefing-content">${formatContent(displayContent)}</div>
             </div>
-            <div class="briefing-content">${formatContent(item.content)}</div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function formatContent(content) {
