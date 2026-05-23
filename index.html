@@ -1,99 +1,96 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>学习门户</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="alert-style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <nav class="nav">
-        <span class="nav-logo">📚 学习门户</span>
-        <span class="nav-time" id="navTime"></span>
-    </nav>
-
-    <main class="main">
-        <div class="tabs">
-            <button class="tab active" data-tab="finance">📰 财经</button>
-            <button class="tab" data-tab="ai-pm">🤖 AI产品</button>
-        </div>
-
-        <!-- 财经区 -->
-        <section id="finance" class="section active">
-            <div class="sub-tabs">
-                <button class="sub-tab active" data-sub="realtime">⚡ 实时</button>
-                <button class="sub-tab" data-sub="daily">📊 总结</button>
-            </div>
-
-            <!-- 实时新闻 -->
-            <div id="realtime" class="sub-content active">
-                <div class="market-bar">
-                    <div class="market-item" id="shIndex">
-                        <span class="market-label">上证</span>
-                        <span class="market-val">--</span>
-                        <span class="market-change">--</span>
-                    </div>
-                    <div class="market-item" id="hkIndex">
-                        <span class="market-label">恒生</span>
-                        <span class="market-val">--</span>
-                        <span class="market-change">--</span>
-                    </div>
-                    <div class="market-item" id="usIndex">
-                        <span class="market-label">纳斯达克</span>
-                        <span class="market-val">--</span>
-                        <span class="market-change">--</span>
-                    </div>
-                </div>
-                <div id="alertArea"></div>
-                <div class="section-header">
-                    <span class="section-label">🔥 热门 TOP 10</span>
-                    <span class="refresh-hint" id="refreshHint">下拉刷新</span>
-                </div>
-                <div id="hotNewsList" class="news-list"></div>
-            </div>
-
-            <!-- 总结 -->
-            <div id="daily" class="sub-content">
-                <!-- 苹果风格分段控制器 -->
-                <div class="segment-control">
-                    <button class="segment active" data-view="today">今日</button>
-                    <button class="segment" data-view="templeton">🌍 邓普顿</button>
-                    <button class="segment" data-view="buffett">💰 巴菲特</button>
-                    <button class="segment" data-view="munger">🧠 芒格</button>
-                </div>
-                <div id="summaryContent" class="summary-scroll"></div>
-            </div>
-        </section>
-
-        <!-- AI产品经理区 -->
-        <section id="ai-pm" class="section">
-            <div class="status-bar">
-                <div class="streak">
-                    <span class="streak-num" id="streakDays">0</span>
-                    <span class="streak-label">连续</span>
-                </div>
-                <div class="progress-mini">
-                    <span id="completionRate">0%</span>
-                    <div class="progress-bar-mini">
-                        <div class="progress-fill-mini" id="progressFill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="knowledge-card">
-                <div class="kcard-header">
-                    <span class="kcard-badge">今日</span>
-                    <span class="kcard-title" id="pmTitle">加载中...</span>
-                </div>
-                <div class="kcard-body" id="pmContent"></div>
-                <a href="learn.html" style="display:block;text-align:center;padding:12px;background:rgba(255,255,255,0.2);border-radius:10px;color:white;text-decoration:none;font-weight:500;margin-top:12px;">📚 开始学习</a>
-        </section>
-    </main>
-
-    <script src="daily-data.js"></script>
-    <script src="news-loader.js"></script>
-    <script src="app.js"></script>
-</body>
-</html>
+     1|<!DOCTYPE html>
+     2|<html lang="zh-CN">
+     3|<head>
+     4|    <meta charset="UTF-8">
+     5|    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+     6|    <title>学习门户</title>
+     7|    <link rel="stylesheet" href="style.css">
+     8|    <link rel="stylesheet" href="alert-style.css">
+     9|    <link rel="preconnect" href="https://fonts.googleapis.com">
+    10|    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    11|</head>
+    12|<body>
+    13|    <nav class="nav">
+    14|        <span class="nav-logo">📚 学习门户</span>
+    15|        <span class="nav-time" id="navTime"></span>
+    16|    </nav>
+    17|
+    18|    <main class="main">
+    19|        <div class="tabs">
+    20|            <button class="tab active" data-tab="finance">📰 财经</button>
+    21|            <button class="tab" data-tab="ai-pm">🤖 AI产品</button>
+    22|        </div>
+    23|
+    24|        <!-- 财经区 -->
+    25|        <section id="finance" class="section active">
+    26|            <div class="sub-tabs">
+    27|                <button class="sub-tab active" data-sub="realtime">⚡ 实时</button>
+    28|                <button class="sub-tab" data-sub="daily">📊 总结</button>
+    29|            </div>
+    30|
+    31|            <!-- 实时新闻 -->
+    32|            <div id="realtime" class="sub-content active">
+    33|                <div class="market-bar">
+    34|                    <div class="market-item" id="shIndex">
+    35|                        <span class="market-label">上证</span>
+    36|                        <span class="market-val">--</span>
+    37|                        <span class="market-change">--</span>
+    38|                    </div>
+    39|                    <div class="market-item" id="hkIndex">
+    40|                        <span class="market-label">恒生</span>
+    41|                        <span class="market-val">--</span>
+    42|                        <span class="market-change">--</span>
+    43|                    </div>
+    44|                    <div class="market-item" id="usIndex">
+    45|                        <span class="market-label">纳斯达克</span>
+    46|                        <span class="market-val">--</span>
+    47|                        <span class="market-change">--</span>
+    48|                    </div>
+    49|                </div>
+    50|                <div id="alertArea"></div>
+    51|                <div class="section-header">
+    52|                    <span class="section-label">🔥 热门 TOP 10</span>
+    53|                    <span class="refresh-hint" id="refreshHint">下拉刷新</span>
+    54|                </div>
+    55|                <div id="hotNewsList" class="news-list"></div>
+    56|            </div>
+    57|
+    58|            <!-- 总结 -->
+    59|            <div id="daily" class="sub-content">
+    60|                <!-- 苹果风格分段控制器 -->
+    61|                <div class="segment-control">
+    62|                    <button class="segment active" data-view="today">今日</button>
+    63|                    <button class="segment" data-view="templeton">🌍 邓普顿</button>
+    64|                    <button class="segment" data-view="buffett">💰 巴菲特</button>
+    65|                    <button class="segment" data-view="munger">🧠 芒格</button>
+    66|                </div>
+    67|                <div id="summaryContent" class="summary-scroll"></div>
+    68|            </div>
+    69|        </section>
+    70|
+    71|        <!-- AI产品经理区 -->
+    72|        <section id="ai-pm" class="section">
+    73|            <div class="status-bar">
+    74|                <div class="streak">
+    75|                    <span class="streak-num" id="streakDays">0</span>
+    76|                    <span class="streak-label">连续</span>
+    77|                </div>
+    78|                <div class="progress-mini">
+    79|                    <span id="completionRate">0%</span>
+    80|                    <div class="progress-bar-mini">
+    81|                        <div class="progress-fill-mini" id="progressFill" style="width: 0%"></div>
+    82|                    </div>
+    83|                </div>
+    84|            </div>
+            <div id="courseList" class="course-list"></div>
+    85|        </section>
+    86|    </main>
+    87|
+    88|    <script src="daily-data.js"></script>
+    89|    <script src="news-loader.js"></script>
+    90|    <script src="course-data.js"></script>
+    91|    <script src="course-app.js"></script>
+    92|    <script src="app.js"></script>
+    93|</body>
+    94|</html>
+    95|
