@@ -1,221 +1,101 @@
 /**
- * 财经总结 - 精简版
+ * 总结页签内容
  */
 
-// ===== 今日详细简报 =====
-const TODAY_BRIEFING = {
-    date: '今天',
-    periods: [
-        {
-            time: 'morning',
-            label: '🌅 早间财经 08:00',
-            summary: '美联储鸽派信号提振市场，A股高开',
-            content: `🔥 今日头条
-
-美联储主席鲍威尔昨晚释放鸽派信号，暗示年内可能降息两次。受此影响，美股三大指数集体收涨，纳指涨超2%。A股今日高开，沪指直接站上3400点。
-
-📌 市场焦点
-
-1. 美联储政策转向：鲍威尔明确表示"通胀正在回落"，市场解读为6月可能开始降息。美元指数应声下跌，人民币汇率升破7.2。
-
-2. 北向资金涌入：早盘北向资金净流入超80亿，创近三个月新高。外资重点加仓白酒、新能源板块，贵州茅台获净买入12亿居首。
-
-3. 新能源爆发：宁德时代昨日发布固态电池量产时间表，今日高开5%。带动锂电池、光伏板块集体上涨。
-
-💡 三视角速评
-
-🌍 邓普顿：全球流动性拐点已现，新兴市场将迎来估值修复窗口。建议关注被低估的港股和A股消费龙头。
-
-💰 巴菲特：优质资产在恐慌时被打折，现在是长期投资者布局的好时机。重点看现金流稳定的消费和医药。
-
-🧠 芒格：不要被短期波动左右，投资决策应基于企业内在价值。当前市场情绪从恐慌转向乐观，需要保持理性。
-
-⚡ 今日关注
-
-下午关注美国CPI数据，若低于预期将进一步强化降息预期。黄金和有色金属可能继续走强。`
-        },
-        {
-            time: 'noon',
-            label: '☀️ 午间财经 12:00',
-            summary: 'A股放量上涨，券商板块领涨',
-            content: `🔥 今日头条
-
-A股三大指数午间全线收涨，沪指涨1.5%重返3400点，成交额突破万亿大关。市场情绪明显回暖，涨停个股超百家。
-
-📌 午间盘点
-
-1. 券商板块暴动：中信证券涨超8%，整个券商板块涨4.2%。市场解读为牛市启动信号，资金抢筹券商股。
-
-2. 北向资金持续流入：截至午间收盘，北向资金净流入已达120亿，超过昨日全天。外资似乎在"抢筹"优质资产。
-
-3. 房地产回暖：万科A涨超5%，保利发展涨4%。多地取消限购政策效果显现，4月销售数据超预期。
-
-💡 三视角速评
-
-🌍 邓普顿：市场从极度悲观转向乐观，这是典型的"行情在绝望中诞生"。但要警惕短期过热。
-
-💰 巴菲特：券商股上涨通常预示市场信心恢复，但追高需谨慎。建议关注估值合理的蓝筹股。
-
-🧠 芒格：成交量放大说明资金在入场，但要看持续性。单日放量不代表趋势，至少观察一周。
-
-⚡ 下午看点
-
-关注尾盘资金动向，若北向资金继续流入，明天可能惯性上冲。注意3450点压力位。`
-        },
-        {
-            time: 'evening',
-            label: '🌆 晚间财经 19:00',
-            summary: '美股期货走强，关注晚间CPI',
-            content: `🔥 今日头条
-
-A股收盘后，美股期货继续走强，标普500期货涨0.5%。市场等待今晚8:30公布的美国4月CPI数据，这将决定美联储降息节奏。
-
-📌 晚间关注
-
-1. 美国CPI预期：市场预期4月CPI同比上涨3.4%，低于上月的3.5%。若数据低于预期，黄金可能冲击2450美元。
-
-2. 比特币站稳10.5万：机构资金持续流入比特币ETF，灰度单日净流入创纪录。分析师预测年内可能突破12万。
-
-3. 欧洲央行表态：欧央行行长拉加德暗示6月可能降息25个基点，欧元承压，美元指数小幅反弹。
-
-💡 三视角速评
-
-🌍 邓普顿：全球央行同步转向宽松，这是难得的"流动性盛宴"。但要警惕资产泡沫风险。
-
-💰 巴菲特：当前环境下，持有现金不如持有优质股权。建议配置消费、科技、医疗三大赛道。
-
-🧠 芒格：降息预期已部分price in，真正的机会在"预期差"。关注那些被市场忽视的细分龙头。
-
-⚡ 明日展望
-
-若今晚CPI数据配合，明天A股可能继续上攻。关注3450-3500点区间压力，突破需要持续放量。`
-        }
-    ]
-};
-
-// ===== 前天简报 =====
-const YESTERDAY_BRIEFING = {
-    date: '昨天',
-    periods: [
-        {
-            time: 'morning',
-            label: '🌅 早间财经 08:00',
-            summary: '政策组合拳发力，A股强势反弹',
-            content: `🔥 今日头条
-
-昨日央行宣布降准0.5个百分点，释放长期资金约1万亿。叠加房地产新政效果显现，A股迎来久违的大涨。
-
-📌 核心要点
-
-1. 降准超预期：央行选择在经济数据公布前降准，释放强烈稳增长信号。市场预期后续还有降息空间。
-
-2. 地产链爆发：地产板块涨停潮，万科、保利、招商蛇口集体涨停。4月商品房销售面积环比增长15%。
-
-3. 北向资金创纪录：单日净流入超150亿，创近一年新高。外资似乎在"抄底"中国资产。
-
-💡 三视角速评
-
-🌍 邓普顿：中国资产被严重低估，政策底已现，市场底正在确认。港股恒生指数可能修复至20000点。
-
-💰 巴菲特：降准利好银行和地产，但不要追高。等回调后再考虑布局招商银行等优质标的。
-
-🧠 芒格：政策利好是交易机会，不是投资机会。真正的投资者看的是3-5年，不是3-5天。
-
-⚡ 投资建议
-
-短期可参与反弹，但要设好止损。中长期建议配置消费、科技ETF，避免追高题材股。`
-        },
-        {
-            time: 'noon',
-            label: '☀️ 午间财经 12:00',
-            summary: '市场放量上攻，情绪显著回暖',
-            content: `🔥 今日头条
-
-A股延续强势，沪指半日涨2.1%，成交额达6800亿，预计全天突破万亿。市场已从悲观情绪中走出。
-
-📌 盘面分析
-
-1. 量价齐升：这是最健康的上涨模式。成交额较昨日放大50%，说明增量资金在进场。
-
-2. 板块轮动：上午是券商、地产领涨，中午切换到消费、科技。资金在寻找估值洼地。
-
-3. 个股普涨：上涨个股超4000家，涨停超150家。市场已从"结构性行情"转向"全面行情"。
-
-💡 三视角速评
-
-🌍 邓普顿：牛市初期特征明显——成交量放大、板块轮动、个股普涨。但要保持冷静，不要all in。
-
-💰 巴菲特：别人贪婪时我恐惧。当前涨幅已透支部分预期，建议等待回调后再加仓。
-
-🧠 芒格：涨的时候要想到跌，跌的时候要想到涨。现在应该思考：如果明天跌3%，我该怎么办？
-
-⚡ 下午策略
-
-关注能否站稳3400点。若站稳，可适当加仓；若冲高回落，说明短期压力较大，宜观望。`
-        },
-        {
-            time: 'evening',
-            label: '🌆 晚间财经 19:00',
-            summary: 'A股放量收涨，美股开盘走强',
-            content: `🔥 今日头条
-
-A股收盘大涨，沪指涨2.5%收于3420点，成交额突破1.1万亿。美股开盘后纳指涨1.2%，市场情绪延续乐观。
-
-📌 收盘总结
-
-1. 全天复盘：沪指从3340涨到3420，涨幅2.5%。成交额1.1万亿，创近三个月新高。北向资金全天净流入135亿。
-
-2. 板块涨幅榜：券商(+5.2%)、地产(+4.8%)、新能源(+3.5%)、消费(+2.8%)。银行、保险表现相对平淡。
-
-3. 资金面：两融余额增加80亿，说明杠杆资金也在入场。这是牛市中期的典型特征。
-
-💡 三视角速评
-
-🌍 邓普顿：中国资产重估正在进行。从估值看，沪深300市盈率仅12倍，远低于历史中枢。
-
-💰 巴菲特：牛市中后期才需要谨慎，现在还在早期。优质核心资产可以长期持有。
-
-🧠 芒格：市场已经涨了两天，第三天还能涨吗？历史经验告诉我们，连涨三天后要警惕回调。
-
-⚡ 明日预判
-
-技术面看，3450点是强压力位。若能放量突破，则打开上涨空间；若受阻回落，可能回踩3380支撑。`
-        }
-    ]
-};
-
-// ===== 渲染总结 =====
+// ===== 更新时间表 =====
+const UPDATE_SCHEDULE = [
+    { time: '08:00', label: '🌅 早间财经', desc: '全球市场开盘前，隔夜重要事件总结' },
+    { time: '12:00', label: '☀️ 午间财经', desc: 'A股午盘，上午市场动态' },
+    { time: '19:00', label: '🌆 晚间财经', desc: '美股开盘，全天市场回顾' },
+    { time: '00:00', label: '🌙 深夜财经', desc: '美股收盘，明日展望' }
+];
+
+// ===== 渲染总结内容 =====
 function renderDailySummary() {
     const el = document.getElementById('dailyList');
     
-    el.innerHTML = [TODAY_BRIEFING, YESTERDAY_BRIEFING].map(briefing => `
-        <div class="briefing-group">
-            <div class="briefing-date">${briefing.date}</div>
-            ${briefing.periods.map(p => `
-                <div class="period-card" onclick="togglePeriod(this)">
-                    <div class="period-header">
-                        <span class="period-label">${p.label}</span>
-                        <span class="period-arrow">›</span>
+    el.innerHTML = `
+        <div class="schedule-card">
+            <div class="schedule-title">📢 定时推送时间</div>
+            <div class="schedule-list">
+                ${UPDATE_SCHEDULE.map(s => `
+                    <div class="schedule-item">
+                        <div class="schedule-time">${s.time}</div>
+                        <div class="schedule-info">
+                            <div class="schedule-label">${s.label}</div>
+                            <div class="schedule-desc">${s.desc}</div>
+                        </div>
                     </div>
-                    <div class="period-summary">${p.summary}</div>
-                    <div class="period-content">${p.content.replace(/\n/g, '<br>')}</div>
-                </div>
-            `).join('')}
+                `).join('')}
+            </div>
         </div>
-    `).join('');
+        
+        <div class="master-section">
+            <div class="section-title">💡 投资大师观点</div>
+            <div class="master-cards">
+                <div class="master-card" onclick="showMaster('templeton')">
+                    <span class="mc-icon">🌍</span>
+                    <span class="mc-name">邓普顿</span>
+                    <span class="mc-hint">逆向投资</span>
+                </div>
+                <div class="master-card" onclick="showMaster('buffett')">
+                    <span class="mc-icon">💰</span>
+                    <span class="mc-name">巴菲特</span>
+                    <span class="mc-hint">价值投资</span>
+                </div>
+                <div class="master-card" onclick="showMaster('munger')">
+                    <span class="mc-icon">🧠</span>
+                    <span class="mc-name">芒格</span>
+                    <span class="mc-hint">多元思维</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="masterDetail"></div>
+    `;
 }
 
-// ===== 展开/收起 =====
-function togglePeriod(card) {
-    const wasExpanded = card.classList.contains('expanded');
+// ===== 显示大师详情 =====
+function showMaster(masterId) {
+    const master = MASTER_VIEWS[masterId];
+    const el = document.getElementById('masterDetail');
     
-    // 先收起所有
-    document.querySelectorAll('.period-card').forEach(c => {
-        c.classList.remove('expanded');
-    });
+    // 切换选中状态
+    document.querySelectorAll('.master-card').forEach(c => c.classList.remove('selected'));
+    event.currentTarget.classList.add('selected');
     
-    // 如果之前没展开，现在展开
-    if (!wasExpanded) {
-        card.classList.add('expanded');
-    }
+    el.innerHTML = `
+        <div class="master-profile">
+            <div class="mp-header">
+                <span class="mp-icon">${master.icon}</span>
+                <div class="mp-info">
+                    <div class="mp-name">${master.name}</div>
+                    <div class="mp-title">${master.title}</div>
+                </div>
+            </div>
+            <div class="mp-quote">"${master.philosophy}"</div>
+        </div>
+        
+        ${master.recentViews.map(view => `
+            <div class="view-card">
+                <div class="view-event">📌 ${view.event}</div>
+                <div class="view-row">
+                    <div class="view-col">
+                        <div class="view-label">🌍 宏观</div>
+                        <div class="view-text">${view.macro}</div>
+                    </div>
+                    <div class="view-col">
+                        <div class="view-label">🔍 微观</div>
+                        <div class="view-text">${view.micro}</div>
+                    </div>
+                </div>
+                <div class="view-tip">
+                    <span>💡</span> ${view.tip}
+                </div>
+                <div class="view-action">
+                    <span>⚡</span> ${view.action}
+                </div>
+            </div>
+        `).join('')}
+    `;
 }
