@@ -9,241 +9,116 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 顶部导航 -->
+    <!-- 顶部导航 - 紧凑 -->
     <nav class="nav">
-        <div class="nav-content">
-            <span class="nav-logo">学习</span>
-            <div class="nav-links">
-                <a href="#hero" class="nav-link active">首页</a>
-                <a href="#news-section" class="nav-link">财经</a>
-                <a href="#ai-section" class="nav-link">AI产品</a>
-            </div>
-        </div>
+        <span class="nav-logo">📚 学习门户</span>
     </nav>
 
-    <!-- Hero 区域 -->
-    <section class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="gradient-text">每日精进</span>
-                <br>成就更好的自己
-            </h1>
-            <p class="hero-subtitle">
-                财经洞察 · AI思维 · 持续成长
-            </p>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number" id="totalDays">0</span>
-                    <span class="stat-label">学习天数</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number" id="totalCheckins">0</span>
-                    <span class="stat-label">完成打卡</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number" id="streakDays">0</span>
-                    <span class="stat-label">连续天数</span>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>向下滚动</span>
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
-
-    <!-- 财经简报区 -->
-    <section class="section" id="news-section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">财经洞察</span>
-                <h2 class="section-title">每日财经简报</h2>
-                <p class="section-desc">三重视角，洞悉市场脉搏</p>
-            </div>
-
-            <!-- 日期选择器 -->
-            <div class="date-picker">
-                <button class="date-arrow" id="prevDay">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M15 18l-6-6 6-6"/>
-                    </svg>
-                </button>
-                <div class="date-display">
-                    <span class="date-text" id="currentDate">今天</span>
-                </div>
-                <button class="date-arrow" id="nextDay">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 18l6-6-6-6"/>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- 投资人视角切换 -->
-            <div class="investor-filter">
-                <button class="investor-btn active" data-investor="all">全部</button>
-                <button class="investor-btn" data-investor="templeton">
-                    <span class="investor-icon">🌍</span> 邓普顿
-                </button>
-                <button class="investor-btn" data-investor="buffett">
-                    <span class="investor-icon">💰</span> 巴菲特
-                </button>
-                <button class="investor-btn" data-investor="munger">
-                    <span class="investor-icon">🧠</span> 芒格
-                </button>
-            </div>
-
-            <!-- 新闻卡片 -->
-            <div class="news-grid" id="newsList">
-                <div class="empty-state">
-                    <div class="empty-icon">📰</div>
-                    <p>暂无简报</p>
-                    <p class="empty-hint">每日 8:00 / 12:00 / 19:00 / 00:00 自动更新</p>
-                </div>
-            </div>
-
-            <!-- 简报详情 -->
-            <div id="briefingDetail" class="briefing-detail hidden"></div>
-
-            <!-- 添加按钮 -->
-            <button class="add-btn" id="addNews">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14"/>
-                </svg>
+    <!-- 主内容区 - 单栏紧凑布局 -->
+    <main class="main">
+        <!-- 标签切换 -->
+        <div class="tabs">
+            <button class="tab active" data-tab="news">
+                <span>📰</span> 财经
+            </button>
+            <button class="tab" data-tab="ai-pm">
+                <span>🤖</span> AI产品
             </button>
         </div>
-    </section>
 
-    <!-- AI产品经理区 -->
-    <section class="section section-dark" id="ai-section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag tag-light">AI产品</span>
-                <h2 class="section-title title-light">产品经理每日打卡</h2>
-                <p class="section-desc desc-light">掌握核心技能，引领AI时代</p>
+        <!-- ===== 财经简报区 ===== -->
+        <section id="news" class="section active">
+            <!-- 视角切换 - 紧凑横向 -->
+            <div class="filter-row">
+                <button class="filter-btn active" data-investor="all">全部</button>
+                <button class="filter-btn" data-investor="templeton">🌍 邓</button>
+                <button class="filter-btn" data-investor="buffett">💰 巴</button>
+                <button class="filter-btn" data-investor="munger">🧠 芒</button>
             </div>
 
-            <!-- 今日卡片 -->
-            <div class="daily-card-apple">
-                <div class="card-glow"></div>
-                <div class="card-inner">
-                    <div class="card-badge">
-                        <span class="badge-dot"></span>
-                        今日必学
-                    </div>
-                    <h3 class="card-title" id="pmTitle">加载中...</h3>
-                    <div class="card-body" id="pmContent"></div>
-                    
-                    <!-- 打卡按钮 -->
-                    <div class="checkin-wrapper">
-                        <button class="checkin-btn-apple" id="checkinBtn">
-                            <span class="btn-content">
-                                <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5"/>
-                                </svg>
-                                <span>完成今日打卡</span>
-                            </span>
-                        </button>
-                        <div class="checkin-done hidden" id="checkinStatus">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <path d="M20 6L9 17l-5-5"/>
-                            </svg>
-                            已完成
-                        </div>
+            <!-- 日期列表 - 紧凑卡片 -->
+            <div id="newsList" class="compact-list">
+                <div class="empty-hint">加载中...</div>
+            </div>
+
+            <!-- 简报详情 - 内联展开 -->
+            <div id="briefingDetail" class="detail-area hidden"></div>
+        </section>
+
+        <!-- ===== AI产品经理区 ===== -->
+        <section id="ai-pm" class="section">
+            <!-- 打卡状态条 -->
+            <div class="status-bar">
+                <div class="streak">
+                    <span class="streak-num" id="streakDays">0</span>
+                    <span class="streak-label">连续</span>
+                </div>
+                <div class="progress-mini">
+                    <span id="completionRate">0%</span>
+                    <div class="progress-bar-mini">
+                        <div class="progress-fill-mini" id="progressFill" style="width: 0%"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- 知识模块列表 -->
-            <div class="knowledge-grid">
-                <div class="knowledge-card">
-                    <div class="kcard-icon">🎯</div>
-                    <h4>技术理解力</h4>
-                    <p>理解ML/DL原理，与工程师有效沟通</p>
+            <!-- 今日知识点 - 紧凑卡片 -->
+            <div class="knowledge-card">
+                <div class="kcard-header">
+                    <span class="kcard-badge">今日必学</span>
+                    <span class="kcard-title" id="pmTitle">加载中...</span>
                 </div>
-                <div class="knowledge-card">
-                    <div class="kcard-icon">📊</div>
-                    <h4>数据思维</h4>
-                    <p>数据驱动决策，理解数据质量影响</p>
-                </div>
-                <div class="knowledge-card">
-                    <div class="kcard-icon">💡</div>
-                    <h4>产品设计力</h4>
-                    <p>将AI能力转化为用户价值</p>
-                </div>
-                <div class="knowledge-card">
-                    <div class="kcard-icon">🤝</div>
-                    <h4>跨团队协作</h4>
-                    <p>协调算法、工程、业务团队</p>
-                </div>
-            </div>
-
-            <!-- 进度条 -->
-            <div class="progress-apple">
-                <div class="progress-header">
-                    <span class="progress-title">本月进度</span>
-                    <span class="progress-value" id="completionRate">0%</span>
-                </div>
-                <div class="progress-track">
-                    <div class="progress-fill-apple" id="progressFill" style="width: 0%"></div>
-                </div>
-                <div class="progress-meta">
-                    <span>已完成 <strong id="completedCount">0</strong> 天</span>
-                    <span>连续 <strong id="streakCount">0</strong> 天</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 底部 -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p class="footer-text">每日精进，成就更好的自己</p>
-            <p class="footer-copy">© 2024 学习门户</p>
-        </div>
-    </footer>
-
-    <!-- 新增弹窗 -->
-    <div class="modal-overlay hidden" id="addNewsModal">
-        <div class="modal-apple">
-            <div class="modal-header-apple">
-                <h3>添加新闻</h3>
-                <button class="modal-close" id="modalClose">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 6L6 18M6 6l12 12"/>
-                    </svg>
+                <div class="kcard-body" id="pmContent"></div>
+                
+                <!-- 打卡按钮 -->
+                <button class="checkin-btn" id="checkinBtn">
+                    ✓ 打卡
                 </button>
             </div>
-            <form id="newsForm" class="modal-form">
-                <div class="input-group">
-                    <label>标题</label>
-                    <input type="text" id="newsTitle" required placeholder="输入新闻标题">
+
+            <!-- 能力模型 - 横向滚动 -->
+            <div class="skills-row">
+                <div class="skill-item">
+                    <span class="skill-icon">🎯</span>
+                    <span class="skill-name">技术理解</span>
                 </div>
-                <div class="input-group">
-                    <label>来源</label>
-                    <input type="text" id="newsSource" placeholder="来源（可选）">
+                <div class="skill-item">
+                    <span class="skill-icon">📊</span>
+                    <span class="skill-name">数据思维</span>
                 </div>
-                <div class="input-group">
-                    <label>内容摘要</label>
-                    <textarea id="newsSummary" rows="3" placeholder="简要内容..."></textarea>
+                <div class="skill-item">
+                    <span class="skill-icon">💡</span>
+                    <span class="skill-name">产品设计</span>
                 </div>
-                <div class="input-group">
-                    <label>分类</label>
-                    <select id="newsCategory">
-                        <option value="market">市场动态</option>
-                        <option value="policy">政策解读</option>
-                        <option value="company">公司财报</option>
-                        <option value="global">国际财经</option>
-                    </select>
+                <div class="skill-item">
+                    <span class="skill-icon">🤝</span>
+                    <span class="skill-name">团队协作</span>
                 </div>
-                <div class="input-group">
-                    <label>三视角点评</label>
-                    <textarea id="newsAnalysis" rows="3" placeholder="邓普顿/巴菲特/芒格视角..."></textarea>
-                </div>
-                <button type="submit" class="submit-apple">保存</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 新增按钮 -->
+    <button class="fab" id="addNews">+</button>
+
+    <!-- 新增弹窗 -->
+    <div class="modal hidden" id="addNewsModal">
+        <div class="modal-sheet">
+            <div class="modal-handle"></div>
+            <h3>添加新闻</h3>
+            <form id="newsForm">
+                <input type="text" id="newsTitle" required placeholder="标题">
+                <input type="text" id="newsSource" placeholder="来源">
+                <textarea id="newsSummary" rows="2" placeholder="摘要"></textarea>
+                <select id="newsCategory">
+                    <option value="market">市场动态</option>
+                    <option value="policy">政策解读</option>
+                    <option value="company">公司财报</option>
+                    <option value="global">国际财经</option>
+                </select>
+                <textarea id="newsAnalysis" rows="2" placeholder="三视角点评"></textarea>
+                <button type="submit" class="submit-btn">保存</button>
             </form>
+            <button class="close-btn" id="modalClose">取消</button>
         </div>
     </div>
 
