@@ -1,31 +1,30 @@
 /**
- * 新闻和提示 - 自动刷新版
+ * 新闻和提示 - 展开收起版
  */
 
 // ===== 缓存 =====
 let newsCache = [];
 let alertsCache = null;
 let lastRefreshTime = 0;
-const REFRESH_INTERVAL = 10 * 60 * 1000; // 10分钟
+const REFRESH_INTERVAL = 10 * 60 * 1000;
+
+// ===== 当前展开状态 =====
+let expandedAlert = null;
 
 // ===== 加载新闻 =====
 async function loadHotNews(forceRefresh = false) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
     
-    // 如果不是强制刷新且缓存有效，直接使用缓存
     if (!forceRefresh && newsCache.length > 0 && (Date.now() - lastRefreshTime) < REFRESH_INTERVAL) {
         renderNewsList(newsCache);
         return;
     }
     
-    // 显示加载状态
     el.innerHTML = '<div class="empty-hint">🔄 获取最新新闻...</div>';
     
     try {
-        // 添加时间戳避免浏览器缓存
-        const timestamp = Date.now();
-        const response = await fetch(`data/hot-news.json?t=${timestamp}`, {
+        const response = await fetch(`data/hot-news.json?t=${Date.now()}`, {
             cache: 'no-store',
             headers: { 'Cache-Control': 'no-cache' }
         });
@@ -37,7 +36,6 @@ async function loadHotNews(forceRefresh = false) {
                 lastRefreshTime = Date.now();
                 renderNewsList(newsCache);
                 updateRefreshHint(data.updateTime);
-                console.log('新闻已更新:', data.updateTime);
                 return;
             }
         }
@@ -45,7 +43,6 @@ async function loadHotNews(forceRefresh = false) {
         console.log('加载新闻失败:', e);
     }
     
-    // 如果加载失败，使用localStorage缓存
     const cached = localStorage.getItem('hot_news_cache');
     if (cached) {
         newsCache = JSON.parse(cached);
@@ -55,7 +52,7 @@ async function loadHotNews(forceRefresh = false) {
     }
 }
 
-// ===== 加载提示（外汇/股市）=====
+// ===== 加载提示 =====
 async function loadAlerts(forceRefresh = false) {
     if (!forceRefresh && alertsCache) {
         renderAlerts(alertsCache);
@@ -71,38 +68,49 @@ async function loadAlerts(forceRefresh = false) {
             renderAlerts(alertsCache);
         }
     } catch (e) {
-        console.log('加载提示失败:', e);
         renderAlerts({
-            forex: { icon: '💱', title: '外汇提示', text: '日元跌破160关口，关注日本央行干预' },
-            stock: { icon: '📈', title: '股市动向', text: 'A股放量上涨，北向资金连续3日净流入' }
+            forex: { icon: '💱', title: '外汇提示', text: '日元跌破160关口，关注日本央行干预', detail: '日元兑美元汇率跌破160心理关口，创34年新低。日本财务省官员发出警告，表示将采取适当措施应对汇率过度波动。美日利差持续扩大是贬值主因。投资者需关注日本央行干预风险。' },
+            stock: { icon: '📈', title: '股市动向', text: 'A股放量上涨，北向资金连续3日净流入', detail: 'A股三大指数全线收涨，沪指重返3400点。成交额突破万亿，北向资金净流入超80亿。券商、新能源、半导体领涨。市场情绪回暖，短期有望继续反弹。' }
         });
     }
 }
 
-// ===== 渲染提示 =====
+// ===== 渲染提示（可点击展开）=====
 function renderAlerts(data) {
     const el = document.getElementById('alertArea');
     if (!el) return;
     
     el.innerHTML = `
-        <div class="alert-card forex">
+        <div class="alert-card forex ${expandedAlert === 'forex' ? 'expanded' : ''}" onclick="toggleAlert('forex')">
             <div class="alert-icon">${data.forex.icon}</div>
             <div class="alert-content">
                 <div class="alert-title">${data.forex.title}</div>
                 <div class="alert-text">${data.forex.text}</div>
+                <div class="alert-detail">${data.forex.detail || '暂无详细信息'}</div>
             </div>
+            <div class="alert-arrow">›</div>
         </div>
-        <div class="alert-card stock">
+        <div class="alert-card stock ${expandedAlert === 'stock' ? 'expanded' : ''}" onclick="toggleAlert('stock')">
             <div class="alert-icon">${data.stock.icon}</div>
             <div class="alert-content">
                 <div class="alert-title">${data.stock.title}</div>
                 <div class="alert-text">${data.stock.text}</div>
+                <div class="alert-detail">${data.stock.detail || '暂无详细信息'}</div>
             </div>
+            <div class="alert-arrow">›</div>
         </div>
     `;
 }
 
-// ===== 渲染新闻列表 =====
+// ===== 切换提示展开状态 =====
+function toggleAlert(type) {
+    expandedAlert = expandedAlert === type ? null : type;
+    if (alertsCache) {
+        renderAlerts(alertsCache);
+    }
+}
+
+// ===== 渲染新闻列表（可点击展开）=====
 function renderNewsList(news) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
@@ -119,10 +127,10 @@ function renderNewsList(news) {
                 <div class="news-summary">${item.summary}</div>
                 <div class="news-detail">${item.detail}</div>
             </div>
+            <div class="news-arrow">›</div>
         </div>
     `).join('');
     
-    // 保存到localStorage
     localStorage.setItem('hot_news_cache', JSON.stringify(news));
 }
 
@@ -144,6 +152,7 @@ async function forceRefreshAll() {
     newsCache = [];
     alertsCache = null;
     lastRefreshTime = 0;
+    expandedAlert = null;
     await Promise.all([loadHotNews(true), loadAlerts(true)]);
 }
 
@@ -152,9 +161,7 @@ let refreshTimer = null;
 
 function startAutoRefresh() {
     if (refreshTimer) clearInterval(refreshTimer);
-    
     refreshTimer = setInterval(() => {
-        console.log('自动刷新新闻...');
         loadHotNews(true);
     }, REFRESH_INTERVAL);
 }
