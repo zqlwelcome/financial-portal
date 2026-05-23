@@ -1,136 +1,130 @@
-/* ===== 总结页签样式 ===== */
-
-/* 今日推送时间线 */
-.schedule-section {
-    margin-bottom: 20px;
-}
-
-.section-title {
-    font-size: 15px;
-    font-weight: 600;
+/* ===== 大师标签 ===== */
+.master-tabs {
+    display: flex;
+    gap: 6px;
     margin-bottom: 12px;
+    overflow-x: auto;
 }
 
-.schedule-timeline {
-    position: relative;
-    padding-left: 20px;
+.master-tabs::-webkit-scrollbar { display: none; }
+
+.mtab {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--card);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
 }
 
-.schedule-timeline::before {
-    content: '';
-    position: absolute;
-    left: 6px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--border);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 16px;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: -20px;
-    top: 4px;
-    width: 14px;
-    height: 14px;
+.mtab.active {
     background: var(--primary);
-    border-radius: 50%;
-    border: 3px solid var(--card);
+    color: white;
+    border-color: var(--primary);
 }
 
-.timeline-content {
+.summary-content {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+/* ===== 今日推送 ===== */
+.today-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.schedule-item {
+    display: flex;
+    gap: 12px;
     background: var(--card);
     border-radius: var(--radius);
     padding: 12px;
     box-shadow: var(--shadow);
 }
 
-.timeline-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 6px;
-}
-
-.timeline-time {
+.si-time {
     font-size: 14px;
     font-weight: 700;
     color: var(--primary);
+    min-width: 45px;
 }
 
-.timeline-label {
-    font-size: 12px;
+.si-content { flex: 1; }
+
+.si-label {
+    font-size: 11px;
     color: var(--text2);
+    margin-bottom: 4px;
 }
 
-.timeline-text {
+.si-text {
     font-size: 13px;
-    line-height: 1.6;
-    color: var(--text);
+    line-height: 1.5;
 }
 
-/* 本周大师观点 */
-.master-section {
-    margin-top: 20px;
-}
-
-.master-block {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 14px;
-    box-shadow: var(--shadow);
-    margin-bottom: 12px;
-}
-
+/* ===== 大师头部 ===== */
 .master-header {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 8px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: var(--radius);
+    padding: 14px;
+    color: white;
+    margin-bottom: 10px;
 }
 
 .mh-icon { font-size: 28px; }
 .mh-name { font-size: 14px; font-weight: 600; }
-.mh-title { font-size: 11px; color: var(--text2); }
+.mh-title { font-size: 11px; opacity: 0.8; }
 
 .master-quote {
     font-size: 11px;
     font-style: italic;
     color: var(--text2);
     padding: 8px 10px;
-    background: var(--bg);
+    background: var(--card);
     border-radius: 6px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     border-left: 3px solid var(--primary);
 }
 
-.weekly-views {
+/* ===== 周度观点列表 ===== */
+.weekly-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .weekly-card {
-    background: var(--bg);
-    border-radius: 8px;
-    padding: 10px;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 12px;
+    box-shadow: var(--shadow);
 }
 
 .wc-event {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--text);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
 }
 
 .wc-view {
     font-size: 12px;
     line-height: 1.5;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+}
+
+.wc-row {
+    margin-bottom: 4px;
 }
 
 .wc-tip {
@@ -139,7 +133,7 @@
     background: #fff9e6;
     padding: 6px 8px;
     border-radius: 4px;
-    margin-bottom: 4px;
+    display: block;
 }
 
 .wc-action {
@@ -148,4 +142,5 @@
     background: #e8f5e9;
     padding: 6px 8px;
     border-radius: 4px;
+    display: block;
 }
