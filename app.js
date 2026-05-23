@@ -69,7 +69,7 @@ function initSubTabs() {
             if (tab.dataset.sub === 'realtime') {
                 refreshRealtime();
             } else if (tab.dataset.sub === 'daily') {
-                renderMasterViews(); // 渲染大师观点
+                renderDailySummary(); // 渲染总结内容
             }
         });
     });
