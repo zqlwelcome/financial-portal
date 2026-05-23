@@ -9,49 +9,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 顶部导航 - 紧凑 -->
+    <!-- 顶部导航 -->
     <nav class="nav">
         <span class="nav-logo">📚 学习门户</span>
     </nav>
 
-    <!-- 主内容区 - 单栏紧凑布局 -->
     <main class="main">
-        <!-- 标签切换 -->
+        <!-- 主标签 -->
         <div class="tabs">
-            <button class="tab active" data-tab="news">
-                <span>📰</span> 财经
-            </button>
-            <button class="tab" data-tab="ai-pm">
-                <span>🤖</span> AI产品
-            </button>
+            <button class="tab active" data-tab="finance">📰 财经</button>
+            <button class="tab" data-tab="ai-pm">🤖 AI产品</button>
         </div>
 
-        <!-- ===== 财经简报区 ===== -->
-        <section id="news" class="section active">
-            <!-- 视角切换 - 紧凑横向 -->
-            <div class="filter-row">
-                <button class="filter-btn active" data-investor="all">全部</button>
-                <button class="filter-btn" data-investor="templeton">🌍 邓</button>
-                <button class="filter-btn" data-investor="buffett">💰 巴</button>
-                <button class="filter-btn" data-investor="munger">🧠 芒</button>
+        <!-- ===== 财经区 ===== -->
+        <section id="finance" class="section active">
+            <!-- 子菜单 -->
+            <div class="sub-tabs">
+                <button class="sub-tab active" data-sub="realtime">⚡ 实时新闻</button>
+                <button class="sub-tab" data-sub="daily">📊 每日总结</button>
             </div>
 
-            <!-- 日期列表 - 紧凑卡片 -->
-            <div id="newsList" class="compact-list">
-                <div class="empty-hint">加载中...</div>
+            <!-- 子菜单：实时新闻 -->
+            <div id="realtime" class="sub-content active">
+                <div id="realtimeList" class="news-list">
+                    <div class="empty-hint">加载中...</div>
+                </div>
             </div>
 
-            <!-- 简报详情 - 内联展开 -->
-            <div id="briefingDetail" class="detail-area hidden"></div>
+            <!-- 子菜单：每日总结 -->
+            <div id="daily" class="sub-content">
+                <!-- 视角筛选 -->
+                <div class="filter-row">
+                    <button class="filter-btn active" data-investor="all">全部</button>
+                    <button class="filter-btn" data-investor="templeton">🌍 邓普顿</button>
+                    <button class="filter-btn" data-investor="buffett">💰 巴菲特</button>
+                    <button class="filter-btn" data-investor="munger">🧠 芒格</button>
+                </div>
+
+                <!-- 日期列表 -->
+                <div id="dailyList" class="date-list"></div>
+
+                <!-- 简报详情 -->
+                <div id="briefingDetail" class="detail-area"></div>
+            </div>
         </section>
 
         <!-- ===== AI产品经理区 ===== -->
         <section id="ai-pm" class="section">
-            <!-- 打卡状态条 -->
             <div class="status-bar">
                 <div class="streak">
                     <span class="streak-num" id="streakDays">0</span>
-                    <span class="streak-label">连续</span>
+                    <span class="streak-label">连续打卡</span>
                 </div>
                 <div class="progress-mini">
                     <span id="completionRate">0%</span>
@@ -61,38 +69,20 @@
                 </div>
             </div>
 
-            <!-- 今日知识点 - 紧凑卡片 -->
             <div class="knowledge-card">
                 <div class="kcard-header">
                     <span class="kcard-badge">今日必学</span>
                     <span class="kcard-title" id="pmTitle">加载中...</span>
                 </div>
                 <div class="kcard-body" id="pmContent"></div>
-                
-                <!-- 打卡按钮 -->
-                <button class="checkin-btn" id="checkinBtn">
-                    ✓ 打卡
-                </button>
+                <button class="checkin-btn" id="checkinBtn">✓ 打卡</button>
             </div>
 
-            <!-- 能力模型 - 横向滚动 -->
             <div class="skills-row">
-                <div class="skill-item">
-                    <span class="skill-icon">🎯</span>
-                    <span class="skill-name">技术理解</span>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-icon">📊</span>
-                    <span class="skill-name">数据思维</span>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-icon">💡</span>
-                    <span class="skill-name">产品设计</span>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-icon">🤝</span>
-                    <span class="skill-name">团队协作</span>
-                </div>
+                <div class="skill-item"><span class="skill-icon">🎯</span><span class="skill-name">技术理解</span></div>
+                <div class="skill-item"><span class="skill-icon">📊</span><span class="skill-name">数据思维</span></div>
+                <div class="skill-item"><span class="skill-icon">💡</span><span class="skill-name">产品设计</span></div>
+                <div class="skill-item"><span class="skill-icon">🤝</span><span class="skill-name">团队协作</span></div>
             </div>
         </section>
     </main>
