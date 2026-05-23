@@ -338,9 +338,23 @@ body {
     color: white;
     font-size: 14px;
     font-weight: 600;
+    margin-top: 10px;
 }
 
 .checkin-btn.checked { background: #30d158; pointer-events: none; }
+
+.learn-link {
+    display: block;
+    padding: 10px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+}
 
 .skills-row { display: flex; gap: 10px; overflow-x: auto; }
 .skills-row::-webkit-scrollbar { display: none; }
