@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>我的学习门户</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <h1 class="logo">📚 我的学习门户</h1>
+        <div class="header-actions">
+            <button id="themeToggle" class="icon-btn">🌙</button>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <!-- 栏目切换标签 -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="news">
+                <span class="tab-icon">📰</span>
+                <span class="tab-text">新闻投资</span>
+            </button>
+            <button class="tab-btn" data-tab="ai-pm">
+                <span class="tab-icon">🤖</span>
+                <span class="tab-text">AI产品经理</span>
+            </button>
+        </nav>
+
+        <!-- 栏目1: 新闻投资推送 -->
+        <section id="news" class="tab-content active">
+            <div class="section-header">
+                <h2>📰 每日财经简报</h2>
+                <div class="date-selector">
+                    <button id="prevDay" class="nav-btn">◀</button>
+                    <span id="currentDate">今天</span>
+                    <button id="nextDay" class="nav-btn">▶</button>
+                </div>
+            </div>
+            
+            <div id="newsList" class="card-list">
+                <!-- 新闻卡片将由JS动态加载 -->
+                <div class="loading-placeholder">加载中...</div>
+            </div>
+
+            <div class="fab" id="addNews">+</div>
+        </section>
+
+        <!-- 栏目2: AI产品经理知识点 -->
+        <section id="ai-pm" class="tab-content">
+            <div class="section-header">
+                <h2>🤖 AI产品经理打卡</h2>
+                <div class="streak-badge">
+                    <span id="streakCount">0</span>天连续
+                </div>
+            </div>
+
+            <!-- 今日知识点 -->
+            <div class="daily-card">
+                <div class="card-header">
+                    <span class="card-tag">今日必学</span>
+                    <span id="pmDate">2024-01-01</span>
+                </div>
+                <h3 id="pmTitle">加载中...</h3>
+                <div id="pmContent" class="card-content">
+                    <!-- 知识点内容 -->
+                </div>
+                
+                <!-- 打卡按钮 -->
+                <div class="checkin-section">
+                    <button id="checkinBtn" class="checkin-btn">
+                        <span class="checkin-icon">✓</span>
+                        <span>今日打卡</span>
+                    </button>
+                    <div id="checkinStatus" class="checkin-status hidden">
+                        已完成 ✨
+                    </div>
+                </div>
+            </div>
+
+            <!-- 知识点列表 -->
+            <div class="knowledge-list">
+                <h3>📚 知识库</h3>
+                <div id="knowledgeItems" class="item-list">
+                    <!-- 知识点列表 -->
+                </div>
+            </div>
+
+            <!-- 学习进度 -->
+            <div class="progress-section">
+                <h3>📊 本月进度</h3>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="progress-stats">
+                    <span>已完成: <strong id="completedCount">0</strong>/30</span>
+                    <span>完成率: <strong id="completionRate">0%</strong></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 底部导航 -->
+    <footer class="footer-nav">
+        <button class="footer-btn active" data-section="home">
+            <span class="footer-icon">🏠</span>
+            <span class="footer-text">首页</span>
+        </button>
+        <button class="footer-btn" data-section="archive">
+            <span class="footer-icon">📁</span>
+            <span class="footer-text">归档</span>
+        </button>
+        <button class="footer-btn" data-section="stats">
+            <span class="footer-icon">📈</span>
+            <span class="footer-text">统计</span>
+        </button>
+        <button class="footer-btn" data-section="settings">
+            <span class="footer-icon">⚙️</span>
+            <span class="footer-text">设置</span>
+        </button>
+    </footer>
+
+    <!-- 新增新闻弹窗 -->
+    <div id="addNewsModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>添加新闻</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="newsForm">
+                <div class="form-group">
+                    <label>标题</label>
+                    <input type="text" id="newsTitle" required placeholder="新闻标题">
+                </div>
+                <div class="form-group">
+                    <label>来源</label>
+                    <input type="text" id="newsSource" placeholder="来源（可选）">
+                </div>
+                <div class="form-group">
+                    <label>内容摘要</label>
+                    <textarea id="newsSummary" rows="3" placeholder="简要内容..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>分类</label>
+                    <select id="newsCategory">
+                        <option value="market">市场动态</option>
+                        <option value="policy">政策解读</option>
+                        <option value="company">公司财报</option>
+                        <option value="global">国际财经</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>三视角点评</label>
+                    <textarea id="newsAnalysis" rows="4" placeholder="邓普顿/巴菲特/芒格视角..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">保存</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
