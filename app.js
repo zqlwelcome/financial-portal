@@ -53,6 +53,10 @@ function initMainTabs() {
     });
 }
 
+function refreshAll() { loadMarketData(); renderAlerts(); renderHotNews(); }
+function refreshRealtime() { loadMarketData(); renderHotNews(); }
+
+// ===== 切换子标签时渲染内容 =====
 function initSubTabs() {
     document.querySelectorAll('.sub-tab').forEach(tab => {
         tab.addEventListener('click', () => {
@@ -60,13 +64,16 @@ function initSubTabs() {
             document.querySelectorAll('.sub-content').forEach(c => c.classList.remove('active'));
             tab.classList.add('active');
             document.getElementById(tab.dataset.sub).classList.add('active');
-            if (tab.dataset.sub === 'realtime') refreshRealtime();
+            
+            // 根据子标签渲染不同内容
+            if (tab.dataset.sub === 'realtime') {
+                refreshRealtime();
+            } else if (tab.dataset.sub === 'daily') {
+                renderMasterViews(); // 渲染大师观点
+            }
         });
     });
 }
-
-function refreshAll() { loadMarketData(); renderAlerts(); renderHotNews(); }
-function refreshRealtime() { loadMarketData(); renderHotNews(); }
 
 // ===== 市场数据 =====
 function loadMarketData() {
