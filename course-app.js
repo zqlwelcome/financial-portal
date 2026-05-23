@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== 渲染课程列表 =====
 function renderCourseList() {
     const el = document.getElementById('courseList');
-    el.innerHTML = COURSE_DATA.map(section => {
+    el.innerHTML = COURSES.map(section => {
         const completedCount = section.lessons.filter(l => courseProgress[l.id]).length;
         const totalCount = section.lessons.length;
         const isExpanded = expandedSection === section.id;
@@ -24,10 +24,10 @@ function renderCourseList() {
         return `
             <div class="course-section">
                 <div class="section-header" onclick="toggleSection('${section.id}')">
-                    <div class="section-icon ${section.iconClass}">${section.icon}</div>
+                    <div class="section-icon ${section.bg}">${section.icon}</div>
                     <div class="section-info">
                         <div class="section-title">${section.title}</div>
-                        <div class="section-subtitle">${section.subtitle}</div>
+                        <div class="section-subtitle">${section.sub}</div>
                     </div>
                     <div class="section-meta">
                         <span class="section-progress">${completedCount}/${totalCount}</span>
@@ -42,7 +42,7 @@ function renderCourseList() {
                                 <div class="item-check ${isCompleted ? 'done' : ''}">${isCompleted ? '✓' : ''}</div>
                                 <div class="item-info">
                                     <div class="item-title">${lesson.title}</div>
-                                    <div class="item-duration">${lesson.duration}</div>
+                                    <div class="item-duration">${lesson.time}</div>
                                 </div>
                                 <span class="item-arrow">›</span>
                             </div>
@@ -62,7 +62,7 @@ function toggleSection(sectionId) {
 
 // ===== 打开课程详情 =====
 function openLesson(sectionId, lessonId) {
-    const section = COURSE_DATA.find(s => s.id === sectionId);
+    const section = COURSES.find(s => s.id === sectionId);
     const lesson = section?.lessons.find(l => l.id === lessonId);
     if (!lesson) return;
     
@@ -108,16 +108,15 @@ function completeLesson(lessonId) {
 
 // ===== 更新进度 =====
 function updateProgress() {
-    const allLessons = COURSE_DATA.flatMap(s => s.lessons);
+    const allLessons = COURSES.flatMap(s => s.lessons);
     const completed = allLessons.filter(l => courseProgress[l.id]).length;
     const total = allLessons.length;
     const percent = Math.round((completed / total) * 100);
     
-    document.getElementById('progressPercent').textContent = percent;
-    document.getElementById('completedCount').textContent = completed;
+    document.getElementById('completionRate').textContent = percent + '%';
     
     // 更新环形进度
-    const ring = document.getElementById('progressRing');
+    const ring = document.getElementById('progressFill');
     if (ring) {
         const circumference = 283;
         const offset = circumference - (percent / 100) * circumference;
@@ -141,8 +140,7 @@ function updateProgress() {
         localStorage.setItem('streak_count', streak.toString());
     }
     
-    document.getElementById('streakCount').textContent = streak;
-    document.getElementById('totalStars').textContent = completed;
+    document.getElementById('streakDays').textContent = streak;
 }
 
 // ===== 初始化弹窗 =====
