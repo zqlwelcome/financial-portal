@@ -1,58 +1,63 @@
 /**
- * 学习门户 - 紧凑版
+ * 学习门户 - 实时新闻版
  */
 
-// ===== Config =====
 const CONFIG = {
     DATA_URL: 'data/briefings/',
     TYPES: ['morning', 'noon', 'evening', 'night'],
     TYPE_LABELS: { morning: '🌅早', noon: '☀️午', evening: '🌆晚', night: '🌙夜' }
 };
 
-const STORAGE = { CHECKIN: 'portal_checkin' };
-
-// ===== AI PM Knowledge =====
 const KNOWLEDGE = [
     { title: "AI产品经理核心能力", content: "<ul><li>🎯 技术理解力</li><li>📊 数据思维</li><li>💡 产品设计力</li><li>🤝 跨团队协作</li></ul>" },
     { title: "AI产品PRD要点", content: "<ul><li>📝 数据需求</li><li>📈 效果指标</li><li>⚡ 性能要求</li><li>🔄 迭代策略</li></ul>" },
-    { title: "机器学习全流程", content: "<ul><li>📋 问题定义</li><li>📊 数据准备</li><li>🧠 模型开发</li><li>✅ 模型评估</li><li>🚀 部署上线</li></ul>" },
-    { title: "大模型产品设计", content: "<ul><li>🎯 Prompt工程</li><li>🛡️ 安全边界</li><li>💰 成本控制</li><li>📊 效果评估</li></ul>" },
+    { title: "机器学习全流程", content: "<ul><li>📋 问题定义</li><li>📊 数据准备</li><li>🧠 模型开发</li><li>✅ 模型评估</li></ul>" },
+    { title: "大模型产品设计", content: "<ul><li>🎯 Prompt工程</li><li>🛡️ 安全边界</li><li>💰 成本控制</li></ul>" },
     { title: "AI产品指标体系", content: "<ul><li>📊 业务指标</li><li>🤖 模型指标</li><li>💡 体验指标</li></ul>" }
 ];
 
-// ===== 实时新闻数据（示例）=====
-const REALTIME_NEWS = [
-    { id: 1, time: "12:30", source: "财联社", title: "A股三大指数午间收涨 沪指重返3400点", summary: "成交额超8000亿，北向资金净流入超50亿" },
-    { id: 2, time: "12:15", source: "华尔街见闻", title: "美联储会议纪要显示官员对通胀走势存在分歧", summary: "市场预计6月维持利率不变概率超90%" },
-    { id: 3, time: "11:58", source: "证券时报", title: "宁德时代发布固态电池量产时间表", summary: "股价涨超5%，新能源板块集体走强" },
-    { id: 4, time: "11:30", source: "第一财经", title: "人社部宣布个人养老金制度全面推开", summary: "投资范围扩大，新增REITs和指数基金" },
-    { id: 5, time: "11:05", source: " Bloomberg", title: "日元汇率跌至160关口 日本央行干预预期升温", summary: "美元指数强势运行，非美货币承压" },
-    { id: 6, time: "10:42", source: "新华社", title: "中国4月社会融资规模增量超预期", summary: "信贷结构改善，企业中长期贷款回暖" },
-    { id: 7, time: "10:15", source: "路透社", title: "比特币突破11万美元创历史新高", summary: "机构资金持续流入ETF，市值突破2万亿" },
-    { id: 8, time: "09:45", source: "21世纪经济", title: "国际油价突破85美元 OPEC+减产持续", summary: "能源板块受益，中石油中石化走强" },
-    { id: 9, time: "09:20", source: "央行官网", title: "央行开展1000亿元MLF操作 利率不变", summary: "市场流动性合理充裕" },
-    { id: 10, time: "09:00", source: "上交所", title: "科创板新股申购提示", summary: "今日两只新股申购，建议关注" }
+// 热门新闻 TOP10
+const HOT_NEWS = [
+    { rank: 1, time: "12:30", source: "财联社", title: "A股三大指数午间收涨 沪指重返3400点", summary: "成交额超8000亿，市场情绪回暖，券商板块领涨" },
+    { rank: 2, time: "12:15", source: "华尔街见闻", title: "美联储会议纪要：官员对通胀走势存在分歧", summary: "市场预计6月维持利率不变概率超90%，年内降息预期降温" },
+    { rank: 3, time: "11:58", source: "证券时报", title: "宁德时代发布固态电池量产时间表", summary: "2027年小批量装车，股价涨超5%，带动新能源板块" },
+    { rank: 4, time: "11:30", source: "第一财经", title: "个人养老金制度全面推开 投资范围扩大", summary: "新增REITs和指数基金，每年缴存上限12000元" },
+    { rank: 5, time: "11:05", source: "Bloomberg", title: "日元汇率跌至160关口 干预预期升温", summary: "美元指数强势运行，日本财务省发出警告" },
+    { rank: 6, time: "10:42", source: "新华社", title: "4月社融增量超预期 信贷结构改善", summary: "企业中长期贷款回暖，居民贷款需求回升" },
+    { rank: 7, time: "10:15", source: "路透社", title: "比特币突破11万美元创历史新高", summary: "机构资金持续流入ETF，市值突破2万亿美元" },
+    { rank: 8, time: "09:45", source: "21世纪经济", title: "国际油价突破85美元 OPEC+减产持续", summary: "能源板块受益，中石油中石化走强" },
+    { rank: 9, time: "09:20", source: "央行官网", title: "央行开展1000亿元MLF操作 利率不变", summary: "市场流动性合理充裕，短端利率稳定" },
+    { rank: 10, time: "09:00", source: "上交所", title: "北向资金早盘净流入超50亿", summary: "外资加仓消费和新能源板块" }
 ];
 
-// ===== State =====
-let checkedDays = JSON.parse(localStorage.getItem(STORAGE.CHECKIN) || '[]');
+let checkedDays = JSON.parse(localStorage.getItem('checkin') || '[]');
 let allBriefings = [];
 let selectedDate = null;
 let selectedInvestor = 'all';
 
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', () => {
+    updateNavTime();
+    setInterval(updateNavTime, 60000);
     initMainTabs();
     initSubTabs();
     initInvestorFilter();
-    renderRealtimeNews();
+    renderHotNews();
     loadBriefings();
     renderDailyCard();
     renderProgress();
     initCheckin();
+    initPullToRefresh();
 });
 
-// ===== 主标签 =====
+function updateNavTime() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('navTime').textContent = `${h}:${m}`;
+}
+
+// ===== Tabs =====
 function initMainTabs() {
     document.querySelectorAll('.tab').forEach(tab => {
         tab.addEventListener('click', () => {
@@ -64,7 +69,6 @@ function initMainTabs() {
     });
 }
 
-// ===== 子标签 =====
 function initSubTabs() {
     document.querySelectorAll('.sub-tab').forEach(tab => {
         tab.addEventListener('click', () => {
@@ -92,12 +96,10 @@ function initInvestorFilter() {
 
 function filterContent(content, investor) {
     if (investor === 'all') return content;
-    
     const lines = content.split('\n');
     const result = [];
     let inSection = false;
     let found = false;
-    
     const kw = { templeton: ['邓普顿'], buffett: ['巴菲特'], munger: ['芒格'] }[investor] || [];
     
     for (const line of lines) {
@@ -107,36 +109,71 @@ function filterContent(content, investor) {
             continue;
         }
         if (inSection) {
-            if (kw.some(k => line.includes(k))) {
-                result.push(line);
-                found = true;
-            }
+            if (kw.some(k => line.includes(k))) { result.push(line); found = true; }
             if (line.startsWith('⚡') || line.startsWith('🎯')) inSection = false;
         } else if (line.startsWith('📊') || line.startsWith('🔥') || line.startsWith('📌') || line.startsWith('⚡') || line.startsWith('🎯')) {
             result.push(line);
         }
     }
-    
     const labels = { templeton: '🌍 邓普顿', buffett: '💰 巴菲特', munger: '🧠 芒格' };
     return found ? `${labels[investor]}视角\n\n${result.join('\n')}` : content;
 }
 
-// ===== 实时新闻 =====
-function renderRealtimeNews() {
-    const el = document.getElementById('realtimeList');
-    el.innerHTML = REALTIME_NEWS.map(news => `
+// ===== 热门新闻 =====
+function renderHotNews() {
+    const el = document.getElementById('hotNewsList');
+    el.innerHTML = HOT_NEWS.map(news => `
         <div class="news-item">
-            <div class="news-meta">
-                <span class="news-source">${news.source}</span>
-                <span>${news.time}</span>
+            <div class="news-rank ${news.rank <= 3 ? 'hot' : ''}">${news.rank}</div>
+            <div class="news-body">
+                <div class="news-head">
+                    <span class="news-source">${news.source}</span>
+                    <span class="news-time">${news.time}</span>
+                </div>
+                <div class="news-title">${news.title}</div>
+                <div class="news-summary">${news.summary}</div>
             </div>
-            <div class="news-title">${news.title}</div>
-            <div class="news-summary">${news.summary}</div>
         </div>
     `).join('');
 }
 
-// ===== 加载简报 =====
+// ===== 下拉刷新 =====
+function initPullToRefresh() {
+    let startY = 0;
+    let pulling = false;
+    const realtime = document.getElementById('realtime');
+    
+    realtime.addEventListener('touchstart', e => {
+        if (realtime.scrollTop === 0) {
+            startY = e.touches[0].pageY;
+            pulling = true;
+        }
+    });
+    
+    realtime.addEventListener('touchmove', e => {
+        if (!pulling) return;
+        const diff = e.touches[0].pageY - startY;
+        if (diff > 80) {
+            realtime.style.transform = 'translateY(4px)';
+        }
+    });
+    
+    realtime.addEventListener('touchend', () => {
+        if (pulling) {
+            realtime.style.transform = '';
+            // 模拟刷新
+            refreshNews();
+        }
+        pulling = false;
+    });
+}
+
+function refreshNews() {
+    // 模拟刷新：重新渲染，实际应用中可调用API
+    renderHotNews();
+}
+
+// ===== 简报 =====
 async function loadBriefings() {
     allBriefings = [];
     const today = new Date();
@@ -161,7 +198,6 @@ async function loadBriefings() {
     }
     
     allBriefings.sort((a, b) => b.date.localeCompare(a.date) || a.time.localeCompare(b.time));
-    
     renderDailyList();
     selectDate(fmtDate(today));
 }
@@ -170,7 +206,6 @@ function fmtDate(d) {
     return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 
-// ===== 日期列表 =====
 function renderDailyList() {
     const el = document.getElementById('dailyList');
     const grouped = {};
@@ -180,11 +215,7 @@ function renderDailyList() {
     });
     
     const dates = Object.keys(grouped).sort().reverse();
-    
-    if (!dates.length) {
-        el.innerHTML = '<div class="empty-hint">📊 暂无简报</div>';
-        return;
-    }
+    if (!dates.length) { el.innerHTML = '<div class="empty-hint">暂无简报</div>'; return; }
     
     el.innerHTML = dates.map(date => {
         const items = grouped[date];
@@ -212,7 +243,6 @@ function fmtDisplay(dateStr) {
     return `${d.getMonth()+1}月${d.getDate()}日`;
 }
 
-// ===== 选择日期 =====
 function selectDate(dateStr) {
     selectedDate = dateStr;
     renderDailyList();
@@ -243,7 +273,6 @@ function renderDailyCard() {
     const k = KNOWLEDGE[idx];
     document.getElementById('pmTitle').textContent = k.title;
     document.getElementById('pmContent').innerHTML = k.content;
-    
     if (checkedDays.includes(fmtDate(today))) showChecked();
 }
 
@@ -252,7 +281,7 @@ function initCheckin() {
         const ts = fmtDate(new Date());
         if (!checkedDays.includes(ts)) {
             checkedDays.push(ts);
-            localStorage.setItem(STORAGE.CHECKIN, JSON.stringify(checkedDays));
+            localStorage.setItem('checkin', JSON.stringify(checkedDays));
             showChecked();
             renderProgress();
         }
