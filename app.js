@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateNavTime, 60000);
     initMainTabs();
     initSubTabs();
+    initMasterTabs();
     loadMarketData();
-    renderDailySummary();
+    renderSummaryContent();
     renderDailyCard();
     renderProgress();
     initCheckin();
     initPullRefresh();
     setInterval(loadMarketData, 30000);
-    // 新闻和提示由news-loader.js初始化
 });
 
 function updateNavTime() {
@@ -64,11 +64,10 @@ function initSubTabs() {
             tab.classList.add('active');
             document.getElementById(tab.dataset.sub).classList.add('active');
             
-            // 根据子标签渲染不同内容
             if (tab.dataset.sub === 'realtime') {
                 refreshRealtime();
             } else if (tab.dataset.sub === 'daily') {
-                renderDailySummary(); // 渲染总结内容
+                renderSummaryContent();
             }
         });
     });
