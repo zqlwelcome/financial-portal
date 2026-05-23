@@ -19,10 +19,9 @@ body {
     font-size: 14px;
     line-height: 1.5;
     padding-top: 48px;
-    padding-bottom: 80px;
 }
 
-/* ===== 导航 - 48px高度 ===== */
+/* ===== 导航 ===== */
 .nav {
     position: fixed;
     top: 0;
@@ -38,12 +37,9 @@ body {
     z-index: 100;
 }
 
-.nav-logo {
-    font-size: 16px;
-    font-weight: 600;
-}
+.nav-logo { font-size: 16px; font-weight: 600; }
 
-/* ===== 标签页 ===== */
+/* ===== 主标签 ===== */
 .tabs {
     display: flex;
     background: var(--card);
@@ -62,32 +58,91 @@ body {
     font-weight: 500;
     color: var(--text2);
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
     border-bottom: 2px solid transparent;
 }
 
-.tab.active {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
-}
+.tab.active { color: var(--primary); border-bottom-color: var(--primary); }
 
 /* ===== 内容区 ===== */
-.main {
-    padding: 12px;
+.main { padding: 12px; }
+.section { display: none; }
+.section.active { display: block; }
+
+/* ===== 子标签 ===== */
+.sub-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
-.section {
-    display: none;
+.sub-tab {
+    flex: 1;
+    padding: 10px 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--card);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-.section.active {
-    display: block;
+.sub-tab.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
 }
 
-/* ===== 视角筛选 - 紧凑 ===== */
+.sub-content { display: none; }
+.sub-content.active { display: block; }
+
+/* ===== 实时新闻列表 ===== */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.news-item {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 14px;
+    box-shadow: var(--shadow);
+    border-left: 3px solid var(--primary);
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 11px;
+    color: var(--text2);
+}
+
+.news-source {
+    background: rgba(99,102,241,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.news-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.news-summary {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.5;
+}
+
+/* ===== 视角筛选 ===== */
 .filter-row {
     display: flex;
     gap: 8px;
@@ -116,11 +171,12 @@ body {
     border-color: var(--primary);
 }
 
-/* ===== 日期列表 - 紧凑 ===== */
-.compact-list {
+/* ===== 日期列表 ===== */
+.date-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-bottom: 12px;
 }
 
 .date-item {
@@ -132,30 +188,18 @@ body {
     transition: all 0.2s;
 }
 
-.date-item:active {
-    transform: scale(0.98);
-}
-
-.date-item.selected {
-    border-left: 3px solid var(--primary);
-}
+.date-item:active { transform: scale(0.98); }
+.date-item.selected { border-left: 3px solid var(--primary); }
 
 .date-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
-.date-label {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.date-count {
-    font-size: 11px;
-    color: var(--text2);
-}
+.date-label { font-size: 14px; font-weight: 600; }
+.date-count { font-size: 11px; color: var(--text2); }
 
 .date-tags {
     display: flex;
@@ -172,38 +216,29 @@ body {
 }
 
 /* ===== 简报详情 ===== */
-.detail-area {
-    margin-top: 12px;
-}
+.detail-area { margin-top: 12px; }
 
 .briefing-card {
     background: var(--card);
     border-radius: var(--radius);
-    padding: 16px;
+    padding: 14px;
     box-shadow: var(--shadow);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .briefing-head {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-size: 12px;
 }
 
-.briefing-type {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.briefing-time {
-    color: var(--text2);
-}
+.briefing-type { color: var(--primary); font-weight: 600; }
+.briefing-time { color: var(--text2); }
 
 .briefing-content {
     font-size: 13px;
     line-height: 1.7;
-    color: var(--text);
 }
 
 /* ===== AI产品经理 ===== */
@@ -224,28 +259,11 @@ body {
     align-items: center;
 }
 
-.streak-num {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--primary);
-}
+.streak-num { font-size: 24px; font-weight: 700; color: var(--primary); }
+.streak-label { font-size: 11px; color: var(--text2); }
 
-.streak-label {
-    font-size: 11px;
-    color: var(--text2);
-}
-
-.progress-mini {
-    flex: 1;
-    margin-left: 20px;
-    text-align: right;
-}
-
-.progress-mini span {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--primary);
-}
+.progress-mini { flex: 1; margin-left: 20px; text-align: right; }
+.progress-mini span { font-size: 16px; font-weight: 600; color: var(--primary); }
 
 .progress-bar-mini {
     height: 4px;
@@ -261,7 +279,6 @@ body {
     transition: width 0.3s;
 }
 
-/* ===== 知识卡片 ===== */
 .knowledge-card {
     background: linear-gradient(135deg, #667eea, #764ba2);
     border-radius: var(--radius);
@@ -270,9 +287,7 @@ body {
     margin-bottom: 12px;
 }
 
-.kcard-header {
-    margin-bottom: 10px;
-}
+.kcard-header { margin-bottom: 10px; }
 
 .kcard-badge {
     font-size: 10px;
@@ -282,10 +297,7 @@ body {
     margin-right: 8px;
 }
 
-.kcard-title {
-    font-size: 15px;
-    font-weight: 600;
-}
+.kcard-title { font-size: 15px; font-weight: 600; }
 
 .kcard-body {
     font-size: 13px;
@@ -294,13 +306,8 @@ body {
     margin-bottom: 12px;
 }
 
-.kcard-body ul {
-    padding-left: 16px;
-}
-
-.kcard-body li {
-    margin: 4px 0;
-}
+.kcard-body ul { padding-left: 16px; }
+.kcard-body li { margin: 4px 0; }
 
 .checkin-btn {
     width: 100%;
@@ -312,19 +319,11 @@ body {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
 }
 
-.checkin-btn:active {
-    transform: scale(0.98);
-}
+.checkin-btn:active { transform: scale(0.98); }
+.checkin-btn.checked { background: #30d158; pointer-events: none; }
 
-.checkin-btn.checked {
-    background: #30d158;
-    pointer-events: none;
-}
-
-/* ===== 能力条 - 横向滚动 ===== */
 .skills-row {
     display: flex;
     gap: 10px;
@@ -346,14 +345,8 @@ body {
     min-width: 100px;
 }
 
-.skill-icon {
-    font-size: 20px;
-}
-
-.skill-name {
-    font-size: 12px;
-    font-weight: 500;
-}
+.skill-icon { font-size: 20px; }
+.skill-name { font-size: 12px; font-weight: 500; }
 
 .empty-hint {
     text-align: center;
