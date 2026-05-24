@@ -108,7 +108,7 @@ async function renderTodayBrief(el) {
             <div class="th-icon">📢</div>
             <div class="th-info">
                 <div class="th-title">今日研报</div>
-                <div class="th-sub">⏱ ${updateTime ? updateTime.replace(/^\d{4}-\d{2}-\d{2}\s*/, '') : dateStr}</div>
+                <div class="th-sub">⏱ ${updateTime || dateStr}</div>
             </div>
         </div>
 
