@@ -95,7 +95,7 @@ async function loadBriefing(slotKey, dateStr) {
     }
 }
 
-// ===== 滑动选择器（在按钮区域上触摸滑动切换 + 点击导航）=====
+// ===== 滑动选择器（跟随手指拖拽 + snap吸附 + 点击导航）=====
 function initSlideSelector() {
     const sel = document.querySelector('.slide-selector');
     if (!sel) return;
@@ -104,52 +104,92 @@ function initSlideSelector() {
     if (!content || !opts.length) return;
 
     const views = ['today', 'templeton', 'buffett', 'munger'];
-    let startX = 0, currentIdx = 0, moving = false;
+    let startX = 0, scrollLeft = 0, isDown = false, moved = false;
 
-    // 1. 点击导航
+    // 让选择器本身变得可以拖拽滚动，并且设置 snap
+    sel.style.cssText += ';cursor:grab;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;user-select:none;-webkit-user-select:none;';
+    opts.forEach(o => o.style.cssText += ';scroll-snap-align:start;pointer-events:auto;');
+
+    // 每个选项点击切换
     opts.forEach((opt, i) => {
         opt.addEventListener('click', (e) => {
-            if (moving) { moving = false; return; }
-            switchToView(i, opts, views, content);
+            if (moved) { moved = false; return; }
+            switchToView(i, opts, views, content, sel);
         });
     });
 
-    // 2. 触摸滑动（在选择器区域上）
-    sel.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        currentIdx = Array.from(opts).findIndex(o => o.classList.contains('active'));
-        moving = false;
-    }, { passive: true });
+    // 鼠标/触摸事件 — 让选择器可以被拖拽滚动
+    const startDrag = (pageX) => {
+        isDown = true;
+        moved = false;
+        startX = pageX - sel.offsetLeft;
+        scrollLeft = sel.scrollLeft;
+        sel.style.cursor = 'grabbing';
+        sel.style.scrollBehavior = 'auto';
+    };
 
-    sel.addEventListener('touchmove', (e) => {
-        const dx = e.touches[0].clientX - startX;
-        if (Math.abs(dx) > 20) moving = true;
-    }, { passive: true });
+    const moveDrag = (pageX) => {
+        if (!isDown) return;
+        const x = pageX - sel.offsetLeft;
+        const walk = (x - startX) * 1.2;
+        if (Math.abs(walk) > 8) moved = true;
+        sel.scrollLeft = scrollLeft - walk;
+    };
 
-    sel.addEventListener('touchend', (e) => {
-        if (!moving) return;
-        const dx = e.changedTouches[0].clientX - startX;
-        const threshold = 40;
+    const endDrag = () => {
+        if (!isDown) return;
+        isDown = false;
+        sel.style.cursor = 'grab';
+        sel.style.scrollBehavior = 'smooth';
 
-        if (dx < -threshold && currentIdx < views.length - 1) {
-            currentIdx++;
-        } else if (dx > threshold && currentIdx > 0) {
-            currentIdx--;
+        // 找到最靠近中间的那个选项
+        const selRect = sel.getBoundingClientRect();
+        const center = selRect.left + selRect.width / 2;
+        let closest = 0, minDist = Infinity;
+        opts.forEach((o, i) => {
+            const r = o.getBoundingClientRect();
+            const d = Math.abs(r.left + r.width / 2 - center);
+            if (d < minDist) { minDist = d; closest = i; }
+        });
+
+        if (moved && closest !== Array.from(opts).findIndex(o => o.classList.contains('active'))) {
+            switchToView(closest, opts, views, content, sel);
         }
+        moved = false;
+    };
 
-        switchToView(currentIdx, opts, views, content);
-        moving = false;
-    }, { passive: true });
+    sel.addEventListener('mousedown', (e) => startDrag(e.pageX));
+    sel.addEventListener('mousemove', (e) => moveDrag(e.pageX));
+    sel.addEventListener('mouseup', endDrag);
+    sel.addEventListener('mouseleave', endDrag);
+
+    sel.addEventListener('touchstart', (e) => startDrag(e.touches[0].pageX), { passive: true });
+    sel.addEventListener('touchmove', (e) => moveDrag(e.touches[0].pageX), { passive: true });
+    sel.addEventListener('touchend', endDrag, { passive: true });
 
     window._currentView = 'today';
     renderView().then(() => {});
+    memoryUpdate();
 }
 
-function switchToView(idx, opts, views, content) {
+function memoryUpdate() {
+    // 记忆当前选中的视图索引
+    const idx = ['today', 'templeton', 'buffett', 'munger'].indexOf(window._currentView);
+    if (idx > 0) {
+        const opts = document.querySelectorAll('.slide-opt');
+        if (opts[idx]) opts[idx].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+    }
+}
+
+function switchToView(idx, opts, views, content, sel) {
     opts.forEach((o, i) => o.classList.toggle('active', i === idx));
-    opts[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     window._currentView = views[idx];
     renderView().then(() => {});
+    // 平滑滚动到选中项
+    if (sel) {
+        sel.style.scrollBehavior = 'smooth';
+        opts[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
 }
 
 // ===== 渲染视图（今日或达人）=====
