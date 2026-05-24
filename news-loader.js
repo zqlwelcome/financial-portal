@@ -193,8 +193,14 @@ function renderNewsList(news) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
     const ts = _lastUpdateTime ? `<div class="news-ts">⏱ ${_lastUpdateTime}</div>` : '';
-    el.innerHTML = news.map((item, index) => `
-        <div class="news-item ${expandedNews === index ? 'expanded' : ''}" onclick="toggleNews(${index})">
+    const SHOW_INITIAL = 3;
+    const hasMore = news.length > SHOW_INITIAL;
+    const allExpanded = _showAllNews;
+    
+    el.innerHTML = news.map((item, index) => {
+        const hidden = !allExpanded && index >= SHOW_INITIAL;
+        return `
+        <div class="news-item ${expandedNews === index ? 'expanded' : ''} ${hidden ? 'news-folded' : ''}" onclick="toggleNews(${index})">
             <div class="news-rank ${index < 3 ? 'hot' : ''}">${index + 1}</div>
             <div class="news-body">
                 <div class="news-head">
@@ -205,9 +211,23 @@ function renderNewsList(news) {
                 <div class="news-detail">${item.detail || '暂无详细信息'}</div>
             </div>
             <div class="news-arrow">›</div>
-        </div>
-    `).join('') + ts;
+        </div>`;
+    }).join('') + (hasMore ? `
+        <div class="news-expand-wrap">
+            <button class="news-expand-btn" onclick="toggleAllNews()">
+                ${allExpanded ? '收起 <span class="hl-arrow">‹</span>' : `查看全部 ${news.length} 条 <span class="hl-arrow">›</span>`}
+            </button>
+        </div>` : '') + ts;
     localStorage.setItem('hot_news_cache', JSON.stringify(news));
+}
+
+let _showAllNews = false;
+
+function toggleAllNews() {
+    _showAllNews = !_showAllNews;
+    // 重新渲染新闻列表保留展开状态
+    const news = JSON.parse(localStorage.getItem('hot_news_cache') || '[]');
+    if (news.length > 0) renderNewsList(news);
 }
 
 // ===== 更新刷新提示 =====
@@ -226,6 +246,7 @@ async function forceRefreshAll() {
     _lastUpdateTime = '';
     expandedAlert = null;
     expandedNews = null;
+    _showAllNews = false;
     try {
         await Promise.all([loadHotNews(true), loadAlerts(true)]);
     } catch(e) {
