@@ -189,18 +189,19 @@ function renderAlerts(data) {
 }
 
 // ===== 渲染新闻列表 =====
+let _newsAllShown = false;
+
 function renderNewsList(news) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
     const ts = _lastUpdateTime ? `<div class="news-ts">⏱ ${_lastUpdateTime}</div>` : '';
-    const SHOW_INITIAL = 3;
-    const hasMore = news.length > SHOW_INITIAL;
-    const allExpanded = _showAllNews;
     
-    el.innerHTML = news.map((item, index) => {
-        const hidden = !allExpanded && index >= SHOW_INITIAL;
-        return `
-        <div class="news-item ${expandedNews === index ? 'expanded' : ''} ${hidden ? 'news-folded' : ''}" onclick="toggleNews(${index})">
+    // 前3条
+    const head = news.slice(0, 3);
+    const rest = news.slice(3);
+    
+    let html = head.map((item, index) => `
+        <div class="news-item ${expandedNews === index ? 'expanded' : ''}" onclick="toggleNews(${index})">
             <div class="news-rank ${index < 3 ? 'hot' : ''}">${index + 1}</div>
             <div class="news-body">
                 <div class="news-head">
@@ -211,23 +212,41 @@ function renderNewsList(news) {
                 <div class="news-detail">${item.detail || '暂无详细信息'}</div>
             </div>
             <div class="news-arrow">›</div>
-        </div>`;
-    }).join('') + (hasMore ? `
+        </div>`).join('');
+    
+    // 剩余（折叠或展开）
+    if (_newsAllShown) {
+        html += rest.map((item, index) => {
+            const realIndex = index + 3;
+            return `
+            <div class="news-item ${expandedNews === realIndex ? 'expanded' : ''}" onclick="toggleNews(${realIndex})">
+                <div class="news-rank ${realIndex < 3 ? 'hot' : ''}">${realIndex + 1}</div>
+                <div class="news-body">
+                    <div class="news-head">
+                        <span class="news-source">${item.source}</span>
+                    </div>
+                    <div class="news-title">${item.title}</div>
+                    <div class="news-summary">${item.summary}</div>
+                    <div class="news-detail">${item.detail || '暂无详细信息'}</div>
+                </div>
+                <div class="news-arrow">›</div>
+            </div>`;
+        }).join('');
+    }
+    
+    // 展开按钮
+    if (rest.length > 0) {
+        html += `
         <div class="news-expand-wrap">
-            <button class="news-expand-btn" onclick="toggleAllNews()">
-                ${allExpanded ? '收起 <span class="hl-arrow">‹</span>' : `查看全部 ${news.length} 条 <span class="hl-arrow">›</span>`}
+            <button class="news-expand-btn" onclick="_newsAllShown=!_newsAllShown;renderNewsList(newsCache)">
+                ${_newsAllShown ? '收起 <span class="hl-arrow">‹</span>' : `查看全部 ${news.length} 条 <span class="hl-arrow">›</span>`}
             </button>
-        </div>` : '') + ts;
+        </div>`;
+    }
+    
+    html += ts;
+    el.innerHTML = html;
     localStorage.setItem('hot_news_cache', JSON.stringify(news));
-}
-
-let _showAllNews = false;
-
-function toggleAllNews() {
-    _showAllNews = !_showAllNews;
-    // 重新渲染新闻列表保留展开状态
-    const news = JSON.parse(localStorage.getItem('hot_news_cache') || '[]');
-    if (news.length > 0) renderNewsList(news);
 }
 
 // ===== 更新刷新提示 =====
@@ -246,7 +265,7 @@ async function forceRefreshAll() {
     _lastUpdateTime = '';
     expandedAlert = null;
     expandedNews = null;
-    _showAllNews = false;
+    _newsAllShown = false;
     try {
         await Promise.all([loadHotNews(true), loadAlerts(true)]);
     } catch(e) {
