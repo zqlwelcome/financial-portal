@@ -12,7 +12,10 @@
 <body>
     <nav class="nav">
         <span class="nav-logo">📚 学习门户</span>
-        <span class="nav-time" id="navTime"></span>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <span class="nav-time" id="navTime"></span>
+            <button id="shareBtn" class="nav-share" aria-label="分享">↗</button>
+        </div>
     </nav>
 
     <main class="main">
@@ -107,6 +110,7 @@
     <script src="news-loader.js"></script>
     <script src="course-data.js"></script>
     <script src="course-app.js"></script>
+    <script src="share.js"></script>
     <script src="app.js"></script>
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>

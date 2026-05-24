@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     initPullRefresh();
     setInterval(loadMarketData, 30000);
+    initShare();
 });
 
 function updateNavTime() {

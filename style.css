@@ -1157,3 +1157,140 @@ body {
     margin-top: 4px;
     padding-right: 2px;
 }
+
+/* 分享按钮 */
+.nav-share {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(118,118,128,0.10);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #007AFF;
+    transition: all 0.2s;
+}
+.nav-share:active { transform: scale(0.9); background: rgba(118,118,128,0.20); }
+
+/* 分享遮罩 */
+.share-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: flex-end;
+    z-index: 300;
+    animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.share-sheet {
+    width: 100%;
+    max-height: 90vh;
+    background: #f2f2f7;
+    border-radius: 16px 16px 0 0;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+}
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+.share-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 0.5px solid rgba(60,60,67,0.12);
+    position: sticky;
+    top: 0;
+    background: rgba(242,242,247,0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1;
+}
+.share-close {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(118,118,128,0.12);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 分享卡片预览 */
+.share-card-preview {
+    padding: 20px;
+}
+.share-card-inner {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(102,126,234,0.3);
+}
+.share-card-top {
+    padding: 20px 20px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.3px;
+}
+.share-card-body {
+    padding: 12px 20px 16px;
+    color: rgba(255,255,255,0.9);
+}
+.share-card-stats {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+}
+.share-card-footer {
+    padding: 12px 20px;
+    background: rgba(0,0,0,0.1);
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* 转发文案列表 */
+.share-text-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: white;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.share-text-item:active { transform: scale(0.98); }
+.share-text-tag {
+    flex-shrink: 0;
+    font-size: 11px;
+    padding: 2px 6px;
+    background: rgba(0,122,255,0.08);
+    color: #007AFF;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-top: 2px;
+}
+.share-text-content {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #3a3a3c;
+}
+.share-text-copy {
+    flex-shrink: 0;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(0,122,255,0.08);
+    color: #007AFF;
+    font-weight: 500;
+    transition: all 0.2s;
+}
