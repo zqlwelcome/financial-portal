@@ -69,54 +69,33 @@ function initSubTabs() {
     });
 }
 
-// ===== 市场数据（实时API）=====
-async function loadMarketData() {
-    try {
-        // 使用新浪财经API（中国可访问）
-        const [shRes, hkRes, usRes] = await Promise.all([
-            fetch('https://hq.sinajs.cn/list=s_sh000001', { headers: { 'Referer': 'https://finance.sina.com.cn' } }).then(r => r.text()),
-            fetch('https://hq.sinajs.cn/list=hkHSI', { headers: { 'Referer': 'https://finance.sina.com.cn' } }).then(r => r.text()),
-            fetch('https://hq.sinajs.cn/list=gb_ixic', { headers: { 'Referer': 'https://finance.sina.com.cn' } }).then(r => r.text()),
-        ]);
+// ===== 市场数据（实时API）- 腾讯证券 script 标签绕过跨域 =====
+// 已验证字段位置(0-indexed): [3]=当前价, [31]=涨跌额, [32]=涨跌幅(上/恒指)
+// 纳斯达克: [30]=涨跌额, [31]=涨跌幅
+let _marketTimer = null;
 
-        // 解析上证: 名称,当前价,涨跌额,涨跌幅,成交量,成交额
-        const shMatch = shRes.match(/"([^"]+)"/);
-        if (shMatch) {
-            const parts = shMatch[1].split(',');
-            const price = parseFloat(parts[1]);
-            const changePct = parseFloat(parts[3]);
-            if (!isNaN(price) && !isNaN(changePct)) {
-                updateMarketItem('shIndex', price, changePct);
-            }
-        }
+function loadMarketData() {
+    if (_marketTimer) clearTimeout(_marketTimer);
+    const s = document.createElement('script');
+    s.src = 'https://qt.gtimg.cn/q=sh000001,hkHSI,usIXIC';
+    s.onload = () => {
+        const sh = window['v_sh000001'];
+        const hk = window['v_hkHSI'];
+        const us = window['v_usIXIC'];
+        if (sh) { const p = sh.split('~'); parsePrice('shIndex', p[3], p[32]); }
+        if (hk) { const p = hk.split('~'); parsePrice('hkIndex', p[3], p[33]); }
+        if (us) { const p = us.split('~'); parsePrice('usIndex', p[3], p[31]); }
+        s.remove();
+    };
+    s.onerror = () => s.remove();
+    document.head.appendChild(s);
+    _marketTimer = setTimeout(() => { _marketTimer = null; }, 5000);
+}
 
-        // 解析恒生: HSI,名称,当前价,开盘,最高,最低,昨收,涨跌额,涨跌幅,...
-        const hkMatch = hkRes.match(/"([^"]+)"/);
-        if (hkMatch) {
-            const parts = hkMatch[1].split(',');
-            if (parts[0] === 'HSI') {
-                const price = parseFloat(parts[2]);
-                const changePct = parseFloat(parts[8]);
-                if (!isNaN(price) && !isNaN(changePct)) {
-                    updateMarketItem('hkIndex', price, changePct);
-                }
-            }
-        }
-
-        // 解析纳斯达克（gb_ixic返回较多字段）
-        const usMatch = usRes.match(/"([^"]+)"/);
-        if (usMatch) {
-            const parts = usMatch[1].split(',');
-            const price = parseFloat(parts[1]);
-            const changePct = parseFloat(parts[3]);
-            if (!isNaN(price) && !isNaN(changePct)) {
-                updateMarketItem('usIndex', price, changePct);
-            }
-        }
-    } catch(e) {
-        console.warn('市场数据API失败，使用缓存:', e);
-        // fallback保留上次值，不做任何更新
-    }
+function parsePrice(id, priceStr, pctStr) {
+    const price = parseFloat(priceStr);
+    const pct = parseFloat(pctStr);
+    if (!isNaN(price) && !isNaN(pct)) updateMarketItem(id, price, pct);
 }
 
 function updateMarketItem(id, value, change) {
