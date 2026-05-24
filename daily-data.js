@@ -3,14 +3,13 @@
  */
 
 // ===== 推送时间配置 =====
-const PUSH_SLOTS = {
-    morning:  { label: '早报', icon: '🌅' },
-    noon:     { label: '午报', icon: '☀️' },
-    evening:  { label: '晚报', icon: '🌆' },
-    night:    { label: '夜报', icon: '🌙' }
-};
+const PUSH_SLOTS = [
+    { key: 'morning',  label: '早报', icon: '🌅', pushTime: '08:00' },
+    { key: 'noon',     label: '午报', icon: '☀️', pushTime: '12:00' },
+    { key: 'evening',  label: '晚报', icon: '🌆', pushTime: '19:00' }
+];
 
-// ===== 已读状态 key =====
+// ===== 已读状态 =====
 const READ_KEY = 'push_read';
 
 function getReadSet() {
@@ -18,58 +17,52 @@ function getReadSet() {
     return val ? new Set(JSON.parse(val)) : new Set();
 }
 
-function markRead(slot) {
+function markRead(key) {
     const set = getReadSet();
-    set.add(slot);
+    set.add(key);
     localStorage.setItem(READ_KEY, JSON.stringify([...set]));
 }
 
-function isRead(slot) {
-    return getReadSet().has(slot);
+function isRead(key) {
+    return getReadSet().has(key);
 }
 
-// ===== 大师周度观点 =====
-const WEEKLY_MASTERS = {
-    templeton: {
-        name: "邓普顿",
-        fullName: "约翰·邓普顿",
-        icon: "🌍",
-        subtitle: "逆向投资之父",
-        philosophy: "行情在绝望中诞生，在犹豫中成长，在乐观中成熟，在兴奋中死亡。",
-        color: "#5856d6",
-        views: [
-            { event: "美联储降息信号", view: "全球流动性拐点已现，新兴市场将迎来估值修复窗口。", tip: "当所有人恐慌时，正是入场信号。", action: "关注港股科技股和A股消费龙头。" },
-            { event: "中国央行降准1万亿", view: "政策底已现，但市场底需确认。", tip: "政策底≠市场底，耐心等待。", action: "短期可参与反弹，设好止损。" },
-            { event: "日元跌破160", view: "日本资产可能被低估。", tip: "被抛弃的资产往往最有价值。", action: "小仓位配置日本ETF。" }
-        ]
-    },
-    buffett: {
-        name: "巴菲特",
-        fullName: "沃伦·巴菲特",
-        icon: "💰",
-        subtitle: "价值投资之王",
-        philosophy: "价格是你付出的，价值是你得到的。",
-        color: "#ff9500",
-        views: [
-            { event: "宁德时代固态电池", view: "新能源长期看好，但短期估值偏高。", tip: "好公司≠好股票，要看价格。", action: "等回调30%后再布局。" },
-            { event: "北向资金连续净流入", view: "外资抄底说明估值有吸引力。", tip: "跟聪明钱，但不盲目跟风。", action: "关注茅台、宁德等重仓股。" },
-            { event: "个人养老金全面推开", view: "长期利好，短期影响有限。", tip: "投资是长跑，不是暴富。", action: "每月定投沪深300ETF。" }
-        ]
-    },
-    munger: {
-        name: "芒格",
-        fullName: "查理·芒格",
-        icon: "🧠",
-        subtitle: "多元思维大师",
-        philosophy: "我必须知道我将在哪里死去，这样我就永远不会去那里。",
-        color: "#34c759",
-        views: [
-            { event: "A股放量大涨", view: "成交量放大是好现象，但要看持续性。", tip: "涨时想跌，跌时想涨。", action: "连涨3天反而要警惕。" },
-            { event: "比特币突破11万", view: "已从另类资产变成主流资产。", tip: "不懂就不要碰。", action: "配置控制在5%以内。" },
-            { event: "油价突破85美元", view: "能源通胀可能卷土重来。", tip: "逆向思维找机会。", action: "关注中石油等高股息股。" }
-        ]
+// ===== 提取报内容中的摘要和专家观点 =====
+function parseBriefing(content, slotKey) {
+    const lines = content.split('\n').filter(l => l.trim());
+    
+    // 提取专家观点（💡 三视角速评后面的内容）
+    const expertViews = {};
+    let inExpert = false;
+    let currentExpert = null;
+    for (const line of lines) {
+        if (line.startsWith('💡 三视角速评')) { inExpert = true; continue; }
+        if (!inExpert) continue;
+        if (line.startsWith('⚡') || line.startsWith('🎯')) { inExpert = false; continue; }
+        if (line.startsWith('• 邓普顿')) { currentExpert = 'templeton'; expertViews[currentExpert] = line.replace('• 邓普顿：', '').trim(); continue; }
+        if (line.startsWith('• 巴菲特')) { currentExpert = 'buffett'; expertViews[currentExpert] = line.replace('• 巴菲特：', '').trim(); continue; }
+        if (line.startsWith('• 芒格')) { currentExpert = 'munger'; expertViews[currentExpert] = line.replace('• 芒格：', '').trim(); continue; }
+        if (currentExpert && line.startsWith('•')) { expertViews[currentExpert] += ' ' + line.trim(); }
     }
-};
+    
+    // 提取摘要（头条和要闻前几条）
+    const bullets = lines.filter(l => /^[•🔥📌]/.test(l));
+    const preview = bullets.slice(0, 4).join('\n') || lines.slice(1, 4).join('\n');
+    
+    return { preview, expertViews };
+}
+
+// ===== 从JSON加载简报 =====
+async function loadBriefing(slotKey, dateStr) {
+    const path = `data/briefings/${dateStr}-${slotKey}.json`;
+    try {
+        const resp = await fetch(path);
+        if (!resp.ok) return null;
+        return await resp.json();
+    } catch(e) {
+        return null;
+    }
+}
 
 let currentView = 'today';
 
@@ -93,112 +86,167 @@ async function renderSummaryContent() {
     if (currentView === 'today') {
         await renderTodayView(el);
     } else {
-        renderMasterView(el, currentView);
+        const data = window._todayBriefingData;
+        renderMasterView(el, currentView, data);
     }
-}
-
-// ===== 加载今日推送（已推送的才返回）=====
-async function loadTodayBriefings() {
-    const today = new Date();
-    const dateStr = today.toISOString().slice(0, 10);
-    const slots = ['morning', 'noon', 'evening', 'night'];
-    const results = [];
-
-    for (const slot of slots) {
-        const path = `data/briefings/${dateStr}-${slot}.json`;
-        try {
-            const resp = await fetch(path);
-            if (!resp.ok) continue;
-            const data = await resp.json();
-            const slotInfo = PUSH_SLOTS[slot];
-            results.push({
-                key: slot,
-                label: slotInfo.label,
-                icon: slotInfo.icon,
-                content: data.content
-            });
-        } catch(e) {
-            // 没有推送文件就跳过
-        }
-    }
-    return results;
-}
-
-// ===== 提取摘要（前几个要点作为预览）=====
-function extractPreview(text) {
-    const lines = text.split('\n').filter(l => l.trim());
-    const bullets = lines.filter(l => /^[•🔥📌💡⚡🎯📊]/.test(l));
-    const preview = bullets.slice(0, 3).join('\n') || lines.slice(0, 2).join('\n');
-    const full = text;
-    return { preview, full };
-}
-
-// ===== 点击展开/收起 =====
-function togglePushContent(el) {
-    const key = el.dataset.key;
-    if (!isRead(key)) {
-        markRead(key);
-        el.classList.add('read');
-        const badge = el.querySelector('.ti-badge');
-        if (badge) badge.textContent = '已读';
-    }
-    el.classList.toggle('expanded');
-    const arrow = el.querySelector('.ti-arrow');
-    if (arrow) arrow.textContent = el.classList.contains('expanded') ? '⌄' : '›';
 }
 
 // ===== 今日视图 =====
 async function renderTodayView(el) {
-    // 显示加载中
+    el.innerHTML = '<div style="text-align:center;padding:30px 0;color:#8e8e93;">⏳ 加载中...</div>';
+    
+    const today = new Date();
+    const dateStr = today.toISOString().slice(0, 10);
+    const now = today.getHours() * 60 + today.getMinutes();
+    
+    // 并行加载所有简报
+    const results = await Promise.all(PUSH_SLOTS.map(async slot => {
+        const data = await loadBriefing(slot.key, dateStr);
+        const parsed = data ? parseBriefing(data.content, slot.key) : null;
+        return {
+            ...slot,
+            data,
+            parsed,
+            pushed: !!data,
+            pushMinute: parseInt(slot.pushTime.split(':')[0]) * 60 + parseInt(slot.pushTime.split(':')[1])
+        };
+    }));
+    
+    // 存储简报数据供专家视图使用
+    window._todayBriefingData = results;
+    
+    // 构建今日视图
     el.innerHTML = `
         <div class="today-header">
             <div class="th-icon">📢</div>
             <div class="th-info">
-                <div class="th-title">今日财经推送</div>
-                <div class="th-sub">加载中...</div>
+                <div class="th-title">每日简报</div>
+                <div class="th-sub" id="todayDate">${dateStr}</div>
             </div>
         </div>
-        <div style="text-align:center;padding:40px 0;color:#8e8e93;">
-            <div class="loading-spinner" style="font-size:32px;animation:pulse 1s infinite;">⏳</div>
-        </div>
-    `;
-
-    const briefings = await loadTodayBriefings();
-
-    // 没有推送 → 不显示整个今日推送区块（也不显示"暂无推送"占位）
-    if (briefings.length === 0) {
-        el.innerHTML = ''; // 完全不显示
-        return;
-    }
-
-    el.innerHTML = `
-        <div class="today-list">
-            ${briefings.map(s => {
-                const { preview, full } = extractPreview(s.content);
+        <div class="today-slots">
+            ${results.map(s => {
                 const read = isRead(s.key);
-                return `
-                <div class="today-item ${read ? 'read' : ''}" data-key="${s.key}" onclick="togglePushContent(this)">
-                    <div class="ti-icon">${s.icon}</div>
-                    <div class="ti-content">
-                        <div class="ti-head">
-                            <span class="ti-label">${s.label}</span>
-                            <span class="ti-badge">${read ? '已读' : '未读'}</span>
-                            <span class="ti-arrow">›</span>
+                if (s.pushed) {
+                    const { preview, expertViews } = s.parsed;
+                    return `
+                    <div class="ts-card ${read ? 'read' : ''}" data-key="${s.key}" onclick="togglePushCard(this)">
+                        <div class="ts-head">
+                            <span class="ts-icon">${s.icon}</span>
+                            <span class="ts-label">${s.label}</span>
+                            <span class="ts-badge">${read ? '已读' : '未读'}</span>
+                            <span class="ts-arrow">›</span>
                         </div>
-                        <div class="ti-preview">${preview.replace(/\n/g, '<br>')}</div>
-                        <div class="ti-text">${full.replace(/\n/g, '<br>')}</div>
+                        <div class="ts-preview">${preview.replace(/\n/g, '<br>')}</div>
+                        <div class="ts-full hidden">
+                            ${s.data.content.replace(/\n/g, '<br>')}
+                        </div>
                     </div>
-                </div>
-                `;
+                    `;
+                } else {
+                    const isPast = now >= s.pushMinute;
+                    const statusText = isPast ? '等会再刷' : `${s.pushTime} 推送`;
+                    return `
+                    <div class="ts-card pending">
+                        <div class="ts-head">
+                            <span class="ts-icon">${s.icon}</span>
+                            <span class="ts-label">${s.label}</span>
+                            <span class="ts-status">${statusText}</span>
+                        </div>
+                    </div>
+                    `;
+                }
             }).join('')}
+        </div>
+        <div class="today-divider"></div>
+        <div class="expert-section" id="expertSection">
+            <div class="expert-title">📊 今日专家视角</div>
+            <div class="expert-refresh">更新于 ${today.getHours().toString().padStart(2,'0')}:${today.getMinutes().toString().padStart(2,'0')}</div>
+            ${renderExpertCards(results)}
         </div>
     `;
 }
 
-// ===== 大师视图 =====
-function renderMasterView(el, masterId) {
-    const m = WEEKLY_MASTERS[masterId];
-    if (!m) return;
+// ===== 渲染专家卡片 =====
+function renderExpertCards(results) {
+    // 收集所有已推送简报中的专家观点（按时间倒序：最新的优先）
+    const pushedSlots = results.filter(s => s.pushed).reverse();
+    
+    if (pushedSlots.length === 0) {
+        return `<div class="expert-empty">等待推送后自动更新当日观点</div>`;
+    }
+    
+    // 取最新一次推送中的专家观点
+    const latest = pushedSlots[0];
+    const views = latest.parsed.expertViews;
+    
+    if (!views || Object.keys(views).length === 0) {
+        return `<div class="expert-empty">等待推送后自动更新当日观点</div>`;
+    }
+    
+    const experts = [
+        { id: 'templeton', name: '邓普顿', fullName: '约翰·邓普顿', icon: '🌍', color: '#5856d6', tag: '逆向思维' },
+        { id: 'buffett', name: '巴菲特', fullName: '沃伦·巴菲特', icon: '💰', color: '#ff9500', tag: '价值投资' },
+        { id: 'munger', name: '芒格', fullName: '查理·芒格', icon: '🧠', color: '#34c759', tag: '多元思维' }
+    ];
+    
+    return experts.map(ex => {
+        const view = views[ex.id];
+        if (!view) return '';
+        return `
+        <div class="expert-card" style="border-left-color:${ex.color}">
+            <div class="ec-head">
+                <span class="ec-icon" style="background:${ex.color}">${ex.icon}</span>
+                <span class="ec-name">${ex.fullName}</span>
+                <span class="ec-tag">${ex.tag}</span>
+                <span class="ec-time">${pushedSlots[0].label}</span>
+            </div>
+            <div class="ec-view">${view}</div>
+        </div>
+        `;
+    }).join('');
+}
+
+// ===== 点击展开简报卡片 =====
+function togglePushCard(el) {
+    const key = el.dataset.key;
+    if (!isRead(key)) {
+        markRead(key);
+        el.classList.add('read');
+        const badge = el.querySelector('.ts-badge');
+        if (badge) badge.textContent = '已读';
+    }
+    el.classList.toggle('expanded');
+    const arrow = el.querySelector('.ts-arrow');
+    if (arrow) arrow.textContent = el.classList.contains('expanded') ? '⌄' : '›';
+}
+
+// ===== 大师视图（加载当日专家观点）=====
+function renderMasterView(el, masterId, allResults) {
+    // 从简报数据中获取最新观点
+    const pushedSlots = (allResults || []).filter(s => s.pushed).reverse();
+    
+    if (pushedSlots.length === 0) {
+        el.innerHTML = '<div style="text-align:center;padding:40px 0;color:#8e8e93;font-size:14px;">等待每日推送后自动更新观点</div>';
+        return;
+    }
+    
+    const latest = pushedSlots[0];
+    const views = latest.parsed.expertViews || {};
+    const view = views[masterId];
+    
+    if (!view) {
+        el.innerHTML = '<div style="text-align:center;padding:40px 0;color:#8e8e93;font-size:14px;">暂无当日观点</div>';
+        return;
+    }
+    
+    const experts = {
+        templeton: { name: '邓普顿', fullName: '约翰·邓普顿', icon: '🌍', subtitle: '逆向投资之父', philosophy: '行情在绝望中诞生，在犹豫中成长，在乐观中成熟，在兴奋中死亡。', color: '#5856d6' },
+        buffett: { name: '巴菲特', fullName: '沃伦·巴菲特', icon: '💰', subtitle: '价值投资之王', philosophy: '价格是你付出的，价值是你得到的。', color: '#ff9500' },
+        munger: { name: '芒格', fullName: '查理·芒格', icon: '🧠', subtitle: '多元思维大师', philosophy: '我必须知道我将在哪里死去，这样我就永远不会去那里。', color: '#34c759' }
+    };
+    
+    const m = experts[masterId];
     
     el.innerHTML = `
         <div class="master-header" style="background: ${m.color}">
@@ -207,24 +255,15 @@ function renderMasterView(el, masterId) {
             </div>
             <div class="mh-right">
                 <div class="mh-name">${m.fullName}</div>
-                <div class="mh-sub">${m.subtitle}</div>
+                <div class="mh-sub">${m.subtitle} · 更新于 ${latest.label}</div>
             </div>
         </div>
         <div class="master-quote">
             <span class="mq-mark">"</span>${m.philosophy}<span class="mq-mark">"</span>
         </div>
-        <div class="master-label">本周投资观点</div>
-        <div class="view-list">
-            ${m.views.map(v => `
-                <div class="view-card">
-                    <div class="vc-title">${v.event}</div>
-                    <div class="vc-view">${v.view}</div>
-                    <div class="vc-tags">
-                        <span class="vc-tag tip">💡 ${v.tip}</span>
-                        <span class="vc-tag action">⚡ ${v.action}</span>
-                    </div>
-                </div>
-            `).join('')}
+        <div class="master-label">今日观点</div>
+        <div class="expert-card-single">
+            <div class="ec-view">${view}</div>
         </div>
     `;
 }
