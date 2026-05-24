@@ -22,11 +22,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     setInterval(updateNavTime, 60000);
     initMainTabs();
     initSubTabs();
-    initMasterTabs();
+    initSlideSelector();
     loadMarketData();
-    renderSummaryContent();
-
-
+    await renderSummaryContent();
 
     initPullRefresh();
     setInterval(loadMarketData, 30000);
@@ -57,7 +55,7 @@ function refreshRealtime() { loadMarketData(); forceRefreshAll(); }
 // ===== 切换子标签时渲染内容 =====
 function initSubTabs() {
     document.querySelectorAll('.sub-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
+        tab.addEventListener('click', async () => {
             document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.sub-content').forEach(c => c.classList.remove('active'));
             tab.classList.add('active');
@@ -66,7 +64,7 @@ function initSubTabs() {
             if (tab.dataset.sub === 'realtime') {
                 refreshRealtime();
             } else if (tab.dataset.sub === 'daily') {
-                renderSummaryContent();
+                await renderSummaryContent();
             }
         });
     });

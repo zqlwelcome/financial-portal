@@ -120,33 +120,39 @@ body {
 .sub-content { display: none; }
 .sub-content.active { display: block; }
 
-/* ===== 分段控制器 ===== */
-.segment-control {
+/* ===== 横向滑动选择器 ===== */
+.slide-selector {
     display: flex;
-    background: rgba(118,118,128,0.12);
-    border-radius: 10px;
-    padding: 2px;
-    margin-bottom: 14px;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 2px 0 12px;
+    margin-bottom: 8px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+.slide-selector::-webkit-scrollbar { display: none; }
 
-.segment {
-    flex: 1;
-    padding: 8px 6px;
+.slide-opt {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    padding: 8px 18px;
     border: none;
-    background: none;
-    font-size: 13px;
+    border-radius: 9px;
+    background: rgba(118,118,128,0.10);
+    font-size: 14px;
     font-weight: 500;
-    color: var(--text);
+    color: var(--text2);
     cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     white-space: nowrap;
 }
-
-.segment.active {
-    background: white;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+.slide-opt.active {
+    background: var(--primary);
+    color: white;
     font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,122,255,0.3);
 }
 
 .summary-scroll {
@@ -1038,3 +1044,90 @@ body {
 
 .done-btn:active { transform: scale(0.98); }
 .done-btn.completed { background: #34c759; }
+
+/* ===== 达人视图 ===== */
+.expert-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border-radius: var(--radius-lg);
+    color: white;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.eb-avatar {
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    backdrop-filter: blur(4px);
+    flex-shrink: 0;
+}
+
+.eb-info { flex: 1; }
+
+.eb-name {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+.eb-sub {
+    font-size: 12px;
+    opacity: 0.85;
+    margin-top: 1px;
+}
+
+.eb-time {
+    font-size: 11px;
+    padding: 3px 8px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.expert-bio {
+    font-size: 12px;
+    color: var(--text3);
+    line-height: 1.5;
+    padding: 0 2px;
+    margin-bottom: 14px;
+}
+
+.expert-block {
+    background: white;
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-sm);
+}
+
+.expert-block.lesson {
+    border-left: 3px solid var(--orange);
+    background: linear-gradient(135deg, #fff9e6, #fffdf5);
+}
+
+.ebl-header {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+
+.ebl-body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #3a3a3c;
+}
+
+.expert-block.lesson .ebl-body {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #664d03;
+}
