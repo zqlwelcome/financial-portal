@@ -4,86 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AI产品经理学习</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Noto Sans SC", sans-serif; background: #f2f2f7; color: #1c1c1e; }
-        
-        .nav { position: fixed; top: 0; left: 0; right: 0; height: 44px; background: rgba(242,242,247,0.92); backdrop-filter: saturate(180%) blur(20px); border-bottom: 0.5px solid rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; padding: 0 16px; z-index: 100; }
-        .nav-back { font-size: 15px; color: #007AFF; text-decoration: none; }
-        .nav-title { font-size: 17px; font-weight: 600; }
-        .nav-spacer { width: 50px; }
-        
-        .main { padding: 60px 16px 24px; max-width: 500px; margin: 0 auto; }
-        
-        .progress-banner { background: linear-gradient(135deg, #5856d6, #af52de); border-radius: 16px; padding: 20px; color: white; margin-bottom: 20px; }
-        .progress-row { display: flex; align-items: center; gap: 16px; }
-        .progress-circle { width: 64px; height: 64px; position: relative; }
-        .progress-circle svg { transform: rotate(-90deg); width: 100%; height: 100%; }
-        .progress-circle circle { fill: none; stroke-width: 5; stroke-linecap: round; }
-        .pbg { stroke: rgba(255,255,255,0.2); }
-        .pfill { stroke: white; transition: stroke-dashoffset 0.5s; }
-        .ptext { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 16px; font-weight: 700; }
-        .progress-info h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
-        .progress-info p { font-size: 13px; opacity: 0.8; }
-        .progress-stats { display: flex; gap: 16px; margin-top: 12px; font-size: 13px; opacity: 0.9; }
-        
-        .section-label { font-size: 13px; font-weight: 600; color: #8e8e93; margin: 20px 0 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-        
-        .course-section { margin-bottom: 16px; }
-        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .section-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-        .bg-purple { background: linear-gradient(135deg, #5856d6, #af52de); }
-        .bg-blue { background: linear-gradient(135deg, #007AFF, #5856d6); }
-        .bg-green { background: linear-gradient(135deg, #34c759, #30b350); }
-        .bg-orange { background: linear-gradient(135deg, #ff9500, #ff6b00); }
-        .bg-red { background: linear-gradient(135deg, #ff3b30, #ff6b6b); }
-        .section-title { font-size: 15px; font-weight: 600; }
-        .section-progress { font-size: 12px; color: #8e8e93; margin-left: auto; }
-        
-        .lessons-list { display: flex; flex-direction: column; gap: 8px; }
-        
-        .lesson-card { display: flex; align-items: center; gap: 12px; background: white; border-radius: 12px; padding: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); cursor: pointer; transition: all 0.15s; }
-        .lesson-card:active { transform: scale(0.98); }
-        .lesson-card.done { background: #e8f5e9; }
-        
-        .lesson-num { width: 28px; height: 28px; border-radius: 50%; background: #f2f2f7; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #8e8e93; flex-shrink: 0; }
-        .lesson-card.done .lesson-num { background: #34c759; color: white; }
-        
-        .lesson-info { flex: 1; }
-        .lesson-title { font-size: 14px; font-weight: 500; }
-        .lesson-meta { font-size: 11px; color: #8e8e93; margin-top: 2px; }
-        
-        .lesson-arrow { color: #c7c7cc; font-size: 14px; }
-        
-        .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); display: flex; align-items: flex-end; z-index: 200; }
-        .modal.hidden { display: none; }
-        .modal-sheet { background: #f2f2f7; width: 100%; max-height: 95vh; border-radius: 16px 16px 0 0; display: flex; flex-direction: column; animation: slideUp 0.25s ease; }
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        
-        .modal-top { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(242,242,247,0.95); backdrop-filter: blur(20px); border-bottom: 0.5px solid rgba(0,0,0,0.1); flex-shrink: 0; position: sticky; top: 0; z-index: 1; }
-        .modal-top h2 { font-size: 17px; font-weight: 600; flex: 1; text-align: center; }
-        .modal-x { width: 30px; height: 30px; border-radius: 50%; background: rgba(118,118,128,0.12); border: none; font-size: 14px; cursor: pointer; }
-        .modal-spacer { width: 30px; }
-        
-        .modal-scroll { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 16px; }
-        
-        .block { background: white; border-radius: 12px; padding: 16px; margin-bottom: 10px; }
-        .block h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
-        .block p { font-size: 14px; line-height: 1.7; margin-bottom: 6px; color: #3a3a3c; }
-        .block ul { padding-left: 16px; margin: 8px 0; }
-        .block li { font-size: 14px; line-height: 1.7; color: #3a3a3c; }
-        
-        .tip { background: #fff3cd; border-radius: 8px; padding: 12px; margin-top: 8px; font-size: 13px; line-height: 1.6; color: #664d03; }
-        
-        .done-btn { width: 100%; padding: 14px; background: #007AFF; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 12px; }
-        .done-btn:active { transform: scale(0.98); }
-        .done-btn.completed { background: #34c759; }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="learn-style.css">
 </head>
 <body>
     <nav class="nav">
         <a href="index.html" class="nav-back">← 返回</a>
-        <span class="nav-title">AI产品经理</span>
+        <span class="nav-title">AI产品经理学习</span>
         <div class="nav-spacer"></div>
     </nav>
     
@@ -93,125 +21,36 @@
                 <div class="progress-circle">
                     <svg viewBox="0 0 100 100">
                         <circle class="pbg" cx="50" cy="50" r="45"/>
-                        <circle class="pfill" cx="50" cy="50" r="45" id="ring"/>
+                        <circle class="pfill" id="progressRing" cx="50" cy="50" r="45" style="stroke-dasharray:283;stroke-dashoffset:283"/>
                     </svg>
-                    <div class="ptext"><span id="pct">0</span>%</div>
+                    <div class="ptext"><span id="progressPct">0</span>%</div>
                 </div>
                 <div class="progress-info">
                     <h2>学习进度</h2>
-                    <p>已完成 <span id="done">0</span>/15 课时</p>
+                    <p>已完成 <span id="progressDone">0</span>/<span id="progressTotal">15</span> 课时</p>
                 </div>
             </div>
             <div class="progress-stats">
-                <span>🔥 连续 <span id="streak">0</span> 天</span>
-                <span>⭐ <span id="stars">0</span> 颗星</span>
+                <span>🔥 连续 <span id="streakDays">0</span> 天</span>
+                <span>⭐ <span id="progressStars">0</span> 颗星</span>
             </div>
         </div>
         
-        <div id="courses"></div>
+        <div id="courseList"></div>
     </main>
     
-    <div class="modal hidden" id="modal">
+    <div class="modal hidden" id="courseModal">
         <div class="modal-sheet">
             <div class="modal-top">
                 <div class="modal-spacer"></div>
-                <h2 id="mtitle">详情</h2>
-                <button class="modal-x" id="mx">✕</button>
+                <h2 id="modalTitle">详情</h2>
+                <button class="modal-x" id="modalClose">✕</button>
             </div>
-            <div class="modal-scroll" id="mbody"></div>
+            <div class="modal-scroll" id="modalBody"></div>
         </div>
     </div>
     
     <script src="course-data.js"></script>
-    <script>
-        let prog = JSON.parse(localStorage.getItem('prog') || '{}');
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            render();
-            updateStats();
-            document.getElementById('mx').onclick = () => document.getElementById('modal').classList.add('hidden');
-            document.getElementById('modal').onclick = e => { if (e.target.id === 'modal') document.getElementById('modal').classList.add('hidden'); };
-        });
-        
-        function render() {
-            const el = document.getElementById('courses');
-            el.innerHTML = COURSES.map(s => {
-                const done = s.lessons.filter(l => prog[l.id]).length;
-                return `
-                    <div class="course-section">
-                        <div class="section-header">
-                            <div class="section-icon ${s.bg}">${s.icon}</div>
-                            <div class="section-title">${s.title}</div>
-                            <div class="section-progress">${done}/${s.lessons.length}</div>
-                        </div>
-                        <div class="lessons-list">
-                            ${s.lessons.map((l, i) => `
-                                <div class="lesson-card ${prog[l.id] ? 'done' : ''}" onclick="openLesson('${s.id}','${l.id}')">
-                                    <div class="lesson-num">${prog[l.id] ? '✓' : i + 1}</div>
-                                    <div class="lesson-info">
-                                        <div class="lesson-title">${l.title}</div>
-                                        <div class="lesson-meta">${l.time}</div>
-                                    </div>
-                                    <span class="lesson-arrow">›</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>`;
-            }).join('');
-        }
-        
-        function openLesson(sid, lid) {
-            const s = COURSES.find(x => x.id === sid);
-            const l = s?.lessons.find(x => x.id === lid);
-            if (!l) return;
-            document.getElementById('mtitle').textContent = l.title;
-            document.getElementById('mbody').innerHTML = l.content + `
-                <button class="done-btn ${prog[lid] ? 'completed' : ''}" onclick="done('${lid}')">${prog[lid] ? '✓ 已完成' : '✓ 完成'}</button>`;
-            document.getElementById('modal').classList.remove('hidden');
-        }
-        
-        function done(id) {
-            if (!prog[id]) {
-                prog[id] = true;
-                localStorage.setItem('prog', JSON.stringify(prog));
-                document.querySelector('.done-btn').classList.add('completed');
-                document.querySelector('.done-btn').textContent = '✓ 已完成';
-                updateStats();
-                render();
-                toast('打卡成功 +1⭐');
-            }
-        }
-        
-        function updateStats() {
-            const all = COURSES.flatMap(s => s.lessons);
-            const d = all.filter(l => prog[l.id]).length;
-            const p = Math.round(d / all.length * 100);
-            document.getElementById('pct').textContent = p;
-            document.getElementById('done').textContent = d;
-            document.getElementById('stars').textContent = d;
-            const r = document.getElementById('ring');
-            r.style.strokeDashoffset = 283 - (p / 100) * 283;
-            
-            let streak = 0;
-            const today = new Date().toDateString();
-            const last = localStorage.getItem('lastDay');
-            if (last !== today && d > 0) {
-                streak = parseInt(localStorage.getItem('streak') || '0') + 1;
-                localStorage.setItem('lastDay', today);
-                localStorage.setItem('streak', streak);
-            } else {
-                streak = parseInt(localStorage.getItem('streak') || '0');
-            }
-            document.getElementById('streak').textContent = streak;
-        }
-        
-        function toast(msg) {
-            const t = document.createElement('div');
-            t.style.cssText = 'position:fixed;top:60px;left:50%;transform:translateX(-50%);background:#34c759;color:white;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:500;z-index:300';
-            t.textContent = msg;
-            document.body.appendChild(t);
-            setTimeout(() => t.remove(), 2000);
-        }
-    </script>
+    <script src="course-app.js"></script>
 </body>
 </html>

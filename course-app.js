@@ -113,15 +113,25 @@ function updateProgress() {
     const total = allLessons.length;
     const percent = Math.round((completed / total) * 100);
     
-    document.getElementById('completionRate').textContent = percent + '%';
+    // 兼容 index.html（段落文本）和 learn.html（环形百分比）
+    const pctEl = document.getElementById('progressPct') || document.getElementById('completionRate');
+    if (pctEl) pctEl.textContent = percent + '%';
     
-    // 更新环形进度
-    const ring = document.getElementById('progressFill');
+    // 更新环形进度 - 兼容两种布局
+    const ring = document.getElementById('progressRing') || document.getElementById('progressFill');
     if (ring) {
         const circumference = 283;
         const offset = circumference - (percent / 100) * circumference;
         ring.style.strokeDashoffset = offset;
     }
+    
+    // 更新进度统计文本（learn.html）
+    const doneEl = document.getElementById('progressDone');
+    if (doneEl) doneEl.textContent = completed;
+    const totalEl = document.getElementById('progressTotal');
+    if (totalEl) totalEl.textContent = total;
+    const starsEl = document.getElementById('progressStars');
+    if (starsEl) starsEl.textContent = completed;
     
     // 更新连续天数（简化逻辑）
     const today = new Date().toDateString();
