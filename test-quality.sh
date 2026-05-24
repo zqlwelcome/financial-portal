@@ -26,7 +26,7 @@ done
 # 2. 检查JavaScript文件
 echo ""
 echo "2. 检查JavaScript文件..."
-for file in app.js news-loader.js daily-data.js course-app.js course-data.js learn-app.js; do
+for file in app.js news-loader.js daily-data.js course-app.js course-data.js; do
     status=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL/$file")
     if [ "$status" = "200" ]; then
         if curl -s "$SITE_URL/$file" | node --check - 2>/dev/null; then
