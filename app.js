@@ -65,6 +65,8 @@ function initSubTabs() {
                 refreshRealtime();
             } else if (tab.dataset.sub === 'daily') {
                 await renderSummaryContent();
+            } else if (tab.dataset.sub === 'holdings') {
+                renderHoldings();
             }
         });
     });
