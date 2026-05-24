@@ -6,6 +6,7 @@
 let newsCache = [];
 let alertsCache = null;
 let lastRefreshTime = 0;
+let _cachedUpdateTime = '';
 const REFRESH_INTERVAL = 10 * 60 * 1000;
 
 // ===== 当前展开状态 =====
@@ -37,50 +38,81 @@ async function loadHotNews(forceRefresh = false) {
         return;
     }
     
-    el.innerHTML = '<div class="empty-hint">🔄 获取最新新闻...</div>';
+    el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;color:#8e8e93;font-size:14px;">🔄 获取最新新闻...</div>';
     
-    // 强制刷新时清除缓存标记，确保真正请求
+    // 强制刷新时清除缓存
     if (forceRefresh) {
         lastRefreshTime = 0;
     }
     
     try {
-        const ts = Date.now();
-        const response = await fetch(`data/hot-news.json?t=${ts}`, {
-            cache: 'no-store',
-            headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
-        });
+        // 用XMLHttpRequest更彻底地绕过CDN缓存
+        const data = await xhrFetch();
         
-        if (response.ok) {
-            const data = await response.json();
-            if (data.news && data.news.length > 0) {
-                // 检查是否真的是新数据：对比第一条新闻的标题
-                const isNew = newsCache.length === 0 || !newsCache[0] || newsCache[0].title !== data.news[0].title;
+        if (data && data.news && data.news.length > 0) {
+            // 检查是否真的是新数据
+            const titleChanged = newsCache.length === 0 || !newsCache[0] || newsCache[0].title !== data.news[0].title;
+            const timeChanged = !_cachedUpdateTime || _cachedUpdateTime !== data.updateTime;
+            
+            if (titleChanged || timeChanged || newsCache.length === 0) {
+                _cachedUpdateTime = data.updateTime;
                 newsCache = data.news;
                 lastRefreshTime = Date.now();
                 renderNewsList(newsCache);
-                updateRefreshHint(data.updateTime || (isNew ? '刚刚更新' : '已是最新'));
+                updateRefreshHint(data.updateTime || '刚刚更新');
+                localStorage.setItem('hot_news_time', data.updateTime || '');
                 return;
             }
+            
+            // 数据没变：刷新提示但不重新渲染
+            lastRefreshTime = Date.now();
+            updateRefreshHint(data.updateTime || '已是最新');
+            return;
         }
     } catch (e) {
         console.log('加载新闻失败:', e);
     }
     
-    // 网络请求失败时尝试本地缓存
+    // 请求失败时显示缓存
     const cached = localStorage.getItem('hot_news_cache');
     if (cached) {
         try {
-            newsCache = JSON.parse(cached);
-            renderNewsList(newsCache);
-        } catch(e) {
-            if (newsCache.length === 0) {
-                el.innerHTML = '<div class="empty-hint">暂无新闻</div>';
+            const parsed = JSON.parse(cached);
+            if (parsed && parsed.length > 0) {
+                newsCache = parsed;
+                renderNewsList(newsCache);
+                return;
             }
-        }
-    } else if (newsCache.length === 0) {
-        el.innerHTML = '<div class="empty-hint">暂无新闻</div>';
+        } catch(e) {}
     }
+    
+    if (newsCache.length === 0) {
+        el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;color:#8e8e93;">暂无新闻</div>';
+    }
+}
+
+// XHR方式加载，比fetch更彻底地绕过缓存
+function xhrFetch() {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        const url = 'data/hot-news.json?_=' + Date.now() + Math.random();
+        xhr.open('GET', url, true);
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.timeout = 10000;
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                try { resolve(JSON.parse(xhr.responseText)); }
+                catch(e) { reject(e); }
+            } else {
+                reject(new Error('HTTP ' + xhr.status));
+            }
+        };
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.ontimeout = () => reject(new Error('Timeout'));
+        xhr.send();
+    });
 }
 
 // ===== 加载提示 =====
@@ -165,9 +197,11 @@ function updateRefreshHint(time) {
     if (hint) {
         if (time) {
             hint.textContent = `更新于 ${time}`;
+            hint.style.color = '#8e8e93';
         } else {
             const now = new Date();
             hint.textContent = `更新于 ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+            hint.style.color = '#8e8e93';
         }
     }
 }
@@ -177,6 +211,7 @@ async function forceRefreshAll() {
     newsCache = [];
     alertsCache = null;
     lastRefreshTime = 0;
+    _cachedUpdateTime = '';
     expandedAlert = null;
     expandedNews = null;
     try {
