@@ -4,11 +4,29 @@
 
 // ===== 推送时间配置 =====
 const PUSH_SLOTS = {
-    morning:  { time: '08:00', label: '早间', icon: '🌅' },
-    noon:     { time: '12:00', label: '午间', icon: '☀️' },
-    evening:  { time: '19:00', label: '晚间', icon: '🌆' },
-    night:    { time: '00:00', label: '深夜', icon: '🌙' }
+    morning:  { label: '早报', icon: '🌅' },
+    noon:     { label: '午报', icon: '☀️' },
+    evening:  { label: '晚报', icon: '🌆' },
+    night:    { label: '夜报', icon: '🌙' }
 };
+
+// ===== 已读状态 key =====
+const READ_KEY = 'push_read';
+
+function getReadSet() {
+    const val = localStorage.getItem(READ_KEY);
+    return val ? new Set(JSON.parse(val)) : new Set();
+}
+
+function markRead(slot) {
+    const set = getReadSet();
+    set.add(slot);
+    localStorage.setItem(READ_KEY, JSON.stringify([...set]));
+}
+
+function isRead(slot) {
+    return getReadSet().has(slot);
+}
 
 // ===== 大师周度观点 =====
 const WEEKLY_MASTERS = {
@@ -79,7 +97,7 @@ async function renderSummaryContent() {
     }
 }
 
-// ===== 加载今日推送 =====
+// ===== 加载今日推送（已推送的才返回）=====
 async function loadTodayBriefings() {
     const today = new Date();
     const dateStr = today.toISOString().slice(0, 10);
@@ -94,7 +112,7 @@ async function loadTodayBriefings() {
             const data = await resp.json();
             const slotInfo = PUSH_SLOTS[slot];
             results.push({
-                time: data.time || slotInfo.time,
+                key: slot,
                 label: slotInfo.label,
                 icon: slotInfo.icon,
                 content: data.content
@@ -106,9 +124,32 @@ async function loadTodayBriefings() {
     return results;
 }
 
+// ===== 提取摘要（前几个要点作为预览）=====
+function extractPreview(text) {
+    const lines = text.split('\n').filter(l => l.trim());
+    const bullets = lines.filter(l => /^[•🔥📌💡⚡🎯📊]/.test(l));
+    const preview = bullets.slice(0, 3).join('\n') || lines.slice(0, 2).join('\n');
+    const full = text;
+    return { preview, full };
+}
+
+// ===== 点击展开/收起 =====
+function togglePushContent(el) {
+    const key = el.dataset.key;
+    if (!isRead(key)) {
+        markRead(key);
+        el.classList.add('read');
+        const badge = el.querySelector('.ti-badge');
+        if (badge) badge.textContent = '已读';
+    }
+    el.classList.toggle('expanded');
+    const arrow = el.querySelector('.ti-arrow');
+    if (arrow) arrow.textContent = el.classList.contains('expanded') ? '⌄' : '›';
+}
+
 // ===== 今日视图 =====
 async function renderTodayView(el) {
-    // 先显示加载状态
+    // 显示加载中
     el.innerHTML = `
         <div class="today-header">
             <div class="th-icon">📢</div>
@@ -124,55 +165,34 @@ async function renderTodayView(el) {
 
     const briefings = await loadTodayBriefings();
 
+    // 没有推送 → 不显示整个今日推送区块（也不显示"暂无推送"占位）
     if (briefings.length === 0) {
-        el.innerHTML = `
-            <div class="today-header">
-                <div class="th-icon">📢</div>
-                <div class="th-info">
-                    <div class="th-title">今日财经推送</div>
-                    <div class="th-sub">暂无推送</div>
-                </div>
-            </div>
-            <div class="empty-state" style="text-align:center;padding:40px 0;color:#8e8e93;font-size:14px;">
-                <div style="font-size:48px;margin-bottom:12px;">📭</div>
-                <div>今天还没有推送内容</div>
-                <div style="margin-top:8px;font-size:12px;color:#aeaeb2;">推送时间：08:00 · 12:00 · 19:00 · 00:00</div>
-            </div>
-        `;
+        el.innerHTML = ''; // 完全不显示
         return;
     }
 
     el.innerHTML = `
-        <div class="today-header">
-            <div class="th-icon">📢</div>
-            <div class="th-info">
-                <div class="th-title">今日财经推送</div>
-                <div class="th-sub">已推送 ${briefings.length} 条</div>
-            </div>
-        </div>
         <div class="today-list">
-            ${briefings.map(s => `
-                <div class="today-item" onclick="togglePushContent(this)">
+            ${briefings.map(s => {
+                const { preview, full } = extractPreview(s.content);
+                const read = isRead(s.key);
+                return `
+                <div class="today-item ${read ? 'read' : ''}" data-key="${s.key}" onclick="togglePushContent(this)">
                     <div class="ti-icon">${s.icon}</div>
                     <div class="ti-content">
                         <div class="ti-head">
-                            <span class="ti-time">${s.time}</span>
                             <span class="ti-label">${s.label}</span>
+                            <span class="ti-badge">${read ? '已读' : '未读'}</span>
                             <span class="ti-arrow">›</span>
                         </div>
-                        <div class="ti-text">${s.content.replace(/\n/g, '<br>')}</div>
+                        <div class="ti-preview">${preview.replace(/\n/g, '<br>')}</div>
+                        <div class="ti-text">${full.replace(/\n/g, '<br>')}</div>
                     </div>
                 </div>
-            `).join('')}
+                `;
+            }).join('')}
         </div>
     `;
-}
-
-// ===== 推送内容展开收起 =====
-function togglePushContent(item) {
-    item.classList.toggle('expanded');
-    const arrow = item.querySelector('.ti-arrow');
-    if (arrow) arrow.textContent = item.classList.contains('expanded') ? '⌄' : '›';
 }
 
 // ===== 大师视图 =====

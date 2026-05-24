@@ -400,16 +400,6 @@ body {
 }
 .today-item:active { transform: scale(0.98); }
 
-.ti-arrow {
-    font-size: 18px;
-    color: var(--text3);
-    margin-left: auto;
-    transition: transform 0.2s;
-}
-
-.today-item .ti-text { display: block; }
-.today-item.expanded .ti-text { display: block; }
-
 .ti-icon {
     font-size: 22px;
     flex-shrink: 0;
@@ -431,26 +421,51 @@ body {
     margin-bottom: 6px;
 }
 
-.ti-time {
-    font-size: 15px;
+.ti-label {
+    font-size: 16px;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--text);
     letter-spacing: -0.3px;
 }
 
-.ti-label {
+.ti-badge {
     font-size: 11px;
-    color: var(--text3);
     padding: 2px 8px;
-    background: rgba(118,118,128,0.08);
     border-radius: 4px;
     font-weight: 500;
+    background: var(--primary);
+    color: white;
+}
+.today-item.read .ti-badge {
+    background: var(--green);
+    color: white;
 }
 
-.ti-text {
-    font-size: 14px;
-    line-height: 1.55;
+.ti-arrow {
+    font-size: 18px;
+    color: var(--text3);
+    margin-left: auto;
+    transition: transform 0.25s ease;
+}
+
+.today-item .ti-preview { 
+    display: block;
+    font-size: 13px;
+    line-height: 1.6;
     color: #3a3a3c;
+}
+.today-item .ti-text { 
+    display: none;
+    line-height: 1.65;
+}
+.today-item.expanded .ti-text { 
+    display: block; 
+}
+.today-item.expanded .ti-preview { 
+    display: none; 
+}
+.today-item.expanded .ti-arrow {
+    transform: rotate(90deg);
 }
 
 /* ===== 大师卡片 ===== */
