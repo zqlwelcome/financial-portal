@@ -238,7 +238,7 @@ function renderNewsList(news) {
     if (rest.length > 0) {
         html += `
         <div class="news-expand-wrap">
-            <button class="news-expand-btn" onclick="_newsAllShown=!_newsAllShown;renderNewsList(newsCache)">
+            <button class="news-expand-btn" onclick="_newsAllShown=!_newsAllShown;renderNewsList(newsCache);if(!_newsAllShown){document.getElementById('realtime').scrollTo({top:0,behavior:'smooth'})}">
                 ${_newsAllShown ? '收起 <span class="hl-arrow">‹</span>' : `查看全部 ${news.length} 条 <span class="hl-arrow">›</span>`}
             </button>
         </div>`;
