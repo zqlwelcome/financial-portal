@@ -112,17 +112,106 @@ function saveShareCard() {
     const container = document.getElementById('shareCardContainer');
     if (!container) return;
     
-    // 使用html2canvas或手动提示
-    // 移动端推荐用户截图，因为html2canvas需要额外加载
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
+    // 用canvas绘制卡片
+    const rect = container.getBoundingClientRect();
+    const scale = 3; // 高清输出
+    const width = rect.width * scale;
+    const height = rect.height * scale;
     
-    // 简单的Toast提示截图
-    const toast = document.createElement('div');
-    toast.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);color:white;padding:20px 24px;border-radius:12px;font-size:14px;text-align:center;z-index:400;line-height:1.6;';
-    toast.innerHTML = '📸 请截屏保存卡片<br><span style="font-size:12px;opacity:0.7;">电源键+音量上键</span>';
-    document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 2500);
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+    
+    // 绘制背景渐变
+    const grad = ctx.createLinearGradient(0, 0, width/scale, height/scale);
+    grad.addColorStop(0, '#667eea');
+    grad.addColorStop(1, '#764ba2');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.roundRect(0, 0, rect.width, rect.height, 16);
+    ctx.fill();
+    
+    // 标题
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 22px -apple-system, sans-serif';
+    ctx.fillText('📚 学习门户', 24, 50);
+    
+    // 日期
+    const today = new Date().toLocaleDateString('zh-CN', {year:'numeric',month:'long',day:'numeric'});
+    ctx.font = '13px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.75)';
+    ctx.fillText(today, 24, 74);
+    
+    // 四个功能方块
+    const blocks = [
+        { icon: '📰', label: '实时财经' },
+        { icon: '📈', label: '行情数据' },
+        { icon: '🧠', label: '投资智库' },
+        { icon: '🤖', label: 'AI课程' }
+    ];
+    const blockW = (rect.width - 24*2 - 12*3) / 4;
+    const blockY = 98;
+    
+    blocks.forEach((b, i) => {
+        const bx = 24 + i * (blockW + 12);
+        ctx.fillStyle = 'rgba(255,255,255,0.12)';
+        ctx.beginPath();
+        ctx.roundRect(bx, blockY, blockW, 56, 12);
+        ctx.fill();
+        
+        ctx.fillStyle = 'white';
+        ctx.font = '20px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(b.icon, bx + blockW/2, blockY + 26);
+        ctx.font = '11px -apple-system, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.fillText(b.label, bx + blockW/2, blockY + 46);
+    });
+    
+    // 统计数据
+    const pvEl = document.getElementById('busuanzi_value_site_pv');
+    const uvEl = document.getElementById('busuanzi_value_site_uv');
+    const pv = pvEl?.textContent || '--';
+    const uv = uvEl?.textContent || '--';
+    
+    ctx.textAlign = 'left';
+    ctx.font = '13px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.75)';
+    ctx.fillText('👁 ' + pv + ' 浏览', 24, 172);
+    ctx.fillText('🧑 ' + uv + ' 访客', 130, 172);
+    
+    // 网址
+    ctx.font = '12px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.fillText('zqlwelcome.github.io/learning-platform', 24, 196);
+    
+    // 转换为图片并触发下载/保存
+    canvas.toBlob(function(blob) {
+        const link = document.createElement('a');
+        link.download = '学习门户分享卡_' + new Date().toISOString().slice(0,10) + '.png';
+        link.href = URL.createObjectURL(blob);
+        
+        // 触发下载
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // 释放URL
+        setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+        
+        // 显示提示
+        showToast('✅ 图片已保存，可到相册查看');
+    }, 'image/png');
+}
+
+function showToast(msg) {
+    const t = document.createElement('div');
+    t.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);color:white;padding:16px 24px;border-radius:12px;font-size:14px;z-index:400;text-align:center;line-height:1.6;';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 2000);
 }
 
 function copyText(el, text) {
