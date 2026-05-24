@@ -304,8 +304,6 @@ body {
     gap: 8px; 
 }
 
-.news-folded { display: none; }
-
 .news-expand-wrap {
     margin-top: 4px;
     text-align: center;
