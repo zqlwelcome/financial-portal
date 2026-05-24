@@ -52,6 +52,36 @@
     --shadow-lg: 0 2px 4px rgba(0,0,0,0.6), 0 4px 8px rgba(0,0,0,0.3);
 }
 
+/* 🛡️ 夜间模式兜底：强制覆盖所有内联style和硬编码颜色 */
+/* 所有带内联color的元素都被接管，不会再出现白底白字 */
+[data-theme="dark"] [style*="color"] {
+    color: var(--text) !important;
+}
+/* 卡片背景兜底：所有带内联background:white的改为深色 */
+[data-theme="dark"] [style*="background:white"],
+[data-theme="dark"] [style*="background:#fff"],
+[data-theme="dark"] [style*="background:#ffffff"] {
+    background: var(--card) !important;
+}
+
+/* 但保留语义颜色和装饰元素 */
+[data-theme="dark"] .up .market-change,
+[data-theme="dark"] .badge-add, [data-theme="dark"] .cpct-up, [data-theme="dark"] .hc-up,
+[data-theme="dark"] .active .market-change,
+[data-theme="dark"] .tab.active,
+[data-theme="dark"] .sub-tab.active,
+[data-theme="dark"] .slide-opt.active,
+[data-theme="dark"] .hl-opt.active,
+[data-theme="dark"] .item-check.done,
+[data-theme="dark"] .checkin-btn.checked,
+[data-theme="dark"] .done-btn.completed,
+[data-theme="dark"] .nav-share,
+[data-theme="dark"] .news-rank,
+[data-theme="dark"] .down .market-change,
+[data-theme="dark"] .badge-reduce, [data-theme="dark"] .cpct-down, [data-theme="dark"] .hc-down {
+    color: revert !important;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
