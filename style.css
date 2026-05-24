@@ -161,6 +161,13 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+/* 滑动页面容器 */
+.swipe-page {
+    height: 100%;
+    min-height: calc(100vh - 200px);
+    box-sizing: border-box;
+}
+
 /* 市场概览 */
 .market-bar {
     display: flex;
