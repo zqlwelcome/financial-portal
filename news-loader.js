@@ -164,6 +164,7 @@ function fallbackAlerts() {
 function renderAlerts(data) {
     const el = document.getElementById('alertArea');
     if (!el) return;
+    const ts = data.updateTime ? `⏱ ${data.updateTime}` : '';
     el.innerHTML = `
         <div class="alert-card forex ${expandedAlert === 'forex' ? 'expanded' : ''}" onclick="toggleAlert('forex')">
             <div class="alert-icon">${data.forex.icon}</div>
@@ -183,6 +184,7 @@ function renderAlerts(data) {
             </div>
             <div class="alert-arrow">›</div>
         </div>
+        <div class="alert-ts">${ts}</div>
     `;
 }
 
@@ -190,6 +192,7 @@ function renderAlerts(data) {
 function renderNewsList(news) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
+    const ts = _lastUpdateTime ? `<div class="news-ts">⏱ ${_lastUpdateTime}</div>` : '';
     el.innerHTML = news.map((item, index) => `
         <div class="news-item ${expandedNews === index ? 'expanded' : ''}" onclick="toggleNews(${index})">
             <div class="news-rank ${index < 3 ? 'hot' : ''}">${index + 1}</div>
@@ -204,7 +207,7 @@ function renderNewsList(news) {
             </div>
             <div class="news-arrow">›</div>
         </div>
-    `).join('');
+    `).join('') + ts;
     localStorage.setItem('hot_news_cache', JSON.stringify(news));
 }
 
