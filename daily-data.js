@@ -95,71 +95,41 @@ async function loadBriefing(slotKey, dateStr) {
     }
 }
 
-// ===== 滑动选择器（触摸滑动 + 点击导航）=====
+// ===== 滑动选择器（在按钮区域上触摸滑动切换 + 点击导航）=====
 function initSlideSelector() {
     const sel = document.querySelector('.slide-selector');
     if (!sel) return;
     const opts = sel.querySelectorAll('.slide-opt');
-    const scroller = document.getElementById('summaryContent');
-    if (!scroller) return;
+    const content = document.getElementById('summaryContent');
+    if (!content || !opts.length) return;
 
     const views = ['today', 'templeton', 'buffett', 'munger'];
-    let startX = 0, startY = 0, isDragging = false, currentIdx = 0;
+    let startX = 0, currentIdx = 0, moving = false;
 
-    // 点击导航
+    // 1. 点击导航
     opts.forEach((opt, i) => {
-        opt.addEventListener('click', () => {
-            opts.forEach(o => o.classList.remove('active'));
-            opt.classList.add('active');
-            opt.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-            currentIdx = i;
-            window._currentView = views[i];
-            scrollToPage(i);
+        opt.addEventListener('click', (e) => {
+            if (moving) { moving = false; return; }
+            switchToView(i, opts, views, content);
         });
     });
 
-    // 构建横向滑动的页面容器
-    scroller.innerHTML = '';
-    scroller.style.cssText = 'display:flex;overflow-x:hidden;-webkit-overflow-scrolling:touch;scroll-snap-type:none;';
-    scroller.style.position = 'relative';
-
-    const wrapper = document.createElement('div');
-    wrapper.style.cssText = 'display:flex;width:400%;height:100%;transition:transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform;';
-    wrapper.id = 'swipeWrapper';
-
-    views.forEach(v => {
-        const page = document.createElement('div');
-        page.className = 'swipe-page';
-        page.dataset.view = v;
-        page.style.cssText = 'width:25%;flex-shrink:0;overflow-y:auto;padding:0 0 8px;';
-        wrapper.appendChild(page);
-    });
-    scroller.appendChild(wrapper);
-    scroller.style.overflow = 'hidden';
-
-    // 触摸事件
-    scroller.addEventListener('touchstart', e => {
+    // 2. 触摸滑动（在选择器区域上）
+    sel.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        isDragging = false;
+        currentIdx = Array.from(opts).findIndex(o => o.classList.contains('active'));
+        moving = false;
     }, { passive: true });
 
-    scroller.addEventListener('touchmove', e => {
-        if (!startX) return;
+    sel.addEventListener('touchmove', (e) => {
         const dx = e.touches[0].clientX - startX;
-        const dy = e.touches[0].clientY - startY;
-        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
-            isDragging = true;
-            const movePct = -currentIdx * 100 + (dx / scroller.clientWidth) * 100;
-            wrapper.style.transition = 'none';
-            wrapper.style.transform = `translateX(${movePct}%)`;
-        }
+        if (Math.abs(dx) > 20) moving = true;
     }, { passive: true });
 
-    scroller.addEventListener('touchend', e => {
-        if (!isDragging) return;
+    sel.addEventListener('touchend', (e) => {
+        if (!moving) return;
         const dx = e.changedTouches[0].clientX - startX;
-        const threshold = scroller.clientWidth * 0.15;
+        const threshold = 40;
 
         if (dx < -threshold && currentIdx < views.length - 1) {
             currentIdx++;
@@ -167,68 +137,36 @@ function initSlideSelector() {
             currentIdx--;
         }
 
-        window._currentView = views[currentIdx];
-        opts.forEach((o, i) => o.classList.toggle('active', i === currentIdx));
-        scrollToPage(currentIdx);
-
-        // 滚动选择器高亮
-        opts[currentIdx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-
-        // 渲染内容
-        renderSummaryContent();
-
-        startX = 0;
-        isDragging = false;
+        switchToView(currentIdx, opts, views, content);
+        moving = false;
     }, { passive: true });
 
     window._currentView = 'today';
-    window._swipeCurrentIdx = 0;
-
-    // 初始渲染
-    renderSummaryContent();
+    renderView();
 }
 
-function scrollToPage(idx) {
-    const wrapper = document.getElementById('swipeWrapper');
-    if (!wrapper) return;
-    wrapper.style.transition = 'transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94)';
-    wrapper.style.transform = `translateX(-${idx * 25}%)`;
+function switchToView(idx, opts, views, content) {
+    opts.forEach((o, i) => o.classList.toggle('active', i === idx));
+    opts[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    window._currentView = views[idx];
+    renderView();
 }
 
-// ===== 渲染内容入口 =====
-async function renderSummaryContent() {
+// ===== 渲染视图（今日或达人）=====
+async function renderView() {
+    const el = document.getElementById('summaryContent');
+    if (!el) return;
     const view = window._currentView || 'today';
-    
-    const pages = document.querySelectorAll('.swipe-page');
-    if (!pages || pages.length === 0) {
-        // fallback: 用旧方式渲染
-        const el = document.getElementById('summaryContent');
-        if (!el || el.querySelector('.swipe-page')) return;
-        if (view === 'today') {
-            await renderTodayView(el);
-        } else {
-            await renderExpertView(el, view);
-        }
-        return;
+    if (view === 'today') {
+        await renderTodayView(el);
+    } else {
+        await renderExpertView(el, view);
     }
+}
 
-    // 按需渲染每个页面
-    const views = ['today', 'templeton', 'buffett', 'munger'];
-    for (let i = 0; i < pages.length; i++) {
-        const v = views[i];
-        const page = pages[i];
-        // 只对当前页 + 相邻页渲染（懒加载）
-        if (Math.abs(i - (views.indexOf(window._currentView))) <= 1 || !page.dataset.rendered) {
-            if (!page.dataset.rendered) {
-                if (v === 'today') {
-                    await renderTodayView(page);
-                } else {
-                    await renderExpertView(page, v);
-                }
-                page.dataset.rendered = '1';
-            }
-        }
-    }
+// ===== 渲染内容入口（兼容旧调用）=====
+async function renderSummaryContent() {
+    await renderView();
 }
 
 // ===== 今日视图（每日简报三栏）=====
