@@ -134,13 +134,17 @@ async function renderTodayBrief(el) {
 
 function renderMiniExpert(id, icon, name, subtitle, color) {
     return `
-        <div class="hl-opt" style="display:flex;align-items:center;gap:12px;border-radius:12px;padding:12px 14px;cursor:pointer;" onclick="switchToView(${['today','templeton','buffett','munger'].indexOf(id)})">
-            <div style="width:40px;height:40px;border-radius:10px;background:${color}20;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">${icon}</div>
-            <div style="flex:1;">
-                <div style="font-size:14px;font-weight:600;color:${color};">${name}</div>
-                <div style="font-size:11px;color:var(--text2);">${subtitle}</div>
+        <div class="hl-hold-item" style="padding:14px;" onclick="switchToView(${['today','templeton','buffett','munger'].indexOf(id)})">
+            <div class="hl-hleft">
+                <div style="width:40px;height:40px;border-radius:10px;background:${color}20;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">${icon}</div>
+                <div class="hl-hinfo">
+                    <div class="hl-hticker" style="color:${color};">${name}</div>
+                    <div class="hl-hcompany">${subtitle}</div>
+                </div>
             </div>
-            <span style="font-size:18px;color:var(--text3);">›</span>
+            <div class="hl-hright">
+                <span class="hl-harrow">›</span>
+            </div>
         </div>
     `;
 }
