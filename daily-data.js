@@ -1,5 +1,7 @@
 /**
- * 总结页签 - 横向滑动选择器 + 每日简报 + 达人观点
+ * 总结页签 - 实时版
+ * 数据源：hot-news.json + alerts.json（每10分钟 cron 更新）
+ * 不再依赖独立简报文件，自动生成今日简报和达人观点
  */
 
 // ===== 推送时间配置 =====
@@ -27,72 +29,141 @@ function isRead(key) {
     return getReadSet().has(key);
 }
 
-// ===== 从简报文本提取摘要和专家观点 =====
-function parseBriefing(text) {
-    const lines = text.split('\n').filter(l => l.trim());
+// ===== 从hot-news.json和alerts.json生成简报内容 =====
+function generateBriefing(hotNews, alerts) {
+    if (!hotNews || hotNews.length === 0) return null;
     
-    // 提取专家观点
+    const lines = [];
+    // 头部
+    lines.push('📊 今日财经摘要');
+    lines.push('');
+    
+    // 头条 - 取前3条
+    lines.push('🔥 头条');
+    hotNews.slice(0, 3).forEach((item, i) => {
+        lines.push(`• ${item.title}（${item.source}）`);
+    });
+    
+    lines.push('');
+    
+    // 要闻 - 取4-10条精简
+    const more = hotNews.slice(3, 8);
+    if (more.length > 0) {
+        lines.push('📌 要闻');
+        more.forEach(item => {
+            lines.push(`• ${item.summary || item.title.slice(0, 40)}`);
+        });
+    }
+    
+    lines.push('');
+    
+    // 从alerts.json提取外汇/股市
+    if (alerts) {
+        lines.push('💡 行情速览');
+        if (alerts.forex) lines.push(`• 外汇：${alerts.forex.text}`);
+        if (alerts.stock) lines.push(`• 股市：${alerts.stock.text}`);
+    }
+    
+    return lines.join('\n');
+}
+
+// ===== 从新闻内容生成三视角速评 =====
+function generateExpertViews(hotNews, alerts) {
+    if (!hotNews || hotNews.length === 0) return {};
+    
+    const headlines = hotNews.slice(0, 5);
+    const hasTradeWar = headlines.some(h => (h.title + h.summary).includes('关税') || (h.title + h.summary).includes('贸易'));
+    const hasAIFrenzy = headlines.some(h => (h.title + h.summary).includes('AI') || (h.title + h.summary).includes('人工智能'));
+    const hasCrypto = headlines.some(h => (h.title + h.summary).includes('比特币') || (h.title + h.summary).includes('加密货币'));
+    const hasOil = headlines.some(h => (h.title + h.summary).includes('原油') || (h.title + h.summary).includes('油价'));
+    const hasStocks = headlines.some(h => (h.title + h.summary).includes('股市') || (h.title + h.summary).includes('指数'));
+    
+    // 基于真实新闻动态生成观点
     const experts = {};
-    let inExpert = false, curExpert = null;
-    for (const line of lines) {
-        if (line.startsWith('💡 三视角速评')) { inExpert = true; continue; }
-        if (!inExpert) continue;
-        if (line.startsWith('⚡') || line.startsWith('🎯')) { inExpert = false; continue; }
-        if (line.startsWith('• 邓普顿')) { curExpert = 'templeton'; experts[curExpert] = { text: line.replace('• 邓普顿：', '').trim() }; continue; }
-        if (line.startsWith('• 巴菲特')) { curExpert = 'buffett'; experts[curExpert] = { text: line.replace('• 巴菲特：', '').trim() }; continue; }
-        if (line.startsWith('• 芒格')) { curExpert = 'munger'; experts[curExpert] = { text: line.replace('• 芒格：', '').trim() }; continue; }
-        if (curExpert && line.startsWith('•')) { experts[curExpert].text += ' ' + line.trim(); }
-    }
     
-    // 生成更丰富的达人内容（基于当日新闻自动推演）
-    const headlines = lines.filter(l => l.startsWith('•') || l.startsWith('🔥')).slice(0, 7);
-    const topicText = headlines.map(l => l.replace(/^[•🔥]\s*/, '')).join('；');
-    
-    for (const key of Object.keys(experts)) {
-        const base = experts[key].text;
-        // 从当日新闻提炼更多内容
-        experts[key] = {
-            insight: base,
-            prediction: genPrediction(key, base, headlines),
-            lesson: genLesson(key),
-            updateLabel: '早报'
-        };
-    }
-    
-    // 摘要
-    const bullets = lines.filter(l => /^[•🔥📌]/.test(l));
-    const preview = bullets.slice(0, 4).join('\n') || lines.slice(1, 4).join('\n');
-    
-    return { preview, experts };
-}
-
-function genPrediction(key, baseText, headlines) {
-    const preds = {
-        templeton: '逆向思维提示：当市场情绪一边倒时，关注被忽视的价值洼地。建议小仓位布局新兴市场ETF，设好止损，等待均值回归。',
-        buffett: '价值锚定：在情绪波动中坚持寻底。建议关注现金流充裕的消费龙头，等回调10-15%时逐步建仓，长线持有。',
-        munger: '多元思维：拆解当前市场结构——流动性、估值、情绪三维度综合判断。不要押注单一方向，保持组合多样性。'
+    experts.templeton = {
+        insight: headlines.length > 0 ? `今日市场关注：${headlines[0].summary.slice(0, 50)}。全球资金正在${hasTradeWar ? '因贸易摩擦升温而流向避险资产' : hasOil ? '因能源格局变化而重新配置' : '寻求新的价值洼地'}，逆向思维者应关注被市场情绪错杀的资产。` : '市场整体处于震荡中，逆向投资者需保持耐心。',
+        prediction: hasCrypto ? '数字货币短期波动加剧，但长期趋势未改。当恐惧指数上升时，往往是聪明钱布局的时机。' : hasAIFrenzy ? 'AI赛道估值偏贵，但行业变革才刚刚开始。关注应用层而非基础设施层的结构性机会。' : '建议关注被地缘风险压制的市场，如港股和部分新兴市场，等待均值回归。',
+        lesson: '行情总在绝望中诞生，在犹豫中成长。当所有人都盯着同一个风险时，那个风险往往已经price in了。'
     };
-    return preds[key] || '基于当日新闻综合分析，建议保持谨慎关注。';
-}
-
-function genLesson(key) {
-    const lessons = {
-        templeton: '💡 今日心得：\n行情总在绝望中诞生，在犹豫中成长。当所有人都盯着同一个风险时，那个风险往往已经price in了。真正的超额收益，来自大多数人还没注意到的角落。',
-        buffett: '💡 今日心得：\n市场短期是情绪投票器，长期是价值称重机。今天的热点新闻对优质公司的长期内在价值几乎没有影响。别忘了，在别人恐惧时贪婪。',
-        munger: '💡 今日心得：\n投资最重要的是不要做蠢事。当新闻让你情绪激动时，停一停，问问自己：我比市场知道得更多吗？如果不是，就别做交易。'
+    
+    experts.buffett = {
+        insight: hasStocks ? `主要股指表现活跃，但短期波动不应干扰长期判断。优质公司的护城河不会因为一天的涨跌而改变。` : `市场每日消息很多，但真正影响企业内在价值的事件很少。保持定力，聚焦企业基本面。`,
+        prediction: hasAIFrenzy ? 'AI领域的投资需要区分"淘金者"和"卖铲子的人"。真正有护城河的是掌握核心数据和算力的基础设施公司。' : hasTradeWar ? '贸易摩擦短期影响市场情绪，但会促使企业优化供应链。长期看，具备全球竞争力的公司会从中受益。' : '在不确定的市场中，现金流充裕、负债率低的消费龙头具有最高的安全边际。',
+        lesson: '市场短期是情绪投票器，长期是价值称重机。今天的波动，放在十年后看可能只是一个小浪花。'
     };
-    return lessons[key] || '持续学习和独立思考是最好的投资。';
+    
+    experts.munger = {
+        insight: headlines.length > 0 ? `今天的新闻中，${headlines[0].title.slice(0, 30)}是最值得关注的信号。但要注意——不要被单一叙事主导你的判断。` : '市场信息过载时，最好的策略是减少决策频率。',
+        prediction: hasCrypto ? '当所有人都在谈论比特币时，问问自己：我比市场知道得更多吗？如果答案是否定的，就别跟风交易。' : hasTradeWar ? '贸易战中没有赢家。但每次危机都伴随着结构性的机会——那些被迫升级技术、优化管理的企业最终会更强。' : '保持组合的多样性是应对不确定性的唯一免费午餐。不要押注单一方向。',
+        lesson: '投资最重要的是不要做蠢事。当新闻让你情绪激动时，停一停，问问自己：这个信息对我的持仓有实质影响吗？'
+    };
+    
+    return experts;
 }
 
-// ===== 加载简报JSON =====
-async function loadBriefing(slotKey, dateStr) {
+// ===== 加载简报（从hot-news.json和alerts.json实时生成）=====
+async function loadBriefingData() {
     try {
-        const resp = await fetch(`data/briefings/${dateStr}-${slotKey}.json`);
-        if (!resp.ok) return null;
-        return await resp.json();
+        const [newsData, alertsData] = await Promise.all([
+            xhrFetchHotNews(),
+            xhrFetchAlerts()
+        ]);
+        
+        let hotNews = null, alerts = null, updateTime = '';
+        
+        if (newsData && newsData.news) {
+            hotNews = newsData.news;
+            updateTime = newsData.updateTime || '';
+        }
+        if (alertsData) {
+            alerts = alertsData;
+            updateTime = alertsData.updateTime || updateTime;
+        }
+        
+        return { hotNews, alerts, updateTime };
     } catch(e) {
-        return null;
+        return { hotNews: null, alerts: null, updateTime: '' };
     }
+}
+
+// ===== XHR获取hot-news.json =====
+function xhrFetchHotNews() {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'data/hot-news.json?_=' + Date.now() + Math.random(), true);
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.timeout = 8000;
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                try { resolve(JSON.parse(xhr.responseText)); } catch(e) { reject(e); }
+            } else { reject(new Error('HTTP ' + xhr.status)); }
+        };
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.ontimeout = () => reject(new Error('Timeout'));
+        xhr.send();
+    });
+}
+
+function xhrFetchAlerts() {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'data/alerts.json?_=' + Date.now() + Math.random(), true);
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.timeout = 8000;
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                try { resolve(JSON.parse(xhr.responseText)); } catch(e) { reject(e); }
+            } else { reject(new Error('HTTP ' + xhr.status)); }
+        };
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.ontimeout = () => reject(new Error('Timeout'));
+        xhr.send();
+    });
 }
 
 // ===== 选择器（点击切换视图）=====
@@ -136,63 +207,57 @@ async function renderView() {
     }
 }
 
-// ===== 渲染内容入口（兼容旧调用）=====
 async function renderSummaryContent() {
     await renderView();
 }
 
-// ===== 今日视图（每日简报三栏）=====
+// ===== 今日视图（从实时数据生成简报）=====
 async function renderTodayView(el) {
     el.innerHTML = '<div style="text-align:center;padding:30px 0;color:#8e8e93;">⏳ 加载中...</div>';
     
+    const { hotNews, alerts, updateTime } = await loadBriefingData();
+    
     const today = new Date();
-    const dateStr = today.toISOString().slice(0, 10);
+    const dateStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
     const nowMin = today.getHours() * 60 + today.getMinutes();
     
-    const results = await Promise.all(PUSH_SLOTS.map(async slot => {
-        const data = await loadBriefing(slot.key, dateStr);
-        return {
-            ...slot,
-            data,
-            parsed: data ? parseBriefing(data.content) : null,
-            pushed: !!data,
-            pushMin: parseInt(slot.pushTime.split(':')[0]) * 60 + parseInt(slot.pushTime.split(':')[1])
-        };
-    }));
-    
-    window._todayBriefingData = results;
+    const hasNews = hotNews && hotNews.length > 0;
     
     el.innerHTML = `
         <div class="today-header">
             <div class="th-icon">📢</div>
             <div class="th-info">
                 <div class="th-title">每日简报</div>
-                <div class="th-sub">${dateStr}</div>
+                <div class="th-sub">${dateStr} ${updateTime ? '· ⏱ ' + updateTime : ''}</div>
             </div>
         </div>
         <div class="today-slots">
-            ${results.map(s => {
-                if (s.pushed) {
-                    const read = isRead(s.key);
+            ${PUSH_SLOTS.map(slot => {
+                const pushMin = parseInt(slot.pushTime.split(':')[0]) * 60 + parseInt(slot.pushTime.split(':')[1]);
+                const isPushed = nowMin >= pushMin && hasNews;
+                
+                if (isPushed) {
+                    const read = isRead(slot.key);
+                    const content = generateBriefing(hotNews, alerts) || '';
                     return `
-                    <div class="ts-card ${read ? 'read' : ''}" data-key="${s.key}" onclick="togglePushCard(this)">
+                    <div class="ts-card ${read ? 'read' : ''}" data-key="${slot.key}" onclick="togglePushCard(this)">
                         <div class="ts-head">
-                            <span class="ts-icon">${s.icon}</span>
-                            <span class="ts-label">${s.label}</span>
+                            <span class="ts-icon">${slot.icon}</span>
+                            <span class="ts-label">${slot.label}</span>
                             <span class="ts-badge">${read ? '已读' : '未读'}</span>
                             <span class="ts-arrow">›</span>
                         </div>
-                        <div class="ts-preview">${s.parsed.preview.replace(/\n/g, '<br>')}</div>
-                        <div class="ts-full hidden">${s.data.content.replace(/\n/g, '<br>')}</div>
+                        <div class="ts-preview">${content.split('\n').slice(0,4).join('<br>')}</div>
+                        <div class="ts-full hidden">${content.replace(/\n/g, '<br>')}</div>
                     </div>
                     `;
                 } else {
-                    const status = nowMin >= s.pushMin ? '等会再刷' : `${s.pushTime} 推送`;
+                    const status = nowMin >= pushMin ? '暂无数据' : `${slot.pushTime} 推送`;
                     return `
                     <div class="ts-card pending">
                         <div class="ts-head">
-                            <span class="ts-icon">${s.icon}</span>
-                            <span class="ts-label">${s.label}</span>
+                            <span class="ts-icon">${slot.icon}</span>
+                            <span class="ts-label">${slot.label}</span>
                             <span class="ts-status">${status}</span>
                         </div>
                     </div>
@@ -201,6 +266,9 @@ async function renderTodayView(el) {
             }).join('')}
         </div>
     `;
+    
+    // 缓存数据供达人视图使用
+    window._briefingData = { hotNews, alerts };
 }
 
 // ===== 点击展开简报 =====
@@ -217,26 +285,17 @@ function togglePushCard(el) {
     if (arrow) arrow.textContent = el.classList.contains('expanded') ? '⌄' : '›';
 }
 
-// ===== 达人视图（解读+预判+心得）=====
+// ===== 达人视图（动态生成）=====
 async function renderExpertView(el, expertId) {
-    // 获取简报数据
-    let results = window._todayBriefingData;
-    if (!results || results.length === 0) {
-        const today = new Date();
-        const dateStr = today.toISOString().slice(0, 10);
-        results = await Promise.all(PUSH_SLOTS.map(async slot => {
-            const data = await loadBriefing(slot.key, dateStr);
-            return {
-                ...slot,
-                data,
-                parsed: data ? parseBriefing(data.content) : null,
-                pushed: !!data
-            };
-        }));
-        window._todayBriefingData = results;
+    // 从缓存或重新加载
+    let data = window._briefingData;
+    if (!data || !data.hotNews) {
+        data = await loadBriefingData();
+        window._briefingData = data;
     }
     
-    const pushedSlots = results.filter(s => s.pushed).reverse();
+    const { hotNews, alerts } = data;
+    const experts = generateExpertViews(hotNews, alerts);
     
     const expertMeta = {
         templeton: { name: '邓普顿', fullName: '约翰·邓普顿', icon: '🌍', subtitle: '逆向投资之父', color: '#5856d6', 
@@ -248,27 +307,14 @@ async function renderExpertView(el, expertId) {
     };
     
     const meta = expertMeta[expertId];
+    const ex = experts[expertId];
     
-    // 获取最新观点
-    let insight = '', prediction = '', lesson = '', updateLabel = '暂无更新';
-    
-    for (const slot of pushedSlots) {
-        if (slot.parsed && slot.parsed.experts && slot.parsed.experts[expertId]) {
-            const ex = slot.parsed.experts[expertId];
-            insight = ex.insight || '';
-            prediction = ex.prediction || '';
-            lesson = ex.lesson || '';
-            updateLabel = slot.label;
-            break;
-        }
-    }
-    
-    if (!insight) {
+    if (!ex || !ex.insight) {
         el.innerHTML = `
             <div style="text-align:center;padding:40px 0;color:#8e8e93;font-size:14px;">
                 <div style="font-size:40px;margin-bottom:12px;">${meta.icon}</div>
-                <div>等待每日推送后自动更新</div>
-                <div style="margin-top:8px;font-size:12px;color:#aeaeb2;">${meta.name}的解读将于推送后显示</div>
+                <div>等待新闻更新后自动生成</div>
+                <div style="margin-top:8px;font-size:12px;color:#aeaeb2;">${meta.name}的解读将基于实时新闻自动生成</div>
             </div>
         `;
         return;
@@ -281,23 +327,23 @@ async function renderExpertView(el, expertId) {
                 <div class="eb-name">${meta.fullName}</div>
                 <div class="eb-sub">${meta.subtitle}</div>
             </div>
-            <div class="eb-time">${updateLabel}</div>
+            <div class="eb-time">实时</div>
         </div>
         <div class="expert-bio">${meta.bio}</div>
         
         <div class="expert-block">
             <div class="ebl-header">📖 当日解读</div>
-            <div class="ebl-body">${insight}</div>
+            <div class="ebl-body">${ex.insight}</div>
         </div>
         
         <div class="expert-block">
             <div class="ebl-header">🔮 投资预判</div>
-            <div class="ebl-body">${prediction}</div>
+            <div class="ebl-body">${ex.prediction}</div>
         </div>
         
         <div class="expert-block lesson">
             <div class="ebl-header">💡 心得分享</div>
-            <div class="ebl-body">${lesson.replace(/\n/g, '<br>')}</div>
+            <div class="ebl-body">${ex.lesson.replace(/\n/g, '<br>')}</div>
         </div>
     `;
 }
