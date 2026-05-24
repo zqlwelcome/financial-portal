@@ -14,11 +14,9 @@ function renderHoldings() {
   // 使用 slide-selector 风格做投资人切换
   el.innerHTML = `
     <div class="hl-selector">
-      ${['段永平','木头姐','特朗普'].map((name, i) => {
-        const ids = ['duan','cathie','trump'];
-        const icons = ['🧑‍💼','🦊','🇺🇸'];
-        return `<button class="hl-opt ${i === 0 ? 'active' : ''}" data-hl="${ids[i]}" onclick="switchInvestor('${ids[i]}')">
-          <span class="hl-opt-icon">${icons[i]}</span>
+      ${[['巴菲特','🤑','buffett'],['段永平','🧑‍💼','duan'],['木头姐','🦊','cathie'],['特朗普','🇺🇸','trump']].map(([name, icon, id], i) => {
+        return `<button class="hl-opt ${i === 0 ? 'active' : ''}" data-hl="${id}" onclick="switchInvestor('${id}')">
+          <span class="hl-opt-icon">${icon}</span>
           <span>${name}</span>
         </button>`;
       }).join('')}
