@@ -108,7 +108,7 @@ async function renderTodayBrief(el) {
             <div class="th-icon">📢</div>
             <div class="th-info">
                 <div class="th-title">今日研报</div>
-                <div class="th-sub">⏱ ${updateTime || dateStr}</div>
+                <div class="th-sub">⏱ ${updateTime ? updateTime.replace(/^\d{4}-\d{2}-\d{2}\s*/, '') : dateStr}</div>
             </div>
         </div>
 
@@ -122,18 +122,13 @@ async function renderTodayBrief(el) {
             </div>
         </div>
 
-        <div style="font-size:13px;color:#3a3a3c;line-height:1.7;margin-bottom:16px;background:white;border-radius:12px;padding:14px;box-shadow:0 1px 2px rgba(0,0,0,0.04);">
-            <div style="font-size:12px;font-weight:600;color:#8e8e93;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">📰 今日关注</div>
-            ${headlines.length > 0 ? headlines.map(h => `<div style="padding:6px 0;border-bottom:0.5px solid rgba(60,60,67,0.08);font-size:13px;">• ${h}</div>`).join('') : '<div style="color:#aeaeb2;font-size:13px;">暂无数据</div>'}
-        </div>
-
         <div style="font-size:12px;color:#8e8e93;margin-bottom:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">🧠 达人观点</div>
         <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
             ${renderMiniExpert('templeton', '🌍', '邓普顿', '逆向投资之父', '#5856d6')}
             ${renderMiniExpert('buffett', '💰', '巴菲特', '价值投资之王', '#ff9500')}
             ${renderMiniExpert('munger', '🧠', '芒格', '多元思维大师', '#34c759')}
         </div>
-        <div style="text-align:center;font-size:11px;color:#aeaeb2;">点击上方头像查看完整观点</div>
+        <div style="text-align:center;font-size:11px;color:#aeaeb2;">点击上方查看完整观点和行动建议</div>
     `;
 }
 
