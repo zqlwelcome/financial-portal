@@ -199,7 +199,6 @@ function renderNewsList(news) {
             <div class="news-body">
                 <div class="news-head">
                     <span class="news-source">${item.source}</span>
-                    <span class="news-time">${item.time}</span>
                 </div>
                 <div class="news-title">${item.title}</div>
                 <div class="news-summary">${item.summary}</div>
