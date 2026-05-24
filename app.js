@@ -18,6 +18,7 @@ let checkedDays = JSON.parse(localStorage.getItem('checkin') || '[]');
 
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', async () => {
+    initTheme();
     updateNavTime();
     setInterval(updateNavTime, 60000);
     initMainTabs();
@@ -210,4 +211,31 @@ function renderProgress() {
 
 function fmtDate(d) {
     return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+// ===== 白天/夜间主题切换 =====
+function initTheme() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        const btn = document.getElementById('themeBtn');
+        if (btn) btn.textContent = '☀️';
+    }
+    const btn = document.getElementById('themeBtn');
+    if (btn) btn.addEventListener('click', toggleTheme);
+}
+
+function toggleTheme() {
+    const html = document.documentElement;
+    const btn = document.getElementById('themeBtn');
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        if (btn) btn.textContent = '🌙';
+    } else {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        if (btn) btn.textContent = '☀️';
+    }
 }
