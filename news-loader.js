@@ -40,21 +40,21 @@ async function loadHotNews(forceRefresh = false) {
     
     el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;color:#8e8e93;font-size:14px;">🔄 获取最新新闻...</div>';
     
-    // 先尝试从实时API获取（新浪JSONP）
+    // 先尝试从实时API获取（新浪JSONP + 华尔街见闻并行，5秒超时）
     let liveNews = null;
     try {
-        liveNews = await fetchLiveNews();
+        liveNews = await Promise.race([
+            Promise.allSettled([fetchLiveNews(), fetchWallstreetcn()]).then(results => {
+                // 取最先成功的
+                for (const r of results) {
+                    if (r.status === 'fulfilled' && r.value && r.value.length > 0) return r.value;
+                }
+                return null;
+            }),
+            new Promise(resolve => setTimeout(() => resolve(null), 5000))
+        ]);
     } catch(e) {
-        console.log('新浪API失败，尝试备用源:', e);
-    }
-    
-    // 新浪失败时，尝试华尔街见闻（支持CORS，直接fetch）
-    if (!liveNews || liveNews.length === 0) {
-        try {
-            liveNews = await fetchWallstreetcn();
-        } catch(e) {
-            console.log('华尔街见闻API失败，降级到文件:', e);
-        }
+        console.log('实时API均失败:', e);
     }
     
     if (liveNews && liveNews.length > 0) {
@@ -143,15 +143,15 @@ function fetchLiveNews() {
         
         const s = document.createElement('script');
         s.src = 'https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2509&num=15&callback=' + callbackName;
-        s.onerror = () => { delete window[callbackName]; reject(new Error('Script load failed')); };
+        s.onerror = () => { delete window[callbackName]; reject(new Error('Script load failed')); s.remove(); };
         
-        // 5秒超时
+        // 4秒硬超时
         const timeout = setTimeout(() => {
             delete window[callbackName];
+            if (s.parentNode) s.parentNode.removeChild(s);
             reject(new Error('Timeout'));
-        }, 5000);
+        }, 4000);
         
-        s.onload = () => clearTimeout(timeout);
         document.head.appendChild(s);
     });
 }
@@ -162,25 +162,32 @@ function formatNewsTime(ts) {
     return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
 }
 
-// ===== 备用源：华尔街见闻快讯（支持CORS，直接fetch）=====
+// ===== 备用源：华尔街见闻快讯（支持CORS，直接fetch，4秒超时）=====
 async function fetchWallstreetcn() {
-    const resp = await fetch('https://api-one-wscn.awtmt.com/apiv1/content/lives?channel=global-channel&limit=15', {
-        headers: { 'Referer': 'https://wallstreetcn.com' }
-    });
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    const data = await resp.json();
-    const items = data?.data?.items || [];
-    return items.map(item => {
-        const title = item.title || item.content_text || '';
-        const content = item.content_text || item.title || '';
-        return {
-            source: '华尔街见闻',
-            time: formatNewsTime(item.display_time || item.created_at),
-            title: title.slice(0, 60),
-            summary: content.slice(0, 80) + (content.length > 80 ? '...' : ''),
-            detail: content || title || ''
-        };
-    }).filter(i => i.title).slice(0, 10);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 4000);
+    try {
+        const resp = await fetch('https://api-one-wscn.awtmt.com/apiv1/content/lives?channel=global-channel&limit=15', {
+            headers: { 'Referer': 'https://wallstreetcn.com' },
+            signal: controller.signal
+        });
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        const data = await resp.json();
+        const items = data?.data?.items || [];
+        return items.map(item => {
+            const title = item.title || item.content_text || '';
+            const content = item.content_text || item.title || '';
+            return {
+                source: '华尔街见闻',
+                time: formatNewsTime(item.display_time || item.created_at),
+                title: title.slice(0, 60),
+                summary: content.slice(0, 80) + (content.length > 80 ? '...' : ''),
+                detail: content || title || ''
+            };
+        }).filter(i => i.title).slice(0, 10);
+    } finally {
+        clearTimeout(timeout);
+    }
 }
 
 // ===== 加载提示 =====
