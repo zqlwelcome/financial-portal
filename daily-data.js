@@ -91,7 +91,7 @@ function assessMarketMood(hotNews) {
 
 // ===== 今日研报 =====
 async function renderTodayBrief(el) {
-    el.innerHTML = '<div style="text-align:center;padding:30px 0;color:#8e8e93;">⏳ 加载中...</div>';
+    el.innerHTML = '<div style="text-align:center;padding:30px 0;">⏳ 加载中...</div>';
     
     const { hotNews, alerts, updateTime } = await loadSummaryData();
     window._summaryData = { hotNews, alerts };
@@ -112,35 +112,35 @@ async function renderTodayBrief(el) {
             </div>
         </div>
 
-        <div class="mood-card" style="background:${mood.color}10; border-left:3px solid ${mood.color}; border-radius:12px; padding:14px; margin-bottom:16px;">
+        <div class="mood-card" style="background:${mood.color}15; border-left:3px solid ${mood.color}; border-radius:12px; padding:14px; margin-bottom:16px;">
             <div style="display:flex;align-items:center;gap:10px;">
                 <span style="font-size:28px;">${mood.icon}</span>
                 <div>
                     <div style="font-size:15px;font-weight:600;color:${mood.color};">市场情绪：${mood.mood}</div>
-                    <div style="font-size:12px;color:#8e8e93;margin-top:2px;">${alertText || '综合多维度数据分析'}</div>
+                    <div style="font-size:12px;color:var(--text2);margin-top:2px;">${alertText || '综合多维度数据分析'}</div>
                 </div>
             </div>
         </div>
 
-        <div style="font-size:12px;color:#8e8e93;margin-bottom:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">🧠 达人观点</div>
+        <div style="font-size:12px;color:var(--text3);margin-bottom:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">🧠 达人观点</div>
         <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
             ${renderMiniExpert('templeton', '🌍', '邓普顿', '逆向投资之父', '#5856d6')}
             ${renderMiniExpert('buffett', '💰', '巴菲特', '价值投资之王', '#ff9500')}
             ${renderMiniExpert('munger', '🧠', '芒格', '多元思维大师', '#34c759')}
         </div>
-        <div style="text-align:center;font-size:11px;color:#aeaeb2;">点击上方查看完整观点和行动建议</div>
+        <div style="text-align:center;font-size:11px;color:var(--text3);">点击上方查看完整观点和行动建议</div>
     `;
 }
 
 function renderMiniExpert(id, icon, name, subtitle, color) {
     return `
-        <div class="slide-opt" style="display:flex;align-items:center;gap:12px;background:white;border-radius:12px;padding:12px 14px;box-shadow:0 1px 2px rgba(0,0,0,0.04);cursor:pointer;" onclick="switchToView(${['today','templeton','buffett','munger'].indexOf(id)})">
-            <div style="width:40px;height:40px;border-radius:10px;background:${color}15;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">${icon}</div>
+        <div class="hl-opt" style="display:flex;align-items:center;gap:12px;border-radius:12px;padding:12px 14px;cursor:pointer;" onclick="switchToView(${['today','templeton','buffett','munger'].indexOf(id)})">
+            <div style="width:40px;height:40px;border-radius:10px;background:${color}20;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">${icon}</div>
             <div style="flex:1;">
                 <div style="font-size:14px;font-weight:600;color:${color};">${name}</div>
-                <div style="font-size:11px;color:#8e8e93;">${subtitle}</div>
+                <div style="font-size:11px;color:var(--text2);">${subtitle}</div>
             </div>
-            <span style="font-size:18px;color:#c7c7cc;">›</span>
+            <span style="font-size:18px;color:var(--text3);">›</span>
         </div>
     `;
 }
