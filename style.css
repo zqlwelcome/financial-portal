@@ -288,6 +288,21 @@ body {
     color: var(--text);
 }
 
+/* alert展开详情 */
+.alert-detail {
+    display: none;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 0.5px solid var(--border);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-body);
+}
+.alert-card.expanded .alert-detail { display: block; }
+.alert-card.expanded .alert-text { display: none; }
+
+.empty-hint { color: var(--text2); }
+
 /* 区域标题 */
 .section-header {
     display: flex;
