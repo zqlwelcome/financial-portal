@@ -69,27 +69,41 @@ function initSubTabs() {
     });
 }
 
-// ===== 市场数据（实时API）- 腾讯证券 script 标签绕过跨域 =====
-// 已验证字段位置(0-indexed): [3]=当前价, [31]=涨跌额, [32]=涨跌幅(上/恒指)
-// 纳斯达克: [30]=涨跌额, [31]=涨跌幅
+// ===== 市场数据（实时API）- 腾讯证券接口（CORS支持HTTPS）=====
+// web.sqt.gtimg.cn 返回 Access-Control-Allow-Origin: *，可直接 fetch
 let _marketTimer = null;
 
-function loadMarketData() {
+async function loadMarketData() {
     if (_marketTimer) clearTimeout(_marketTimer);
-    const s = document.createElement('script');
-    s.src = 'https://qt.gtimg.cn/q=sh000001,hkHSI,usIXIC';
-    s.onload = () => {
-        const sh = window['v_sh000001'];
-        const hk = window['v_hkHSI'];
-        const us = window['v_usIXIC'];
-        if (sh) { const p = sh.split('~'); parsePrice('shIndex', p[3], p[32]); }
-        if (hk) { const p = hk.split('~'); parsePrice('hkIndex', p[3], p[33]); }
-        if (us) { const p = us.split('~'); parsePrice('usIndex', p[3], p[31]); }
-        s.remove();
-    };
-    s.onerror = () => s.remove();
-    document.head.appendChild(s);
-    _marketTimer = setTimeout(() => { _marketTimer = null; }, 5000);
+    
+    try {
+        const resp = await fetch('https://web.sqt.gtimg.cn/q=sh000001,hkHSI,usIXIC', {
+            headers: { 'Referer': 'https://gu.qq.com' }
+        });
+        const text = await resp.text();
+        
+        // 提取 v_sh000001 和 v_hkHSI 和 v_usIXIC
+        const sh = extractVar(text, 'v_sh000001');
+        const hk = extractVar(text, 'v_hkHSI');
+        const us = extractVar(text, 'v_usIXIC');
+        
+        // 上证: [3]=当前价, [32]=涨跌幅
+        // 恒指: [3]=当前价, [33]=涨跌幅
+        // 纳斯达克: [3]=当前价, [31]=涨跌幅
+        if (sh) { const p = sh.split('~'); if (p.length > 32) parsePrice('shIndex', p[3], p[32]); }
+        if (hk) { const p = hk.split('~'); if (p.length > 33) parsePrice('hkIndex', p[3], p[33]); }
+        if (us) { const p = us.split('~'); if (p.length > 31) parsePrice('usIndex', p[3], p[31]); }
+    } catch(e) {
+        console.warn('行情API失败:', e);
+    }
+    
+    _marketTimer = setTimeout(() => { _marketTimer = null; }, 8000);
+}
+
+function extractVar(text, name) {
+    const re = new RegExp(name + '="([^"]+)"');
+    const m = text.match(re);
+    return m ? m[1] : null;
 }
 
 function parsePrice(id, priceStr, pctStr) {
