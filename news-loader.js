@@ -110,7 +110,7 @@ function xhrFetch() {
     });
 }
 
-// ===== 加载提示 =====
+// ===== 加载提示（XHR绕过CDN缓存）=====
 async function loadAlerts(forceRefresh = false) {
     if (!forceRefresh && alertsCache) {
         renderAlerts(alertsCache);
@@ -118,25 +118,39 @@ async function loadAlerts(forceRefresh = false) {
     }
     
     try {
-        const ts = Date.now();
+        const data = await xhrFetchAlerts();
+        if (data) {
+            alertsCache = data;
+            renderAlerts(alertsCache);
+            return;
+        }
+    } catch(e) {
+        console.log('加载提示失败:', e);
+    }
+    fallbackAlerts();
+}
+
+function xhrFetchAlerts() {
+    return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'data/alerts.json?_=' + ts + Math.random(), true);
-        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        const url = 'data/alerts.json?_=' + Date.now() + Math.random();
+        xhr.open('GET', url, true);
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.setRequestHeader('Expires', '0');
         xhr.timeout = 8000;
         xhr.onload = () => {
             if (xhr.status === 200) {
-                try {
-                    alertsCache = JSON.parse(xhr.responseText);
-                    renderAlerts(alertsCache);
-                } catch(e) {}
+                try { resolve(JSON.parse(xhr.responseText)); }
+                catch(e) { reject(e); }
+            } else {
+                reject(new Error('HTTP ' + xhr.status));
             }
         };
-        xhr.onerror = () => fallbackAlerts();
-        xhr.ontimeout = () => fallbackAlerts();
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.ontimeout = () => reject(new Error('Timeout'));
         xhr.send();
-    } catch (e) {
-        fallbackAlerts();
-    }
+    });
 }
 
 function fallbackAlerts() {
