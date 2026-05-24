@@ -30,6 +30,7 @@
             <div class="sub-tabs">
                 <button class="sub-tab active" data-sub="realtime">⚡ 实时事件</button>
                 <button class="sub-tab" data-sub="daily">📊 研报</button>
+                <button class="sub-tab" data-sub="holdings">📋 持仓</button>
             </div>
 
             <!-- 实时新闻 -->
@@ -60,7 +61,7 @@
                 <div id="hotNewsList" class="news-list"></div>
             </div>
 
-            <!-- 总结 -->
+            <!-- 研报 -->
             <div id="daily" class="sub-content">
                 <div class="slide-selector">
                     <button class="slide-opt active" data-view="today">今日</button>
@@ -69,6 +70,11 @@
                     <button class="slide-opt" data-view="munger">🧠 芒格</button>
                 </div>
                 <div id="summaryContent" class="summary-scroll"></div>
+            </div>
+
+            <!-- 持仓情报 -->
+            <div id="holdings" class="sub-content">
+                <div id="holdingsContent"></div>
             </div>
         </section>
 
@@ -110,6 +116,8 @@
     <script src="daily-data.js"></script>
     <script src="news-loader.js"></script>
     <script src="course-data.js"></script>
+    <script src="holdings-data.js"></script>
+    <script src="holdings-render.js"></script>
     <script src="course-app.js"></script>
     <script src="share.js"></script>
     <script src="app.js"></script>
