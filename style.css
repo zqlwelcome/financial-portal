@@ -131,12 +131,7 @@ body {
     margin-bottom: 8px;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    cursor: grab;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: pan-x;
 }
-.slide-selector:active { cursor: grabbing; }
 .slide-selector::-webkit-scrollbar { display: none; }
 
 .slide-opt {
@@ -152,8 +147,6 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
-    pointer-events: auto;
-    touch-action: manipulation;
 }
 .slide-opt.active {
     background: var(--primary);
