@@ -15,7 +15,7 @@ function oneTapShare() {
     const url = 'https://zqlwelcome.github.io/learning-platform/';
     const today = new Date().toLocaleDateString('zh-CN', {month:'long',day:'numeric'});
     
-    const shareText = '📚 学习门户\n' + today + ' · ' + pv + '人次访问\n\n' +
+    const shareText = '🌙 下班学点啥\n' + today + ' · ' + pv + '人次访问\n\n' +
         '📰 实时财经  📈 行情数据  🧠 投资智库  🤖 AI课程\n\n' +
         '每天更新财经新闻、外汇股市提示，' +
         '还有邓普顿/巴菲特/芒格三重投资视角解读和AI产品经理学习体系。\n\n' +
