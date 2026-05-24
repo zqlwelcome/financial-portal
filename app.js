@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     initSubTabs();
     initSlideSelector();
     loadMarketData();
-    await renderSummaryContent();
 
     initPullRefresh();
     setInterval(loadMarketData, 30000);
