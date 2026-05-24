@@ -142,14 +142,14 @@ function initSlideSelector() {
     }, { passive: true });
 
     window._currentView = 'today';
-    renderView();
+    renderView().then(() => {});
 }
 
 function switchToView(idx, opts, views, content) {
     opts.forEach((o, i) => o.classList.toggle('active', i === idx));
     opts[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     window._currentView = views[idx];
-    renderView();
+    renderView().then(() => {});
 }
 
 // ===== 渲染视图（今日或达人）=====
