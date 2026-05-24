@@ -698,6 +698,253 @@ body {
     color: #155724;
 }
 
+/* ===== 持仓情报 ===== */
+.hl-selector {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0;
+}
+.hl-opt {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 6px;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+.hl-opt.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 10px rgba(0,122,255,0.3);
+}
+.hl-opt-icon { font-size: 22px; }
+
+.hl-body { margin-bottom: 8px; }
+
+/* 投资人头部卡片 */
+.hl-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 16px;
+    color: white;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.hl-h-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    backdrop-filter: blur(4px);
+    flex-shrink: 0;
+}
+.hl-h-name { font-size: 17px; font-weight: 700; letter-spacing: -0.2px; }
+.hl-h-sub { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+
+/* 概述 */
+.hl-summary {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text2);
+    background: white;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+    border-left: 3px solid var(--primary);
+}
+
+/* 区块标题 */
+.hl-section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.hl-count {
+    font-size: 11px;
+    color: var(--text3);
+    font-weight: 500;
+    background: rgba(118,118,128,0.08);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* 变动项列表 */
+.hl-changelist {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+.hl-change-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: var(--shadow-sm);
+}
+.hl-cbadge {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+.badge-add { background: #e8f5e9; color: var(--green); font-weight: 700; }
+.badge-reduce { background: #fce8e6; color: var(--red); font-weight: 700; }
+.badge-new { background: #e3f2fd; color: var(--primary); font-size: 10px; }
+.badge-exit { background: #f1f1f1; color: var(--text3); }
+
+.hl-cinfo { flex: 1; min-width: 0; }
+.hl-ctop {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 1px;
+}
+.hl-cticker { font-size: 14px; font-weight: 600; }
+.hl-cpct { font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 4px; }
+.cpct-up { color: var(--green); background: #e8f5e9; }
+.cpct-down { color: var(--red); background: #fce8e6; }
+.hl-cname { font-size: 12px; color: var(--text2); margin-bottom: 2px; }
+.hl-cdetail { font-size: 11px; color: var(--text3); line-height: 1.45; }
+
+/* 持仓列表 */
+.hl-holdlist {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.hl-hold-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    padding: 11px 12px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.hl-hold-item:active { transform: scale(0.98); opacity: 0.9; }
+.hl-hold-item.hl-folded { display: none; }
+
+.hl-hleft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+.hl-hrank {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: rgba(118,118,128,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text2);
+    flex-shrink: 0;
+}
+.hl-hinfo { min-width: 0; }
+.hl-hticker { font-size: 14px; font-weight: 600; }
+.hl-hcompany { font-size: 11px; font-weight: 400; color: var(--text2); margin-left: 4px; }
+.hl-hmeta { display: flex; align-items: center; gap: 6px; margin-top: 1px; }
+.hl-hpct { font-size: 13px; font-weight: 600; color: var(--text); }
+.hl-hchange { font-size: 10px; padding: 1px 5px; border-radius: 3px; font-weight: 600; }
+.hc-up { background: #e8f5e9; color: var(--green); }
+.hc-down { background: #fce8e6; color: var(--red); }
+.hc-new { background: #e3f2fd; color: var(--primary); }
+
+.hl-hright {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+.hl-hvalue { font-size: 11px; color: var(--text3); font-weight: 500; }
+.hl-harrow { font-size: 16px; color: #c7c7cc; }
+
+/* 展开详情 */
+.hl-hdetail {
+    display: none;
+    width: 100%;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 0.5px solid var(--border);
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.5;
+}
+.hl-hold-item.expanded .hl-hdetail { display: block; }
+.hl-hold-item.expanded .hl-harrow { transform: rotate(90deg); }
+
+.hl-hd-comment {
+    background: rgba(0,122,255,0.06);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    color: var(--text);
+}
+.hl-hd-data { font-size: 11px; color: var(--text3); }
+
+/* 展开全部按钮 */
+.hl-expand-wrap {
+    margin-top: 8px;
+    text-align: center;
+}
+.hl-expand-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--primary);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.15s;
+}
+.hl-expand-btn:active { opacity: 0.8; }
+.hl-arrow { font-size: 16px; }
+
+/* 页脚 */
+.hl-footer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text3);
+    padding: 4px 0 12px;
+}
+
 /* AI产品经理 */
 .status-bar {
     display: flex;
