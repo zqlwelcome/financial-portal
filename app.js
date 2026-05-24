@@ -113,7 +113,7 @@ function parsePrice(id, priceStr, pctStr) {
         updateMarketItem(id, price, pct);
         // 每次成功更新都刷新市场时间戳
         const now = new Date();
-        const ts = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+        const ts = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
         const el = document.getElementById('marketTs');
         if (el) el.textContent = `⏱ ${ts}`;
     }
