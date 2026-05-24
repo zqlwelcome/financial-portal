@@ -25,8 +25,8 @@ function renderHoldings() {
     <div class="hl-footer">数据来源：SEC 13F · 更新：--</div>
   `;
 
-  // 默认显示段永平
-  switchInvestor('duan');
+  // 默认显示巴菲特
+  switchInvestor('buffett');
 }
 
 // ===== 切换投资人 =====
