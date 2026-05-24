@@ -40,7 +40,7 @@ async function loadHotNews(forceRefresh = false) {
         return;
     }
     
-    el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;color:#8e8e93;font-size:14px;">🔄 获取最新新闻...</div>';
+    el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;font-size:14px;">🔄 获取最新新闻...</div>';
     
     try {
         const data = await xhrFetch();
@@ -82,7 +82,7 @@ async function loadHotNews(forceRefresh = false) {
     }
     
     if (newsCache.length === 0) {
-        el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;color:#8e8e93;">暂无新闻</div>';
+        el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;">暂无新闻</div>';
     }
 }
 
@@ -216,7 +216,6 @@ function updateRefreshHint(time) {
     const hint = document.getElementById('refreshHint');
     if (hint) {
         hint.textContent = time ? `更新于 ${time}` : `更新于 ${new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'})}`;
-        hint.style.color = '#8e8e93';
     }
 }
 
