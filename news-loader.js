@@ -1,6 +1,6 @@
 /**
- * 新闻和提示 - 实时版（前端直连财经API）
- * 不再依赖 cron job 的热-news.json，改为前端直接从新浪JSONP获取
+ * 新闻和提示 - 实时版（前端直连双财经API）
+ * 优先级：新浪JSONP → 华尔街见闻fetch → hot-news.json降级
  */
 
 // ===== 缓存 =====
@@ -40,27 +40,39 @@ async function loadHotNews(forceRefresh = false) {
     
     el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;color:#8e8e93;font-size:14px;">🔄 获取最新新闻...</div>';
     
-    // 先尝试从实时API获取
+    // 先尝试从实时API获取（新浪JSONP）
+    let liveNews = null;
     try {
-        const news = await fetchLiveNews();
-        if (news && news.length > 0) {
-            const isNew = newsCache.length === 0 || !newsCache[0] || newsCache[0].title !== news[0].title;
-            if (isNew) {
-                newsCache = news;
-                lastRefreshTime = Date.now();
-                renderNewsList(newsCache);
-                const now = new Date();
-                const timeStr = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-                updateRefreshHint(`实时 ${timeStr}`);
-                return;
-            } else {
-                lastRefreshTime = Date.now();
-                updateRefreshHint('已是最新');
-                return;
-            }
-        }
+        liveNews = await fetchLiveNews();
     } catch(e) {
-        console.log('实时API失败，降级到文件:', e);
+        console.log('新浪API失败，尝试备用源:', e);
+    }
+    
+    // 新浪失败时，尝试华尔街见闻（支持CORS，直接fetch）
+    if (!liveNews || liveNews.length === 0) {
+        try {
+            liveNews = await fetchWallstreetcn();
+        } catch(e) {
+            console.log('华尔街见闻API失败，降级到文件:', e);
+        }
+    }
+    
+    if (liveNews && liveNews.length > 0) {
+        const isNew = newsCache.length === 0 || !newsCache[0] || newsCache[0].title !== liveNews[0].title;
+        if (isNew) {
+            newsCache = liveNews;
+            lastRefreshTime = Date.now();
+            renderNewsList(newsCache);
+            const now = new Date();
+            const timeStr = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+            updateRefreshHint(`实时 ${timeStr}`);
+            localStorage.setItem('hot_news_cache', JSON.stringify(liveNews));
+            return;
+        } else {
+            lastRefreshTime = Date.now();
+            updateRefreshHint('已是最新');
+            return;
+        }
     }
     
     // 降级：从hot-news.json加载
@@ -148,6 +160,27 @@ function formatNewsTime(ts) {
     if (!ts) return '';
     const d = new Date(parseInt(ts) * 1000);
     return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+}
+
+// ===== 备用源：华尔街见闻快讯（支持CORS，直接fetch）=====
+async function fetchWallstreetcn() {
+    const resp = await fetch('https://api-one-wscn.awtmt.com/apiv1/content/lives?channel=global-channel&limit=15', {
+        headers: { 'Referer': 'https://wallstreetcn.com' }
+    });
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    const items = data?.data?.items || [];
+    return items.map(item => {
+        const title = item.title || item.content_text || '';
+        const content = item.content_text || item.title || '';
+        return {
+            source: '华尔街见闻',
+            time: formatNewsTime(item.display_time || item.created_at),
+            title: title.slice(0, 60),
+            summary: content.slice(0, 80) + (content.length > 80 ? '...' : ''),
+            detail: content || title || ''
+        };
+    }).filter(i => i.title).slice(0, 10);
 }
 
 // ===== 加载提示 =====
