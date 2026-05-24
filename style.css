@@ -1141,3 +1141,19 @@ body {
     font-weight: 400;
     letter-spacing: 0.3px;
 }
+
+/* 时间戳 */
+.market-ts {
+    text-align: right;
+    font-size: 11px;
+    color: #aeaeb2;
+    margin: -4px 0 8px;
+    padding-right: 2px;
+}
+.alert-ts, .news-ts {
+    text-align: right;
+    font-size: 11px;
+    color: #aeaeb2;
+    margin-top: 4px;
+    padding-right: 2px;
+}
