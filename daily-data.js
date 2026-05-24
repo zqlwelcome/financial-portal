@@ -1,177 +1,14 @@
 /**
- * 总结页签 - 实时版
- * 数据源：hot-news.json + alerts.json（每10分钟 cron 更新）
- * 不再依赖独立简报文件，自动生成今日简报和达人观点
+ * 总结页签 - 研报版
+ * 今日研报（市场概览）+ 三位达人独立观点（每条带行动建议）
+ * 数据源：hot-news.json + alerts.json（每10分钟同步更新）
  */
-
-// ===== 推送时间配置 =====
-const PUSH_SLOTS = [
-    { key: 'morning',  label: '早报', icon: '🌅', pushTime: '08:00' },
-    { key: 'noon',     label: '午报', icon: '☀️', pushTime: '12:00' },
-    { key: 'evening',  label: '晚报', icon: '🌆', pushTime: '19:00' }
-];
-
-// ===== 已读状态 =====
-const READ_KEY = 'push_read';
-
-function getReadSet() {
-    const val = localStorage.getItem(READ_KEY);
-    return val ? new Set(JSON.parse(val)) : new Set();
-}
-
-function markRead(key) {
-    const set = getReadSet();
-    set.add(key);
-    localStorage.setItem(READ_KEY, JSON.stringify([...set]));
-}
-
-function isRead(key) {
-    return getReadSet().has(key);
-}
-
-// ===== 从hot-news.json和alerts.json生成简报内容 =====
-function generateBriefing(hotNews, alerts) {
-    if (!hotNews || hotNews.length === 0) return null;
-    
-    const lines = [];
-    // 头部
-    lines.push('📊 今日财经摘要');
-    lines.push('');
-    
-    // 头条 - 取前3条
-    lines.push('🔥 头条');
-    hotNews.slice(0, 3).forEach((item, i) => {
-        lines.push(`• ${item.title}（${item.source}）`);
-    });
-    
-    lines.push('');
-    
-    // 要闻 - 取4-10条精简
-    const more = hotNews.slice(3, 8);
-    if (more.length > 0) {
-        lines.push('📌 要闻');
-        more.forEach(item => {
-            lines.push(`• ${item.summary || item.title.slice(0, 40)}`);
-        });
-    }
-    
-    lines.push('');
-    
-    // 从alerts.json提取外汇/股市
-    if (alerts) {
-        lines.push('💡 行情速览');
-        if (alerts.forex) lines.push(`• 外汇：${alerts.forex.text}`);
-        if (alerts.stock) lines.push(`• 股市：${alerts.stock.text}`);
-    }
-    
-    return lines.join('\n');
-}
-
-// ===== 从新闻内容生成三视角速评 =====
-function generateExpertViews(hotNews, alerts) {
-    if (!hotNews || hotNews.length === 0) return {};
-    
-    const headlines = hotNews.slice(0, 5);
-    const hasTradeWar = headlines.some(h => (h.title + h.summary).includes('关税') || (h.title + h.summary).includes('贸易'));
-    const hasAIFrenzy = headlines.some(h => (h.title + h.summary).includes('AI') || (h.title + h.summary).includes('人工智能'));
-    const hasCrypto = headlines.some(h => (h.title + h.summary).includes('比特币') || (h.title + h.summary).includes('加密货币'));
-    const hasOil = headlines.some(h => (h.title + h.summary).includes('原油') || (h.title + h.summary).includes('油价'));
-    const hasStocks = headlines.some(h => (h.title + h.summary).includes('股市') || (h.title + h.summary).includes('指数'));
-    
-    // 基于真实新闻动态生成观点
-    const experts = {};
-    
-    experts.templeton = {
-        insight: headlines.length > 0 ? `今日市场关注：${headlines[0].summary.slice(0, 50)}。全球资金正在${hasTradeWar ? '因贸易摩擦升温而流向避险资产' : hasOil ? '因能源格局变化而重新配置' : '寻求新的价值洼地'}，逆向思维者应关注被市场情绪错杀的资产。` : '市场整体处于震荡中，逆向投资者需保持耐心。',
-        prediction: hasCrypto ? '数字货币短期波动加剧，但长期趋势未改。当恐惧指数上升时，往往是聪明钱布局的时机。' : hasAIFrenzy ? 'AI赛道估值偏贵，但行业变革才刚刚开始。关注应用层而非基础设施层的结构性机会。' : '建议关注被地缘风险压制的市场，如港股和部分新兴市场，等待均值回归。',
-        lesson: '行情总在绝望中诞生，在犹豫中成长。当所有人都盯着同一个风险时，那个风险往往已经price in了。'
-    };
-    
-    experts.buffett = {
-        insight: hasStocks ? `主要股指表现活跃，但短期波动不应干扰长期判断。优质公司的护城河不会因为一天的涨跌而改变。` : `市场每日消息很多，但真正影响企业内在价值的事件很少。保持定力，聚焦企业基本面。`,
-        prediction: hasAIFrenzy ? 'AI领域的投资需要区分"淘金者"和"卖铲子的人"。真正有护城河的是掌握核心数据和算力的基础设施公司。' : hasTradeWar ? '贸易摩擦短期影响市场情绪，但会促使企业优化供应链。长期看，具备全球竞争力的公司会从中受益。' : '在不确定的市场中，现金流充裕、负债率低的消费龙头具有最高的安全边际。',
-        lesson: '市场短期是情绪投票器，长期是价值称重机。今天的波动，放在十年后看可能只是一个小浪花。'
-    };
-    
-    experts.munger = {
-        insight: headlines.length > 0 ? `今天的新闻中，${headlines[0].title.slice(0, 30)}是最值得关注的信号。但要注意——不要被单一叙事主导你的判断。` : '市场信息过载时，最好的策略是减少决策频率。',
-        prediction: hasCrypto ? '当所有人都在谈论比特币时，问问自己：我比市场知道得更多吗？如果答案是否定的，就别跟风交易。' : hasTradeWar ? '贸易战中没有赢家。但每次危机都伴随着结构性的机会——那些被迫升级技术、优化管理的企业最终会更强。' : '保持组合的多样性是应对不确定性的唯一免费午餐。不要押注单一方向。',
-        lesson: '投资最重要的是不要做蠢事。当新闻让你情绪激动时，停一停，问问自己：这个信息对我的持仓有实质影响吗？'
-    };
-    
-    return experts;
-}
-
-// ===== 加载简报（从hot-news.json和alerts.json实时生成）=====
-async function loadBriefingData() {
-    try {
-        const [newsData, alertsData] = await Promise.all([
-            xhrFetchHotNews(),
-            xhrFetchAlerts()
-        ]);
-        
-        let hotNews = null, alerts = null, updateTime = '';
-        
-        if (newsData && newsData.news) {
-            hotNews = newsData.news;
-            updateTime = newsData.updateTime || '';
-        }
-        if (alertsData) {
-            alerts = alertsData;
-            updateTime = alertsData.updateTime || updateTime;
-        }
-        
-        return { hotNews, alerts, updateTime };
-    } catch(e) {
-        return { hotNews: null, alerts: null, updateTime: '' };
-    }
-}
-
-// ===== XHR获取hot-news.json =====
-function xhrFetchHotNews() {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'data/hot-news.json?_=' + Date.now() + Math.random(), true);
-        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-        xhr.setRequestHeader('Pragma', 'no-cache');
-        xhr.setRequestHeader('Expires', '0');
-        xhr.timeout = 8000;
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                try { resolve(JSON.parse(xhr.responseText)); } catch(e) { reject(e); }
-            } else { reject(new Error('HTTP ' + xhr.status)); }
-        };
-        xhr.onerror = () => reject(new Error('Network error'));
-        xhr.ontimeout = () => reject(new Error('Timeout'));
-        xhr.send();
-    });
-}
-
-function xhrFetchAlerts() {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'data/alerts.json?_=' + Date.now() + Math.random(), true);
-        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-        xhr.setRequestHeader('Pragma', 'no-cache');
-        xhr.setRequestHeader('Expires', '0');
-        xhr.timeout = 8000;
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                try { resolve(JSON.parse(xhr.responseText)); } catch(e) { reject(e); }
-            } else { reject(new Error('HTTP ' + xhr.status)); }
-        };
-        xhr.onerror = () => reject(new Error('Network error'));
-        xhr.ontimeout = () => reject(new Error('Timeout'));
-        xhr.send();
-    });
-}
 
 // ===== 选择器（点击切换视图）=====
 function initSlideSelector() {
     const sel = document.querySelector('.slide-selector');
     if (!sel) return;
     const opts = sel.querySelectorAll('.slide-opt');
-
     opts.forEach((opt) => {
         opt.addEventListener('click', () => {
             const view = opt.dataset.view;
@@ -181,7 +18,6 @@ function initSlideSelector() {
             renderView().then(() => {});
         });
     });
-
     window._currentView = 'today';
     renderView().then(() => {});
 }
@@ -195,155 +31,212 @@ function switchToView(idx) {
     renderView().then(() => {});
 }
 
-// ===== 渲染视图（今日或达人）=====
+// ===== 渲染视图 =====
 async function renderView() {
     const el = document.getElementById('summaryContent');
     if (!el) return;
     const view = window._currentView || 'today';
     if (view === 'today') {
-        await renderTodayView(el);
+        await renderTodayBrief(el);
     } else {
         await renderExpertView(el, view);
     }
 }
+async function renderSummaryContent() { await renderView(); }
 
-async function renderSummaryContent() {
-    await renderView();
+// ===== 加载数据 =====
+async function loadSummaryData() {
+    try {
+        const [newsRes, alertsRes] = await Promise.all([
+            xhrFetch('data/hot-news.json'),
+            xhrFetch('data/alerts.json')
+        ]);
+        const hotNews = newsRes?.news || [];
+        const alerts = alertsRes || null;
+        const updateTime = newsRes?.updateTime || alertsRes?.updateTime || '';
+        return { hotNews, alerts, updateTime };
+    } catch(e) {
+        return { hotNews: [], alerts: null, updateTime: '' };
+    }
 }
 
-// ===== 今日视图（从实时数据生成简报）=====
-async function renderTodayView(el) {
+function xhrFetch(url) {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url + '?_=' + Date.now() + Math.random(), true);
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.timeout = 8000;
+        xhr.onload = () => {
+            if (xhr.status === 200) { try { resolve(JSON.parse(xhr.responseText)); } catch(e) { reject(e); } }
+            else { reject(new Error('HTTP ' + xhr.status)); }
+        };
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.ontimeout = () => reject(new Error('Timeout'));
+        xhr.send();
+    });
+}
+
+// ===== 判定市场情绪 =====
+function assessMarketMood(hotNews) {
+    if (!hotNews || hotNews.length === 0) return { mood: '中性', icon: '➖', color: '#8e8e93' };
+    const text = hotNews.map(n => n.title + (n.summary || '')).join('');
+    const bullish = (text.match(/涨|升|新高|反弹|突破|利好/g) || []).length;
+    const bearish = (text.match(/跌|降|新低|回落|利空|风险/g) || []).length;
+    if (bullish > bearish + 2) return { mood: '偏乐观', icon: '📈', color: '#34c759' };
+    if (bearish > bullish + 2) return { mood: '偏谨慎', icon: '📉', color: '#ff3b30' };
+    return { mood: '震荡中性', icon: '➖', color: '#ff9500' };
+}
+
+// ===== 今日研报 =====
+async function renderTodayBrief(el) {
     el.innerHTML = '<div style="text-align:center;padding:30px 0;color:#8e8e93;">⏳ 加载中...</div>';
     
-    const { hotNews, alerts, updateTime } = await loadBriefingData();
+    const { hotNews, alerts, updateTime } = await loadSummaryData();
+    window._summaryData = { hotNews, alerts };
+    
+    const mood = assessMarketMood(hotNews);
+    const headlines = (hotNews || []).slice(0, 5).map(h => h.title).filter(Boolean);
+    const alertText = alerts ? [alerts.forex?.text, alerts.stock?.text].filter(Boolean).join(' · ') : '';
     
     const today = new Date();
     const dateStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
-    const nowMin = today.getHours() * 60 + today.getMinutes();
-    
-    const hasNews = hotNews && hotNews.length > 0;
     
     el.innerHTML = `
         <div class="today-header">
             <div class="th-icon">📢</div>
             <div class="th-info">
-                <div class="th-title">每日简报</div>
+                <div class="th-title">今日研报</div>
                 <div class="th-sub">${dateStr} ${updateTime ? '· ⏱ ' + updateTime : ''}</div>
             </div>
         </div>
-        <div class="today-slots">
-            ${PUSH_SLOTS.map(slot => {
-                const pushMin = parseInt(slot.pushTime.split(':')[0]) * 60 + parseInt(slot.pushTime.split(':')[1]);
-                const isPushed = nowMin >= pushMin && hasNews;
-                
-                if (isPushed) {
-                    const read = isRead(slot.key);
-                    const content = generateBriefing(hotNews, alerts) || '';
-                    return `
-                    <div class="ts-card ${read ? 'read' : ''}" data-key="${slot.key}" onclick="togglePushCard(this)">
-                        <div class="ts-head">
-                            <span class="ts-icon">${slot.icon}</span>
-                            <span class="ts-label">${slot.label}</span>
-                            <span class="ts-badge">${read ? '已读' : '未读'}</span>
-                            <span class="ts-arrow">›</span>
-                        </div>
-                        <div class="ts-preview">${content.split('\n').slice(0,4).join('<br>')}</div>
-                        <div class="ts-full hidden">${content.replace(/\n/g, '<br>')}</div>
-                    </div>
-                    `;
-                } else {
-                    const status = nowMin >= pushMin ? '暂无数据' : `${slot.pushTime} 推送`;
-                    return `
-                    <div class="ts-card pending">
-                        <div class="ts-head">
-                            <span class="ts-icon">${slot.icon}</span>
-                            <span class="ts-label">${slot.label}</span>
-                            <span class="ts-status">${status}</span>
-                        </div>
-                    </div>
-                    `;
-                }
-            }).join('')}
+
+        <div class="mood-card" style="background:${mood.color}10; border-left:3px solid ${mood.color}; border-radius:12px; padding:14px; margin-bottom:16px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:28px;">${mood.icon}</span>
+                <div>
+                    <div style="font-size:15px;font-weight:600;color:${mood.color};">市场情绪：${mood.mood}</div>
+                    <div style="font-size:12px;color:#8e8e93;margin-top:2px;">${alertText || '综合多维度数据分析'}</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="font-size:13px;color:#3a3a3c;line-height:1.7;margin-bottom:16px;background:white;border-radius:12px;padding:14px;box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+            <div style="font-size:12px;font-weight:600;color:#8e8e93;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">📰 今日关注</div>
+            ${headlines.length > 0 ? headlines.map(h => `<div style="padding:6px 0;border-bottom:0.5px solid rgba(60,60,67,0.08);font-size:13px;">• ${h}</div>`).join('') : '<div style="color:#aeaeb2;font-size:13px;">暂无数据</div>'}
+        </div>
+
+        <div style="font-size:12px;color:#8e8e93;margin-bottom:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">🧠 达人观点</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+            ${renderMiniExpert('templeton', '🌍', '邓普顿', '逆向投资之父', '#5856d6')}
+            ${renderMiniExpert('buffett', '💰', '巴菲特', '价值投资之王', '#ff9500')}
+            ${renderMiniExpert('munger', '🧠', '芒格', '多元思维大师', '#34c759')}
+        </div>
+        <div style="text-align:center;font-size:11px;color:#aeaeb2;">点击上方头像查看完整观点</div>
+    `;
+}
+
+function renderMiniExpert(id, icon, name, subtitle, color) {
+    return `
+        <div class="slide-opt" style="display:flex;align-items:center;gap:12px;background:white;border-radius:12px;padding:12px 14px;box-shadow:0 1px 2px rgba(0,0,0,0.04);cursor:pointer;" onclick="switchToView(${['today','templeton','buffett','munger'].indexOf(id)})">
+            <div style="width:40px;height:40px;border-radius:10px;background:${color}15;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">${icon}</div>
+            <div style="flex:1;">
+                <div style="font-size:14px;font-weight:600;color:${color};">${name}</div>
+                <div style="font-size:11px;color:#8e8e93;">${subtitle}</div>
+            </div>
+            <span style="font-size:18px;color:#c7c7cc;">›</span>
         </div>
     `;
+}
+
+// ===== 达人观点生成 =====
+function generateExpertViews(hotNews, alerts) {
+    if (!hotNews || hotNews.length === 0) return {};
     
-    // 缓存数据供达人视图使用
-    window._briefingData = { hotNews, alerts };
+    const titles = hotNews.map(h => h.title + ' ' + (h.summary || ''));
+    const allText = titles.join('');
+    
+    const hasTradeWar = /关税|贸易|制裁/.test(allText);
+    const hasAI = /AI|人工智能|大模型|DeepSeek/.test(allText);
+    const hasCrypto = /比特币|加密货币|BTC/.test(allText);
+    const hasOil = /原油|油价|石油/.test(allText);
+    const hasRate = /利率|降息|加息|美联储|央行/.test(allText);
+    const hasStocks = /A股|港股|美股|沪指|恒指/.test(allText);
+    const hasGeo = /地缘|中东|冲突|战争|协议/.test(allText);
+    
+    const topNews = hotNews[0];
+    const topTitle = topNews ? topNews.title : '';
+    
+    const experts = {};
+
+    experts.templeton = {
+        insight: hasGeo ? `「${topTitle}」——地缘风险的缓解正在改变全球资金流向。中东溢价消退意味着能源股和避险资产短期承压，但资金释放后将寻找新的价值洼地。逆向视角：当所有人都在庆祝和平协议时，市场可能低估了协议执行的复杂性；而当恐慌退潮时，被错杀的新兴市场资产值得关注。` : hasTradeWar ? `贸易格局的每一次重构都伴随着巨大的错杀机会。当前市场对关税影响的定价可能过于线性——实际冲击往往小于预期。关注那些被贸易摩擦错杀的出口型企业，它们的估值已经反映了最坏情景，但实际业绩可能好于预期。` : hasRate ? `全球利率周期的拐点是最重要的逆向信号。当市场一致预期加息/降息路径时，真正的超额收益来自于预期差。目前市场定价可能过于拥挤，逆向投资者应该关注政策意外方向的保护。` : `今日市场情绪偏向${assessMarketMood(hotNews).mood}。逆向投资的要义是：当市场共识过于一致时，站在对立面思考。关注那些被短期情绪压低估值的优质资产，耐心等待均值回归。`,
+        action: hasOil ? '原油短期承压，但中东供给风险并未完全消除。建议逢低布局能源ETF，设好止损，等待地缘溢价修复。' : hasCrypto ? '加密货币波动加剧，建议保持小仓位配置（不超过总资产5%），大跌时分批建仓，切忌追涨。' : hasStocks ? 'A股短期震荡，建议关注外资持续流入的消费和科技龙头，利用回调逐步加仓。' : '建议关注港股和新兴市场ETF的配置机会，当前估值处于历史低位区间，具备较好的安全边际。'
+    };
+
+    experts.buffett = {
+        insight: hasAI ? 'AI赛道如火如荼，但真正有持久竞争优势的不是做模型的，而是拥有数据和生态的公司。当市场热捧概念时，巴菲特的做法是：买那些你已经理解并且确定十年后还会存在的生意。腾讯和茅台这样的公司不会因为DeepSeek降价而失去护城河。' : hasRate ? '利率变化会影响估值倍数，但不改变优质公司的内在价值。真正值得关注的是：这些公司是否有定价权？现金流是否稳健？管理层是否理性？满足这三条的公司在任何利率环境下都能生存并壮大。' : hasTradeWar ? '贸易摩擦短期看是风险，长期看是试金石。真正有全球竞争力的公司会通过供应链调整和技术升级来化解关税影响。每次这样的调整期，都是以合理价格买入优质资产的机会。' : hasGeo ? '地缘事件对短期市场情绪影响很大，但对优质企业内在价值的冲击往往有限。问问自己：这家公司五年后的盈利会因为今天的新闻而改变吗？如果答案是否定的，那就应该利用波动而非恐惧。' : '在不确定的市场中，现金流充裕、负债率低的消费龙头具有最高的安全边际。耐心等待合理的买入价格。',
+        action: hasStocks ? 'A股当前估值处于合理区间，建议分批定投沪深300或中证500指数基金，每月固定金额，无需择时。' : hasAI ? 'AI产业链上游（算力芯片、数据中心）确定性更高，建议关注相关ETF，避免押注单一公司。' : '当前市场不确定性较高，建议增加现金比例（20-30%），等待更好的买入机会。现金不是仓位，是期权。'
+    };
+
+    experts.munger = {
+        insight: '用多元思维模型拆解今日市场：「' + topTitle + '」' + (hasGeo ? '。第一层：地缘缓和利好风险资产——共识。第二层：协议执行中的波折可能被市场低估——逆向思考。第三层：如果协议落地，哪些结构性变化会被忽略？（中东重建需求、全球航运路线重置）。用三层思维避免肤浅的判断。' : hasAI ? '。第一层：AI降价利好应用端——共识。第二层：降价加速行业洗牌，小公司可能出局——逆向思考。第三层：真正受益的是那些能用AI重构成本结构的传统行业，而非AI公司本身。' : hasTradeWar ? '。第一层：关税影响出口——共识。第二层：企业会通过供应链转移对冲——思考。第三层：最大赢家可能是越南、印度等替代制造中心。关注提前布局海外产能的中国公司。' : '。第一层：今天的新闻是否真的改变了什么？第二层：市场是否过度反应？第三层：如果判断错了，最坏的情况是什么？') + '\n\n检查清单：① 我是否因为今天的新闻而情绪化交易？② 我的组合是否过度集中？③ 如果持有现金，我有没有明确的买入计划？',
+        action: hasCrypto ? '比特币是情绪的放大器，不适合大多数个人投资者。如果你一定要参与，用定投策略，每次下跌5%加仓一次，总仓位不超过可投资产的3%。' : hasStocks ? '不要试图预测市场底部。更好的策略是：设定一个估值触发点（如沪指4000点以下），到了就机械执行买入计划。用规则代替情绪。' : '控制仓位比选对股票更重要。当前建议保持均衡配置：40%权益、30%债券、30%现金，等待更好的风险回报比。'
+    };
+
+    return experts;
 }
 
-// ===== 点击展开简报 =====
-function togglePushCard(el) {
-    const key = el.dataset.key;
-    if (!isRead(key)) {
-        markRead(key);
-        el.classList.add('read');
-        const badge = el.querySelector('.ts-badge');
-        if (badge) badge.textContent = '已读';
-    }
-    el.classList.toggle('expanded');
-    const arrow = el.querySelector('.ts-arrow');
-    if (arrow) arrow.textContent = el.classList.contains('expanded') ? '⌄' : '›';
-}
-
-// ===== 达人视图（动态生成）=====
+// ===== 达人视图 =====
 async function renderExpertView(el, expertId) {
-    // 从缓存或重新加载
-    let data = window._briefingData;
-    if (!data || !data.hotNews) {
-        data = await loadBriefingData();
-        window._briefingData = data;
+    let data = window._summaryData;
+    if (!data || !data.hotNews || data.hotNews.length === 0) {
+        data = await loadSummaryData();
+        window._summaryData = data;
     }
     
-    const { hotNews, alerts } = data;
-    const experts = generateExpertViews(hotNews, alerts);
+    const experts = generateExpertViews(data.hotNews, data.alerts);
     
-    const expertMeta = {
+    const meta = {
         templeton: { name: '邓普顿', fullName: '约翰·邓普顿', icon: '🌍', subtitle: '逆向投资之父', color: '#5856d6', 
-            bio: '全球投资之父，以逆向投资闻名。名言："行情在绝望中诞生，在犹豫中成长，在乐观中成熟，在兴奋中死亡。"' },
+            bio: '以逆向投资闻名，擅长在全球市场寻找被低估的资产。' },
         buffett: { name: '巴菲特', fullName: '沃伦·巴菲特', icon: '💰', subtitle: '价值投资之王', color: '#ff9500',
-            bio: '伯克希尔·哈撒韦CEO，价值投资典范。名言："价格是你付出的，价值是你得到的。"' },
+            bio: '价值投资典范，注重企业护城河、现金流和管理层质量。' },
         munger: { name: '芒格', fullName: '查理·芒格', icon: '🧠', subtitle: '多元思维大师', color: '#34c759',
-            bio: '伯克希尔副董事长，多元思维模型倡导者。名言："我必须知道我将在哪里死去，这样我就永远不会去那里。"' }
+            bio: '倡导多元思维模型，强调避免犯错比追求正确更重要。' }
     };
     
-    const meta = expertMeta[expertId];
+    const m = meta[expertId];
     const ex = experts[expertId];
     
-    if (!ex || !ex.insight) {
-        el.innerHTML = `
-            <div style="text-align:center;padding:40px 0;color:#8e8e93;font-size:14px;">
-                <div style="font-size:40px;margin-bottom:12px;">${meta.icon}</div>
-                <div>等待新闻更新后自动生成</div>
-                <div style="margin-top:8px;font-size:12px;color:#aeaeb2;">${meta.name}的解读将基于实时新闻自动生成</div>
-            </div>
-        `;
+    if (!ex) {
+        el.innerHTML = `<div style="text-align:center;padding:40px 0;color:#8e8e93;">等待新闻更新后自动生成</div>`;
         return;
     }
     
     el.innerHTML = `
-        <div class="expert-banner" style="background:${meta.color}">
-            <div class="eb-avatar">${meta.icon}</div>
+        <div class="expert-banner" style="background:${m.color}">
+            <div class="eb-avatar">${m.icon}</div>
             <div class="eb-info">
-                <div class="eb-name">${meta.fullName}</div>
-                <div class="eb-sub">${meta.subtitle}</div>
+                <div class="eb-name">${m.fullName}</div>
+                <div class="eb-sub">${m.subtitle}</div>
             </div>
-            <div class="eb-time">实时</div>
         </div>
-        <div class="expert-bio">${meta.bio}</div>
+        <div class="expert-bio" style="font-size:12px;color:#8e8e93;margin-bottom:16px;padding:0 4px;">${m.bio}</div>
         
         <div class="expert-block">
             <div class="ebl-header">📖 当日解读</div>
-            <div class="ebl-body">${ex.insight}</div>
+            <div class="ebl-body">${ex.insight.replace(/\n/g, '<br>')}</div>
         </div>
         
-        <div class="expert-block">
-            <div class="ebl-header">🔮 投资预判</div>
-            <div class="ebl-body">${ex.prediction}</div>
+        <div class="expert-block" style="border-left:3px solid #ff9500;">
+            <div class="ebl-header">⚡ 行动建议</div>
+            <div class="ebl-body" style="color:#664d03;font-weight:500;">${ex.action}</div>
         </div>
         
-        <div class="expert-block lesson">
-            <div class="ebl-header">💡 心得分享</div>
-            <div class="ebl-body">${ex.lesson.replace(/\n/g, '<br>')}</div>
+        <div style="margin-top:16px;text-align:center;">
+            <button onclick="switchToView(0)" style="background:none;border:none;color:#007AFF;font-size:14px;cursor:pointer;">← 返回研报</button>
         </div>
     `;
 }
