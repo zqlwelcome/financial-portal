@@ -1,5 +1,6 @@
 /**
- * 新闻和提示 - 展开收起版
+ * 新闻和提示 - 实时版（前端直连财经API）
+ * 不再依赖 cron job 的热-news.json，改为前端直接从新浪JSONP获取
  */
 
 // ===== 缓存 =====
@@ -27,12 +28,11 @@ function toggleAlert(type) {
     }
 }
 
-// ===== 加载新闻 =====
+// ===== 加载新闻（优先实时API，降级到本地文件）=====
 async function loadHotNews(forceRefresh = false) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
     
-    // 强制刷新时跳过所有缓存
     if (!forceRefresh && newsCache.length > 0 && (Date.now() - lastRefreshTime) < REFRESH_INTERVAL) {
         renderNewsList(newsCache);
         return;
@@ -40,17 +40,33 @@ async function loadHotNews(forceRefresh = false) {
     
     el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;color:#8e8e93;font-size:14px;">🔄 获取最新新闻...</div>';
     
-    // 强制刷新时清除缓存
-    if (forceRefresh) {
-        lastRefreshTime = 0;
+    // 先尝试从实时API获取
+    try {
+        const news = await fetchLiveNews();
+        if (news && news.length > 0) {
+            const isNew = newsCache.length === 0 || !newsCache[0] || newsCache[0].title !== news[0].title;
+            if (isNew) {
+                newsCache = news;
+                lastRefreshTime = Date.now();
+                renderNewsList(newsCache);
+                const now = new Date();
+                const timeStr = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+                updateRefreshHint(`实时 ${timeStr}`);
+                return;
+            } else {
+                lastRefreshTime = Date.now();
+                updateRefreshHint('已是最新');
+                return;
+            }
+        }
+    } catch(e) {
+        console.log('实时API失败，降级到文件:', e);
     }
     
+    // 降级：从hot-news.json加载
     try {
-        // 用XMLHttpRequest更彻底地绕过CDN缓存
         const data = await xhrFetch();
-        
         if (data && data.news && data.news.length > 0) {
-            // 检查是否真的是新数据
             const titleChanged = newsCache.length === 0 || !newsCache[0] || newsCache[0].title !== data.news[0].title;
             const timeChanged = !_cachedUpdateTime || _cachedUpdateTime !== data.updateTime;
             
@@ -64,16 +80,15 @@ async function loadHotNews(forceRefresh = false) {
                 return;
             }
             
-            // 数据没变：刷新提示但不重新渲染
             lastRefreshTime = Date.now();
             updateRefreshHint(data.updateTime || '已是最新');
             return;
         }
-    } catch (e) {
-        console.log('加载新闻失败:', e);
+    } catch(e) {
+        console.log('文件加载失败:', e);
     }
     
-    // 请求失败时显示缓存
+    // 网络请求失败时显示缓存
     const cached = localStorage.getItem('hot_news_cache');
     if (cached) {
         try {
@@ -91,28 +106,48 @@ async function loadHotNews(forceRefresh = false) {
     }
 }
 
-// XHR方式加载，比fetch更彻底地绕过缓存
-function xhrFetch() {
+// ===== 实时财经新闻API（新浪JSONP + script标签绕过跨域）=====
+let _newsFetchTimer = null;
+
+function fetchLiveNews() {
     return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        const url = 'data/hot-news.json?_=' + Date.now() + Math.random();
-        xhr.open('GET', url, true);
-        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-        xhr.setRequestHeader('Pragma', 'no-cache');
-        xhr.setRequestHeader('Expires', '0');
-        xhr.timeout = 10000;
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                try { resolve(JSON.parse(xhr.responseText)); }
-                catch(e) { reject(e); }
-            } else {
-                reject(new Error('HTTP ' + xhr.status));
+        const callbackName = '_sinaNewsCB_' + Date.now();
+        window[callbackName] = function(data) {
+            try {
+                const items = data?.result?.data || [];
+                const news = items.map(item => ({
+                    source: item.media_name || '新浪财经',
+                    time: formatNewsTime(item.ctime),
+                    title: item.title || '',
+                    summary: (item.intro || '').slice(0, 60) + '...',
+                    detail: item.intro || item.title || ''
+                }));
+                resolve(news.slice(0, 10));
+            } catch(e) {
+                reject(e);
             }
+            delete window[callbackName];
         };
-        xhr.onerror = () => reject(new Error('Network error'));
-        xhr.ontimeout = () => reject(new Error('Timeout'));
-        xhr.send();
+        
+        const s = document.createElement('script');
+        s.src = 'https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2509&num=15&callback=' + callbackName;
+        s.onerror = () => { delete window[callbackName]; reject(new Error('Script load failed')); };
+        
+        // 5秒超时
+        const timeout = setTimeout(() => {
+            delete window[callbackName];
+            reject(new Error('Timeout'));
+        }, 5000);
+        
+        s.onload = () => clearTimeout(timeout);
+        document.head.appendChild(s);
     });
+}
+
+function formatNewsTime(ts) {
+    if (!ts) return '';
+    const d = new Date(parseInt(ts) * 1000);
+    return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
 }
 
 // ===== 加载提示 =====
@@ -218,10 +253,33 @@ async function forceRefreshAll() {
         await Promise.all([loadHotNews(true), loadAlerts(true)]);
     } catch(e) {
         console.log('刷新失败:', e);
-        // 尝试独立刷新
         await loadHotNews(true);
         await loadAlerts(true);
     }
+}
+
+// ===== XHR方式加载hot-news.json（降级用）=====
+function xhrFetch() {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        const url = 'data/hot-news.json?_=' + Date.now() + Math.random();
+        xhr.open('GET', url, true);
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.timeout = 10000;
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                try { resolve(JSON.parse(xhr.responseText)); }
+                catch(e) { reject(e); }
+            } else {
+                reject(new Error('HTTP ' + xhr.status));
+            }
+        };
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.ontimeout = () => reject(new Error('Timeout'));
+        xhr.send();
+    });
 }
 
 // ===== 定时自动刷新 =====
@@ -229,9 +287,10 @@ let refreshTimer = null;
 
 function startAutoRefresh() {
     if (refreshTimer) clearInterval(refreshTimer);
+    // 实时API每5分钟自动刷新
     refreshTimer = setInterval(() => {
         loadHotNews(true);
-    }, REFRESH_INTERVAL);
+    }, 5 * 60 * 1000);
 }
 
 // ===== 页面可见时检查 =====
