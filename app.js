@@ -70,12 +70,54 @@ function initSubTabs() {
     });
 }
 
-// ===== 市场数据 =====
-function loadMarketData() {
-    const fluctuate = () => (Math.random() - 0.5) * 2;
-    updateMarketItem('shIndex', 3412.56 + fluctuate(10), 1.23 + fluctuate(0.1));
-    updateMarketItem('hkIndex', 18234.12 + fluctuate(50), -0.45 + fluctuate(0.15));
-    updateMarketItem('usIndex', 16892.34 + fluctuate(30), 0.89 + fluctuate(0.12));
+// ===== 市场数据（实时API）=====
+async function loadMarketData() {
+    try {
+        // 使用新浪财经API（中国可访问）
+        const [shRes, hkRes, usRes] = await Promise.all([
+            fetch('https://hq.sinajs.cn/list=s_sh000001', { headers: { 'Referer': 'https://finance.sina.com.cn' } }).then(r => r.text()),
+            fetch('https://hq.sinajs.cn/list=hkHSI', { headers: { 'Referer': 'https://finance.sina.com.cn' } }).then(r => r.text()),
+            fetch('https://hq.sinajs.cn/list=gb_ixic', { headers: { 'Referer': 'https://finance.sina.com.cn' } }).then(r => r.text()),
+        ]);
+
+        // 解析上证: 名称,当前价,涨跌额,涨跌幅,成交量,成交额
+        const shMatch = shRes.match(/"([^"]+)"/);
+        if (shMatch) {
+            const parts = shMatch[1].split(',');
+            const price = parseFloat(parts[1]);
+            const changePct = parseFloat(parts[3]);
+            if (!isNaN(price) && !isNaN(changePct)) {
+                updateMarketItem('shIndex', price, changePct);
+            }
+        }
+
+        // 解析恒生: HSI,名称,当前价,开盘,最高,最低,昨收,涨跌额,涨跌幅,...
+        const hkMatch = hkRes.match(/"([^"]+)"/);
+        if (hkMatch) {
+            const parts = hkMatch[1].split(',');
+            if (parts[0] === 'HSI') {
+                const price = parseFloat(parts[2]);
+                const changePct = parseFloat(parts[8]);
+                if (!isNaN(price) && !isNaN(changePct)) {
+                    updateMarketItem('hkIndex', price, changePct);
+                }
+            }
+        }
+
+        // 解析纳斯达克（gb_ixic返回较多字段）
+        const usMatch = usRes.match(/"([^"]+)"/);
+        if (usMatch) {
+            const parts = usMatch[1].split(',');
+            const price = parseFloat(parts[1]);
+            const changePct = parseFloat(parts[3]);
+            if (!isNaN(price) && !isNaN(changePct)) {
+                updateMarketItem('usIndex', price, changePct);
+            }
+        }
+    } catch(e) {
+        console.warn('市场数据API失败，使用缓存:', e);
+        // fallback保留上次值，不做任何更新
+    }
 }
 
 function updateMarketItem(id, value, change) {
