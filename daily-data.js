@@ -127,10 +127,30 @@ function renderExpertContent() {
             <div class="a-card a-action" style="border-left-color:${m.color}">
                 <div class="a-card-body" style="font-weight:500;color:#664d03;">⚡ ${ex.action || '等待数据更新...'}</div>
             </div>
+            <div class="a-feedback">
+                <span class="a-fb-label">这个判断</span>
+                <button class="a-fb-btn" onclick="fbFeedback('${_currentExpert}','like')">👍 有用</button>
+                <button class="a-fb-btn" onclick="fbFeedback('${_currentExpert}','unlike')">👎 不准</button>
+            </div>
         `;
     } else {
         el.innerHTML = '<div style="text-align:center;padding:24px 0;color:var(--text2);">等待数据更新...</div>';
     }
+}
+
+// ===== 用户反馈 =====
+function fbFeedback(expert, type) {
+    const key = 'fb_' + expert + '_' + type;
+    const count = parseInt(localStorage.getItem(key) || '0') + 1;
+    localStorage.setItem(key, count.toString());
+    const btns = document.querySelectorAll('.a-fb-btn');
+    btns.forEach(b => { b.disabled = true; b.style.opacity = '0.5'; });
+    const label = document.querySelector('.a-fb-label');
+    if (label) label.textContent = type === 'like' ? '✅ 已记录' : '📝 已记录';
+    setTimeout(() => {
+        btns.forEach(b => { b.disabled = false; b.style.opacity = '1'; });
+        if (label) label.textContent = '这个判断';
+    }, 2000);
 }
 
 // ===== 工具函数 =====
