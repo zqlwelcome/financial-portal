@@ -13,6 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateProgress();
     initModal();
 });
+// 保险：如果DOMContentLoaded已触发，直接执行
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    renderCourseList();
+    updateProgress();
+    initModal();
+}
 
 // ===== 渲染课程列表 =====
 function renderCourseList() {
