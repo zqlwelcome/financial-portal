@@ -73,6 +73,8 @@ function switchInvestor(id) {
         </button>
       </div>
     </div>
+    <!-- 更新时间戳 -->
+    <div style="text-align:center;font-size:11px;color:#aeaeb2;padding:12px 0 4px 0;">⏱ 数据更新于 ${data.updateDate || '待更新'}</div>
   `;
 
   // 如果持仓超过8只，折叠后面的
