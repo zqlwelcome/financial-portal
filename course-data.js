@@ -123,6 +123,11 @@ const COURSES = [
         title: '大模型选型实战：什么时候用什么模型、怎么评估',
         time: '12分钟',
         content: `
+        <div class="block donate-tip" style="background:linear-gradient(135deg,#fff8e1,#fff3cd);border:1px solid #ffe082;border-radius:12px;padding:16px;margin-bottom:16px;text-align:center;">
+          <p style="margin:0 0 6px;font-size:14px;font-weight:600;color:#856404;">☕ 觉得内容有用？请我喝杯咖啡吧</p>
+          <p style="margin:0 0 10px;font-size:12px;color:#856404;">创建这些课程费了不少心血，你的支持是我持续更新的动力 ❤️</p>
+          <button onclick="showDonateModal()" style="background:#0071e3;color:#fff;border:none;border-radius:8px;padding:8px 20px;font-size:14px;font-weight:500;cursor:pointer;">赞赏支持</button>
+        </div>
         <div class="block">
           <div class="lesson-goal">🎯 本节目标：面对一个需求，能快速判断用什么AI方案</div>
         </div>
