@@ -84,35 +84,35 @@ body {
     letter-spacing: 0;
 }
 
-/* 主标签 - 苹果分段控件风格 */
+/* 主标签 - 一级菜单 */
 .tabs {
     display: flex;
-    gap: 4px;
-    padding: 3px;
-    background: var(--bg2);
-    border-radius: 12px;
-    margin: 10px 16px;
+    gap: 6px;
+    padding: 0;
+    background: transparent;
+    margin: 8px 16px 4px;
 }
 
 .tab {
     flex: 1;
-    padding: 9px 12px;
+    padding: 12px 12px 10px;
     border: none;
-    border-radius: 9px;
+    border-radius: 0;
     background: transparent;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     color: var(--text2);
     cursor: pointer;
     transition: all 0.2s var(--ease);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    border-bottom: 2px solid transparent;
+    position: relative;
 }
 
 .tab.active {
-    background: var(--card);
     color: var(--text);
-    font-weight: 600;
-    box-shadow: var(--shadow-sm);
+    font-weight: 700;
+    border-bottom-color: var(--primary);
 }
 
 .main { 
@@ -122,35 +122,34 @@ body {
 .section { display: none; }
 .section.active { display: block; }
 
-/* 子标签 - 苹果分段控件 */
+/* 子标签 - 二级菜单 */
 .sub-tabs {
     display: flex;
-    gap: 3px;
-    padding: 3px;
+    gap: 2px;
+    padding: 2px;
     background: var(--bg2);
-    border-radius: 11px;
-    margin: var(--gap-md) 0;
+    border-radius: 8px;
+    margin: var(--gap-sm) 0;
 }
 
 .sub-tab {
     flex: 1;
-    padding: 9px 6px;
+    padding: 7px 4px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     background: transparent;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 500;
     color: var(--text2);
     cursor: pointer;
     transition: all 0.2s var(--ease);
-    letter-spacing: -0.01em;
 }
 
 .sub-tab.active {
     background: var(--primary);
     color: white;
     font-weight: 600;
-    box-shadow: 0 2px 8px rgba(0,113,227,0.25);
+    box-shadow: 0 1px 4px rgba(0,113,227,0.25);
 }
 
 .sub-content { display: none; }
