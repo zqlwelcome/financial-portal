@@ -83,11 +83,14 @@ async function renderZhinangView(el) {
     }
     
     el.innerHTML = `
-        <div class="a-mood" style="background:linear-gradient(135deg, ${moodData.color}, ${_currentExpert === 'templeton' ? '#5856d6' : _currentExpert === 'buffett' ? '#ff9500' : '#34c759'})">
+        <div class="a-mood">
             <div class="a-top">
                 <div>
                     <div class="a-label">市场情绪</div>
-                    <div style="font-size:11px;opacity:0.7;margin-top:1px;">${moodData.mood} · 综合多维度</div>
+                    <div class="a-mood-status">
+                        <span>${moodData.icon}</span>
+                        <span>${moodData.mood}</span>
+                    </div>
                 </div>
                 <div class="a-score">${conf}<small>/10</small></div>
             </div>
