@@ -18,6 +18,7 @@ let checkedDays = JSON.parse(localStorage.getItem('checkin') || '[]');
 
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', async () => {
+    initShare();
     updateNavTime();
     setInterval(updateNavTime, 60000);
     initMainTabs();
