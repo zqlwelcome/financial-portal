@@ -19,6 +19,7 @@
     --radius: 14px;
     --radius-sm: 10px;
     --radius-lg: 18px;
+    --card-pad: 14px 16px;
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
     --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
     --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
@@ -1110,7 +1111,7 @@ body {
 }
 
 .streak-num { 
-    font-size: 28px; 
+    font-size: 22px; 
     font-weight: 700; 
     color: var(--primary);
     letter-spacing: -1px;
@@ -1118,7 +1119,7 @@ body {
 }
 
 .streak-label { 
-    font-size: 11px; 
+    font-size: 10px; 
     color: var(--text3);
     margin-top: 2px;
     font-weight: 500;
@@ -1126,12 +1127,13 @@ body {
 
 .progress-mini { 
     flex: 1; 
-    margin-left: 20px; 
+    margin-left: 12px; 
     text-align: right; 
+    min-width: 0;
 }
 
 .progress-mini span { 
-    font-size: 20px; 
+    font-size: 16px; 
     font-weight: 600; 
     color: var(--primary);
     font-family: var(--ff-mono);
