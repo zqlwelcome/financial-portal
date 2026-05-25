@@ -1,15 +1,15 @@
 {
-  "updateTime": "2026-05-25 22:30",
-  "generatedAt": "2026-05-25 22:31",
+  "updateTime": "2026-05-25 22:42",
+  "generatedAt": "2026-05-25 22:41",
   "mood": {
-    "mood": "震荡中性",
-    "icon": "➖",
-    "color": "#86868b",
-    "confidence": 6,
+    "mood": "偏乐观",
+    "icon": "📈",
+    "color": "#34c759",
+    "confidence": 8,
     "dimensions": [
       {
         "label": "📈 趋势",
-        "value": "震荡"
+        "value": "温和上涨"
       },
       {
         "label": "💰 资金",
@@ -32,7 +32,7 @@
         "value": "政策宽松预期"
       }
     ],
-    "summary": "整体震荡中性（6/10）。震荡，中性。地缘缓和 · 利好。极度贪婪。"
+    "summary": "整体偏乐观（8/10）。温和上涨，中性。地缘缓和 · 利好。极度贪婪。"
   },
   "experts": {
     "templeton": {
