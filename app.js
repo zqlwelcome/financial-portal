@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setInterval(updateNavTime, 60000);
     initMainTabs();
     initSubTabs();
-    initSlideSelector();
     loadMarketData();
 
     initPullRefresh();
@@ -95,7 +94,7 @@ async function loadMarketData() {
         // 纳斯达克: [3]=当前价, [31]=涨跌幅
         if (sh) { const p = sh.split('~'); if (p.length > 32) parsePrice('shIndex', p[3], p[32]); }
         if (hk) { const p = hk.split('~'); if (p.length > 32) parsePrice('hkIndex', p[3], p[32]); }
-        if (us) { const p = us.split('~'); if (p.length > 31) parsePrice('usIndex', p[3], p[31]); }
+        if (us) { const p = us.split('~'); if (p.length > 32) parsePrice('usIndex', p[3], p[32]); }
     } catch(e) {
         console.warn('行情API失败:', e);
     }
