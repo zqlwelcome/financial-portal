@@ -22,7 +22,6 @@ function renderHoldings() {
       }).join('')}
     </div>
     <div class="hl-body" id="hlBody"></div>
-    <div class="hl-footer">数据来源：SEC 13F · 更新：--</div>
   `;
 
   // 默认显示巴菲特
@@ -41,10 +40,6 @@ function switchInvestor(id) {
   const body = document.getElementById('hlBody');
   if (!body) return;
 
-  // 更新页脚
-  const footer = document.querySelector('.hl-footer');
-  if (footer) footer.textContent = `数据来源：${data.source} · 更新：${data.updateDate}`;
-
   body.innerHTML = `
     <!-- 投资人头部卡片 -->
     <div class="hl-header" style="background:${data.color}">
@@ -54,9 +49,6 @@ function switchInvestor(id) {
         <div class="hl-h-sub">总仓位 ${data.totalValue}</div>
       </div>
     </div>
-
-    <!-- 概述 -->
-    <div class="hl-summary">${data.summary}</div>
 
     <!-- 重大变动区块 -->
     <div class="hl-section">
