@@ -1529,6 +1529,110 @@ body {
     line-height: 1.4; padding-top: 8px; border-top: 0.5px solid var(--border);
 }
 
+/* ===== 智囊团 - 方案C ===== */
+.z-mood {
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 14px;
+}
+.z-mood-top {
+    background: linear-gradient(135deg, #1d1d1f, #3a3a3c);
+    padding: 16px 18px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.z-mood-label { font-size: 16px; font-weight: 700; }
+.z-mood-conf { font-size: 11px; opacity: 0.6; margin-top: 2px; }
+.z-mood-list { padding: 10px 16px; }
+.z-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 0.5px solid var(--border);
+}
+.z-row:last-child { border-bottom: none; }
+.z-row-label { font-size: 13px; color: var(--text2); }
+.z-row-val { font-size: 13px; font-weight: 500; color: var(--text); }
+
+.z-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.z-scroll-wrap {
+    margin: 0 -16px 14px;
+    padding: 0 16px;
+    overflow: hidden;
+}
+.z-scroll {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+}
+.z-card {
+    flex-shrink: 0;
+    width: 110px;
+    background: var(--card);
+    border-radius: 14px;
+    padding: 16px 10px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s var(--ease);
+}
+.z-card.active {
+    border-color: var(--primary);
+    background: var(--card);
+}
+.z-card-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 8px;
+}
+.z-card-name { font-size: 13px; font-weight: 600; }
+.z-card-sub { font-size: 10px; color: var(--text3); margin-top: 2px; }
+
+.z-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    color: #fff;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.z-bname { font-size: 16px; font-weight: 700; }
+.z-bsub { font-size: 11px; opacity: 0.8; margin-top: 1px; }
+
+.z-block {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    box-shadow: var(--shadow-sm);
+    border-left: 3px solid var(--primary);
+}
+.z-block.z-action { border-left-color: var(--orange); }
+.z-block-header { font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+.z-block-body { font-size: 14px; line-height: 1.6; color: var(--text-body); }
+
 .expert-block-slim {
     background: var(--card); border-radius: 14px; padding: 14px;
     margin-bottom: 8px; box-shadow: var(--shadow-sm);
