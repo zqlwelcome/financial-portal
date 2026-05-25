@@ -37,7 +37,11 @@ async function renderFullView(el) {
     const conf = Math.min(10, Math.max(0, moodData.confidence || 5));
     const bars = Array.from({length: 10}, (_, i) => `<span class="a-bar${i < conf ? ' fill' : ''}"></span>`).join('');
     const dims = (moodData.dimensions || []).slice(0, 6);
-    const chipHtml = dims.map(d => `<span class="a-chip"><span class="a-chip-label">${d.label}</span> ${d.value}</span>`).join('');
+    const chipHtml = dims.map(d => {
+        // 兼容新旧格式
+        if (d.label) return `<span class="a-chip"><span class="a-chip-label">${d.label}</span> ${d.value}</span>`;
+        return `<span class="a-chip">${d.value}</span>`;
+    }).join('');
     
     const meta = {
         templeton: { name: '邓普顿', icon: '🌍', color: '#5856d6' },
