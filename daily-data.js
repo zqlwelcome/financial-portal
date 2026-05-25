@@ -5,33 +5,39 @@
 
 let _currentExpert = 'templeton';
 
+// ===== 内嵌数据（替代 remote fetch，避免GitHub Pages缓存问题）=====
+const _EMBEDDED_DATA = {
+    "updateTime": "2026-05-25 21:32",
+    "mood": {
+        "mood": "震荡中性",
+        "icon": "\u2796",
+        "color": "#86868b",
+        "confidence": 6,
+        "dimensions": [
+            {"label": "📈 趋势", "value": "震荡"},
+            {"label": "💰 资金", "value": "中性"},
+            {"label": "🌍 地缘", "value": "地缘缓和 · 利好"},
+            {"label": "🏭 热点", "value": "AI科技 · 金融"},
+            {"label": "😊 情绪", "value": "偏贪婪"},
+            {"label": "🏦 宏观", "value": "政策中性"}
+        ],
+        "summary": "整体震荡中性（6/10）。震荡，中性。地缘缓和 · 利好。偏贪婪。"
+    },
+    "experts": {
+        "templeton": {"insight": "地缘缓和，情绪已price in。逆向机会在协议执行波折中被低估的航运和能源股。", "action": "逢低布局能源ETF，等待地缘溢价修复。"},
+        "buffett": {"insight": "AI像互联网泡沫初期。护城河来自数据和品牌，不是概念。选已证明盈利的科技巨头。", "action": "关注AI基础设施ETF，不押注单一公司。"},
+        "munger": {"insight": "三层思维：①降息利好共识 ②力度可能超预期 ③利率高位时银行保险反受益。", "action": "不追利率敏感板块，关注保险和银行。"},
+        "duan": {"insight": "AI赛道看好，但只买看得懂的龙头。苹果的AI布局+生态绑定是最确定的机会。", "action": "逢低加仓苹果和腾讯，敢重仓。"}
+    }
+};
+
 function renderSummaryContent() {
     const el = document.getElementById('summaryContent');
     if (!el) return;
     _currentExpert = 'templeton';
-    // 第一次加载，渲染完整视图
-    renderFullView(el);
-}
-
-async function renderFullView(el) {
-    el.innerHTML = '<div style="text-align:center;padding:30px 0;">⏳ 加载中...</div>';
-    
-    let moodData = null, expertsData = null;
-    try {
-        const res = await xhrFetch('data/expert-views.json');
-        if (res && res.mood) moodData = res.mood;
-        if (res && res.experts) expertsData = res.experts;
-    } catch(e) {}
-    
-    if (!moodData) {
-        const { hotNews, alerts } = await loadBriefingData();
-        if (hotNews && hotNews.length > 0) {
-            moodData = assessMood(hotNews);
-            expertsData = expertsData || genExperts(hotNews, alerts);
-        }
-    }
-    if (!moodData) moodData = { mood: '待更新', icon: '⏳', color: '#0071e3', confidence: 5, dimensions: [] };
-    if (!expertsData) expertsData = {};
+    // 直接使用内嵌数据
+    const moodData = _EMBEDDED_DATA.mood;
+    const expertsData = _EMBEDDED_DATA.experts;
     window._expertsData = expertsData;
     
     const conf = Math.min(10, Math.max(0, moodData.confidence || 5));
