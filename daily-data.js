@@ -9,10 +9,11 @@ function renderSummaryContent() {
     const el = document.getElementById('summaryContent');
     if (!el) return;
     _currentExpert = 'templeton';
-    renderZhinangView(el);
+    // 第一次加载，渲染完整视图
+    renderFullView(el);
 }
 
-async function renderZhinangView(el) {
+async function renderFullView(el) {
     el.innerHTML = '<div style="text-align:center;padding:30px 0;">⏳ 加载中...</div>';
     
     let moodData = null, expertsData = null;
@@ -29,9 +30,14 @@ async function renderZhinangView(el) {
             expertsData = expertsData || genExperts(hotNews, alerts);
         }
     }
-    
     if (!moodData) moodData = { mood: '待更新', icon: '⏳', color: '#0071e3', confidence: 5, dimensions: [] };
     if (!expertsData) expertsData = {};
+    window._expertsData = expertsData;
+    
+    const conf = Math.min(10, Math.max(0, moodData.confidence || 5));
+    const bars = Array.from({length: 10}, (_, i) => `<span class="a-bar${i < conf ? ' fill' : ''}"></span>`).join('');
+    const dims = (moodData.dimensions || []).slice(0, 6);
+    const chipHtml = dims.map(d => `<span class="a-chip">${d.value}</span>`).join('');
     
     const meta = {
         templeton: { name: '邓普顿', icon: '🌍', color: '#5856d6' },
@@ -39,51 +45,9 @@ async function renderZhinangView(el) {
         munger:    { name: '芒格',   icon: '🧠', color: '#34c759' }
     };
     
-    // 进度条
-    const conf = Math.min(10, Math.max(0, moodData.confidence || 5));
-    const bars = Array.from({length: 10}, (_, i) => `<span class="a-bar${i < conf ? ' fill' : ''}"></span>`).join('');
-    
-    const dims = (moodData.dimensions || []).slice(0, 6);
-    const chipHtml = dims.map(d => `<span class="a-chip">${d.value}</span>`).join('');
-    
-    // 达人圆形按钮
-    const btns = Object.keys(meta).map(k => {
-        const m = meta[k];
-        const active = k === _currentExpert ? ' active' : '';
-        return `
-            <button class="a-btn${active}" onclick="_currentExpert='${k}';renderZhinangView(document.getElementById('summaryContent'))" style="${active ? 'background:'+m.color+';color:#fff' : ''}">
-                <span class="a-btn-icon" style="${active ? 'background:rgba(255,255,255,0.2)' : 'background:'+m.color+'20'}">${m.icon}</span>
-                <span class="a-btn-name" style="${active ? 'color:#fff' : ''}">${m.name}</span>
-            </button>
-        `;
-    }).join('');
-    
-    // 当前达人内容
-    const m = meta[_currentExpert];
-    const ex = expertsData[_currentExpert];
-    let contentHtml = '';
-    if (ex && ex.insight) {
-        const insightColor = _currentExpert === 'templeton' ? '#5856d6' : _currentExpert === 'buffett' ? '#ff9500' : '#34c759';
-        contentHtml = `
-            <div class="a-banner" style="background:${m.color}">
-                <span class="a-bi">${m.icon}</span>
-                <div>
-                    <div class="a-bn">${m.name} · 解读</div>
-                </div>
-            </div>
-            <div class="a-card" style="border-left-color:${insightColor}">
-                <div class="a-card-body">${ex.insight.replace(/\n/g, '<br>')}</div>
-            </div>
-            <div class="a-card a-action" style="border-left-color:${m.color}">
-                <div class="a-card-body" style="font-weight:500;color:#664d03;">⚡ ${ex.action || '等待数据更新...'}</div>
-            </div>
-        `;
-    } else {
-        contentHtml = `<div style="text-align:center;padding:24px 0;color:var(--text2);">等待数据更新...</div>`;
-    }
-    
-    el.innerHTML = `
-        <div class="a-mood">
+    // 情绪卡片（静态，不随达人切换变化）
+    const moodHtml = `
+        <div class="a-mood" id="aMood">
             <div class="a-top">
                 <div>
                     <div class="a-label">市场情绪</div>
@@ -97,12 +61,76 @@ async function renderZhinangView(el) {
             <div class="a-bars">${bars}</div>
             <div class="a-chips">${chipHtml || '<span class="a-chip">暂无数据</span>'}</div>
         </div>
-        
-        <div class="a-section">🧠 智囊团</div>
-        <div class="a-btns">${btns}</div>
-        
-        <div id="expertContent">${contentHtml}</div>
     `;
+    
+    // 达人按钮（静态）
+    const btnsHtml = Object.keys(meta).map(k => {
+        const m = meta[k];
+        const active = k === _currentExpert ? ' active' : '';
+        return `
+            <button class="a-btn${active}" onclick="switchExpert('${k}')" style="${active ? 'background:'+m.color+';color:#fff' : ''}">
+                <span class="a-btn-icon" style="${active ? 'background:rgba(255,255,255,0.2)' : 'background:'+m.color+'20'}">${m.icon}</span>
+                <span class="a-btn-name" style="${active ? 'color:#fff' : ''}">${m.name}</span>
+            </button>
+        `;
+    }).join('');
+    
+    el.innerHTML = moodHtml + `<div class="a-section">🧠 智囊团</div><div class="a-btns">${btnsHtml}</div><div id="expertContent"></div>`;
+    
+    // 渲染当前达人内容
+    renderExpertContent();
+}
+
+function switchExpert(key) {
+    _currentExpert = key;
+    // 更新按钮高亮状态
+    document.querySelectorAll('.a-btn').forEach((btn, i) => {
+        const keys = ['templeton', 'buffett', 'munger'];
+        const k = keys[i];
+        const meta = { templeton: {color:'#5856d6'}, buffett: {color:'#ff9500'}, munger: {color:'#34c759'} };
+        const m = meta[k];
+        const active = k === key;
+        btn.className = 'a-btn' + (active ? ' active' : '');
+        btn.style.background = active ? m.color : '';
+        btn.style.color = active ? '#fff' : '';
+        const icon = btn.querySelector('.a-btn-icon');
+        if (icon) icon.style.background = active ? 'rgba(255,255,255,0.2)' : m.color + '20';
+        const name = btn.querySelector('.a-btn-name');
+        if (name) name.style.color = active ? '#fff' : '';
+    });
+    // 只更新内容区
+    renderExpertContent();
+}
+
+function renderExpertContent() {
+    const el = document.getElementById('expertContent');
+    if (!el) return;
+    
+    const meta = {
+        templeton: { name: '邓普顿', icon: '🌍', color: '#5856d6' },
+        buffett:   { name: '巴菲特', icon: '💰', color: '#ff9500' },
+        munger:    { name: '芒格',   icon: '🧠', color: '#34c759' }
+    };
+    const m = meta[_currentExpert];
+    const expertsData = window._expertsData || {};
+    const ex = expertsData[_currentExpert];
+    
+    if (ex && ex.insight) {
+        el.innerHTML = `
+            <div class="a-banner">
+                <span class="a-bi">${m.icon}</span>
+                <div class="a-bn">${m.name} · 解读</div>
+            </div>
+            <div class="a-card" style="border-left-color:${m.color}">
+                <div class="a-card-body">${ex.insight.replace(/\n/g, '<br>')}</div>
+            </div>
+            <div class="a-card a-action" style="border-left-color:${m.color}">
+                <div class="a-card-body" style="font-weight:500;color:#664d03;">⚡ ${ex.action || '等待数据更新...'}</div>
+            </div>
+        `;
+    } else {
+        el.innerHTML = '<div style="text-align:center;padding:24px 0;color:var(--text2);">等待数据更新...</div>';
+    }
 }
 
 // ===== 工具函数 =====
