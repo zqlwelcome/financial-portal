@@ -108,7 +108,7 @@ async function renderTodayBrief(el) {
             <div class="th-icon">📢</div>
             <div class="th-info">
                 <div class="th-title">今日研报</div>
-                <div class="th-sub">⏱ ${updateTime || dateStr}</div>
+                <div class="th-sub">数据自动更新</div>
             </div>
         </div>
 
