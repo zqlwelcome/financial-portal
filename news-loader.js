@@ -164,7 +164,6 @@ function fallbackAlerts() {
 function renderAlerts(data) {
     const el = document.getElementById('alertArea');
     if (!el) return;
-    const ts = data.updateTime ? `⏱ ${data.updateTime}` : '';
     el.innerHTML = `
         <div class="alert-card forex ${expandedAlert === 'forex' ? 'expanded' : ''}" onclick="toggleAlert('forex')">
             <div class="alert-icon">${data.forex.icon}</div>
@@ -184,7 +183,6 @@ function renderAlerts(data) {
             </div>
             <div class="alert-arrow">›</div>
         </div>
-        <div class="alert-ts">${ts}</div>
     `;
 }
 
@@ -194,7 +192,6 @@ let _newsAllShown = false;
 function renderNewsList(news) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
-    const ts = _lastUpdateTime ? `<div class="news-ts">⏱ ${_lastUpdateTime}</div>` : '';
     
     // 前3条
     const head = news.slice(0, 3);
@@ -244,7 +241,6 @@ function renderNewsList(news) {
         </div>`;
     }
     
-    html += ts;
     el.innerHTML = html;
     localStorage.setItem('hot_news_cache', JSON.stringify(news));
 }
