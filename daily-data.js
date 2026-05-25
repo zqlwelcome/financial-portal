@@ -37,7 +37,7 @@ async function renderFullView(el) {
     const conf = Math.min(10, Math.max(0, moodData.confidence || 5));
     const bars = Array.from({length: 10}, (_, i) => `<span class="a-bar${i < conf ? ' fill' : ''}"></span>`).join('');
     const dims = (moodData.dimensions || []).slice(0, 6);
-    const chipHtml = dims.map(d => `<span class="a-chip">${d.value}</span>`).join('');
+    const chipHtml = dims.map(d => `<span class="a-chip"><span class="a-chip-label">${d.label}</span> ${d.value}</span>`).join('');
     
     const meta = {
         templeton: { name: '邓普顿', icon: '🌍', color: '#5856d6' },
@@ -185,10 +185,12 @@ function assessMood(hotNews) {
         color: b > r + 2 ? '#34c759' : r > b + 2 ? '#ff3b30' : '#ff9500',
         confidence: Math.min(10, Math.max(1, 5 + Math.abs(b - r))),
         dimensions: [
-            { value: b > r + 2 ? '📈 温和上涨' : r > b + 2 ? '📉 偏弱' : '➖ 震荡' },
-            { value: '💱 中性' },
-            { value: '🌍 平稳' },
-            { value: Math.abs(b - r) > 3 ? '😊 偏乐观' : '😶 中性' }
+            { label: '📈 趋势', value: b > r + 2 ? '温和上涨' : r > b + 2 ? '偏弱' : '震荡' },
+            { label: '💰 资金', value: '中性' },
+            { label: '🌍 地缘', value: '平稳' },
+            { label: '🏭 热点', value: '分散' },
+            { label: '😊 情绪', value: Math.abs(b - r) > 3 ? '偏乐观' : '中性' },
+            { label: '🏦 宏观', value: '中性' }
         ]
     };
 }
