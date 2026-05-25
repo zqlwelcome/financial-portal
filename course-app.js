@@ -1,5 +1,6 @@
 /**
- * AI产品经理学习 - 应用逻辑
+ * AI产品经理学习 - 应用逻辑 v2
+ * 改进：进度条更突出 + 最近完成展示
  */
 
 // ===== 状态 =====
@@ -76,7 +77,7 @@ function openLesson(sectionId, lessonId) {
     
     body.innerHTML = `
         ${lesson.content}
-        <button class="checkin-btn ${isCompleted ? 'done' : ''}" onclick="completeLesson('${lessonId}')">
+        <button class="done-btn ${isCompleted ? 'completed' : ''}" onclick="completeLesson('${lessonId}')">
             ${isCompleted ? '✓ 已完成' : '✓ 完成打卡'}
         </button>
     `;
@@ -88,12 +89,14 @@ function openLesson(sectionId, lessonId) {
 function completeLesson(lessonId) {
     if (!courseProgress[lessonId]) {
         courseProgress[lessonId] = true;
+        courseProgress['_last_completed'] = lessonId;
+        courseProgress['_last_completed_time'] = new Date().toLocaleDateString('zh-CN');
         localStorage.setItem('ai_pm_course_progress', JSON.stringify(courseProgress));
         
         // 更新按钮状态
-        const btn = document.querySelector('.checkin-btn');
+        const btn = document.querySelector('.done-btn');
         if (btn) {
-            btn.classList.add('done');
+            btn.classList.add('completed');
             btn.textContent = '✓ 已完成';
         }
         
@@ -102,11 +105,11 @@ function completeLesson(lessonId) {
         renderCourseList();
         
         // 显示成功提示
-        showToast('打卡成功！+1⭐');
+        showToast('🎉 打卡成功！');
     }
 }
 
-// ===== 更新进度 =====
+// ===== 更新进度（优化版） =====
 function updateProgress() {
     const allLessons = COURSES.flatMap(s => s.lessons);
     const completed = allLessons.filter(l => courseProgress[l.id]).length;
@@ -133,7 +136,7 @@ function updateProgress() {
     const starsEl = document.getElementById('progressStars');
     if (starsEl) starsEl.textContent = completed;
     
-    // 更新连续天数（简化逻辑）
+    // 更新连续天数
     const today = new Date().toDateString();
     const lastCheckin = localStorage.getItem('last_checkin_date');
     let streak = parseInt(localStorage.getItem('streak_count') || '0');
@@ -150,7 +153,21 @@ function updateProgress() {
         localStorage.setItem('streak_count', streak.toString());
     }
     
-    document.getElementById('streakDays').textContent = streak;
+    const streakEl = document.getElementById('streakDays');
+    if (streakEl) streakEl.textContent = streak;
+    
+    // 更新最近完成
+    const lastId = courseProgress['_last_completed'];
+    const lastEl = document.getElementById('lastCompleted');
+    if (lastEl && lastId) {
+        let lessonName = '';
+        for (const s of COURSES) {
+            const l = s.lessons.find(l => l.id === lastId);
+            if (l) { lessonName = l.title; break; }
+        }
+        const lastTime = courseProgress['_last_completed_time'] || '';
+        lastEl.textContent = lessonName ? `最近完成：${lessonName}` : '';
+    }
 }
 
 // ===== 初始化弹窗 =====

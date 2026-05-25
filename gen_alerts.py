@@ -1,0 +1,41 @@
+import json
+from datetime import datetime
+
+now = datetime.now()
+ts = now.strftime("%Y-%m-%d %H:%M")
+
+# Market data from Tencent (2026-05-22 close):
+# Shanghai Composite: 4112.90 (+35.62, +0.87%)
+# Hang Seng: 25606.03 (+219.51, +0.86%)
+# Nasdaq: 26343.97 (+50.87, +0.19%)
+# Dow Jones: 50579.70 (+294.04, +0.58%)
+# S&P 500: 7473.47 (+27.75, +0.37%)
+
+# Forex data from Sina (2026-05-23):
+# USD/CNY: 6.7978
+# EUR/USD: 1.1602
+# GBP/USD: 1.3427
+# USD/JPY: 159.19
+
+data = {
+    "updateTime": ts,
+    "forex": {
+        "icon": "💱",
+        "title": "外汇提示",
+        "text": "美元/人民币报6.7978，人民币小幅波动；欧元/美元1.1602，关注下周PCE数据对美元走势影响",
+        "detail": "【外汇市场速览】美元/人民币中间价6.7978，人民币汇率保持稳定。欧元/美元报1.1602，英镑/美元1.3427，美元/日元159.19。下周美国4月PCE数据将公布，市场预期若通胀超预期可能推高美元。霍尔木兹海峡即将重新开放的消息可能影响石油货币走势。韩国拟放开境外投资者直接交易ETF，或影响韩元走势。"
+    },
+    "stock": {
+        "icon": "📈",
+        "title": "股市动向",
+        "text": "道指周涨2.13%报50579点，标普500周涨0.88%，A股沪指收4112点涨0.87%",
+        "detail": "【全球股市周回顾】美股全线收涨：道指报50579.70点（+0.58%），纳指报26343.97点（+0.19%），标普500报7473.47点（+0.37%）。周涨幅：道指+2.13%，纳指+0.45%，标普+0.88%。A股沪指收报4112.90点（+0.87%），恒指收报25606.03点（+0.86%）。下周关注：美国4月PCE数据（可能影响美联储利率预期）、欧洲央行会议纪要、韩国央行利率决议。地缘方面，美伊协议若签署将利好石油板块。韩国拟开放境外投资者直接交易ETF，亚洲资金流入值得关注。"
+    }
+}
+
+with open("data/alerts.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)
+
+print(f"Saved alerts.json at {ts}")
+print(f"Forex: USD/CNY 6.7978, EUR/USD 1.1602")
+print(f"Stocks: SH 4112.90, HSI 25606.03, DJI 50579.70")
