@@ -1,71 +1,8 @@
 /**
- * 总结页签 - 实时版
+ * 研报页签 - 达人观点版
  * 数据源：hot-news.json + alerts.json（每10分钟 cron 更新）
- * 不再依赖独立简报文件，自动生成今日简报和达人观点
+ * 从实时新闻生成三位投资达人的当日观点
  */
-
-// ===== 推送时间配置 =====
-const PUSH_SLOTS = [
-    { key: 'morning',  label: '早报', icon: '🌅', pushTime: '08:00' },
-    { key: 'noon',     label: '午报', icon: '☀️', pushTime: '12:00' },
-    { key: 'evening',  label: '晚报', icon: '🌆', pushTime: '19:00' }
-];
-
-// ===== 已读状态 =====
-const READ_KEY = 'push_read';
-
-function getReadSet() {
-    const val = localStorage.getItem(READ_KEY);
-    return val ? new Set(JSON.parse(val)) : new Set();
-}
-
-function markRead(key) {
-    const set = getReadSet();
-    set.add(key);
-    localStorage.setItem(READ_KEY, JSON.stringify([...set]));
-}
-
-function isRead(key) {
-    return getReadSet().has(key);
-}
-
-// ===== 从hot-news.json和alerts.json生成简报内容 =====
-function generateBriefing(hotNews, alerts) {
-    if (!hotNews || hotNews.length === 0) return null;
-    
-    const lines = [];
-    // 头部
-    lines.push('📊 今日财经摘要');
-    lines.push('');
-    
-    // 头条 - 取前3条
-    lines.push('🔥 头条');
-    hotNews.slice(0, 3).forEach((item, i) => {
-        lines.push(`• ${item.title}（${item.source}）`);
-    });
-    
-    lines.push('');
-    
-    // 要闻 - 取4-10条精简
-    const more = hotNews.slice(3, 8);
-    if (more.length > 0) {
-        lines.push('📌 要闻');
-        more.forEach(item => {
-            lines.push(`• ${item.summary || item.title.slice(0, 40)}`);
-        });
-    }
-    
-    lines.push('');
-    
-    // 从alerts.json提取外汇/股市
-    if (alerts) {
-        lines.push('💡 行情速览');
-        if (alerts.forex) lines.push(`• 外汇：${alerts.forex.text}`);
-        if (alerts.stock) lines.push(`• 股市：${alerts.stock.text}`);
-    }
-    
-    return lines.join('\n');
-}
 
 // ===== 从新闻内容生成三视角速评 =====
 function generateExpertViews(hotNews, alerts) {
@@ -182,7 +119,7 @@ function initSlideSelector() {
         });
     });
 
-    window._currentView = 'today';
+    window._currentView = 'templeton';
     renderView().then(() => {});
 }
 
@@ -191,7 +128,8 @@ function switchToView(idx) {
     if (!opts[idx]) return;
     opts.forEach(o => o.classList.remove('active'));
     opts[idx].classList.add('active');
-    window._currentView = opts[idx].dataset.view;
+    const views = ['templeton','buffett','munger'];
+    window._currentView = views[idx];
     renderView().then(() => {});
 }
 
@@ -199,90 +137,12 @@ function switchToView(idx) {
 async function renderView() {
     const el = document.getElementById('summaryContent');
     if (!el) return;
-    const view = window._currentView || 'today';
-    if (view === 'today') {
-        await renderTodayView(el);
-    } else {
-        await renderExpertView(el, view);
-    }
+    const view = window._currentView || 'templeton';
+    await renderExpertView(el, view);
 }
 
 async function renderSummaryContent() {
     await renderView();
-}
-
-// ===== 今日视图（从实时数据生成简报）=====
-async function renderTodayView(el) {
-    el.innerHTML = '<div style="text-align:center;padding:30px 0;color:#8e8e93;">⏳ 加载中...</div>';
-    
-    const { hotNews, alerts, updateTime } = await loadBriefingData();
-    
-    const today = new Date();
-    const dateStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
-    const nowMin = today.getHours() * 60 + today.getMinutes();
-    
-    const hasNews = hotNews && hotNews.length > 0;
-    
-    el.innerHTML = `
-        <div class="today-header">
-            <div class="th-icon">📢</div>
-            <div class="th-info">
-                <div class="th-title">每日简报</div>
-                <div class="th-sub">${dateStr} ${updateTime ? '· ⏱ ' + updateTime : ''}</div>
-            </div>
-        </div>
-        <div class="today-slots">
-            ${PUSH_SLOTS.map(slot => {
-                const pushMin = parseInt(slot.pushTime.split(':')[0]) * 60 + parseInt(slot.pushTime.split(':')[1]);
-                const isPushed = nowMin >= pushMin && hasNews;
-                
-                if (isPushed) {
-                    const read = isRead(slot.key);
-                    const content = generateBriefing(hotNews, alerts) || '';
-                    return `
-                    <div class="ts-card ${read ? 'read' : ''}" data-key="${slot.key}" onclick="togglePushCard(this)">
-                        <div class="ts-head">
-                            <span class="ts-icon">${slot.icon}</span>
-                            <span class="ts-label">${slot.label}</span>
-                            <span class="ts-badge">${read ? '已读' : '未读'}</span>
-                            <span class="ts-arrow">›</span>
-                        </div>
-                        <div class="ts-preview">${content.split('\n').slice(0,4).join('<br>')}</div>
-                        <div class="ts-full hidden">${content.replace(/\n/g, '<br>')}</div>
-                    </div>
-                    `;
-                } else {
-                    const status = nowMin >= pushMin ? '暂无数据' : `${slot.pushTime} 推送`;
-                    return `
-                    <div class="ts-card pending">
-                        <div class="ts-head">
-                            <span class="ts-icon">${slot.icon}</span>
-                            <span class="ts-label">${slot.label}</span>
-                            <span class="ts-status">${status}</span>
-                        </div>
-                    </div>
-                    `;
-                }
-            }).join('')}
-        </div>
-    `;
-    
-    // 缓存数据供达人视图使用
-    window._briefingData = { hotNews, alerts };
-}
-
-// ===== 点击展开简报 =====
-function togglePushCard(el) {
-    const key = el.dataset.key;
-    if (!isRead(key)) {
-        markRead(key);
-        el.classList.add('read');
-        const badge = el.querySelector('.ts-badge');
-        if (badge) badge.textContent = '已读';
-    }
-    el.classList.toggle('expanded');
-    const arrow = el.querySelector('.ts-arrow');
-    if (arrow) arrow.textContent = el.classList.contains('expanded') ? '⌄' : '›';
 }
 
 // ===== 达人视图（动态生成）=====
