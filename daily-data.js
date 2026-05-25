@@ -46,7 +46,8 @@ async function renderFullView(el) {
     const meta = {
         templeton: { name: '邓普顿', icon: '🌍', color: '#5856d6' },
         buffett:   { name: '巴菲特', icon: '💰', color: '#ff9500' },
-        munger:    { name: '芒格',   icon: '🧠', color: '#34c759' }
+        munger:    { name: '芒格',   icon: '🧠', color: '#34c759' },
+        duan:      { name: '段永平', icon: '🧑‍💼', color: '#0071e3' }
     };
     
     // 情绪卡片（静态，不随达人切换变化）
@@ -91,7 +92,7 @@ function switchExpert(key) {
     document.querySelectorAll('.a-btn').forEach((btn, i) => {
         const keys = ['templeton', 'buffett', 'munger'];
         const k = keys[i];
-        const meta = { templeton: {color:'#5856d6'}, buffett: {color:'#ff9500'}, munger: {color:'#34c759'} };
+        const meta = { templeton: {color:'#5856d6'}, buffett: {color:'#ff9500'}, munger: {color:'#34c759'}, duan: {color:'#0071e3'} };
         const m = meta[k];
         const active = k === key;
         btn.className = 'a-btn' + (active ? ' active' : '');
@@ -113,7 +114,8 @@ function renderExpertContent() {
     const meta = {
         templeton: { name: '邓普顿', icon: '🌍', color: '#5856d6' },
         buffett:   { name: '巴菲特', icon: '💰', color: '#ff9500' },
-        munger:    { name: '芒格',   icon: '🧠', color: '#34c759' }
+        munger:    { name: '芒格',   icon: '🧠', color: '#34c759' },
+        duan:      { name: '段永平', icon: '🧑‍💼', color: '#0071e3' }
     };
     const m = meta[_currentExpert];
     const expertsData = window._expertsData || {};
