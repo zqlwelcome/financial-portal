@@ -205,3 +205,26 @@ function renderProgress() {
 function fmtDate(d) {
     return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
+
+// ===== 实时访问统计（本地计数） =====
+async function loadTodayStats() {
+    try {
+        const today = new Date().toDateString();
+        let data = JSON.parse(localStorage.getItem('site_stats') || '{}');
+        if (data.date !== today) {
+            data = { date: today, pv: 0, uv: 0 };
+        }
+        data.pv++;
+        // UV：用 localStorage 标记当天是否来过
+        const visited = localStorage.getItem('visited_' + today);
+        if (!visited) {
+            data.uv++;
+            localStorage.setItem('visited_' + today, '1');
+        }
+        localStorage.setItem('site_stats', JSON.stringify(data));
+        document.getElementById('todayPv').textContent = data.pv;
+        document.getElementById('todayUv').textContent = data.uv;
+    } catch(e) {
+        // 静默失败
+    }
+}
