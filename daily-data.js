@@ -51,7 +51,7 @@ async function renderZhinangView(el) {
         const m = meta[k];
         const active = k === _currentExpert ? ' active' : '';
         return `
-            <button class="a-btn${active}" onclick="_currentExpert='${k}';renderZhinangView(el)" style="${active ? 'background:'+m.color+';color:#fff' : ''}">
+            <button class="a-btn${active}" onclick="_currentExpert='${k}';renderZhinangView(document.getElementById('summaryContent'))" style="${active ? 'background:'+m.color+';color:#fff' : ''}">
                 <span class="a-btn-icon" style="${active ? 'background:rgba(255,255,255,0.2)' : 'background:'+m.color+'20'}">${m.icon}</span>
                 <span class="a-btn-name" style="${active ? 'color:#fff' : ''}">${m.name}</span>
             </button>
