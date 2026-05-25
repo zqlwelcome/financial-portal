@@ -1,5 +1,5 @@
 /**
- * 投资人持仓情报 v1
+ * 投资人持仓情报 v2 - 内嵌模式（避免GitHub Pages缓存）
  * ==================================
  * 数据来源: SEC 13F 文件 / 公开披露
  * 格式说明:
@@ -8,9 +8,7 @@
  *   holdings: [{ ticker, company, pct, pctChange, shares, value, comment? }]
  *   (pctChange > 0 = 增持, < 0 = 减持, null/NaN = 新买入/清仓)
  *
- * 段永平数据: 2026 Q1 13F (2026-05-19 更新) - 来自 SEC filing / dataroma
- * 木头姐数据: 2026 Q1 13F 概览 (ARKK旗舰基金)
- * 特朗普数据: 2026 公开财务披露 / DJT持股
+ * ⏱ 数据更新时间: 2026-05-25 (最近更新由cron job维护)
  */
 
 const INVESTOR_HOLDINGS = {
