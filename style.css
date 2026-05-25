@@ -820,24 +820,38 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
-    padding: 12px 6px;
+    gap: 5px;
+    padding: 14px 6px 10px;
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
     background: var(--hl-selector-bg);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     color: var(--text2);
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.25s var(--ease);
     box-shadow: var(--shadow-sm);
 }
 .hl-opt.active {
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--primary), #5856d6);
     color: white;
-    box-shadow: 0 2px 10px rgba(0,122,255,0.3);
+    box-shadow: 0 4px 12px rgba(0,113,227,0.3);
 }
-.hl-opt-icon { font-size: 22px; }
+.hl-opt-icon { 
+    font-size: 26px; 
+    width: 44px; 
+    height: 44px; 
+    border-radius: 50%; 
+    background: var(--bg);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 2px;
+    transition: all 0.25s var(--ease);
+}
+.hl-opt.active .hl-opt-icon {
+    background: rgba(255,255,255,0.2);
+}
 
 .hl-body { margin-bottom: 8px; }
 
@@ -909,12 +923,14 @@ body {
 .hl-change-item {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 12px;
     background: var(--card);
-    border-radius: 10px;
-    padding: 10px 12px;
+    border-radius: 14px;
+    padding: 12px 14px;
     box-shadow: var(--shadow-sm);
+    transition: all 0.2s var(--ease);
 }
+.hl-change-item:active { opacity: 0.75; }
 .hl-cbadge {
     width: 24px;
     height: 24px;
@@ -962,13 +978,13 @@ body {
     flex-wrap: wrap;
     align-items: center;
     background: var(--card);
-    border-radius: 10px;
-    padding: 11px 12px;
+    border-radius: 14px;
+    padding: 13px 14px;
     box-shadow: var(--shadow-sm);
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: all 0.2s var(--ease);
 }
-.hl-hold-item:active { opacity: 0.8; background: var(--card-hover); }
+.hl-hold-item:active { opacity: 0.7; background: var(--card-hover); transform: scale(0.985); }
 .hl-hold-item.hl-folded { display: none; }
 
 .hl-hleft {
@@ -1071,10 +1087,11 @@ body {
     justify-content: space-between;
     align-items: center;
     background: var(--card);
-    border-radius: var(--radius);
-    padding: 14px;
-    margin-bottom: 12px;
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
     box-shadow: var(--shadow-sm);
+    border: 0.5px solid var(--border2);
 }
 
 .streak { 
@@ -1088,37 +1105,42 @@ body {
     font-weight: 700; 
     color: var(--primary);
     letter-spacing: -1px;
+    font-family: var(--ff-mono);
 }
 
 .streak-label { 
     font-size: 11px; 
     color: var(--text3);
     margin-top: 2px;
+    font-weight: 500;
 }
 
 .progress-mini { 
     flex: 1; 
-    margin-left: 24px; 
+    margin-left: 20px; 
     text-align: right; 
 }
 
 .progress-mini span { 
-    font-size: 18px; 
+    font-size: 20px; 
     font-weight: 600; 
     color: var(--primary);
+    font-family: var(--ff-mono);
 }
 
 .progress-bar-mini { 
     height: 4px; 
     background: var(--bg); 
-    border-radius: 2px; 
+    border-radius: 3px; 
     margin-top: 8px; 
+    overflow: hidden;
 }
 
 .progress-fill-mini { 
     height: 100%; 
     background: linear-gradient(90deg, var(--primary), #5856d6);
-    border-radius: 2px; 
+    border-radius: 3px; 
+    transition: width 0.5s var(--ease);
 }
 
 .knowledge-card {
@@ -1333,16 +1355,16 @@ body {
 .modal-sheet {
     background: var(--bg);
     width: 100%;
-    max-height: 95vh;
-    border-radius: 16px 16px 0 0;
+    max-height: 92vh;
+    border-radius: 20px 20px 0 0;
     display: flex;
     flex-direction: column;
-    animation: slideUp 0.25s ease;
+    animation: slideUp 0.35s var(--ease);
 }
 
 @keyframes slideUp {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-top {
@@ -1377,9 +1399,10 @@ body {
 /* ===== 课程内容样式 ===== */
 .block {
     background: var(--card);
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
 }
 
 .block h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
@@ -1559,17 +1582,17 @@ body {
     display: flex;
     align-items: flex-end;
     z-index: 300;
-    animation: fadeIn 0.2s ease;
+    animation: fadeIn 0.25s var(--ease);
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .share-sheet {
     width: 100%;
-    max-height: 92vh;
+    max-height: 90vh;
     background: var(--bg);
-    border-radius: 16px 16px 0 0;
+    border-radius: 20px 20px 0 0;
     overflow-y: auto;
-    animation: slideUp 0.3s ease;
+    animation: slideUp 0.35s var(--ease);
 }
 @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 
