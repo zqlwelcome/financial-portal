@@ -1529,35 +1529,75 @@ body {
     line-height: 1.4; padding-top: 8px; border-top: 0.5px solid var(--border);
 }
 
-/* ===== 智囊团 - 方案A ===== */
+/* ===== 智囊团 - 方案A（苹果风格） ===== */
 .a-mood {
-    border-radius: 16px; padding: 18px; color: #fff;
-    margin-bottom: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    background: var(--card);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+    border: 0.5px solid var(--border2);
 }
 .a-top { display: flex; justify-content: space-between; align-items: flex-start; }
-.a-label { font-size: 14px; font-weight: 600; opacity: 0.85; }
-.a-score { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; line-height: 1; }
-.a-score small { font-size: 14px; font-weight: 400; opacity: 0.6; }
-.a-bars { display: flex; gap: 4px; margin-top: 14px; }
-.a-bar { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.25); }
-.a-bar.fill { background: #fff; }
+.a-label { font-size: 14px; font-weight: 600; color: var(--text); }
+.a-mood-status {
+    font-size: 13px; font-weight: 600;
+    margin-top: 2px;
+    display: flex; align-items: center; gap: 4px;
+}
+.a-score { font-size: 28px; font-weight: 700; color: var(--text); letter-spacing: -0.5px; line-height: 1; font-family: var(--ff-mono); }
+.a-score small { font-size: 13px; font-weight: 400; color: var(--text3); }
+.a-bars { display: flex; gap: 3px; margin-top: 14px; }
+.a-bar { flex: 1; height: 4px; border-radius: 2px; background: var(--bg2); }
+.a-bar.fill { background: var(--primary); }
 .a-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 12px; }
-.a-chip { font-size: 11px; padding: 3px 8px; background: rgba(255,255,255,0.15); border-radius: 6px; font-weight: 500; }
-.a-section { font-size: 12px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+.a-chip {
+    font-size: 11px; padding: 3px 8px;
+    background: var(--tag-bg);
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--text2);
+}
+
+.a-section {
+    font-size: 11px; font-weight: 600; color: var(--text3);
+    text-transform: uppercase; letter-spacing: 0.8px;
+    margin-bottom: 10px;
+}
+
 .a-btns { display: flex; gap: 8px; margin-bottom: 12px; }
 .a-btn {
     flex: 1; display: flex; flex-direction: column;
-    align-items: center; gap: 6px; padding: 14px 6px 10px;
-    border: none; border-radius: 14px; background: var(--card);
+    align-items: center; gap: 6px; padding: 12px 4px 8px;
+    border: none; border-radius: 14px;
+    background: var(--card);
     cursor: pointer; box-shadow: var(--shadow-sm);
-    transition: all 0.2s var(--ease); color: var(--text2);
+    transition: all 0.2s var(--ease);
+    color: var(--text2);
+    border: 0.5px solid transparent;
 }
-.a-btn-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; transition: all 0.2s var(--ease); }
-.a-btn-name { font-size: 12px; font-weight: 500; }
-.a-banner { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; color: #fff; margin-bottom: 8px; }
+.a-btn.active {
+    color: var(--text);
+    border-color: var(--primary);
+    background: var(--card);
+}
+.a-btn-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+
+.a-banner {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px; border-radius: 12px;
+    background: var(--bg); margin-bottom: 8px;
+    border: 0.5px solid var(--border2);
+}
 .a-bi { font-size: 22px; }
-.a-bn { font-size: 14px; font-weight: 600; }
-.a-card { background: var(--card); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; box-shadow: var(--shadow-sm); border-left: 3px solid var(--primary); }
+.a-bn { font-size: 14px; font-weight: 600; color: var(--text); }
+
+.a-card {
+    background: var(--card); border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 8px;
+    box-shadow: var(--shadow-sm);
+    border-left: 3px solid var(--primary);
+}
 .a-card.a-action { border-left-color: var(--orange); }
 .a-card-body { font-size: 14px; line-height: 1.6; color: var(--text-body); }
 
