@@ -1112,44 +1112,50 @@ body {
     font-weight: 500;
 }
 
+.expert-block-slim {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 8px;
+    box-shadow: var(--shadow-sm);
+    border-left: 3px solid var(--primary);
+}
+.ebs-header {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+}
+.ebs-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-body);
+}
+.expert-lesson {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, #fff9e6, #fffdf5);
+    border-radius: 12px;
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #664d03;
+}
+.el-icon {
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+.el-text { flex: 1; }
+
 .expert-bio {
     font-size: 12px;
     color: var(--text3);
     line-height: 1.5;
     padding: 0 2px;
     margin-bottom: 14px;
-}
-
-.expert-block {
-    background: white;
-    border-radius: var(--radius);
-    padding: 14px;
-    margin-bottom: 10px;
-    box-shadow: var(--shadow-sm);
-}
-
-.expert-block.lesson {
-    border-left: 3px solid var(--orange);
-    background: linear-gradient(135deg, #fff9e6, #fffdf5);
-}
-
-.ebl-header {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--text);
-}
-
-.ebl-body {
-    font-size: 14px;
-    line-height: 1.7;
-    color: #3a3a3c;
-}
-
-.expert-block.lesson .ebl-body {
-    font-size: 13px;
-    line-height: 1.65;
-    color: #664d03;
 }
 
 /* 统计栏 */
