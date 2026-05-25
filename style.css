@@ -1553,22 +1553,6 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* 时间戳 */
-.market-ts {
-    text-align: right;
-    font-size: 11px;
-    color: var(--text3);
-    margin: -4px 0 8px;
-    padding-right: 2px;
-}
-.alert-ts, .news-ts {
-    text-align: right;
-    font-size: 11px;
-    color: var(--text3);
-    margin-top: var(--gap-xs);
-    padding-right: 2px;
-}
-
 /* 分享按钮 */
 .nav-share {
     width: 30px; height: 30px;
