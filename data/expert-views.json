@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-05-25 20:40",
-  "generatedAt": "2026-05-25 20:41",
+  "updateTime": "2026-05-25 20:50",
+  "generatedAt": "2026-05-25 20:51",
   "mood": {
     "mood": "偏乐观",
     "icon": "📈",
@@ -8,27 +8,27 @@
     "confidence": 7,
     "dimensions": [
       {
-        "label": "价格趋势",
+        "label": "📈 趋势",
         "value": "温和上涨"
       },
       {
-        "label": "资金流向",
+        "label": "💰 资金",
         "value": "中性"
       },
       {
-        "label": "地缘风险",
+        "label": "🌍 地缘",
         "value": "地缘缓和 · 利好"
       },
       {
-        "label": "热点板块",
+        "label": "🏭 热点",
         "value": "AI科技 · 金融"
       },
       {
-        "label": "市场情绪",
+        "label": "😊 情绪",
         "value": "偏恐惧"
       },
       {
-        "label": "宏观信号",
+        "label": "🏦 宏观",
         "value": "政策中性"
       }
     ],
