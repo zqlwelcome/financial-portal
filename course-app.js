@@ -189,6 +189,27 @@ function initModal() {
     });
 }
 
+// ===== 显示打赏弹窗 =====
+function showDonateModal() {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;display:flex;align-items:center;justify-content:center;';
+    overlay.innerHTML = `
+        <div style="background:#fff;border-radius:16px;padding:24px;width:280px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+            <div style="font-size:32px;margin-bottom:8px;">☕</div>
+            <div style="font-size:16px;font-weight:600;color:#1d1d1f;margin-bottom:4px;">感谢你的支持！</div>
+            <div style="font-size:13px;color:#86868b;margin-bottom:16px;">请用微信扫码赞助</div>
+            <div id="donateQrPlaceholder" style="width:200px;height:200px;margin:0 auto 16px;background:#f5f5f7;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#aeaeb2;flex-direction:column;">
+                <span style="font-size:40px;margin-bottom:8px;">📱</span>
+                <span>请上传你的微信收款码</span>
+                <span style="font-size:11px;margin-top:4px;">到 assets/donate-qr.jpg</span>
+            </div>
+            <button onclick="this.closest('[style]').remove()" style="background:#f5f5f7;color:#1d1d1f;border:none;border-radius:8px;padding:8px 24px;font-size:14px;cursor:pointer;width:100%;">关闭</button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+}
+
 // ===== 显示提示 =====
 function showToast(message) {
     const toast = document.createElement('div');
