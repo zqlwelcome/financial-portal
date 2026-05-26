@@ -1,11 +1,11 @@
 {
-  "updateTime": "2026-05-26 21:50",
-  "generatedAt": "2026-05-26 21:51",
+  "updateTime": "2026-05-26 22:02",
+  "generatedAt": "2026-05-26 22:03",
   "mood": {
     "mood": "偏乐观",
     "icon": "📈",
     "color": "#34c759",
-    "confidence": 8,
+    "confidence": 7,
     "dimensions": [
       {
         "label": "📈 趋势",
@@ -13,15 +13,15 @@
       },
       {
         "label": "💰 资金",
-        "value": "中性"
+        "value": "资金流出 · 偏谨慎"
       },
       {
         "label": "🌍 地缘",
-        "value": "地缘缓和 · 利好"
+        "value": "地缘紧张 · 风险"
       },
       {
         "label": "🏭 热点",
-        "value": "AI科技 · 新能源 · 金融"
+        "value": "AI科技 · 新能源 · 金融 · 地产"
       },
       {
         "label": "😊 情绪",
@@ -32,7 +32,7 @@
         "value": "政策中性"
       }
     ],
-    "summary": "整体偏乐观（8/10）。温和上涨，中性。地缘缓和 · 利好。中性。"
+    "summary": "整体偏乐观（7/10）。温和上涨，资金流出 · 偏谨慎。地缘紧张 · 风险。中性。"
   },
   "experts": {
     "templeton": {
