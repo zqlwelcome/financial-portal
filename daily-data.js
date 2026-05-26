@@ -7,7 +7,7 @@ let _currentExpert = 'templeton';
 
 // ===== 内嵌数据（替代 remote fetch，避免GitHub Pages缓存问题）=====
 const _EMBEDDED_DATA = {
-    "updateTime": "2026-05-27 07:45",
+    "updateTime": "2026-05-27 07:55",
     "mood": {
         "mood": "震荡偏乐观",
         "icon": "📈",
