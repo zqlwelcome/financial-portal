@@ -115,5 +115,30 @@
     <script src="course-app.js?v=15"></script>
     <script src="app.js?v=15"></script>
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script>
+      (function(){
+        // CDN 节点同步延迟兜底：页面加载后检测是否是 GitHub Pages 404 页面
+        // 只在首次加载时触发一次（用 sessionStorage 标记）
+        if (!sessionStorage.getItem('__cs_retried')) {
+          var check = function(){
+            // 检测 GitHub Pages 的 404 页面特征：标题包含 404 或 body 为空
+            var title = document.title || '';
+            var is404Page = title.indexOf('404') !== -1;
+            var isEmptyBody = document.body && document.body.children.length <= 1;
+            if (is404Page || isEmptyBody) {
+              sessionStorage.setItem('__cs_retried', '1');
+              window.location.reload(true);
+            }
+          };
+          // DOM 就绪后立即检查，3 秒后再次检查（给 CDN 同步留时间窗口）
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', check);
+          } else {
+            check();
+          }
+          setTimeout(check, 3000);
+        }
+      })();
+    </script>
 </body>
 </html>
