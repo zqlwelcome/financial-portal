@@ -1,176 +1,136 @@
 /**
- * 智囊团页签 - 方案A
- * 仪表盘风格：渐变情绪卡片 + 进度条 + 圆形达人选择器 + 紧凑解读
+ * 投资观点页签
+ * 数据源：hot-news.json + alerts.json + expert-views.json（每10分钟 cron 更新）
+ * 展示：市场情绪卡片 + 三位达人观点切换
  */
 
 let _currentExpert = 'templeton';
 
-// ===== 内嵌数据（替代 remote fetch，避免GitHub Pages缓存问题）=====
-const _EMBEDDED_DATA = {
-    "updateTime": "2026-05-25 21:40",
-    "mood": {
-        "mood": "谨慎乐观",
-        "icon": "\u2796",
-        "color": "#ff9500",
-        "confidence": 6,
-        "dimensions": [
-            {"label": "📈 趋势", "value": "震荡"},
-            {"label": "💰 资金", "value": "中性"},
-            {"label": "🌍 地缘", "value": "美伊重启谈判·油价暴跌"},
-            {"label": "🏭 热点", "value": "能源·AI科技·机器人IPO"},
-            {"label": "😊 情绪", "value": "偏贪婪"},
-            {"label": "🏦 宏观", "value": "全球降息周期开启"}
-        ],
-        "summary": "整体谨慎乐观（6/10）。震荡，中性。美伊重启谈判油价暴跌6%，以色列降息至3.75%全球宽松信号。"
-    },
-    "experts": {
-        "templeton": {"insight": "美伊重启谈判，油价一度暴跌超6%——市场在庆祝，但霍尔木兹库存濒临红线，重开不等于恢复。逆向思维：油价跌过头了，真正的机会在协议执行难以落地的航运和能源股。所有人都看到停火的利好时，聪明的钱已经开始布局被恐慌抛售的资产。", "action": "逢低布局能源ETF和航运龙头，等谈判利好出尽后油价反弹。不要跟随大众追周期股。"},
-        "buffett": {"insight": "以色列央行降息至3.75%是信号——全球利率拐点正在形成。好公司的标准不变：现金流、护城河、定价权。油价暴跌6%对消费股是利好（降本），但不要因此追周期。宇树科技这个时间点IPO说明A股活跃，IPO回暖往往是市场健康的信号。", "action": "关注苹果和腾讯回调机会，消费龙头受益油价下降降低运营成本。不碰油气股，不懂的不碰。"},
-        "munger": {"insight": "三层思维看今晚：第一层→美伊谈判油价暴跌6%，第二层→霍尔木兹库存濒临红线，重开不等于补货，第三层→全球降息周期开启，现金贬值风险上升。以色列央行动手了，美联储还会远吗？警惕利好出尽的回调。", "action": "不要因为油价跌就抄底能源，不要因为降息预期就追科技。持有优质资产，保留弹药等真正的恐慌。"},
-        "duan": {"insight": "好公司跌了就是机会。油价暴跌6%对苹果是好事，航空、芯片制造成本都降了。腾讯今年业绩回升，估值还在合理区间。宇树科技IPO机器人赛道有看头，但只买看得懂的。美伊谈判不管成不成，苹果腾讯这种有护城河的生意不受影响。", "action": "逢低加仓苹果和腾讯，敢重仓敢持有。油价大跌对消费电子龙头是长期利好——成本更低，毛利更高。"}
-    }
-};
+// ===== 初始化 =====
+function initExpertView() {
+    _currentExpert = 'templeton';
+    renderExpertView();
+}
 
-function renderSummaryContent() {
+// ===== 渲染主视图 =====
+async function renderExpertView() {
     const el = document.getElementById('summaryContent');
     if (!el) return;
-    _currentExpert = 'templeton';
-    // 直接使用内嵌数据
-    const moodData = _EMBEDDED_DATA.mood;
-    const expertsData = _EMBEDDED_DATA.experts;
-    window._expertsData = expertsData;
     
-    const conf = Math.min(10, Math.max(0, moodData.confidence || 5));
-    const bars = Array.from({length: 10}, (_, i) => `<span class="a-bar${i < conf ? ' fill' : ''}"></span>`).join('');
-    const dims = (moodData.dimensions || []).slice(0, 6);
-    const chipHtml = dims.map(d => {
-        // 兼容新旧格式
-        if (d.label) return `<span class="a-chip"><span class="a-chip-label">${d.label}</span> ${d.value}</span>`;
-        return `<span class="a-chip">${d.value}</span>`;
-    }).join('');
+    el.innerHTML = '<div style="text-align:center;padding:30px 0;">⏳ 加载中...</div>';
     
-    const meta = {
-        templeton: { name: '邓普顿', icon: '🌍', color: '#5856d6' },
-        buffett:   { name: '巴菲特', icon: '💰', color: '#ff9500' },
-        munger:    { name: '芒格',   icon: '🧠', color: '#34c759' },
-        duan:      { name: '段永平', icon: '🧑‍💼', color: '#0071e3' }
+    // 加载情绪和达人数据
+    let moodData = null, expertsData = null;
+    
+    // 先从expert-views.json加载（cron生成的最新数据）
+    try {
+        const res = await xhrFetch('data/expert-views.json');
+        if (res && res.mood) moodData = res.mood;
+        if (res && res.experts) expertsData = res.experts;
+    } catch(e) {}
+    
+    // 如果没加载到，从hot-news实时生成
+    if (!moodData) {
+        const { hotNews, alerts } = await loadSummaryData();
+        if (hotNews && hotNews.length > 0) {
+            moodData = assessMarketMood(hotNews);
+            const gen = generateExpertViews(hotNews, alerts);
+            expertsData = expertsData || gen;
+            window._lastNewsData = { hotNews, alerts };
+        }
+    }
+    
+    // 默认情绪
+    if (!moodData) moodData = { mood: '待更新', icon: '⏳', color: '#8e8e93', confidence: '-', dimensions: [] };
+    if (!expertsData) expertsData = {};
+    
+    const expertMeta = {
+        templeton: { name: '邓普顿', fullName: '约翰·邓普顿', icon: '🌍', subtitle: '逆向投资之父', color: '#5856d6' },
+        buffett:   { name: '巴菲特', fullName: '沃伦·巴菲特', icon: '💰', subtitle: '价值投资之王', color: '#ff9500' },
+        munger:    { name: '芒格',   fullName: '查理·芒格',   icon: '🧠', subtitle: '多元思维大师', color: '#34c759' }
     };
     
-    // 情绪卡片（静态，不随达人切换变化）
-    const moodHtml = `
-        <div class="a-mood" id="aMood">
-            <div class="a-top">
-                <div>
-                    <div class="a-label">市场情绪</div>
-                    <div class="a-mood-status">
-                        <span>${moodData.icon}</span>
-                        <span>${moodData.mood}</span>
-                    </div>
-                </div>
-                <div class="a-score">${conf}<small>/10</small></div>
-            </div>
-            <div class="a-bars">${bars}</div>
-            <div class="a-chips">${chipHtml || '<span class="a-chip">暂无数据</span>'}</div>
+    // 情绪维度展示
+    const dims = moodData.dimensions || [];
+    const dimHtml = dims.map(d => `
+        <div class="mood-dim">
+            <span class="mood-dot"></span>
+            <span class="mood-dlabel">${d.label}</span>
+            <span class="mood-dvalue">${d.value}</span>
         </div>
-    `;
+    `).join('');
     
-    // 达人按钮（静态）
-    const btnsHtml = Object.keys(meta).map(k => {
-        const m = meta[k];
+    // 达人切换标签
+    const expertTabs = Object.keys(expertMeta).map(k => {
+        const m = expertMeta[k];
         const active = k === _currentExpert ? ' active' : '';
         return `
-            <button class="a-btn${active}" onclick="switchExpert('${k}')" style="${active ? 'background:'+m.color+';color:#fff' : ''}">
-                <span class="a-btn-icon" style="${active ? 'background:rgba(255,255,255,0.2)' : 'background:'+m.color+'20'}">${m.icon}</span>
-                <span class="a-btn-name" style="${active ? 'color:#fff' : ''}">${m.name}</span>
+            <button class="etab${active}" onclick="_currentExpert='${k}';renderExpertView()" style="background:${m.color}15;color:${m.color};${active ? 'background:'+m.color+';color:white' : ''}">
+                <span class="etab-icon">${m.icon}</span>
+                <span class="etab-name">${m.name}</span>
             </button>
         `;
     }).join('');
     
-    el.innerHTML = moodHtml + `<div class="a-section">🧠 智囊团</div><div class="a-btns">${btnsHtml}</div><div id="expertContent"></div>`;
-    
-    // 渲染当前达人内容
-    renderExpertContent();
-}
-
-function switchExpert(key) {
-    _currentExpert = key;
-    // 更新按钮高亮状态
-    document.querySelectorAll('.a-btn').forEach((btn, i) => {
-        const keys = ['templeton', 'buffett', 'munger', 'duan'];
-        const k = keys[i];
-        const meta = { templeton: {color:'#5856d6'}, buffett: {color:'#ff9500'}, munger: {color:'#34c759'}, duan: {color:'#0071e3'} };
-        const m = meta[k];
-        const active = k === key;
-        btn.className = 'a-btn' + (active ? ' active' : '');
-        btn.style.background = active ? m.color : '';
-        btn.style.color = active ? '#fff' : '';
-        const icon = btn.querySelector('.a-btn-icon');
-        if (icon) icon.style.background = active ? 'rgba(255,255,255,0.2)' : m.color + '20';
-        const name = btn.querySelector('.a-btn-name');
-        if (name) name.style.color = active ? '#fff' : '';
-    });
-    // 只更新内容区
-    renderExpertContent();
-}
-
-function renderExpertContent() {
-    const el = document.getElementById('expertContent');
-    if (!el) return;
-    
-    const meta = {
-        templeton: { name: '邓普顿', icon: '🌍', color: '#5856d6' },
-        buffett:   { name: '巴菲特', icon: '💰', color: '#ff9500' },
-        munger:    { name: '芒格',   icon: '🧠', color: '#34c759' },
-        duan:      { name: '段永平', icon: '🧑‍💼', color: '#0071e3' }
-    };
-    const m = meta[_currentExpert];
-    const expertsData = window._expertsData || {};
+    // 当前选中达人的内容
+    const m = expertMeta[_currentExpert];
     const ex = expertsData[_currentExpert];
     
+    let expertHtml = '';
     if (ex && ex.insight) {
-        el.innerHTML = `
-            <div class="a-banner">
-                <span class="a-bi">${m.icon}</span>
-                <div class="a-bn">${m.name} · 解读</div>
+        expertHtml = `
+            <div class="expert-banner" style="background:${m.color}">
+                <div class="eb-avatar">${m.icon}</div>
+                <div class="eb-info">
+                    <div class="eb-name">${m.fullName}</div>
+                    <div class="eb-sub">${m.subtitle}</div>
+                </div>
             </div>
-            <div class="a-card" style="border-left-color:${m.color}">
-                <div class="a-card-body">${ex.insight.replace(/\n/g, '<br>')}</div>
+            <div class="expert-block-slim">
+                <div class="ebs-header">📖 解读</div>
+                <div class="ebs-body">${ex.insight.replace(/\n/g, '<br>')}</div>
             </div>
-            <div class="a-card a-action" style="border-left-color:${m.color}">
-                <div class="a-card-body" style="font-weight:500;color:#664d03;">⚡ ${ex.action || '等待数据更新...'}</div>
-            </div>
-            <div class="a-feedback">
-                <span class="a-fb-label">这个判断</span>
-                <button class="a-fb-btn" onclick="fbFeedback('${_currentExpert}','like')">👍 有用</button>
-                <button class="a-fb-btn" onclick="fbFeedback('${_currentExpert}','unlike')">👎 不准</button>
+            <div class="expert-block-slim" style="border-left-color:var(--orange);">
+                <div class="ebs-header">⚡ 建议</div>
+                <div class="ebs-body" style="font-weight:500;color:#664d03;">${ex.action || '等待数据更新...'}</div>
             </div>
         `;
     } else {
-        el.innerHTML = '<div style="text-align:center;padding:24px 0;color:var(--text2);">等待数据更新...</div>';
+        expertHtml = `<div style="text-align:center;padding:30px 0;color:var(--text2);font-size:14px;">等待新闻更新后自动生成</div>`;
     }
+    
+    el.innerHTML = `
+        <div class="mood-card" style="background:${moodData.color}12;border-left:3px solid ${moodData.color};">
+            <div class="mood-top">
+                <span style="font-size:24px;">${moodData.icon}</span>
+                <div>
+                    <div class="mood-label" style="color:${moodData.color};">市场情绪：${moodData.mood}</div>
+                    <div class="mood-conf">信心度 ${moodData.confidence}/10</div>
+                </div>
+            </div>
+            ${dimHtml ? `<div class="mood-dims">${dimHtml}</div>` : ''}
+            ${moodData.summary ? `<div class="mood-summary">${moodData.summary}</div>` : ''}
+        </div>
+        
+        <div class="etab-bar">${expertTabs}</div>
+        
+        <div class="expert-content">${expertHtml}</div>
+    `;
 }
 
-// ===== 用户反馈 =====
-function fbFeedback(expert, type) {
-    const key = 'fb_' + expert + '_' + type;
-    const count = parseInt(localStorage.getItem(key) || '0') + 1;
-    localStorage.setItem(key, count.toString());
-    const btns = document.querySelectorAll('.a-fb-btn');
-    btns.forEach(b => { b.disabled = true; b.style.opacity = '0.5'; });
-    const label = document.querySelector('.a-fb-label');
-    if (label) label.textContent = type === 'like' ? '✅ 已记录' : '📝 已记录';
-    setTimeout(() => {
-        btns.forEach(b => { b.disabled = false; b.style.opacity = '1'; });
-        if (label) label.textContent = '这个判断';
-    }, 2000);
-}
-
-// ===== 工具函数 =====
-async function loadBriefingData() {
+// ===== 加载数据 =====
+async function loadSummaryData() {
     try {
-        const [n, a] = await Promise.all([xhrFetch('data/hot-news.json'), xhrFetch('data/alerts.json')]);
-        return { hotNews: n?.news || [], alerts: a || null };
-    } catch(e) { return { hotNews: [], alerts: null }; }
+        const [newsRes, alertsRes] = await Promise.all([
+            xhrFetch('data/hot-news.json'),
+            xhrFetch('data/alerts.json')
+        ]);
+        const hotNews = newsRes?.news || [];
+        const alerts = alertsRes || null;
+        return { hotNews, alerts };
+    } catch(e) {
+        return { hotNews: [], alerts: null };
+    }
 }
 
 function xhrFetch(url) {
@@ -178,44 +138,60 @@ function xhrFetch(url) {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', url + '?_=' + Date.now() + Math.random(), true);
         xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.setRequestHeader('Expires', '0');
         xhr.timeout = 8000;
-        xhr.onload = () => { if (xhr.status === 200) { try { resolve(JSON.parse(xhr.responseText)); } catch(e) { reject(e); } } else reject(); };
-        xhr.onerror = () => reject();
-        xhr.ontimeout = () => reject();
+        xhr.onload = () => {
+            if (xhr.status === 200) { try { resolve(JSON.parse(xhr.responseText)); } catch(e) { reject(e); } }
+            else { reject(new Error('HTTP ' + xhr.status)); }
+        };
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.ontimeout = () => reject(new Error('Timeout'));
         xhr.send();
     });
 }
 
-function assessMood(hotNews) {
-    if (!hotNews || hotNews.length === 0) return { mood: '待更新', icon: '⏳', color: '#0071e3', confidence: 5, dimensions: [] };
+// ===== 市场情绪判定 =====
+function assessMarketMood(hotNews) {
+    if (!hotNews || hotNews.length === 0) return { mood: '中性', icon: '➖', color: '#8e8e93', confidence: '-', dimensions: [], summary: '' };
     const text = hotNews.map(n => n.title + (n.summary || '')).join('');
-    const b = (text.match(/涨|升|新高|反弹|突破|利好/g) || []).length;
-    const r = (text.match(/跌|降|新低|回落|利空|风险/g) || []).length;
-    return {
-        mood: b > r + 2 ? '偏乐观' : r > b + 2 ? '偏谨慎' : '震荡中性',
-        icon: b > r + 2 ? '📈' : r > b + 2 ? '📉' : '➖',
-        color: b > r + 2 ? '#34c759' : r > b + 2 ? '#ff3b30' : '#ff9500',
-        confidence: Math.min(10, Math.max(1, 5 + Math.abs(b - r))),
-        dimensions: [
-            { label: '📈 趋势', value: b > r + 2 ? '温和上涨' : r > b + 2 ? '偏弱' : '震荡' },
-            { label: '💰 资金', value: '中性' },
-            { label: '🌍 地缘', value: '平稳' },
-            { label: '🏭 热点', value: '分散' },
-            { label: '😊 情绪', value: Math.abs(b - r) > 3 ? '偏乐观' : '中性' },
-            { label: '🏦 宏观', value: '中性' }
-        ]
-    };
+    const bullish = (text.match(/涨|升|新高|反弹|突破|利好/g) || []).length;
+    const bearish = (text.match(/跌|降|新低|回落|利空|风险/g) || []).length;
+    const mood = bullish > bearish + 2 ? '偏乐观' : bearish > bullish + 2 ? '偏谨慎' : '震荡中性';
+    const icon = bullish > bearish + 2 ? '📈' : bearish > bullish + 2 ? '📉' : '➖';
+    const color = bullish > bearish + 2 ? '#34c759' : bearish > bullish + 2 ? '#ff3b30' : '#ff9500';
+    return { mood, icon, color, confidence: Math.min(10, 5 + Math.abs(bullish - bearish)), dimensions: [], summary: `${mood}，看涨${bullish}vs看空${bearish}` };
 }
 
-function genExperts(hotNews, alerts) {
+// ===== 达人观点生成（和之前一样，保留）=====
+function generateExpertViews(hotNews, alerts) {
     if (!hotNews || hotNews.length === 0) return {};
-    const t = hotNews.map(h => h.title + (h.summary || '')).join('');
-    const hasGeo = /地缘|中东|冲突|战争|协议/.test(t);
-    const topTitle = hotNews[0]?.title || '';
-    return {
-        templeton: { insight: hasGeo ? '中东缓和的本质是风险溢价的释放。逆向视角：当所有人庆祝和平时，关注被错杀的新兴市场资产。' : '当市场没有明确方向时，关注被短期情绪压低估值的优质资产。', action: '关注港股和A股中被低估的消费和科技龙头。' },
-        buffett: { insight: '好公司的标准不变：ROE>15%、负债率<50%、现金流>净利润。用这个标准筛选。', action: '关注沪深300和中证500指数基金，每月定投。' },
-        munger: { insight: '三层思维：「' + topTitle + '」第一层：今天的新闻改变了什么？第二层：是否过度反应？第三层：最坏情况是什么？', action: '保持60%权益+40%现金/债券的均衡配置。' },
-        duan: { insight: '好生意+好管理层+好价格。' + topTitle + '，看得懂的才重仓。', action: '关注苹果、腾讯、拼多多回调后的加仓机会。' }
+    const titles = hotNews.map(h => h.title + ' ' + (h.summary || ''));
+    const allText = titles.join('');
+    const hasTradeWar = /关税|贸易|制裁/.test(allText);
+    const hasAI = /AI|人工智能|大模型|DeepSeek/.test(allText);
+    const hasCrypto = /比特币|加密货币|BTC/.test(allText);
+    const hasOil = /原油|油价|石油/.test(allText);
+    const hasRate = /利率|降息|加息|美联储|央行/.test(allText);
+    const hasStocks = /A股|港股|美股|沪指|恒指/.test(allText);
+    const hasGeo = /地缘|中东|冲突|战争|协议/.test(allText);
+    const topTitle = hotNews[0] ? hotNews[0].title : '';
+    const experts = {};
+    
+    experts.templeton = {
+        insight: hasGeo ? `今日市场关注地缘局势变化。中东缓和的本质是风险溢价的释放——短期情绪已price in，但协议执行的波折往往被低估。逆向视角：当所有人庆祝和平时，关注被错杀的新兴市场资产。` : hasTradeWar ? `贸易摩擦的本质是全球化重构。提前布局海外产能的公司将获得双重红利。市场的线性思维低估了这个结构性变化。` : hasRate ? `全球利率周期转向。不要押注方向，而是做多波动率——同时持有股债。` : `当市场没有明确方向时，关注被短期情绪压低估值的优质资产。`,
+        action: '关注港股和A股中被低估的消费和科技龙头，利用回调分批建仓。'
     };
+    experts.buffett = {
+        insight: hasAI ? 'AI的热度让我想起互联网泡沫。真正持久的竞争力来自数据网络效应和品牌心智。选择那些已经证明盈利能力的科技巨头。' : hasRate ? '利率影响估值但不改变内在价值。关注定价权、现金流、管理层——满足这三条的公司穿越周期。' : '好公司的标准不变：ROE>15%、负债率<50%、现金流>净利润。用这个标准筛选。',
+        action: '关注沪深300和中证500指数基金，每月定投。个股关注现金流充裕的消费龙头。'
+    };
+    experts.munger = {
+        insight: '用三层思维拆解今日市场：「' + topTitle + '」' + (hasGeo ? '。第一层（共识）：地缘缓和利好。第二层（逆向）：协议签署日往往是高点。第三层（结构性）：中东重建需求可能持续数年。' : hasAI ? '。第一层（共识）：AI降价利好。第二层（逆向）：小公司出局。第三层（结构性）：受益的是用AI重构成本的传统行业。' : hasTradeWar ? '。第一层（共识）：关税影响出口。第二层（逆向）：供应链转移对冲。第三层（结构性）：越南印度是赢家。' : '。第一层：今天的新闻改变了什么？第二层：是否过度反应？第三层：最坏情况是什么？') + '\n\n检查清单：① 噪音还是信号？② 确认偏误？③ 错了最坏怎样？',
+        action: '保持60%权益+40%现金/债券的均衡配置，利用波动调整持仓。'
+    };
+    return experts;
 }
+
+// ===== 兼容旧调用 =====
+function renderSummaryContent() { initExpertView(); }
