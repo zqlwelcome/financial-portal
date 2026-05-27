@@ -1588,29 +1588,45 @@ body {
     margin-top: 12px;
 }
 
-/* ===== 市场日历 ===== */
-.a-calendar {
+/* ===== 统一洞察卡片 ===== */
+.a-insights {
     background: var(--card);
     border-radius: 16px;
-    padding: 16px 18px;
+    padding: 0;
     margin-bottom: 14px;
     box-shadow: var(--shadow-sm);
     border: 0.5px solid var(--border2);
+    overflow: hidden;
 }
-.a-calendar-header {
+.a-insights-tabs {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-bottom: 0.5px solid var(--border);
+    background: var(--bg);
+}
+.a-insights-tab {
+    flex: 1;
+    padding: 12px 8px;
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
     cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
 }
-.a-calendar-arrow {
-    font-size: 18px;
-    color: var(--text3);
-    transition: transform 0.2s ease;
-    display: inline-block;
+.a-insights-tab.active {
+    color: var(--primary);
+    font-weight: 600;
+    background: var(--card);
+    border-bottom: 2px solid var(--primary);
 }
-.a-calendar-content {
-    margin-top: 12px;
+.a-insights-content {
+    display: none;
+    padding: 16px 18px;
+}
+.a-insights-content.active {
+    display: block;
 }
 .a-calendar-list {
     display: flex;
@@ -1659,29 +1675,6 @@ body {
 }
 
 /* ===== 资金流向 ===== */
-.a-flow {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 16px 18px;
-    margin-bottom: 14px;
-    box-shadow: var(--shadow-sm);
-    border: 0.5px solid var(--border2);
-}
-.a-flow-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-.a-flow-arrow {
-    font-size: 18px;
-    color: var(--text3);
-    transition: transform 0.2s ease;
-    display: inline-block;
-}
-.a-flow-content {
-    margin-top: 12px;
-}
 .a-flow-list {
     display: flex;
     flex-direction: column;
@@ -1725,29 +1718,6 @@ body {
 }
 
 /* ===== 板块轮动 ===== */
-.a-sector {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 16px 18px;
-    margin-bottom: 14px;
-    box-shadow: var(--shadow-sm);
-    border: 0.5px solid var(--border2);
-}
-.a-sector-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-.a-sector-arrow {
-    font-size: 18px;
-    color: var(--text3);
-    transition: transform 0.2s ease;
-    display: inline-block;
-}
-.a-sector-content {
-    margin-top: 12px;
-}
 .a-sector-list {
     display: flex;
     flex-direction: column;
