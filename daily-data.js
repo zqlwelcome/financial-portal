@@ -106,11 +106,18 @@ function renderSummaryContent() {
     el.innerHTML = moodHtml + `
         <!-- 统一卡片：智囊团 + 市场日历 + 资金流向 + 板块轮动 -->
         <div class="a-insights">
-            <div class="a-insights-tabs">
-                <button class="a-insights-tab active" onclick="switchInsightTab('braintrust')">🧠 智囊团</button>
-                <button class="a-insights-tab" onclick="switchInsightTab('calendar')">📅 日历</button>
-                <button class="a-insights-tab" onclick="switchInsightTab('flow')">💰 资金</button>
-                <button class="a-insights-tab" onclick="switchInsightTab('sector')">📈 板块</button>
+            <div class="a-insights-tabs-wrapper">
+                <div class="a-insights-tabs">
+                    <button class="a-insights-tab active" onclick="switchInsightTab('braintrust')">🧠 智囊团</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('calendar')">📅 日历</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('flow')">💰 资金</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('sector')">📈 板块</button>
+                </div>
+                <div class="a-insights-hint" id="tabHint">
+                    <span class="a-hint-arrow">←</span>
+                    <span class="a-hint-text">左右滑动查看更多</span>
+                    <span class="a-hint-arrow">→</span>
+                </div>
             </div>
             
             <!-- 智囊团内容 -->
@@ -127,6 +134,37 @@ function renderSummaryContent() {
                         <span class="a-calendar-event">美联储会议纪要公布</span>
                         <span class="a-calendar-impact high">high</span>
                     </div>
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">05/29</span>
+                        <span class="a-calendar-event">美国Q1 GDP修正值</span>
+                        <span class="a-calendar-impact high">high</span>
+                    </div>
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">05/30</span>
+                        <span class="a-calendar-event">中国5月PMI数据</span>
+                        <span class="a-calendar-impact high">high</span>
+                    </div>
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">05/31</span>
+                        <span class="a-calendar-event">英伟达财报发布</span>
+                        <span class="a-calendar-impact medium">medium</span>
+                    </div>
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">06/01</span>
+                        <span class="a-calendar-event">美国非农就业数据</span>
+                        <span class="a-calendar-impact high">high</span>
+                    </div>
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">06/02</span>
+                        <span class="a-calendar-event">欧洲央行利率决议</span>
+                        <span class="a-calendar-impact medium">medium</span>
+                    </div>
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">06/03</span>
+                        <span class="a-calendar-event">中国进出口数据</span>
+                        <span class="a-calendar-impact medium">medium</span>
+                    </div>
+                </div>
                     <div class="a-calendar-item">
                         <span class="a-calendar-date">05/29</span>
                         <span class="a-calendar-event">美国Q1 GDP修正值</span>
@@ -315,6 +353,22 @@ function renderSummaryContent() {
                         <span class="a-flow-bar"><span style="width:75%"></span></span>
                     </div>
                 </div>
+                    <div class="a-flow-item">
+                        <span class="a-flow-name">主力资金</span>
+                        <span class="a-flow-value out">-128.6亿</span>
+                        <span class="a-flow-bar"><span style="width:20%"></span></span>
+                    </div>
+                    <div class="a-flow-item">
+                        <span class="a-flow-name">融资余额</span>
+                        <span class="a-flow-value in">+15.2亿</span>
+                        <span class="a-flow-bar"><span style="width:65%"></span></span>
+                    </div>
+                    <div class="a-flow-item">
+                        <span class="a-flow-name">ETF净申购</span>
+                        <span class="a-flow-value in">+42.8亿</span>
+                        <span class="a-flow-bar"><span style="width:75%"></span></span>
+                    </div>
+                </div>
             </div>
             
             <!-- 板块轮动内容 -->
@@ -325,6 +379,27 @@ function renderSummaryContent() {
                         <span class="a-sector-name">电力板块</span>
                         <span class="a-sector-change">+3.2%</span>
                     </div>
+                    <div class="a-sector-item up">
+                        <span class="a-sector-rank">2</span>
+                        <span class="a-sector-name">白酒板块</span>
+                        <span class="a-sector-change">+2.8%</span>
+                    </div>
+                    <div class="a-sector-item up">
+                        <span class="a-sector-rank">3</span>
+                        <span class="a-sector-name">超级电容</span>
+                        <span class="a-sector-change">+2.1%</span>
+                    </div>
+                    <div class="a-sector-item down">
+                        <span class="a-sector-rank">4</span>
+                        <span class="a-sector-name">半导体设备</span>
+                        <span class="a-sector-change">-4.5%</span>
+                    </div>
+                    <div class="a-sector-item down">
+                        <span class="a-sector-rank">5</span>
+                        <span class="a-sector-name">算力概念</span>
+                        <span class="a-sector-change">-3.8%</span>
+                    </div>
+                </div>
                     <div class="a-sector-item up">
                         <span class="a-sector-rank">2</span>
                         <span class="a-sector-name">白酒板块</span>
@@ -570,4 +645,11 @@ function switchInsightTab(tabName) {
         content.classList.remove('active');
     });
     document.getElementById(`insight-${tabName}`).classList.add('active');
+    
+    // 隐藏提示
+    const hint = document.getElementById('tabHint');
+    if (hint) {
+        hint.style.opacity = '0';
+        setTimeout(() => hint.style.display = 'none', 300);
+    }
 }
