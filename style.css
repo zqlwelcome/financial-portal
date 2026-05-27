@@ -1674,10 +1674,7 @@ body {
     gap: 8px;
 }
 .a-calendar-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 0;
+    padding: 12px 0;
     border-bottom: 0.5px solid var(--border);
 }
 .a-calendar-item:last-child {
@@ -2055,6 +2052,7 @@ body {
 .a-calendar-item {
     padding: 12px 0;
     border-bottom: 0.5px solid var(--border);
+    cursor: pointer;
 }
 .a-calendar-item:last-child {
     border-bottom: none;
@@ -2063,7 +2061,6 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    cursor: pointer;
 }
 .a-calendar-detail {
     display: none;
