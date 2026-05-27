@@ -528,7 +528,103 @@ const COURSES = [
           <p>选一个你天天用的AI产品，分析3个PM决策，写下来练3遍。</p>
         </div>
       `
-      }
+      },
+      {
+        id: 'prac-5',
+        title: 'AI产品经理面试实战包：GitHub、Demo、Why说明、SDD',
+        time: '10分钟',
+        content: `
+        <div class="block">
+          <div class="lesson-goal">🎯 本节目标：拿到面试机会后，知道要准备什么、怎么准备</div>
+        </div>
+        <div class="block">
+          <h4>📖 核心知识</h4>
+          <p><strong>简历筛选阶段要准备三样东西：</strong></p>
+          <p><strong>1. GitHub链接或Demo链接</strong></p>
+          <p>简历里必须放一个能打开的链接。没有可访问的项目，简历直接沉底。</p>
+          <p>没有自己的项目怎么办？用Coze或Dify搭一个Agent，截图+写文档+部署上线，这就是你的Demo。</p>
+          <p><strong>2. 核心代码文件+截图</strong></p>
+          <p>提前想好：如果面试官要看你的代码，你准备发哪几个文件？为什么是这几个？界面截图要配说明。</p>
+          <p><strong>3. Why说明</strong></p>
+          <p>用300字以内回答：这个产品面向谁？解决了什么场景？现在有多少人用？你做这个产品的思考过程是什么？</p>
+          <p>面试官看的不只是你的产品，是你的思维方式。</p>
+        </div>
+        <div class="block">
+          <h4>📖 什么是SDD（规范驱动开发）？</h4>
+          <p>面试可能考：给你一个产品需求，限时1小时开发Demo。你怎么保证1小时能做完？</p>
+          <p>SDD就是：在写代码之前，先花5-10分钟写一个plan.md。</p>
+          <p><strong>plan.md 长什么样？</strong></p>
+          <p>plan.md 就是你写给自己的开发计划。包含：</p>
+          <p>1. 产品目标：一句话说清做的什么</p>
+          <p>2. 功能列表：拆成3-5个核心功能，标优先级</p>
+          <p>3. 技术选型：用什么框架、用什么API</p>
+          <p>4. 数据流：用户操作→前端→后端→AI→返回</p>
+          <p>5. 风险点：最容易卡住的地方是什么</p>
+          <p>面试时拿出plan.md，面试官会觉得你思路清晰、有工程素养。</p>
+          <p>没有plan.md，60分钟只能做到「勉强能用」。有plan.md，省下的时间可以做创新点，拉开差距。</p>
+        </div>
+        <div class="block">
+          <h4>💡 面试攻略：高频问答</h4>
+          <p><strong>问：你每月花多少钱在AI工具上？</strong></p>
+          <p>建议回答100美金以上（ChatGPT Pro/Cursor/Claude等）。说少了显得你投入不够。</p>
+          <p><strong>问：分享1-2个踩过的坑</strong></p>
+          <p>准备好2个真实故事。框架：背景→做了什么→出了什么问题→怎么解决的→学到了什么。</p>
+          <p>没有踩坑经历说明你做的东西不够复杂。</p>
+          <p><strong>问：面试后补交作业怎么办？</strong></p>
+          <p>通常说明：面试官在犹豫、或者有竞品在对比。想做这个工作就认真做，做出来的东西下次面试还能复用。</p>
+        </div>
+        <div class="block">
+          <h4>📝 课后思考</h4>
+          <p>打开你最近用的一款AI产品，写一份300字的Why说明：用户是谁、场景是什么、为什么这么设计。</p>
+        </div>
+      `
+      },
+      {
+        id: 'prac-6',
+        title: 'AI产品经理常用工具：Cursor、Claude Code、Codex怎么选',
+        time: '8分钟',
+        content: `
+        <div class="block">
+          <div class="lesson-goal">🎯 本节目标：知道市面上主流的AI编程工具，面试能聊得起来</div>
+        </div>
+        <div class="block">
+          <h4>📖 核心知识</h4>
+          <p><strong>三种工具各有什么不同？</strong></p>
+          <p><strong>1. Cursor（最推荐的AI编辑器）</strong></p>
+          <p>基于VS Code的AI编辑器。优势：代码补全、对话式修改、一键应用改动。</p>
+          <p>适用：快速搭页面、改样式、修bug。AI PM面试中最常用的工具。</p>
+          <p>价格：Pro版 20美元/月</p>
+          <p><strong>2. Claude Code（Anthropic出的终端工具）</strong></p>
+          <p>在终端里运行，直接说需求它就帮你写代码。</p>
+          <p>适用：后端逻辑、数据处理、一键生成项目骨架。</p>
+          <p>价格：按API调用量计费</p>
+          <p><strong>3. Codex（OpenAI的编程模型）</strong></p>
+          <p>最早的一代AI编程工具，现在更多人用Cursor和Claude Code。</p>
+          <p>作为PM不需要精通每一个，但面试时能说出区别、知道什么时候用哪个，就是加分项。</p>
+        </div>
+        <div class="block">
+          <h4>💼 实战建议：PM怎么用这些工具</h4>
+          <p>你不需要会写代码，但你要知道：</p>
+          <p>1. 怎么让Cursor帮你生成一个前端页面（说人话就行，不用写代码）</p>
+          <p>2. 怎么让Claude Code帮你搭一个后端接口</p>
+          <p>3. 怎么用Natural Language（自然语言）描述需求，让工具帮你实现</p>
+          <p>面试官问「你用哪些工具」时，回答：「我主要用Cursor做前端原型，Claude Code处理后端逻辑，每个月投入约150美金在工具和API上。」</p>
+        </div>
+        <div class="block">
+          <h4>🛠️ 实操</h4>
+          <p>下载Cursor（免费版就行），说一句话让它帮你生成一个「今日天气查询」的网页。体验一下AI编程是什么感觉。</p>
+        </div>
+        <div class="block">
+          <h4>💡 面试攻略</h4>
+          <p>问：你在项目里有没有plan.md？</p>
+          <p>答：有的。我习惯在动手前先写plan.md，列出功能拆解、技术选型、风险点。这样开发过程中不会偏，面试官也能看到我的规划能力。</p>
+        </div>
+        <div class="block">
+          <h4>📝 课后思考</h4>
+          <p>下载Cursor，搭一个最简单的页面。截图保存，面试时这就是你的「工具使用案例」。</p>
+        </div>
+      `
+      },
     ]
   }
 ];
