@@ -149,7 +149,7 @@ function renderSummaryContent() {
             <div class="a-insights-content" id="insight-calendar">
                 <div class="a-calendar-list">
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main">
+                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">05/28</span>
                             <span class="a-calendar-event">美联储5月会议纪要公布</span>
                             <span class="a-calendar-impact high">high</span>
@@ -161,7 +161,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main">
+                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">05/29</span>
                             <span class="a-calendar-event">美国Q1 GDP修正值</span>
                             <span class="a-calendar-impact high">high</span>
@@ -173,7 +173,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main">
+                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">05/30</span>
                             <span class="a-calendar-event">中国5月官方PMI</span>
                             <span class="a-calendar-impact high">high</span>
@@ -185,7 +185,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main">
+                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">05/31</span>
                             <span class="a-calendar-event">美国4月PCE物价指数</span>
                             <span class="a-calendar-impact high">high</span>
@@ -197,7 +197,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main">
+                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">06/01</span>
                             <span class="a-calendar-event">中国5月财新PMI</span>
                             <span class="a-calendar-impact high">high</span>
@@ -209,7 +209,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main">
+                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">06/02</span>
                             <span class="a-calendar-event">美国5月非农就业数据</span>
                             <span class="a-calendar-impact high">high</span>
@@ -221,7 +221,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main">
+                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">06/03</span>
                             <span class="a-calendar-event">欧洲央行利率决议</span>
                             <span class="a-calendar-impact high">high</span>
