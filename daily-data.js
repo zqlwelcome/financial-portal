@@ -91,7 +91,7 @@ function renderSummaryContent() {
         </div>
     `;
     
-    // 达人按钮（静态）
+    // 达人按钮（可折叠）
     const btnsHtml = Object.keys(meta).map(k => {
         const m = meta[k];
         const active = k === _currentExpert ? ' active' : '';
@@ -103,7 +103,18 @@ function renderSummaryContent() {
         `;
     }).join('');
     
-    el.innerHTML = moodHtml + `<div class="a-section">🧠 智囊团</div><div class="a-btns">${btnsHtml}</div><div id="expertContent"></div>`;
+    el.innerHTML = moodHtml + `
+        <div class="a-braintrust">
+            <div class="a-braintrust-header" onclick="toggleBrainTrust()">
+                <span class="a-section">🧠 智囊团</span>
+                <span class="a-braintrust-arrow" id="brainTrustArrow">›</span>
+            </div>
+            <div class="a-braintrust-content" id="brainTrustContent">
+                <div class="a-btns">${btnsHtml}</div>
+                <div id="expertContent"></div>
+            </div>
+        </div>
+    `;
     
     // 渲染当前达人内容
     renderExpertContent();
@@ -245,6 +256,18 @@ function toggleMoodDetail() {
     
     const isHidden = detail.style.display === 'none';
     detail.style.display = isHidden ? 'block' : 'none';
+    arrow.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
+    arrow.style.transition = 'transform 0.2s ease';
+}
+
+// ===== 折叠/展开智囊团 =====
+function toggleBrainTrust() {
+    const content = document.getElementById('brainTrustContent');
+    const arrow = document.getElementById('brainTrustArrow');
+    if (!content || !arrow) return;
+    
+    const isHidden = content.style.display === 'none';
+    content.style.display = isHidden ? 'block' : 'none';
     arrow.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
     arrow.style.transition = 'transform 0.2s ease';
 }
