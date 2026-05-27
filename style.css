@@ -200,7 +200,7 @@ body {
 /* 市场概览 */
 .market-bar {
     display: flex;
-    gap: var(--gap-sm);
+    gap: 6px;
     margin-bottom: var(--gap-md);
 }
 
@@ -208,12 +208,13 @@ body {
     flex: 1;
     background: var(--card);
     border: 0.5px solid var(--border2);
-    border-radius: 16px;
-    padding: 12px 6px;
+    border-radius: 12px;
+    padding: 10px 4px;
     box-shadow: var(--shadow-sm);
     text-align: center;
     position: relative;
     overflow: hidden;
+    min-width: 0;
 }
 .market-item.up {
     background: linear-gradient(180deg, var(--card) 60%, rgba(52,199,89,0.04));
@@ -223,31 +224,34 @@ body {
 }
 
 .market-label { 
-    font-size: 11px; 
+    font-size: 10px; 
     color: var(--text3); 
     display: block;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
+    white-space: nowrap;
 }
 
 .market-val { 
-    font-size: 17px; 
+    font-size: 14px; 
     font-weight: 600; 
     display: block; 
-    margin: 2px 0 3px;
-    letter-spacing: -0.5px;
+    margin: 1px 0 2px;
+    letter-spacing: -0.3px;
     font-family: var(--ff-mono);
+    white-space: nowrap;
 }
 
 .market-change { 
-    font-size: 13px; 
+    font-size: 11px; 
     font-weight: 600;
     font-family: var(--ff-mono);
     display: inline-flex;
     align-items: center;
-    gap: 2px;
+    gap: 1px;
+    white-space: nowrap;
 }
 .market-change::before {
     content: '';
