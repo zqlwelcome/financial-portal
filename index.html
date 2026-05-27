@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="alert-style.css">
     <link rel="stylesheet" href="walk.css">
+    <link rel="stylesheet" href="course-center-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
 </head>
@@ -22,7 +23,7 @@
     <main class="main">
         <div class="tabs">
             <button class="tab active" data-tab="finance">📰 财经</button>
-            <button class="tab" data-tab="ai-pm">🤖 AI产品</button>
+            <button class="tab" data-tab="ai-pm">📚 学习中心</button>
         </div>
 
         <!-- 财经区 -->
@@ -78,19 +79,7 @@
 
         <!-- AI产品经理区 -->
         <section id="ai-pm" class="section">
-            <div class="status-bar">
-                <div class="streak">
-                    <span class="streak-num" id="streakDays">0</span>
-                    <span class="streak-label">连续</span>
-                </div>
-                <div class="progress-mini">
-                    <span id="completionRate">0%</span>
-                    <div class="progress-bar-mini">
-                        <div class="progress-fill-mini" id="progressFill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            <div id="courseList" class="course-list"></div>
+            <div id="courseCenter"></div>
         </section>
     </main>
 
@@ -112,13 +101,15 @@
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="51d4b748-14ec-4708-a003-04ae51b47e83"></script>
     <script src="daily-data.js?v=16"></script>
-    <script src="news-loader.js?v=16"></script>
-    <script src="course-data.js?v=16"></script>
-    <script src="share.js?v=16"></script>
-    <script src="holdings-data.js?v=16"></script>
-    <script src="holdings-render.js?v=16"></script>
-    <script src="course-app.js?v=16"></script>
-    <script src="app.js?v=16"></script>
+    <script src="news-loader.js?v=17"></script>
+    <script src="course-data.js?v=17"></script>
+    <script src="course-series-data.js?v=17"></script>
+    <script src="share.js?v=17"></script>
+    <script src="holdings-data.js?v=17"></script>
+    <script src="holdings-render.js?v=17"></script>
+    <script src="course-app.js?v=17"></script>
+    <script src="course-center-app.js?v=17"></script>
+    <script src="app.js?v=17"></script>
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script>
       (function(){
