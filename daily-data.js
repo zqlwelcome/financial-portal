@@ -104,24 +104,23 @@ function renderSummaryContent() {
     }).join('');
     
     el.innerHTML = moodHtml + `
-        <div class="a-braintrust">
-            <div class="a-braintrust-header" onclick="toggleBrainTrust()">
-                <span class="a-section">🧠 智囊团</span>
-                <span class="a-braintrust-arrow" id="brainTrustArrow">›</span>
+        <!-- 统一卡片：智囊团 + 市场日历 + 资金流向 + 板块轮动 -->
+        <div class="a-insights">
+            <div class="a-insights-tabs">
+                <button class="a-insights-tab active" onclick="switchInsightTab('braintrust')">🧠 智囊团</button>
+                <button class="a-insights-tab" onclick="switchInsightTab('calendar')">📅 日历</button>
+                <button class="a-insights-tab" onclick="switchInsightTab('flow')">💰 资金</button>
+                <button class="a-insights-tab" onclick="switchInsightTab('sector')">📈 板块</button>
             </div>
-            <div class="a-braintrust-content" id="brainTrustContent">
+            
+            <!-- 智囊团内容 -->
+            <div class="a-insights-content active" id="insight-braintrust">
                 <div class="a-btns">${btnsHtml}</div>
                 <div id="expertContent"></div>
             </div>
-        </div>
-        
-        <!-- 市场日历 -->
-        <div class="a-calendar">
-            <div class="a-calendar-header" onclick="toggleCalendar()">
-                <span class="a-section">📅 市场日历</span>
-                <span class="a-calendar-arrow" id="calendarArrow">›</span>
-            </div>
-            <div class="a-calendar-content" id="calendarContent">
+            
+            <!-- 市场日历内容 -->
+            <div class="a-insights-content" id="insight-calendar">
                 <div class="a-calendar-list">
                     <div class="a-calendar-item">
                         <span class="a-calendar-date">05/28</span>
@@ -150,15 +149,9 @@ function renderSummaryContent() {
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- 资金流向 -->
-        <div class="a-flow">
-            <div class="a-flow-header" onclick="toggleFlow()">
-                <span class="a-section">💰 资金流向</span>
-                <span class="a-flow-arrow" id="flowArrow">›</span>
-            </div>
-            <div class="a-flow-content" id="flowContent">
+            
+            <!-- 资金流向内容 -->
+            <div class="a-insights-content" id="insight-flow">
                 <div class="a-flow-list">
                     <div class="a-flow-item">
                         <span class="a-flow-name">北向资金</span>
@@ -182,15 +175,9 @@ function renderSummaryContent() {
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- 板块轮动 -->
-        <div class="a-sector">
-            <div class="a-sector-header" onclick="toggleSector()">
-                <span class="a-section">📈 板块轮动</span>
-                <span class="a-sector-arrow" id="sectorArrow">›</span>
-            </div>
-            <div class="a-sector-content" id="sectorContent">
+            
+            <!-- 板块轮动内容 -->
+            <div class="a-insights-content" id="insight-sector">
                 <div class="a-sector-list">
                     <div class="a-sector-item up">
                         <span class="a-sector-rank">1</span>
@@ -366,50 +353,17 @@ function toggleMoodDetail() {
     arrow.style.transition = 'transform 0.2s ease';
 }
 
-// ===== 折叠/展开智囊团 =====
-function toggleBrainTrust() {
-    const content = document.getElementById('brainTrustContent');
-    const arrow = document.getElementById('brainTrustArrow');
-    if (!content || !arrow) return;
+// ===== 切换洞察标签页 =====
+function switchInsightTab(tabName) {
+    // 更新标签按钮状态
+    document.querySelectorAll('.a-insights-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    event.target.classList.add('active');
     
-    const isHidden = content.style.display === 'none';
-    content.style.display = isHidden ? 'block' : 'none';
-    arrow.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
-    arrow.style.transition = 'transform 0.2s ease';
-}
-
-// ===== 折叠/展开市场日历 =====
-function toggleCalendar() {
-    const content = document.getElementById('calendarContent');
-    const arrow = document.getElementById('calendarArrow');
-    if (!content || !arrow) return;
-    
-    const isHidden = content.style.display === 'none';
-    content.style.display = isHidden ? 'block' : 'none';
-    arrow.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
-    arrow.style.transition = 'transform 0.2s ease';
-}
-
-// ===== 折叠/展开资金流向 =====
-function toggleFlow() {
-    const content = document.getElementById('flowContent');
-    const arrow = document.getElementById('flowArrow');
-    if (!content || !arrow) return;
-    
-    const isHidden = content.style.display === 'none';
-    content.style.display = isHidden ? 'block' : 'none';
-    arrow.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
-    arrow.style.transition = 'transform 0.2s ease';
-}
-
-// ===== 折叠/展开板块轮动 =====
-function toggleSector() {
-    const content = document.getElementById('sectorContent');
-    const arrow = document.getElementById('sectorArrow');
-    if (!content || !arrow) return;
-    
-    const isHidden = content.style.display === 'none';
-    content.style.display = isHidden ? 'block' : 'none';
-    arrow.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
-    arrow.style.transition = 'transform 0.2s ease';
+    // 更新内容显示
+    document.querySelectorAll('.a-insights-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    document.getElementById(`insight-${tabName}`).classList.add('active');
 }
