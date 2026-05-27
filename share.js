@@ -12,7 +12,7 @@ function initShare() {
 function oneTapShare() {
     const pv = document.getElementById('busuanzi_value_site_pv')?.textContent || '--';
     const uv = document.getElementById('busuanzi_value_site_uv')?.textContent || '--';
-    const url = 'https://zqlwelcome.github.io/learning-platform/';
+    const url = 'https://zqlwelcomelearninghub.pages.dev/';
     const today = new Date().toLocaleDateString('zh-CN', {month:'long',day:'numeric'});
     
     // 从持仓数据生成摘要
