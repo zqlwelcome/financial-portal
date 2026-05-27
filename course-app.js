@@ -23,6 +23,12 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
 // ===== 渲染课程列表 =====
 function renderCourseList() {
     const el = document.getElementById('courseList');
+    if (!el) return;
+    // 如果 COURSES 还没加载好，显示骨架屏
+    if (!window.COURSES && typeof COURSES === 'undefined') {
+        el.innerHTML = '<div class="skeleton skeleton-card"></div><div class="skeleton skeleton-card"></div><div class="skeleton skeleton-card"></div>';
+        return;
+    }
     el.innerHTML = COURSES.map(section => {
         const completedCount = section.lessons.filter(l => courseProgress[l.id]).length;
         const totalCount = section.lessons.length;
