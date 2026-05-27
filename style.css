@@ -209,7 +209,7 @@ body {
     background: var(--card);
     border: 0.5px solid var(--border2);
     border-radius: 16px;
-    padding: 14px 8px;
+    padding: 12px 6px;
     box-shadow: var(--shadow-sm);
     text-align: center;
     position: relative;
