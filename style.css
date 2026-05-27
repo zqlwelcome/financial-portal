@@ -1614,12 +1614,51 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
+    position: relative;
 }
 .a-insights-tab.active {
     color: var(--primary);
     font-weight: 600;
     background: var(--card);
     border-bottom: 2px solid var(--primary);
+}
+.a-insights-tab:not(.active):hover {
+    color: var(--text);
+    background: rgba(0,113,227,0.05);
+}
+.a-insights-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 0;
+    background: linear-gradient(90deg, rgba(0,113,227,0.05), rgba(0,113,227,0.1), rgba(0,113,227,0.05));
+    animation: hintPulse 2s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+}
+.a-hint-arrow {
+    font-size: 12px;
+    color: var(--primary);
+    animation: hintBounce 1.5s ease-in-out infinite;
+}
+.a-hint-arrow:first-child {
+    animation-delay: 0.2s;
+}
+.a-hint-arrow:last-child {
+    animation-delay: 0.4s;
+}
+.a-hint-text {
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 500;
+}
+@keyframes hintPulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+@keyframes hintBounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
 }
 .a-insights-content {
     display: none;
