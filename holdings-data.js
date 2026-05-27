@@ -15,6 +15,7 @@ const INVESTOR_HOLDINGS = {
   buffett: {
     id: 'buffett',
     name: '巴菲特',
+    hasNewChanges: true,
     icon: '🤑',
     color: '#34c759',
     totalValue: '~$263B (Berkshire)',
@@ -63,6 +64,7 @@ const INVESTOR_HOLDINGS = {
   duan: {
     id: 'duan',
     name: '段永平',
+    hasNewChanges: true,
     icon: '🧑‍💼',
     color: '#5856d6',
     totalValue: '~$20.0B',
@@ -105,6 +107,7 @@ const INVESTOR_HOLDINGS = {
   cathie: {
     id: 'cathie',
     name: '木头姐',
+    hasNewChanges: true,
     icon: '🦊',
     color: '#ff2d55',
     totalValue: '~$13B (ARKK)',
@@ -134,6 +137,7 @@ const INVESTOR_HOLDINGS = {
   trump: {
     id: 'trump',
     name: '特朗普',
+    hasNewChanges: true,
     icon: '🇺🇸',
     color: '#ff9500',
     totalValue: '~$5.6B (估算)',
