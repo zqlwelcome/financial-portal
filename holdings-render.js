@@ -18,6 +18,7 @@ function renderHoldings() {
         return `<button class="hl-opt ${i === 0 ? 'active' : ''}" data-hl="${id}" onclick="switchInvestor('${id}')">
           <span class="hl-opt-icon">${icon}</span>
           <span>${name}</span>
+          ${INVESTOR_HOLDINGS[id]?.hasNewChanges ? '<span class="hl-dot"></span>' : ''}
         </button>`;
       }).join('')}
     </div>
@@ -32,6 +33,14 @@ function renderHoldings() {
 function switchInvestor(id) {
   const data = INVESTOR_HOLDINGS[id];
   if (!data) return;
+
+  // 有红点：点进去后消除
+  if (data.hasNewChanges) {
+    data.hasNewChanges = false;
+    // 移除按钮上的红点
+    const dot = document.querySelector(`.hl-opt[data-hl="${id}"] .hl-dot`);
+    if (dot) dot.remove();
+  }
 
   // 更新按钮状态
   document.querySelectorAll('.hl-opt').forEach(b => b.classList.remove('active'));
