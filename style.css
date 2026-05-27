@@ -1587,6 +1587,205 @@ body {
 .a-braintrust-content {
     margin-top: 12px;
 }
+
+/* ===== 市场日历 ===== */
+.a-calendar {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+    border: 0.5px solid var(--border2);
+}
+.a-calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.a-calendar-arrow {
+    font-size: 18px;
+    color: var(--text3);
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+.a-calendar-content {
+    margin-top: 12px;
+}
+.a-calendar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.a-calendar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 0.5px solid var(--border);
+}
+.a-calendar-item:last-child {
+    border-bottom: none;
+}
+.a-calendar-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    min-width: 45px;
+    font-family: var(--ff-mono);
+}
+.a-calendar-event {
+    flex: 1;
+    font-size: 13px;
+    color: var(--text);
+}
+.a-calendar-impact {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.a-calendar-impact.high {
+    background: rgba(255,59,48,0.1);
+    color: var(--red);
+}
+.a-calendar-impact.medium {
+    background: rgba(255,149,0,0.1);
+    color: var(--orange);
+}
+.a-calendar-impact.low {
+    background: rgba(52,199,89,0.1);
+    color: var(--green);
+}
+
+/* ===== 资金流向 ===== */
+.a-flow {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+    border: 0.5px solid var(--border2);
+}
+.a-flow-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.a-flow-arrow {
+    font-size: 18px;
+    color: var(--text3);
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+.a-flow-content {
+    margin-top: 12px;
+}
+.a-flow-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.a-flow-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.a-flow-name {
+    font-size: 13px;
+    color: var(--text2);
+    min-width: 70px;
+}
+.a-flow-value {
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: right;
+    font-family: var(--ff-mono);
+}
+.a-flow-value.in {
+    color: var(--green);
+}
+.a-flow-value.out {
+    color: var(--red);
+}
+.a-flow-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--bg2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+.a-flow-bar span {
+    display: block;
+    height: 100%;
+    border-radius: 3px;
+    background: var(--primary);
+}
+
+/* ===== 板块轮动 ===== */
+.a-sector {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+    border: 0.5px solid var(--border2);
+}
+.a-sector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.a-sector-arrow {
+    font-size: 18px;
+    color: var(--text3);
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+.a-sector-content {
+    margin-top: 12px;
+}
+.a-sector-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.a-sector-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 0.5px solid var(--border);
+}
+.a-sector-item:last-child {
+    border-bottom: none;
+}
+.a-sector-rank {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text3);
+    min-width: 20px;
+    text-align: center;
+}
+.a-sector-name {
+    flex: 1;
+    font-size: 13px;
+    color: var(--text);
+}
+.a-sector-change {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--ff-mono);
+}
+.a-sector-item.up .a-sector-change {
+    color: var(--green);
+}
+.a-sector-item.down .a-sector-change {
+    color: var(--red);
+}
 .a-bars { display: flex; gap: 3px; margin-top: 14px; }
 .a-bar { flex: 1; height: 4px; border-radius: 2px; background: var(--bg2); }
 .a-bar.fill { background: var(--primary); }
