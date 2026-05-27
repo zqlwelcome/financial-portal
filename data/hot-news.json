@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 04:00",
+  "updateTime": "2026-05-28 04:05",
   "news": [
     {
       "rank": 1,
@@ -11,6 +11,14 @@
     },
     {
       "rank": 2,
+      "title": "美联储理事库克：若通胀未能及时回落，准备加息",
+      "summary": "美联储理事莉莎·库克（Lisa Cook）表示，如果通胀未能及时回落，她准备加息。 库克周三在斯坦福大学表示，目前正确的做法是保持利率稳定，但风险仍然偏向于通胀",
+      "detail": "",
+      "source": "环球市场播报",
+      "score": 15
+    },
+    {
+      "rank": 3,
       "title": "Travelport联手Cognizant与Anthropic，打造AI时代旅游科技新生态",
       "summary": "旅游零售与分销技术提供商Travelport今日宣布，将与AI构建商兼技术服务商Cognizant（纳斯达克代码：CTSH）及AI公司Anthropic展开战略",
       "detail": "",
@@ -18,7 +26,7 @@
       "score": 8
     },
     {
-      "rank": 3,
+      "rank": 4,
       "title": "RMX Industries AI视觉智能业务需求加速增长",
       "summary": "专注于视频压缩与优化的科技公司RMX Industries， Inc．（OTCQB： RMXI）今日发布业务更新，称其AI驱动产品战略获得市场积极响应，来自操作",
       "detail": "",
@@ -26,7 +34,7 @@
       "score": 8
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "前生物科技股Hoth更名为Rocket One，携纳米磁性AI芯片进军太空经济",
       "summary": "曾用名Hoth Therapeutics的生物科技公司已完成向航天科技企业的战略转型，正式更名为Rocket One Inc．，并将于明日（5月28日）起以新股",
       "detail": "",
@@ -34,7 +42,7 @@
       "score": 8
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "SBI Life携手Datamatics引入Agentic AI，重塑核保风险评估流程",
       "summary": "印度私营寿险公司SBI Life Insurance今日宣布，已委托全球数字技术及运营服务商Datamatics（孟买证券交易所代码：532528；印度国家证券",
       "detail": "",
@@ -42,7 +50,7 @@
       "score": 8
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Meta将推出AI聊天机器人订阅服务 月费最低7.99美元",
       "summary": " Meta Platforms首次开始向消费者销售Meta AI聊天机器人订阅服务，这是该公司建立人工智能业务的重要一步，料有助于部分抵消其在AI领域高达数千亿",
       "detail": "",
@@ -50,7 +58,15 @@
       "score": 8
     },
     {
-      "rank": 7,
+      "rank": 8,
+      "title": "Labcorp将出席Jefferies全球医疗保健大会",
+      "summary": "全球领先的综合实验室服务提供商Labcorp Holdings Inc．（纽约证券交易所代码：LH）今日宣布，公司将出席2026年Jefferies全球医疗保健",
+      "detail": "",
+      "source": "环球市场播报",
+      "score": 0
+    },
+    {
+      "rank": 9,
       "title": "Zoomd Technologies宣布实施正常发行人股份回购计划",
       "summary": "移动广告管理平台提供商Zoomd Technologies Ltd．（多伦多证券交易所创业板代码：ZOMD；场外市场代码：ZMDTF）今日宣布，其已获得多伦多证",
       "detail": "",
@@ -58,25 +74,9 @@
       "score": 0
     },
     {
-      "rank": 8,
+      "rank": 10,
       "title": "Q32 Bio完成5500万美元私募融资，顶级医疗基金领投",
       "summary": "临床阶段生物技术公司Q32 Bio Inc．（纳斯达克代码：QTTB）今日宣布，已与多家新老机构投资者及合格投资者达成证券购买协议，通过私募方式募集约5500万",
-      "detail": "",
-      "source": "环球市场播报",
-      "score": 0
-    },
-    {
-      "rank": 9,
-      "title": "Powerfleet与埃森哲达成战略合作，共推中欧智能安全解决方案",
-      "summary": "AIoT（人工智能物联网）SaaS移动资产公司Powerfleet， Inc．（纳斯达克代码：AIOT；约翰内斯堡证券交易所代码：PWR）今日宣布，与全球专业服",
-      "detail": "",
-      "source": "环球市场播报",
-      "score": 0
-    },
-    {
-      "rank": 10,
-      "title": "标普全球评级荣获GlobalCapital“年度CLO评级机构”大奖",
-      "summary": "独立信用评级提供商标普全球评级今日宣布，在纽约举行的2026年GlobalCapital美国证券化颁奖典礼上，被授予“年度CLO评级机构”称号。",
       "detail": "",
       "source": "环球市场播报",
       "score": 0
