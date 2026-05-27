@@ -114,6 +114,112 @@ function renderSummaryContent() {
                 <div id="expertContent"></div>
             </div>
         </div>
+        
+        <!-- 市场日历 -->
+        <div class="a-calendar">
+            <div class="a-calendar-header" onclick="toggleCalendar()">
+                <span class="a-section">📅 市场日历</span>
+                <span class="a-calendar-arrow" id="calendarArrow">›</span>
+            </div>
+            <div class="a-calendar-content" id="calendarContent">
+                <div class="a-calendar-list">
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">05/28</span>
+                        <span class="a-calendar-event">美联储会议纪要公布</span>
+                        <span class="a-calendar-impact high">高</span>
+                    </div>
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">05/29</span>
+                        <span class="a-calendar-event">美国Q1 GDP修正值</span>
+                        <span class="a-calendar-impact high">高</span>
+                    </div>
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">05/30</span>
+                        <span class="a-calendar-event">中国5月PMI数据</span>
+                        <span class="a-calendar-impact high">高</span>
+                    </div>
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">05/31</span>
+                        <span class="a-calendar-event">英伟达财报发布</span>
+                        <span class="a-calendar-impact medium">中</span>
+                    </div>
+                    <div class="a-calendar-item">
+                        <span class="a-calendar-date">06/01</span>
+                        <span class="a-calendar-event">美国非农就业数据</span>
+                        <span class="a-calendar-impact high">高</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 资金流向 -->
+        <div class="a-flow">
+            <div class="a-flow-header" onclick="toggleFlow()">
+                <span class="a-section">💰 资金流向</span>
+                <span class="a-flow-arrow" id="flowArrow">›</span>
+            </div>
+            <div class="a-flow-content" id="flowContent">
+                <div class="a-flow-list">
+                    <div class="a-flow-item">
+                        <span class="a-flow-name">北向资金</span>
+                        <span class="a-flow-value out">-52.3亿</span>
+                        <span class="a-flow-bar"><span style="width:30%"></span></span>
+                    </div>
+                    <div class="a-flow-item">
+                        <span class="a-flow-name">主力资金</span>
+                        <span class="a-flow-value out">-128.6亿</span>
+                        <span class="a-flow-bar"><span style="width:20%"></span></span>
+                    </div>
+                    <div class="a-flow-item">
+                        <span class="a-flow-name">融资余额</span>
+                        <span class="a-flow-value in">+15.2亿</span>
+                        <span class="a-flow-bar"><span style="width:65%"></span></span>
+                    </div>
+                    <div class="a-flow-item">
+                        <span class="a-flow-name">ETF净申购</span>
+                        <span class="a-flow-value in">+42.8亿</span>
+                        <span class="a-flow-bar"><span style="width:75%"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 板块轮动 -->
+        <div class="a-sector">
+            <div class="a-sector-header" onclick="toggleSector()">
+                <span class="a-section">📈 板块轮动</span>
+                <span class="a-sector-arrow" id="sectorArrow">›</span>
+            </div>
+            <div class="a-sector-content" id="sectorContent">
+                <div class="a-sector-list">
+                    <div class="a-sector-item up">
+                        <span class="a-sector-rank">1</span>
+                        <span class="a-sector-name">电力板块</span>
+                        <span class="a-sector-change">+3.2%</span>
+                    </div>
+                    <div class="a-sector-item up">
+                        <span class="a-sector-rank">2</span>
+                        <span class="a-sector-name">白酒板块</span>
+                        <span class="a-sector-change">+2.8%</span>
+                    </div>
+                    <div class="a-sector-item up">
+                        <span class="a-sector-rank">3</span>
+                        <span class="a-sector-name">超级电容</span>
+                        <span class="a-sector-change">+2.1%</span>
+                    </div>
+                    <div class="a-sector-item down">
+                        <span class="a-sector-rank">4</span>
+                        <span class="a-sector-name">半导体设备</span>
+                        <span class="a-sector-change">-4.5%</span>
+                    </div>
+                    <div class="a-sector-item down">
+                        <span class="a-sector-rank">5</span>
+                        <span class="a-sector-name">算力概念</span>
+                        <span class="a-sector-change">-3.8%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     `;
     
     // 渲染当前达人内容
@@ -264,6 +370,42 @@ function toggleMoodDetail() {
 function toggleBrainTrust() {
     const content = document.getElementById('brainTrustContent');
     const arrow = document.getElementById('brainTrustArrow');
+    if (!content || !arrow) return;
+    
+    const isHidden = content.style.display === 'none';
+    content.style.display = isHidden ? 'block' : 'none';
+    arrow.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
+    arrow.style.transition = 'transform 0.2s ease';
+}
+
+// ===== 折叠/展开市场日历 =====
+function toggleCalendar() {
+    const content = document.getElementById('calendarContent');
+    const arrow = document.getElementById('calendarArrow');
+    if (!content || !arrow) return;
+    
+    const isHidden = content.style.display === 'none';
+    content.style.display = isHidden ? 'block' : 'none';
+    arrow.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
+    arrow.style.transition = 'transform 0.2s ease';
+}
+
+// ===== 折叠/展开资金流向 =====
+function toggleFlow() {
+    const content = document.getElementById('flowContent');
+    const arrow = document.getElementById('flowArrow');
+    if (!content || !arrow) return;
+    
+    const isHidden = content.style.display === 'none';
+    content.style.display = isHidden ? 'block' : 'none';
+    arrow.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
+    arrow.style.transition = 'transform 0.2s ease';
+}
+
+// ===== 折叠/展开板块轮动 =====
+function toggleSector() {
+    const content = document.getElementById('sectorContent');
+    const arrow = document.getElementById('sectorArrow');
     if (!content || !arrow) return;
     
     const isHidden = content.style.display === 'none';
