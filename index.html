@@ -1,97 +1,144 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>下班学点啥</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🌙 下班学点啥</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="alert-style.css">
+    <link rel="stylesheet" href="walk.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="app">
-  <main class="container">
-    <header class="header-bar">
-      <div class="header-title">下班学点啥</div>
-      <div class="header-right">
-        <span class="nav-time" id="navTime"></span>
-        <button class="share-btn" id="shareBtn" onclick="shareApp()">📤</button>
-      </div>
-    </header>
+    <nav class="nav">
+        <span class="nav-logo"><span class="walk-man">🏃‍♂️</span><span style="font-family:'ZCOOL KuaiLe',cursive;font-size:20px;letter-spacing:1px;">下班学点啥</span></span>
+        <div style="display:flex;align-items:center;gap:6px;">
+            <span class="nav-time" id="navTime"></span>
+            <button id="shareBtn" class="nav-share" aria-label="分享">↗</button>
+        </div>
+    </nav>
 
-    <div class="tabs">
-      <button class="tab active" data-tab="finance">📰 财经</button>
-      <button class="tab" data-tab="ai-pm">🤖 AI产品</button>
+    <main class="main">
+        <div class="tabs">
+            <button class="tab active" data-tab="finance">📰 财经</button>
+            <button class="tab" data-tab="ai-pm">🤖 AI产品</button>
+        </div>
+
+        <!-- 财经区 -->
+        <section id="finance" class="section active">
+            <div class="sub-tabs">
+                <button class="sub-tab active" data-sub="realtime">⚡ 实时事件</button>
+                <button class="sub-tab" data-sub="daily">🧠 智囊团</button>
+                <button class="sub-tab" data-sub="holdings">📋 投资人持仓</button>
+            </div>
+
+            <!-- 实时新闻 -->
+            <div id="realtime" class="sub-content active">
+                <div class="market-bar">
+                    <div class="market-item" id="shIndex">
+                        <span class="market-label">上证</span>
+                        <span class="market-val">--</span>
+                        <span class="market-change">--</span>
+                    </div>
+                    <div class="market-item" id="hkIndex">
+                        <span class="market-label">恒生</span>
+                        <span class="market-val">--</span>
+                        <span class="market-change">--</span>
+                    </div>
+                    <div class="market-item" id="usIndex">
+                        <span class="market-label">纳斯达克</span>
+                        <span class="market-val">--</span>
+                        <span class="market-change">--</span>
+                    </div>
+                </div>
+                <div id="alertArea"></div>
+                <div class="section-header">
+                    <span class="section-label">🔥 热门 TOP 10</span>
+                    <span class="refresh-hint" id="refreshHint">下拉刷新</span>
+                </div>
+                <div id="hotNewsList" class="news-list"></div>
+            </div>
+
+            <!-- 投资观点 -->
+            <div id="daily" class="sub-content">
+                <div id="summaryContent"></div>
+            </div>
+
+            <!-- 持仓情报 -->
+            <div id="holdings" class="sub-content">
+                <div id="holdingsContent"></div>
+            </div>
+        </section>
+
+        <!-- AI产品经理区 -->
+        <section id="ai-pm" class="section">
+            <div class="status-bar">
+                <div class="streak">
+                    <span class="streak-num" id="streakDays">0</span>
+                    <span class="streak-label">连续</span>
+                </div>
+                <div class="progress-mini">
+                    <span id="completionRate">0%</span>
+                    <div class="progress-bar-mini">
+                        <div class="progress-fill-mini" id="progressFill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="courseList" class="course-list"></div>
+        </section>
+    </main>
+
+    <!-- 课程详情弹窗 -->
+    <div id="courseModal" class="modal hidden">
+        <div class="modal-sheet">
+            <div class="modal-top">
+                <div class="modal-spacer"></div>
+                <h2 id="modalTitle">课程详情</h2>
+                <button class="modal-x" id="modalClose">✕</button>
+            </div>
+            <div class="modal-scroll" id="modalBody"></div>
+        </div>
     </div>
 
-    <!-- 财经区 -->
-    <section id="finance" class="section active">
-      <div class="sub-tabs">
-        <button class="sub-tab active" data-sub="realtime">⚡ 实时事件</button>
-        <button class="sub-tab" data-sub="daily">🧠 智囊团</button>
-        <button class="sub-tab" data-sub="holdings">📋 投资人持仓</button>
-      </div>
-
-      <div id="realtime" class="sub-content active">
-        <div class="market-bar" id="marketBar"></div>
-        <div id="alertArea"></div>
-        <div class="section-title" style="margin-top:16px;">
-          🔥 热门TOP10
-          <span class="refresh-hint" id="refreshHint"></span>
-        </div>
-        <div id="hotNewsList"></div>
-      </div>
-
-      <div id="daily" class="sub-content">
-        <div id="summaryContent"></div>
-      </div>
-
-      <div id="holdings" class="sub-content">
-        <div id="holdingsContent"></div>
-      </div>
-    </section>
-
-    <!-- AI产品经理区 -->
-    <section id="ai-pm" class="section">
-      <div class="status-bar">
-        <div class="streak">
-          <span class="streak-num" id="streakDays">0</span>
-          <span class="streak-label">连续</span>
-        </div>
-        <div class="progress-mini">
-          <span id="completionRate">0%</span>
-          <div class="progress-bar-mini">
-            <div class="progress-fill-mini" id="progressFill" style="width: 0%"></div>
-          </div>
-        </div>
-      </div>
-      <div id="courseList" class="course-list"></div>
-    </section>
-  </main>
-
-  <!-- 课程详情弹窗 -->
-  <div id="courseModal" class="modal hidden">
-    <div class="modal-sheet">
-      <div class="modal-top">
-        <div class="modal-spacer"></div>
-        <h2 id="modalTitle">课程详情</h2>
-        <button class="modal-x" id="modalClose">✕</button>
-      </div>
-      <div class="modal-scroll" id="modalBody"></div>
+    <div class="site-stats" style="text-align:center;padding:8px 0 16px;font-size:12px;color:#aeaeb2;">
+        到访 <a href="https://cloud.umami.is/share/51d4b748-14ec-4708-a003-04ae51b47e83" target="_blank" style="color:#0071e3;text-decoration:none;">实时统计 📊</a>
     </div>
-  </div>
 
-  <div class="site-stats" style="text-align:center;padding:8px 0 16px;font-size:12px;color:#aeaeb2;">
-    到访 <a href="https://cloud.umami.is/share/51d4b748-14ec-4708-a003-04ae51b47e83" target="_blank" style="color:#0071e3;text-decoration:none;">实时统计 📊</a>
-  </div>
-</div>
-
-<script defer src="https://cloud.umami.is/script.js" data-website-id="51d4b748-14ec-4708-a003-04ae51b47e83"></script>
-<script src="daily-data.js"></script>
-<script src="news-loader.js"></script>
-<script src="course-data.js"></script>
-<script src="share.js"></script>
-<script src="holdings-data.js"></script>
-<script src="holdings-render.js"></script>
-<script src="course-app.js"></script>
-<script src="app.js"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="51d4b748-14ec-4708-a003-04ae51b47e83"></script>
+    <script src="daily-data.js?v=15"></script>
+    <script src="news-loader.js?v=15"></script>
+    <script src="course-data.js?v=15"></script>
+    <script src="share.js?v=15"></script>
+    <script src="holdings-data.js?v=15"></script>
+    <script src="holdings-render.js?v=15"></script>
+    <script src="course-app.js?v=15"></script>
+    <script src="app.js?v=15"></script>
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script>
+      (function(){
+        // CDN 节点同步延迟兜底：页面加载后检测是否是 GitHub Pages 404 页面
+        // 只在首次加载时触发一次（用 sessionStorage 标记）
+        if (!sessionStorage.getItem('__cs_retried')) {
+          var check = function(){
+            // 检测 GitHub Pages 的 404 页面特征：标题包含 404 或 body 为空
+            var title = document.title || '';
+            var is404Page = title.indexOf('404') !== -1;
+            var isEmptyBody = document.body && document.body.children.length <= 1;
+            if (is404Page || isEmptyBody) {
+              sessionStorage.setItem('__cs_retried', '1');
+              window.location.reload(true);
+            }
+          };
+          // DOM 就绪后立即检查，3 秒后再次检查（给 CDN 同步留时间窗口）
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', check);
+          } else {
+            check();
+          }
+          setTimeout(check, 3000);
+        }
+      })();
+    </script>
 </body>
 </html>
