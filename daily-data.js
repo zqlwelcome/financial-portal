@@ -106,11 +106,18 @@ function renderSummaryContent() {
     el.innerHTML = moodHtml + `
         <!-- 统一卡片：智囊团 + 市场日历 + 资金流向 + 板块轮动 -->
         <div class="a-insights">
-            <div class="a-insights-tabs">
-                <button class="a-insights-tab active" onclick="switchInsightTab('braintrust')">🧠 智囊团</button>
-                <button class="a-insights-tab" onclick="switchInsightTab('calendar')">📅 日历</button>
-                <button class="a-insights-tab" onclick="switchInsightTab('flow')">💰 资金</button>
-                <button class="a-insights-tab" onclick="switchInsightTab('sector')">📈 板块</button>
+            <div class="a-insights-tabs-wrapper">
+                <div class="a-insights-tabs">
+                    <button class="a-insights-tab active" onclick="switchInsightTab('braintrust')">🧠 智囊团</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('calendar')">📅 日历</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('flow')">💰 资金</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('sector')">📈 板块</button>
+                </div>
+                <div class="a-insights-hint" id="tabHint">
+                    <span class="a-hint-arrow">←</span>
+                    <span class="a-hint-text">左右滑动查看更多</span>
+                    <span class="a-hint-arrow">→</span>
+                </div>
             </div>
             
             <!-- 智囊团内容 -->
@@ -638,4 +645,11 @@ function switchInsightTab(tabName) {
         content.classList.remove('active');
     });
     document.getElementById(`insight-${tabName}`).classList.add('active');
+    
+    // 隐藏提示
+    const hint = document.getElementById('tabHint');
+    if (hint) {
+        hint.style.opacity = '0';
+        setTimeout(() => hint.style.display = 'none', 300);
+    }
 }
