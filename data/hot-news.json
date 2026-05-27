@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 05:50",
+  "updateTime": "2026-05-28 05:55",
   "news": [
     {
       "rank": 1,
@@ -59,6 +59,14 @@
     },
     {
       "rank": 8,
+      "title": "5月28日外盘头条：特朗普称美伊尚未达成协议 FAA责令SpaceX星舰试飞全面暂停 Meta将推出AI聊天机器人订阅",
+      "summary": "全球财经媒体昨夜今晨共同关注的头条新闻主要有： 1、特朗普称美伊尚未达成协议，白宫否认伊朗媒体说法 2、特朗普反对伊朗控制霍尔木兹海峡 美伊谈判再遇关键分歧 3",
+      "detail": "",
+      "source": "环球市场播报",
+      "score": 8
+    },
+    {
+      "rank": 9,
       "title": "Travelport联手Cognizant与Anthropic，打造AI时代旅游科技新生态",
       "summary": "旅游零售与分销技术提供商Travelport今日宣布，将与AI构建商兼技术服务商Cognizant（纳斯达克代码：CTSH）及AI公司Anthropic展开战略",
       "detail": "",
@@ -66,17 +74,9 @@
       "score": 8
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "RMX Industries AI视觉智能业务需求加速增长",
       "summary": "专注于视频压缩与优化的科技公司RMX Industries， Inc．（OTCQB： RMXI）今日发布业务更新，称其AI驱动产品战略获得市场积极响应，来自操作",
-      "detail": "",
-      "source": "环球市场播报",
-      "score": 8
-    },
-    {
-      "rank": 10,
-      "title": "前生物科技股Hoth更名为Rocket One，携纳米磁性AI芯片进军太空经济",
-      "summary": "曾用名Hoth Therapeutics的生物科技公司已完成向航天科技企业的战略转型，正式更名为Rocket One Inc．，并将于明日（5月28日）起以新股",
       "detail": "",
       "source": "环球市场播报",
       "score": 8
