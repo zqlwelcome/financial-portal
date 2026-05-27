@@ -453,6 +453,7 @@ body {
 }
 
 .news-summary { 
+    display: none;
     font-size: 13px; 
     color: var(--text2);
     line-height: 1.45;
@@ -469,7 +470,7 @@ body {
 }
 
 .news-item.expanded .news-detail { display: block; }
-.news-item.expanded .news-summary { display: none; }
+.news-item.expanded .news-source { display: none; }
 
 /* ===== 每日简报 ===== */
 .today-header {
