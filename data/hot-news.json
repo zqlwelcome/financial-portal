@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 03:25",
+  "updateTime": "2026-05-28 03:30",
   "news": [
     {
       "rank": 1,
@@ -19,6 +19,14 @@
     },
     {
       "rank": 3,
+      "title": "SBI Life携手Datamatics引入Agentic AI，重塑核保风险评估流程",
+      "summary": "印度私营寿险公司SBI Life Insurance今日宣布，已委托全球数字技术及运营服务商Datamatics（孟买证券交易所代码：532528；印度国家证券",
+      "detail": "",
+      "source": "环球市场播报",
+      "score": 8
+    },
+    {
+      "rank": 4,
       "title": "Meta将推出AI聊天机器人订阅服务 月费最低7.99美元",
       "summary": " Meta Platforms首次开始向消费者销售Meta AI聊天机器人订阅服务，这是该公司建立人工智能业务的重要一步，料有助于部分抵消其在AI领域高达数千亿",
       "detail": "",
@@ -26,7 +34,7 @@
       "score": 8
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "凯捷：人工智能拓宽客户支出范围",
       "summary": "法国科技服务集团凯捷于周四表示，人工智能正推动客户把投入从传统信息技术预算拓展至更多领域。此举意在打消投资者的顾虑 —— 市场曾担忧人工智能会冲击公司现有商业模",
       "detail": "",
@@ -34,7 +42,7 @@
       "score": 8
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "借助AI健康数据追踪技术，Signos在GLP-1减肥药热潮中进一步站稳市场",
       "summary": "核心要点医疗科技初创企业 Signos 宣布完成 2000 万美元融资，并深化与医疗器械巨头德康（Dexcom）的合作。Signos 推出 AI 血糖监测系统，",
       "detail": "",
@@ -42,15 +50,15 @@
       "score": 8
     },
     {
-      "rank": 6,
-      "title": "亚马逊向其他零售商开放旗下 AI 购物技术",
-      "summary": "核心要点亚马逊云科技（AWS）推出新产品，助力零售商搭建自有 AI 购物功能。该工具基于亚马逊近期完成品牌升级的电商智能助手 购物版亚历克莎（Alexa for",
+      "rank": 7,
+      "title": "害虫防治企业Rollins宣布CFO交接，Kenneth Krause卸任由William Harkins接棒",
+      "summary": "害虫防治企业Rollins， Inc．（纽约证券交易所代码：ROL）今日宣布，执行副总裁兼首席财务官Kenneth D． Krause将辞职，前往一家非相关行业",
       "detail": "",
       "source": "环球市场播报",
-      "score": 8
+      "score": 0
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "亚历山大房地产公司定于8月4日召开2026年第二季度业绩电话会议",
       "summary": "房地产投资信托基金亚历山大房地产公司（Alexandria Real Estate Equities， Inc．，纽约证券交易所代码：ARE）今日宣布，将于20",
       "detail": "",
@@ -58,7 +66,7 @@
       "score": 0
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "Wheels Up完成全球品牌统一，整合Air Partner打造一体化私人航空服务",
       "summary": "私人航空服务提供商Wheels Up Experience Inc．（纽约证券交易所代码：UP）今日宣布，已完成全球品牌整合，将Air Partner在英国及全",
       "detail": "",
@@ -66,17 +74,9 @@
       "score": 0
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Atossa Therapeutics在ASCO 2026公布(Z)-Endoxifen积极数据，展现克服ESR1突变潜力",
       "summary": "临床阶段生物制药公司Atossa Therapeutics， Inc．（纳斯达克代码：ATOS）今日宣布，两篇关于其在研药物（Z）-Endoxifen的摘要已获",
-      "detail": "",
-      "source": "环球市场播报",
-      "score": 0
-    },
-    {
-      "rank": 10,
-      "title": "MetaVia在EASL 2026公布DA-1726高剂量1期数据，展现肥胖与MASH治疗潜力",
-      "summary": "临床阶段生物技术公司MetaVia Inc．（纳斯达克代码：MTVA）今日在巴塞罗那举行的欧洲肝脏研究学会（EASL）2026年大会上的重磅壁报环节...",
       "detail": "",
       "source": "环球市场播报",
       "score": 0
