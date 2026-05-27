@@ -79,22 +79,25 @@ async function loadMarketData() {
     if (_marketTimer) clearTimeout(_marketTimer);
     
     try {
-        const resp = await fetch('https://web.sqt.gtimg.cn/q=sh000001,hkHSI,usIXIC', {
+        const resp = await fetch('https://web.sqt.gtimg.cn/q=sh000001,hkHSI,usIXIC,sh000300', {
             headers: { 'Referer': 'https://gu.qq.com' }
         });
         const text = await resp.text();
         
-        // 提取 v_sh000001 和 v_hkHSI 和 v_usIXIC
+        // 提取 v_sh000001 和 v_hkHSI 和 v_usIXIC 和 v_sh000300
         const sh = extractVar(text, 'v_sh000001');
         const hk = extractVar(text, 'v_hkHSI');
         const us = extractVar(text, 'v_usIXIC');
+        const csi300 = extractVar(text, 'v_sh000300');
         
         // 上证: [3]=当前价, [32]=涨跌幅
         // 恒指: [3]=当前价, [32]=涨跌幅
         // 纳斯达克: [3]=当前价, [31]=涨跌幅
+        // 沪深300: [3]=当前价, [32]=涨跌幅
         if (sh) { const p = sh.split('~'); if (p.length > 32) parsePrice('shIndex', p[3], p[32]); }
         if (hk) { const p = hk.split('~'); if (p.length > 32) parsePrice('hkIndex', p[3], p[32]); }
         if (us) { const p = us.split('~'); if (p.length > 32) parsePrice('usIndex', p[3], p[32]); }
+        if (csi300) { const p = csi300.split('~'); if (p.length > 32) parsePrice('csi300Index', p[3], p[32]); }
     } catch(e) {
         console.warn('行情API失败:', e);
     }
