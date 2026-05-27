@@ -90,8 +90,8 @@ function renderCourseCenter() {
     container.innerHTML = `
         <div class="course-center">
             <div class="course-center-header">
-                <div class="course-center-title">📚 学习中心</div>
-                <div class="course-center-subtitle">选择你的职业方向，开启AI学习之旅</div>
+                <div class="course-center-title">🔋 充电站</div>
+                <div class="course-center-subtitle">给自己充充电，升级打怪中...</div>
             </div>
             
             <div class="course-series-grid">
