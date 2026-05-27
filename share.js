@@ -22,6 +22,15 @@ function oneTapShare() {
     } catch(e) {}
     const url = 'https://zqlwelcomelearninghub.pages.dev/';
     const today = new Date().toLocaleDateString('zh-CN', {month:'long',day:'numeric'});
+    const hour = new Date().getHours();
+    
+    // 根据时间生成不同的问候语
+    let greeting = '';
+    if (hour < 9) greeting = '早安，新的一天从了解市场开始 ☀️';
+    else if (hour < 12) greeting = '上午好，市场动态一手掌握 📊';
+    else if (hour < 14) greeting = '午间快讯，午后行情抢先看 🍱';
+    else if (hour < 18) greeting = '下午好，今日行情不错过 📈';
+    else greeting = '晚间复盘，投资智库助你决策 🌙';
     
     // 从持仓数据生成摘要
     let holdingsSummary = '';
@@ -30,20 +39,27 @@ function oneTapShare() {
         holdingsSummary = picks.map(id => {
             const h = INVESTOR_HOLDINGS[id];
             if (!h) return '';
-            // 找出最大的增持和新买入
             const topChanges = (h.changes || []).filter(c => c.action === 'add' || c.action === 'new').slice(0, 2);
             const changes = topChanges.map(c => `${c.ticker}${c.action === 'new' ? '🆕' : '↑'}`).join(' ');
             return `${h.icon} ${h.name} ${changes}`
         }).filter(Boolean).join(' · ');
-        holdingsSummary = '\n📋 持仓情报 ' + holdingsSummary + '\n';
+        holdingsSummary = '\n\n📋 最新持仓动态\n' + holdingsSummary;
     }
     
-    const shareText = '🌙 下班学点啥\n' + today + ' · ' + pv + '人次访问\n\n' +
-        '📰 实时财经  📈 行情数据  🧠 投资智库  🤖 AI课程\n\n' +
-        '每天更新财经新闻、外汇股市提示，' +
-        '还有邓普顿/巴菲特/芒格三重投资视角解读和AI产品经理学习体系。' +
-        holdingsSummary +
-        '\n🔗 ' + url;
+    const shareText = '🌙 下班学点啥 - 你的投资学习伙伴\n' +
+        '━━━━━━━━━━━━━━━━━━━━\n' +
+        greeting + '\n\n' +
+        '🔥 核心功能\n' +
+        '• 实时行情：上证 / 恒生 / 纳指 / 沪深300\n' +
+        '• 热门资讯：每日TOP10财经新闻\n' +
+        '• 投资智库：邓普顿 / 巴菲特 / 芒格 / 段永平\n' +
+        '• 持仓追踪：全球投资大佬持仓变化\n' +
+        '• 市场日历：重要经济事件提醒\n' +
+        '• AI课程：产品经理学习体系' +
+        holdingsSummary + '\n\n' +
+        '━━━━━━━━━━━━━━━━━━━━\n' +
+        '👆 点击链接，开启你的投资学习之旅\n' +
+        '🔗 ' + url;
     
     copyToClipboard(shareText);
     showToast('✅ 已复制，去微信粘贴发送');
