@@ -2050,3 +2050,120 @@ body {
     font-weight: 500;
     transition: all 0.2s;
 }
+
+/* ===== 市场日历详细注解 ===== */
+.a-calendar-item {
+    padding: 12px 0;
+    border-bottom: 0.5px solid var(--border);
+}
+.a-calendar-item:last-child {
+    border-bottom: none;
+}
+.a-calendar-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+.a-calendar-detail {
+    display: none;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+.a-calendar-item.expanded .a-calendar-detail {
+    display: block;
+}
+.a-calendar-explain {
+    color: var(--text2);
+    margin-bottom: 4px;
+}
+.a-calendar-watch {
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+.a-calendar-impact-text {
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* ===== 资金流向详细注解 ===== */
+.a-flow-item {
+    padding: 12px 0;
+    border-bottom: 0.5px solid var(--border);
+}
+.a-flow-item:last-child {
+    border-bottom: none;
+}
+.a-flow-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+.a-flow-detail {
+    display: none;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+.a-flow-item.expanded .a-flow-detail {
+    display: block;
+}
+.a-flow-explain {
+    color: var(--text2);
+    margin-bottom: 4px;
+}
+.a-flow-meaning {
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+.a-flow-impact {
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* ===== 板块轮动详细注解 ===== */
+.a-sector-item {
+    padding: 12px 0;
+    border-bottom: 0.5px solid var(--border);
+}
+.a-sector-item:last-child {
+    border-bottom: none;
+}
+.a-sector-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+.a-sector-detail {
+    display: none;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+.a-sector-item.expanded .a-sector-detail {
+    display: block;
+}
+.a-sector-explain {
+    color: var(--text2);
+    margin-bottom: 4px;
+}
+.a-sector-reason {
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+.a-sector-impact {
+    color: var(--text);
+    font-weight: 500;
+}
