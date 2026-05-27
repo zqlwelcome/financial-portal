@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>分享海报</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f5f5f7;
+    font-family: -apple-system, "PingFang SC", "ZCOOL KuaiLe", "Comic Sans MS", cursive, sans-serif;
+  }
+  .poster {
+    width: 750px;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+    border: 3px solid #FFD700;
+  }
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px 24px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .hero .mascot { font-size: 56px; display: block; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .hero h1 {
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 32px;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-top: 2px;
+  }
+  .hero .sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.9);
+    margin-top: 2px;
+    line-height: 1.6;
+  }
+  .hero .fun-tag {
+    display: inline-block;
+    background: #FECA57;
+    color: #5d4037;
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+
+  .body { padding: 16px 20px; }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .highlight-box .big { font-size: 18px; font-weight: 700; color: #1d1d1f; }
+  .highlight-box .small { font-size: 13px; color: #33691e; margin-top: 4px; line-height: 1.5; }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .f-card {
+    border-radius: 14px;
+    padding: 12px;
+    text-align: center;
+    border: 2px solid #eee;
+  }
+  .f-card .icon { font-size: 28px; }
+  .f-card .title { font-size: 14px; font-weight: 700; color: #1d1d1f; margin: 2px 0; }
+  .f-card .desc { font-size: 11px; color: #666; line-height: 1.4; }
+  .fc-l { background: #f3e5f5; border-color: #ce93d8; }
+  .fc-b { background: #e3f2fd; border-color: #90caf9; }
+  .fc-g { background: #e8f5e9; border-color: #a5d6a7; }
+  .fc-y { background: #fff8e1; border-color: #ffe082; }
+  .fc-r { background: #fce4ec; border-color: #f48fb1; }
+  .fc-o { background: #fff3e0; border-color: #ffcc80; }
+
+  .section-title {
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 16px;
+    color: #1d1d1f;
+    margin: 12px 0 8px;
+  }
+
+  .course-cloud { display: flex; flex-wrap: wrap; gap: 5px; }
+  .c-tag {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1.5px solid;
+  }
+  .c-tag.c1 { background: #f3e5f5; border-color: #ce93d8; color: #6a1b9a; }
+  .c-tag.c2 { background: #e3f2fd; border-color: #90caf9; color: #1565c0; }
+  .c-tag.c3 { background: #e8f5e9; border-color: #a5d6a7; color: #2e7d32; }
+  .c-tag.c4 { background: #fff3e0; border-color: #ffcc80; color: #e65100; }
+
+  .footer {
+    text-align: center;
+    padding: 14px 20px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  .footer .qr-box {
+    display: inline-block;
+    background: #fff;
+    border-radius: 14px;
+    padding: 8px;
+  }
+  .footer .qr-box img { width: 120px; height: 120px; display: block; border-radius: 6px; }
+  .footer .url {
+    font-size: 14px;
+    font-weight: 700;
+    color: #FECA57;
+    margin-top: 8px;
+    letter-spacing: 1px;
+  }
+  .footer .hint { font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="hero">
+    <span class="mascot">🏃‍♂️</span>
+    <h1>下班学点啥</h1>
+    <div class="sub">
+      📰 实时新闻解读 · 🧠 智囊团观点<br>
+      📈 财经行情 · 🤖 AI产品经理课程
+    </div>
+    <div class="fun-tag">🎁 完全免费 · 手机电脑都能用</div>
+  </div>
+
+  <div class="body">
+    <div class="highlight-box">
+      <div class="big">🔥 每日自动更新的财经智囊</div>
+      <div class="small">
+        热门TOP10新闻每10分钟刷新 · 邓普顿/巴菲特/芒格/段永平每日解读<br>
+        美股A股港股实时行情 · 投资人13F持仓跟踪
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="f-card fc-l">
+        <div class="icon">🧠</div>
+        <div class="title">智囊团观点</div>
+        <div class="desc">4位投资大师每日解读<br>基于最新新闻自动生成</div>
+      </div>
+      <div class="f-card fc-b">
+        <div class="icon">📈</div>
+        <div class="title">实时行情</div>
+        <div class="desc">美股·A股·港股<br>30秒自动刷新</div>
+      </div>
+      <div class="f-card fc-g">
+        <div class="icon">📰</div>
+        <div class="title">热门TOP10</div>
+        <div class="desc">新浪+华尔街见闻<br>每10分钟更新</div>
+      </div>
+      <div class="f-card fc-y">
+        <div class="icon">📋</div>
+        <div class="title">持仓情报</div>
+        <div class="desc">巴菲特·段永平13F<br>每季度同步</div>
+      </div>
+    </div>
+
+    <div class="section-title">📚 AI产品经理课程 20节</div>
+    <div class="course-cloud">
+      <span class="c-tag c1">🧠 角色定位</span>
+      <span class="c-tag c1">🔭 行业全景</span>
+      <span class="c-tag c2">💬 工程沟通</span>
+      <span class="c-tag c2">⚙️ 大模型选型</span>
+      <span class="c-tag c2">💰 成本估算</span>
+      <span class="c-tag c2">🤖 Agent实战</span>
+      <span class="c-tag c3">📊 指标体系</span>
+      <span class="c-tag c3">🧪 AB测试</span>
+      <span class="c-tag c4">🎨 交互原则</span>
+      <span class="c-tag c4">🛡️ 降级策略</span>
+      <span class="c-tag c4">🔐 金融合规</span>
+      <span class="c-tag c1">🚀 从0到1</span>
+      <span class="c-tag c1">🎯 面试突击</span>
+      <span class="c-tag c1">📦 灰度上线</span>
+      <span class="c-tag c1">📖 案例拆解</span>
+    </div>
+
+    <div class="highlight-box" style="margin-top:12px;background:linear-gradient(135deg,#fff8e1,#fff3cd);">
+      <div class="small" style="color:#856404;">
+        🎯 非技术语言 · 简单易懂 · 每天进步一点点
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="qr-box">
+      <img src="assets/qr-code.png" alt="扫码学习">
+    </div>
+    <div class="url">zqlwelcomelearninghub.pages.dev</div>
+    <div class="hint">⭐ 存到桌面方便查看</div>
+  </div>
+</div>
+</body>
+</html>
