@@ -10,8 +10,16 @@ function initShare() {
 }
 
 function oneTapShare() {
-    const pv = document.getElementById('busuanzi_value_site_pv')?.textContent || '--';
-    const uv = document.getElementById('busuanzi_value_site_uv')?.textContent || '--';
+    // 从 localStorage 读取今日统计
+    let pv = '--', uv = '--';
+    try {
+        const stats = JSON.parse(localStorage.getItem('site_stats') || '{}');
+        const today = new Date().toDateString();
+        if (stats.date === today) {
+            pv = stats.pv || 0;
+            uv = stats.uv || 0;
+        }
+    } catch(e) {}
     const url = 'https://zqlwelcomelearninghub.pages.dev/';
     const today = new Date().toLocaleDateString('zh-CN', {month:'long',day:'numeric'});
     
