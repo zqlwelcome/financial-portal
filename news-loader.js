@@ -201,11 +201,8 @@ function renderNewsList(news) {
         <div class="news-item ${expandedNews === index ? 'expanded' : ''}" onclick="toggleNews(${index})">
             <div class="news-rank ${index < 3 ? 'hot' : ''}">${index + 1}</div>
             <div class="news-body">
-                <div class="news-head">
-                    <span class="news-source">${item.source}</span>
-                </div>
                 <div class="news-title">${item.title}</div>
-                <div class="news-summary">${item.summary}</div>
+                <div class="news-source">${item.source}</div>
                 <div class="news-detail">${item.detail || '暂无详细信息'}</div>
             </div>
             <div class="news-arrow">›</div>
@@ -219,11 +216,8 @@ function renderNewsList(news) {
             <div class="news-item ${expandedNews === realIndex ? 'expanded' : ''}" onclick="toggleNews(${realIndex})">
                 <div class="news-rank ${realIndex < 3 ? 'hot' : ''}">${realIndex + 1}</div>
                 <div class="news-body">
-                    <div class="news-head">
-                        <span class="news-source">${item.source}</span>
-                    </div>
                     <div class="news-title">${item.title}</div>
-                    <div class="news-summary">${item.summary}</div>
+                    <div class="news-source">${item.source}</div>
                     <div class="news-detail">${item.detail || '暂无详细信息'}</div>
                 </div>
                 <div class="news-arrow">›</div>
