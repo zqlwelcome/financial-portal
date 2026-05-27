@@ -202,8 +202,7 @@ function renderNewsList(news) {
                     <span class="news-source">${item.source}</span>
                 </div>
                 <div class="news-title">${item.title}</div>
-                <div class="news-summary">${item.summary}</div>
-                <div class="news-detail">${item.detail || '暂无详细信息'}</div>
+                <div class="news-detail">${item.summary || '暂无详细信息'}</div>
             </div>
             <div class="news-arrow">›</div>
         </div>`).join('');
