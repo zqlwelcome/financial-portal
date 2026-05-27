@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 04:20",
+  "updateTime": "2026-05-28 04:30",
   "news": [
     {
       "rank": 1,
@@ -27,6 +27,14 @@
     },
     {
       "rank": 4,
+      "title": "5月28日热门中概股多数上涨 蔚来涨9.32%，拼多多跌10.38%",
+      "summary": "5月28日热门中概股多数上涨，纳斯达克中国金龙指数（HXC）收高1.05%。 上涨个股（按市值从高到低）：台积电涨2.52%，日月光半导体涨0.31%，网易涨0",
+      "detail": "",
+      "source": "环球市场播报",
+      "score": 15
+    },
+    {
+      "rank": 5,
       "title": "美联储理事库克：若通胀未能及时回落，准备加息",
       "summary": "美联储理事莉莎·库克（Lisa Cook）表示，如果通胀未能及时回落，她准备加息。 库克周三在斯坦福大学表示，目前正确的做法是保持利率稳定，但风险仍然偏向于通胀",
       "detail": "",
@@ -34,7 +42,7 @@
       "score": 15
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Travelport联手Cognizant与Anthropic，打造AI时代旅游科技新生态",
       "summary": "旅游零售与分销技术提供商Travelport今日宣布，将与AI构建商兼技术服务商Cognizant（纳斯达克代码：CTSH）及AI公司Anthropic展开战略",
       "detail": "",
@@ -42,7 +50,7 @@
       "score": 8
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "RMX Industries AI视觉智能业务需求加速增长",
       "summary": "专注于视频压缩与优化的科技公司RMX Industries， Inc．（OTCQB： RMXI）今日发布业务更新，称其AI驱动产品战略获得市场积极响应，来自操作",
       "detail": "",
@@ -50,7 +58,7 @@
       "score": 8
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "前生物科技股Hoth更名为Rocket One，携纳米磁性AI芯片进军太空经济",
       "summary": "曾用名Hoth Therapeutics的生物科技公司已完成向航天科技企业的战略转型，正式更名为Rocket One Inc．，并将于明日（5月28日）起以新股",
       "detail": "",
@@ -58,7 +66,7 @@
       "score": 8
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "SBI Life携手Datamatics引入Agentic AI，重塑核保风险评估流程",
       "summary": "印度私营寿险公司SBI Life Insurance今日宣布，已委托全球数字技术及运营服务商Datamatics（孟买证券交易所代码：532528；印度国家证券",
       "detail": "",
@@ -66,17 +74,9 @@
       "score": 8
     },
     {
-      "rank": 9,
-      "title": "Labcorp将出席Jefferies全球医疗保健大会",
-      "summary": "全球领先的综合实验室服务提供商Labcorp Holdings Inc．（纽约证券交易所代码：LH）今日宣布，公司将出席2026年Jefferies全球医疗保健",
-      "detail": "",
-      "source": "环球市场播报",
-      "score": 0
-    },
-    {
       "rank": 10,
-      "title": "Zoomd Technologies宣布实施正常发行人股份回购计划",
-      "summary": "移动广告管理平台提供商Zoomd Technologies Ltd．（多伦多证券交易所创业板代码：ZOMD；场外市场代码：ZMDTF）今日宣布，其已获得多伦多证",
+      "title": "惠普第二财季利润和收入双双上扬，但下调全年业绩展望",
+      "summary": "惠普（HP）第二财季盈利和收入均录得增长，但该公司表示，预计今年盈利能力将低于此前预期。 这家打印机和电脑制造商周三表示，目前预计全年每股利润在2.15美元至2",
       "detail": "",
       "source": "环球市场播报",
       "score": 0
