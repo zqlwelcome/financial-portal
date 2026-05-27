@@ -2,6 +2,7 @@
  * 课程中心 - 应用逻辑
  * 支持多系列课程的卡片式布局
  * 集成 course-data.js 中的完整课程内容
+ * 所有课程都可以自由浏览，只记录打卡进度
  */
 
 // 当前状态
@@ -25,11 +26,18 @@ function renderCourseCenter() {
     let pmProgress = 0;
     let pmCompleted = 0;
     let pmTotal = 0;
+    
+    // 获取课程进度
+    let progress = {};
+    try {
+        progress = JSON.parse(localStorage.getItem('ai_pm_course_progress') || '{}');
+    } catch(e) {}
+    
     if (typeof COURSES !== 'undefined') {
         COURSES.forEach(section => {
             section.lessons.forEach(lesson => {
                 pmTotal++;
-                if (courseProgress && courseProgress[lesson.id]) {
+                if (progress[lesson.id]) {
                     pmCompleted++;
                 }
             });
@@ -108,17 +116,15 @@ function openSeriesDetail(seriesId) {
     const series = COURSE_SERIES.find(s => s.id === seriesId);
     if (!series) return;
     
-    if (series.status === 'coming-soon') {
-        showToast('🚀 课程即将上线，敬请期待！');
-        return;
-    }
-    if (series.status === 'locked') {
-        showToast('🔒 课程暂未开放');
-        return;
-    }
-    
+    // 所有系列都可以浏览
     currentView = 'detail';
     currentSeries = series;
+    
+    // 获取课程进度
+    let progress = {};
+    try {
+        progress = JSON.parse(localStorage.getItem('ai_pm_course_progress') || '{}');
+    } catch(e) {}
     
     const container = document.getElementById('courseCenter');
     container.innerHTML = `
@@ -143,7 +149,7 @@ function openSeriesDetail(seriesId) {
                 </div>
                 
                 <div class="course-modules">
-                    ${series.modules.map(module => renderModule(module, series.color, series.id)).join('')}
+                    ${series.modules.map(module => renderModule(module, series.color, series.id, progress)).join('')}
                 </div>
             </div>
         </div>
@@ -151,16 +157,15 @@ function openSeriesDetail(seriesId) {
 }
 
 // 渲染模块
-function renderModule(module, color, seriesId) {
+function renderModule(module, color, seriesId, progress) {
     // 计算模块进度
     let completedCount = 0;
     module.lessons.forEach(lesson => {
-        if (courseProgress && courseProgress[lesson.id]) {
+        if (progress[lesson.id]) {
             completedCount++;
         }
     });
     const totalCount = module.lessons.length;
-    const isExpanded = completedCount > 0 && completedCount < totalCount;
     
     return `
         <div class="course-module" onclick="toggleModule('${module.id}')">
@@ -173,18 +178,18 @@ function renderModule(module, color, seriesId) {
                 <div class="course-module-progress">${completedCount}/${totalCount}</div>
             </div>
             
-            <div class="course-lessons" id="module-${module.id}" style="display: ${isExpanded ? 'block' : 'none'}">
-                ${module.lessons.map(lesson => renderLesson(lesson, color, seriesId)).join('')}
+            <div class="course-lessons" id="module-${module.id}" style="display: block;">
+                ${module.lessons.map(lesson => renderLesson(lesson, color, seriesId, progress)).join('')}
             </div>
         </div>
     `;
 }
 
 // 渲染课程
-function renderLesson(lesson, color, seriesId) {
-    const isCompleted = courseProgress && courseProgress[lesson.id];
+function renderLesson(lesson, color, seriesId, progress) {
+    const isCompleted = progress[lesson.id];
     const statusIcon = isCompleted ? '✓' : '';
-    const statusText = isCompleted ? '已完成' : '未完成';
+    const statusText = isCompleted ? '已完成' : '点击学习';
     
     return `
         <div class="course-lesson" onclick="openLesson('${lesson.id}', '${seriesId}')">
@@ -260,7 +265,13 @@ function openPMLesson(lessonId) {
     
     title.textContent = lesson.title;
     
-    const isCompleted = courseProgress && courseProgress[lessonId];
+    // 获取课程进度
+    let progress = {};
+    try {
+        progress = JSON.parse(localStorage.getItem('ai_pm_course_progress') || '{}');
+    } catch(e) {}
+    
+    const isCompleted = progress[lessonId];
     
     body.innerHTML = `
         <div class="lesson-section-title">${sectionTitle}</div>
@@ -275,15 +286,17 @@ function openPMLesson(lessonId) {
 
 // 完成课程打卡
 function completeLesson(lessonId) {
-    if (!courseProgress) {
-        courseProgress = {};
-    }
+    // 获取课程进度
+    let progress = {};
+    try {
+        progress = JSON.parse(localStorage.getItem('ai_pm_course_progress') || '{}');
+    } catch(e) {}
     
-    if (!courseProgress[lessonId]) {
-        courseProgress[lessonId] = true;
-        courseProgress['_last_completed'] = lessonId;
-        courseProgress['_last_completed_time'] = new Date().toLocaleDateString('zh-CN');
-        localStorage.setItem('ai_pm_course_progress', JSON.stringify(courseProgress));
+    if (!progress[lessonId]) {
+        progress[lessonId] = true;
+        progress['_last_completed'] = lessonId;
+        progress['_last_completed_time'] = new Date().toLocaleDateString('zh-CN');
+        localStorage.setItem('ai_pm_course_progress', JSON.stringify(progress));
         
         // 更新按钮状态
         const btn = document.querySelector('.done-btn');
@@ -292,11 +305,17 @@ function completeLesson(lessonId) {
             btn.textContent = '✓ 已完成';
         }
         
-        // 重新渲染课程中心
-        renderCourseCenter();
-        
         // 显示成功提示
         showToast('🎉 打卡成功！');
+        
+        // 延迟关闭弹窗并刷新课程中心
+        setTimeout(() => {
+            const modal = document.getElementById('courseModal');
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+            renderCourseCenter();
+        }, 1500);
     }
 }
 
