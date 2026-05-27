@@ -1,7 +1,7 @@
 /**
  * 新闻和提示 - 稳定版
- * 数据来源：hot-news.json（由cron job每30分钟更新）
- * XHR绕过CDN缓存 + 5分钟前端自动刷新
+ * 数据来源：hot-news.json（由cron job每5分钟更新）
+ * 交互逻辑：默认显示标题+出处，点击展开详情，再次点击收起
  */
 
 // ===== 缓存 =====
@@ -9,7 +9,7 @@ let newsCache = [];
 let alertsCache = null;
 let lastRefreshTime = 0;
 let _lastUpdateTime = '';
-const REFRESH_INTERVAL = 5 * 60 * 1000; // 前端5分钟检查一次
+const REFRESH_INTERVAL = 5 * 60 * 1000;
 
 // ===== 当前展开状态 =====
 let expandedAlert = null;
@@ -34,7 +34,6 @@ async function loadHotNews(forceRefresh = false) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
     
-    // 非强制刷新且缓存还在有效期内，直接渲染
     if (!forceRefresh && newsCache.length > 0 && (Date.now() - lastRefreshTime) < REFRESH_INTERVAL) {
         renderNewsList(newsCache);
         return;
@@ -59,7 +58,6 @@ async function loadHotNews(forceRefresh = false) {
                 return;
             }
             
-            // 数据没变
             lastRefreshTime = Date.now();
             updateRefreshHint(data.updateTime || '已是最新');
             return;
@@ -68,7 +66,6 @@ async function loadHotNews(forceRefresh = false) {
         console.log('加载新闻失败:', e);
     }
     
-    // 降级到本地缓存
     const cached = localStorage.getItem('hot_news_cache');
     if (cached) {
         try {
@@ -110,7 +107,7 @@ function xhrFetch() {
     });
 }
 
-// ===== 加载提示（XHR绕过CDN缓存）=====
+// ===== 加载提示 =====
 async function loadAlerts(forceRefresh = false) {
     if (!forceRefresh && alertsCache) {
         renderAlerts(alertsCache);
@@ -201,8 +198,11 @@ function renderNewsList(news) {
         <div class="news-item ${expandedNews === index ? 'expanded' : ''}" onclick="toggleNews(${index})">
             <div class="news-rank ${index < 3 ? 'hot' : ''}">${index + 1}</div>
             <div class="news-body">
+                <div class="news-head">
+                    <span class="news-source">${item.source}</span>
+                </div>
                 <div class="news-title">${item.title}</div>
-                <div class="news-source">${item.source}</div>
+                <div class="news-summary">${item.summary}</div>
                 <div class="news-detail">${item.detail || '暂无详细信息'}</div>
             </div>
             <div class="news-arrow">›</div>
@@ -216,8 +216,11 @@ function renderNewsList(news) {
             <div class="news-item ${expandedNews === realIndex ? 'expanded' : ''}" onclick="toggleNews(${realIndex})">
                 <div class="news-rank ${realIndex < 3 ? 'hot' : ''}">${realIndex + 1}</div>
                 <div class="news-body">
+                    <div class="news-head">
+                        <span class="news-source">${item.source}</span>
+                    </div>
                     <div class="news-title">${item.title}</div>
-                    <div class="news-source">${item.source}</div>
+                    <div class="news-summary">${item.summary}</div>
                     <div class="news-detail">${item.detail || '暂无详细信息'}</div>
                 </div>
                 <div class="news-arrow">›</div>
