@@ -68,10 +68,10 @@ function renderSummaryContent() {
         duan:      { name: '段永平', icon: '🧑‍💼', color: '#0071e3' }
     };
     
-    // 情绪卡片（静态，不随达人切换变化）
+    // 情绪卡片（可折叠）
     const moodHtml = `
         <div class="a-mood" id="aMood">
-            <div class="a-top">
+            <div class="a-top" onclick="toggleMoodDetail()" style="cursor:pointer;">
                 <div>
                     <div class="a-label">市场情绪</div>
                     <div class="a-mood-status">
@@ -79,10 +79,15 @@ function renderSummaryContent() {
                         <span>${moodData.mood}</span>
                     </div>
                 </div>
-                <div class="a-score">${conf}<small>/10</small></div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <div class="a-score">${conf}<small>/10</small></div>
+                    <span class="a-mood-arrow" id="moodArrow">›</span>
+                </div>
             </div>
-            <div class="a-bars">${bars}</div>
-            <div class="a-chips">${chipHtml || '<span class="a-chip">暂无数据</span>'}</div>
+            <div class="a-mood-detail" id="moodDetail" style="display:none;">
+                <div class="a-bars">${bars}</div>
+                <div class="a-chips">${chipHtml || '<span class="a-chip">暂无数据</span>'}</div>
+            </div>
         </div>
     `;
     
@@ -230,4 +235,16 @@ function genExperts(hotNews, alerts) {
         munger: { insight: '三层思维：「' + topTitle + '」第一层：今天的新闻改变了什么？第二层：是否过度反应？第三层：最坏情况是什么？', action: '保持60%权益+40%现金/债券的均衡配置。' },
         duan: { insight: '好生意+好管理层+好价格。' + topTitle + '，看得懂的才重仓。', action: '关注苹果、腾讯、拼多多回调后的加仓机会。' }
     };
+}
+
+// ===== 折叠/展开市场情绪详情 =====
+function toggleMoodDetail() {
+    const detail = document.getElementById('moodDetail');
+    const arrow = document.getElementById('moodArrow');
+    if (!detail || !arrow) return;
+    
+    const isHidden = detail.style.display === 'none';
+    detail.style.display = isHidden ? 'block' : 'none';
+    arrow.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
+    arrow.style.transition = 'transform 0.2s ease';
 }
