@@ -149,7 +149,7 @@ function renderSummaryContent() {
             <div class="a-insights-content" id="insight-calendar">
                 <div class="a-calendar-list">
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
+                        <div class="a-calendar-main">
                             <span class="a-calendar-date">05/28</span>
                             <span class="a-calendar-event">美联储5月会议纪要公布</span>
                             <span class="a-calendar-impact high">high</span>
@@ -161,7 +161,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
+                        <div class="a-calendar-main">
                             <span class="a-calendar-date">05/29</span>
                             <span class="a-calendar-event">美国Q1 GDP修正值</span>
                             <span class="a-calendar-impact high">high</span>
@@ -173,7 +173,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
+                        <div class="a-calendar-main">
                             <span class="a-calendar-date">05/30</span>
                             <span class="a-calendar-event">中国5月官方PMI</span>
                             <span class="a-calendar-impact high">high</span>
@@ -185,7 +185,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
+                        <div class="a-calendar-main">
                             <span class="a-calendar-date">05/31</span>
                             <span class="a-calendar-event">美国4月PCE物价指数</span>
                             <span class="a-calendar-impact high">high</span>
@@ -197,7 +197,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
+                        <div class="a-calendar-main">
                             <span class="a-calendar-date">06/01</span>
                             <span class="a-calendar-event">中国5月财新PMI</span>
                             <span class="a-calendar-impact high">high</span>
@@ -209,7 +209,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
+                        <div class="a-calendar-main">
                             <span class="a-calendar-date">06/02</span>
                             <span class="a-calendar-event">美国5月非农就业数据</span>
                             <span class="a-calendar-impact high">high</span>
@@ -221,7 +221,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
+                        <div class="a-calendar-main">
                             <span class="a-calendar-date">06/03</span>
                             <span class="a-calendar-event">欧洲央行利率决议</span>
                             <span class="a-calendar-impact high">high</span>
@@ -239,7 +239,7 @@ function renderSummaryContent() {
             <div class="a-insights-content" id="insight-flow">
                 <div class="a-flow-list">
                     <div class="a-flow-item">
-                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                        <div class="a-flow-main">
                             <span class="a-flow-name">北向资金</span>
                             <span class="a-flow-value out">-52.3亿</span>
                             <span class="a-flow-bar"><span style="width:30%"></span></span>
@@ -251,7 +251,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-flow-item">
-                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                        <div class="a-flow-main">
                             <span class="a-flow-name">主力资金</span>
                             <span class="a-flow-value out">-128.6亿</span>
                             <span class="a-flow-bar"><span style="width:20%"></span></span>
@@ -263,7 +263,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-flow-item">
-                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                        <div class="a-flow-main">
                             <span class="a-flow-name">融资余额</span>
                             <span class="a-flow-value in">+15.2亿</span>
                             <span class="a-flow-bar"><span style="width:65%"></span></span>
@@ -275,7 +275,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-flow-item">
-                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                        <div class="a-flow-main">
                             <span class="a-flow-name">ETF净申购</span>
                             <span class="a-flow-value in">+42.8亿</span>
                             <span class="a-flow-bar"><span style="width:75%"></span></span>
@@ -293,7 +293,7 @@ function renderSummaryContent() {
             <div class="a-insights-content" id="insight-sector">
                 <div class="a-sector-list">
                     <div class="a-sector-item up">
-                        <div class="a-sector-main" onclick="toggleSectorDetail(this)">
+                        <div class="a-sector-main">
                             <span class="a-sector-rank">1</span>
                             <span class="a-sector-name">电力板块</span>
                             <span class="a-sector-change">+3.2%</span>
@@ -305,7 +305,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-sector-item up">
-                        <div class="a-sector-main" onclick="toggleSectorDetail(this)">
+                        <div class="a-sector-main">
                             <span class="a-sector-rank">2</span>
                             <span class="a-sector-name">白酒板块</span>
                             <span class="a-sector-change">+2.8%</span>
@@ -317,7 +317,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-sector-item up">
-                        <div class="a-sector-main" onclick="toggleSectorDetail(this)">
+                        <div class="a-sector-main">
                             <span class="a-sector-rank">3</span>
                             <span class="a-sector-name">超级电容</span>
                             <span class="a-sector-change">+2.1%</span>
@@ -329,7 +329,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-sector-item down">
-                        <div class="a-sector-main" onclick="toggleSectorDetail(this)">
+                        <div class="a-sector-main">
                             <span class="a-sector-rank">4</span>
                             <span class="a-sector-name">半导体设备</span>
                             <span class="a-sector-change">-4.5%</span>
@@ -341,7 +341,7 @@ function renderSummaryContent() {
                         </div>
                     </div>
                     <div class="a-sector-item down">
-                        <div class="a-sector-main" onclick="toggleSectorDetail(this)">
+                        <div class="a-sector-main">
                             <span class="a-sector-rank">5</span>
                             <span class="a-sector-name">算力概念</span>
                             <span class="a-sector-change">-3.8%</span>
