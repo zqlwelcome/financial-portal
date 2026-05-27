@@ -1,11 +1,11 @@
 {
-  "updateTime": "2026-05-27 15:10",
-  "generatedAt": "2026-05-27 15:11",
+  "updateTime": "2026-05-27 15:20",
+  "generatedAt": "2026-05-27 15:21",
   "mood": {
     "mood": "谨慎乐观",
     "icon": "📈",
     "color": "#34c759",
-    "confidence": 6,
+    "confidence": 7,
     "dimensions": [
       {
         "label": "📈 趋势",
@@ -21,18 +21,18 @@
       },
       {
         "label": "🏭 热点",
-        "value": "消费 · 金融"
+        "value": "新能源 · 消费"
       },
       {
         "label": "😊 情绪",
-        "value": "极度贪婪"
+        "value": "偏贪婪"
       },
       {
         "label": "🏦 宏观",
         "value": "政策紧缩信号"
       }
     ],
-    "summary": "整体谨慎乐观（6/10）。温和上涨，中性。地缘紧张 · 风险。极度贪婪。"
+    "summary": "整体谨慎乐观（7/10）。温和上涨，中性。地缘紧张 · 风险。偏贪婪。"
   },
   "experts": {
     "templeton": {
