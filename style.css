@@ -1718,9 +1718,8 @@ body {
     gap: 12px;
 }
 .a-flow-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 0.5px solid var(--border);
 }
 .a-flow-name {
     font-size: 13px;
@@ -1761,10 +1760,7 @@ body {
     gap: 8px;
 }
 .a-sector-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 0;
+    padding: 12px 0;
     border-bottom: 0.5px solid var(--border);
 }
 .a-sector-item:last-child {
