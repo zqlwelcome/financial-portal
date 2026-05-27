@@ -131,7 +131,7 @@ function renderSummaryContent() {
                 <div class="a-calendar-list">
                     <div class="a-calendar-item">
                         <span class="a-calendar-date">05/28</span>
-                        <span class="a-calendar-event">美联储会议纪要公布</span>
+                        <span class="a-calendar-event">美联储5月会议纪要公布</span>
                         <span class="a-calendar-impact high">high</span>
                     </div>
                     <div class="a-calendar-item">
@@ -141,28 +141,28 @@ function renderSummaryContent() {
                     </div>
                     <div class="a-calendar-item">
                         <span class="a-calendar-date">05/30</span>
-                        <span class="a-calendar-event">中国5月PMI数据</span>
+                        <span class="a-calendar-event">中国5月官方PMI</span>
                         <span class="a-calendar-impact high">high</span>
                     </div>
                     <div class="a-calendar-item">
                         <span class="a-calendar-date">05/31</span>
-                        <span class="a-calendar-event">英伟达财报发布</span>
-                        <span class="a-calendar-impact medium">medium</span>
+                        <span class="a-calendar-event">美国4月PCE物价指数</span>
+                        <span class="a-calendar-impact high">high</span>
                     </div>
                     <div class="a-calendar-item">
                         <span class="a-calendar-date">06/01</span>
-                        <span class="a-calendar-event">美国非农就业数据</span>
+                        <span class="a-calendar-event">中国5月财新PMI</span>
                         <span class="a-calendar-impact high">high</span>
                     </div>
                     <div class="a-calendar-item">
                         <span class="a-calendar-date">06/02</span>
-                        <span class="a-calendar-event">欧洲央行利率决议</span>
-                        <span class="a-calendar-impact medium">medium</span>
+                        <span class="a-calendar-event">美国5月非农就业数据</span>
+                        <span class="a-calendar-impact high">high</span>
                     </div>
                     <div class="a-calendar-item">
                         <span class="a-calendar-date">06/03</span>
-                        <span class="a-calendar-event">中国进出口数据</span>
-                        <span class="a-calendar-impact medium">medium</span>
+                        <span class="a-calendar-event">欧洲央行利率决议</span>
+                        <span class="a-calendar-impact high">high</span>
                     </div>
                 </div>
             </div>
