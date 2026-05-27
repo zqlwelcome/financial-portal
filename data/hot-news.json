@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 03:45",
+  "updateTime": "2026-05-28 03:50",
   "news": [
     {
       "rank": 1,
@@ -43,14 +43,30 @@
     },
     {
       "rank": 6,
-      "title": "凯捷：人工智能拓宽客户支出范围",
-      "summary": "法国科技服务集团凯捷于周四表示，人工智能正推动客户把投入从传统信息技术预算拓展至更多领域。此举意在打消投资者的顾虑 —— 市场曾担忧人工智能会冲击公司现有商业模",
+      "title": "Nuvation Bio将在ASCO公布IBTROZI肺癌患者生活质量数据",
+      "summary": "肿瘤公司Nuvation Bio Inc．（纽约证券交易所代码：NUVB）今日宣布，将在2026年美国临床肿瘤学会（ASCO）年会上公布其下一代ROS1抑制剂I",
       "detail": "",
       "source": "环球市场播报",
-      "score": 8
+      "score": 0
     },
     {
       "rank": 7,
+      "title": "特朗普称美伊尚未达成协议，白宫否认伊朗媒体说法",
+      "summary": "美国总统特朗普周三表示，美伊和平谈判仍存在尚未解决的问题。此前，华盛顿否认了伊朗国家电视台有关双方已达成框架协议、将在一个月内恢复霍尔木兹海峡航运并解除美方对伊",
+      "detail": "",
+      "source": "环球市场播报",
+      "score": 0
+    },
+    {
+      "rank": 8,
+      "title": "房地产平台Zillow报告：五分之二房源提供租房优惠，今春迎来“租户市场”",
+      "summary": "房地产平台Zillow（纳斯达克代码：Z，ZG）今日发布春季租房市场分析报告。数据显示，今春全美约有39.8%的租赁房源提供优惠举措，创下该时节的最高纪录...",
+      "detail": "",
+      "source": "环球市场播报",
+      "score": 0
+    },
+    {
+      "rank": 9,
       "title": "美伊谈判拖延之际 美债收益率走低",
       "summary": "美债收益率小幅下跌，正值美国和伊朗就重新开放霍尔木兹海峡达成协议的希望与双方的强硬言论发生冲突之际。 油价下跌5%，尽管穿过该海峡的船只交通已经放缓。",
       "detail": "",
@@ -58,25 +74,9 @@
       "score": 0
     },
     {
-      "rank": 8,
+      "rank": 10,
       "title": "律师调查：每股9.50美元收购美国运通全球商旅是否公平？",
       "summary": "股东权益律师事务所Kaskela Law LLC今日宣布，已代表Global Business Travel Group， Inc．（纽约证券交易所代码：GBT",
-      "detail": "",
-      "source": "环球市场播报",
-      "score": 0
-    },
-    {
-      "rank": 9,
-      "title": "Kaskela律所对Reservoir Media发起股东调查，凸显收购战中的信托责任争议",
-      "summary": "股东权益律师事务所Kaskela Law LLC今日宣布，已代表Reservoir Media， Inc．（纳斯达克代码：RSVR）的股东对公司展开调查，旨在确",
-      "detail": "",
-      "source": "环球市场播报",
-      "score": 0
-    },
-    {
-      "rank": 10,
-      "title": "Kaskela律所调查Select Medical每股16.50美元收购案，呼吁股东探讨权利及追偿可能性",
-      "summary": "股东权益律师事务所Kaskela Law LLC今日宣布，已对Select Medical Holdings Corporation（纽约证券交易所代码：SEM",
       "detail": "",
       "source": "环球市场播报",
       "score": 0
