@@ -11,9 +11,9 @@ const COURSE_SERIES = [
     icon: '🤖',
     color: '#0071e3',
     status: 'active',
-    progress: 60,
-    totalLessons: 20,
-    completedLessons: 12,
+    progress: 0,
+    totalLessons: 17,
+    completedLessons: 0,
     description: '从0到1掌握AI产品经理核心技能',
     tags: ['热门', '实战'],
     modules: [
@@ -25,7 +25,7 @@ const COURSE_SERIES = [
         lessons: [
           { id: 'cog-1', title: 'AI产品经理的角色定位', time: '8分钟' },
           { id: 'cog-2', title: 'AI行业全景与产品机会', time: '8分钟' },
-          { id: 'cog-3', title: '跟工程师沟通的艺术', time: '8分钟' }
+          { id: 'cog-3', title: '跟工程师沟通的艺术：非技术PM的生存指南', time: '8分钟' }
         ]
       },
       {
@@ -34,9 +34,9 @@ const COURSE_SERIES = [
         subtitle: 'Day 3-5',
         icon: '⚙️',
         lessons: [
-          { id: 'tech-1', title: '机器学习产品经理必修课', time: '10分钟' },
-          { id: 'tech-2', title: 'NLP产品经理完全指南', time: '10分钟' },
-          { id: 'tech-3', title: '大模型时代的产品设计', time: '12分钟' }
+          { id: 'tech-1', title: '大模型选型实战：什么时候用什么模型、怎么评估', time: '12分钟' },
+          { id: 'tech-2', title: 'AI项目成本估算', time: '10分钟' },
+          { id: 'tech-3', title: 'Agent产品设计实战：从方法论到落地（面试重点）', time: '14分钟' }
         ]
       },
       {
@@ -45,8 +45,8 @@ const COURSE_SERIES = [
         subtitle: 'Day 6-7',
         icon: '📊',
         lessons: [
-          { id: 'data-1', title: '数据驱动的产品决策', time: '10分钟' },
-          { id: 'data-2', title: 'AI产品指标体系搭建', time: '10分钟' }
+          { id: 'data-1', title: 'AI功能指标体系设计', time: '10分钟' },
+          { id: 'data-2', title: 'AB测试与效果评估', time: '10分钟' }
         ]
       },
       {
@@ -55,9 +55,9 @@ const COURSE_SERIES = [
         subtitle: 'Day 8-10',
         icon: '🎨',
         lessons: [
-          { id: 'des-1', title: 'AI产品的用户体验设计', time: '10分钟' },
-          { id: 'des-2', title: '对话式UI设计原则', time: '10分钟' },
-          { id: 'des-3', title: 'AI产品的信任设计', time: '10分钟' }
+          { id: 'des-1', title: 'AI产品交互设计原则', time: '10分钟' },
+          { id: 'des-2', title: '降级策略与容错设计', time: '10分钟' },
+          { id: 'des-3', title: '金融AI合规+安全实战：红线、审计、Prompt注入', time: '10分钟' }
         ]
       },
       {
@@ -66,12 +66,12 @@ const COURSE_SERIES = [
         subtitle: 'Day 11-20',
         icon: '💪',
         lessons: [
-          { id: 'prac-1', title: 'AI产品需求文档(PRD)撰写', time: '12分钟' },
-          { id: 'prac-2', title: 'AI项目管理实战', time: '12分钟' },
-          { id: 'prac-3', title: 'AI产品上线全流程', time: '12分钟' },
-          { id: 'prac-4', title: 'Agent产品设计实战', time: '15分钟' },
-          { id: 'prac-5', title: 'AI产品面试全攻略', time: '15分钟' },
-          { id: 'prac-6', title: 'AI产品经理工具箱', time: '10分钟' }
+          { id: 'prac-1', title: 'AI产品从0到1全流程', time: '10分钟' },
+          { id: 'prac-2', title: 'AI产品经理面试突击（非技术版）', time: '10分钟' },
+          { id: 'prac-3', title: 'AI上线流程：灰度发布、蓝绿部署、feature flag', time: '8分钟' },
+          { id: 'prac-4', title: '产品案例拆解：Perplexity、Coze、Notion AI的PM决策', time: '10分钟' },
+          { id: 'prac-5', title: 'AI产品经理面试实战包：GitHub、Demo、Why说明、SDD', time: '10分钟' },
+          { id: 'prac-6', title: 'AI产品经理常用工具：Cursor、Claude Code、Codex怎么选', time: '8分钟' }
         ]
       }
     ]
@@ -192,9 +192,9 @@ const COURSE_SERIES = [
         subtitle: '第1-3天',
         icon: '📚',
         lessons: [
-          { id: 'des-1', title: 'AI设计工具概览', time: '10分钟' },
-          { id: 'des-2', title: 'Midjourney实战', time: '15分钟' },
-          { id: 'des-3', title: 'Stable Diffusion入门', time: '12分钟' }
+          { id: 'ai-des-1', title: 'AI设计工具概览', time: '10分钟' },
+          { id: 'ai-des-2', title: 'Midjourney实战', time: '15分钟' },
+          { id: 'ai-des-3', title: 'Stable Diffusion入门', time: '12分钟' }
         ]
       },
       {
@@ -203,9 +203,9 @@ const COURSE_SERIES = [
         subtitle: '第4-6天',
         icon: '🚀',
         lessons: [
-          { id: 'des-4', title: 'AI辅助UI设计', time: '15分钟' },
-          { id: 'des-5', title: '设计系统自动化', time: '12分钟' },
-          { id: 'des-6', title: '用户研究AI化', time: '10分钟' }
+          { id: 'ai-des-4', title: 'AI辅助UI设计', time: '15分钟' },
+          { id: 'ai-des-5', title: '设计系统自动化', time: '12分钟' },
+          { id: 'ai-des-6', title: '用户研究AI化', time: '10分钟' }
         ]
       },
       {
@@ -214,8 +214,8 @@ const COURSE_SERIES = [
         subtitle: '第7-8天',
         icon: '💪',
         lessons: [
-          { id: 'des-7', title: '作品集打造', time: '15分钟' },
-          { id: 'des-8', title: '面试作品展示', time: '12分钟' }
+          { id: 'ai-des-7', title: '作品集打造', time: '15分钟' },
+          { id: 'ai-des-8', title: '面试作品展示', time: '12分钟' }
         ]
       }
     ]

@@ -156,6 +156,55 @@ body {
 .sub-content { display: none; }
 .sub-content.active { display: block; }
 
+.afterwork-brief {
+    background: var(--card);
+    border: 0.5px solid var(--border2);
+    border-radius: 16px;
+    padding: 16px;
+    margin: var(--gap-sm) 0 var(--gap-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.afterwork-kicker {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.afterwork-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.afterwork-copy {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text2);
+}
+
+.afterwork-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.afterwork-tags span {
+    max-width: 100%;
+    padding: 5px 8px;
+    border-radius: 7px;
+    background: var(--bg);
+    color: var(--text2);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
 /* ===== 横向滑动选择器 ===== */
 .slide-selector {
     display: flex;
@@ -268,6 +317,33 @@ body {
 .market-item.down .market-change { color: var(--red); }
 .market-item.down .market-change::before {
     border-top: 5px solid var(--red);
+}
+
+.market-note {
+    margin: -4px 0 var(--gap-md);
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 0.5px solid var(--border2);
+    color: var(--text2);
+    font-size: 12px;
+    line-height: 1.5;
+    box-shadow: var(--shadow-sm);
+}
+
+.market-note.up {
+    background: rgba(52,199,89,0.08);
+    color: #1f7a3a;
+}
+
+.market-note.down {
+    background: rgba(255,59,48,0.08);
+    color: #b42318;
+}
+
+.market-note.neutral {
+    background: rgba(0,113,227,0.07);
+    color: var(--primary);
 }
 
 /* 提示卡片 */
@@ -829,6 +905,36 @@ body {
 }
 
 /* ===== 持仓情报 ===== */
+.hl-brief {
+    background: var(--card);
+    border: 0.5px solid var(--border2);
+    border-radius: 16px;
+    padding: 16px;
+    margin: var(--gap-sm) 0 var(--gap-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.hl-brief-kicker {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.hl-brief-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 6px;
+}
+
+.hl-brief-copy {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text2);
+}
+
 .hl-selector {
     display: flex;
     gap: var(--gap-sm);
@@ -1541,6 +1647,46 @@ body {
 }
 
 /* ===== 智囊团 - 方案A（苹果风格） ===== */
+.a-quick {
+    background: var(--card);
+    border: 0.5px solid var(--border2);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+.a-quick-kicker {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.a-quick-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.28;
+    margin-bottom: 8px;
+}
+
+.a-quick-copy {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-body);
+}
+
+.a-quick-note {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text2);
+    font-size: 12px;
+    line-height: 1.45;
+}
+
 .a-mood {
     background: var(--card);
     border-radius: 16px;
@@ -1846,6 +1992,12 @@ body {
     border-left: 3px solid var(--primary);
 }
 .a-card.a-action { border-left-color: var(--orange); }
+.a-card-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--orange);
+    margin-bottom: 5px;
+}
 .a-card-body { font-size: 14px; line-height: 1.6; color: var(--text-body); }
 
 /* 反馈按钮 */
@@ -1940,12 +2092,47 @@ body {
 
 /* 统计栏 */
 .site-stats {
+    padding: 0 16px 36px;
+}
+
+.site-stats-card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--card);
+    border: 0.5px solid var(--border2);
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-shadow: var(--shadow-sm);
     text-align: center;
-    padding: var(--gap-xl) 16px 40px;
+}
+
+.site-stats-kicker {
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.site-stats-title {
     font-size: 12px;
     color: var(--text2);
-    font-weight: 400;
-    letter-spacing: 0.3px;
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.site-stats-title span {
+    color: var(--text);
+    font-family: var(--ff-mono);
+    font-weight: 700;
+}
+
+.site-stats a {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 /* 分享按钮 */

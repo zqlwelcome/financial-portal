@@ -20,6 +20,99 @@
     color: var(--text2);
 }
 
+.course-value-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.course-value-item {
+    background: var(--card);
+    border: 0.5px solid var(--border2);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.course-value-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.course-value-text {
+    display: block;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.today-study-card {
+    background: var(--card);
+    border: 0.5px solid var(--border2);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.today-study-kicker {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.today-study-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.today-study-copy {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.55;
+    margin-bottom: 14px;
+}
+
+.today-study-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.today-study-primary {
+    flex: 1;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.today-study-primary:active {
+    opacity: 0.82;
+    transform: scale(0.99);
+}
+
+.today-study-progress {
+    flex-shrink: 0;
+    font-size: 12px;
+    color: var(--text3);
+    font-family: var(--ff-mono);
+}
+
 /* 课程系列卡片网格 */
 .course-series-grid {
     display: grid;
@@ -82,8 +175,18 @@
 .series-desc {
     font-size: 12px;
     color: var(--text2);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     line-height: 1.4;
+}
+
+.series-fit {
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--text2);
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 7px 8px;
+    margin-bottom: 12px;
 }
 
 /* 进度条 */
@@ -391,6 +494,10 @@
 /* 响应式布局 */
 @media (max-width: 360px) {
     .course-series-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-value-strip {
         grid-template-columns: 1fr;
     }
 }

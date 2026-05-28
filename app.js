@@ -18,6 +18,7 @@ let checkedDays = JSON.parse(localStorage.getItem('checkin') || '[]');
 
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', async () => {
+    renderAfterworkGreeting();
     updateNavTime();
     setInterval(updateNavTime, 60000);
     initMainTabs();
@@ -27,7 +28,73 @@ document.addEventListener('DOMContentLoaded', async () => {
     initPullRefresh();
     setInterval(loadMarketData, 30000);
     initShare();
+    loadTodayStats();
 });
+
+function renderAfterworkGreeting() {
+    const greetings = [
+        {
+            kicker: '下班先松口气',
+            title: '先看看钱今天都跑哪儿去了',
+            copy: '几分钟扫一眼市场，不做决策也没关系。成年人很忙，能看懂一点点已经很不错。',
+            tags: ['不构成投资建议', '看懂一点就赚到', '脑子低电量友好']
+        },
+        {
+            kicker: '工位逃离成功',
+            title: '看看市场今天有没有偷偷加班',
+            copy: '你已经下班了，但全球资产还在开会。我们只旁听重点，不负责鼓掌。',
+            tags: ['只旁听不冲动', '市场会议纪要', '下班友好']
+        },
+        {
+            kicker: '今日脑量余额不足',
+            title: '用三分钟看看钱在开哪桌饭局',
+            copy: '不用立刻变聪明，先知道热闹在哪。投资世界很吵，我们帮你把音量调小一点。',
+            tags: ['三分钟扫一眼', '热闹先定位', '拒绝信息轰炸']
+        },
+        {
+            kicker: '欢迎来到晚间小卖部',
+            title: '今天市场货架上都摆了点啥',
+            copy: '有的资产打折，有的资产涨价，有的只是包装很响。先看看，不急着买单。',
+            tags: ['先看价签', '别急结账', '成年人理性消费']
+        },
+        {
+            kicker: '下班后的理财松弛感',
+            title: '看看今天谁涨得像发了工资',
+            copy: '红绿都只是市场表情包。真正重要的是：它为什么这样，以及你要不要理它。',
+            tags: ['红绿表情包', '原因比涨跌重要', '别被K线拿捏']
+        },
+        {
+            kicker: '今日市场巡逻',
+            title: '钱有没有迷路，打开看看就知道',
+            copy: '市场每天都在讲故事，有些是财报，有些是情绪，有些只是大家太闲。',
+            tags: ['故事先听完', '情绪别上头', '财报会说话']
+        },
+        {
+            kicker: '适合沙发阅读',
+            title: '先看两眼市场，再决定要不要假装努力',
+            copy: '学习可以随缘，市场先扫一眼。今天不做决定，也算给未来的自己存了点素材。',
+            tags: ['沙发模式', '素材收集中', '充电随缘']
+        },
+        {
+            kicker: '下班开机中',
+            title: '看看钱今天有没有跑去别人家',
+            copy: '资金流向像办公室八卦，听听就好，别每句都当圣旨。',
+            tags: ['资金八卦', '听听就好', '不当圣旨']
+        }
+    ];
+    const pick = greetings[Math.floor(Math.random() * greetings.length)];
+    const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+    };
+
+    setText('afterworkKicker', pick.kicker);
+    setText('afterworkTitle', pick.title);
+    setText('afterworkCopy', pick.copy);
+    setText('afterworkTagOne', pick.tags[0]);
+    setText('afterworkTagTwo', pick.tags[1]);
+    setText('afterworkTagThree', pick.tags[2]);
+}
 
 function updateNavTime() {
     const now = new Date();
@@ -74,6 +141,7 @@ function initSubTabs() {
 // ===== 市场数据（实时API）- 腾讯证券接口（CORS支持HTTPS）=====
 // web.sqt.gtimg.cn 返回 Access-Control-Allow-Origin: *，可直接 fetch
 let _marketTimer = null;
+let marketSnapshot = {};
 
 async function loadMarketData() {
     if (_marketTimer) clearTimeout(_marketTimer);
@@ -94,12 +162,15 @@ async function loadMarketData() {
         // 恒指: [3]=当前价, [32]=涨跌幅
         // 纳斯达克: [3]=当前价, [31]=涨跌幅
         // 沪深300: [3]=当前价, [32]=涨跌幅
+        marketSnapshot = {};
         if (sh) { const p = sh.split('~'); if (p.length > 32) parsePrice('shIndex', p[3], p[32]); }
         if (hk) { const p = hk.split('~'); if (p.length > 32) parsePrice('hkIndex', p[3], p[32]); }
         if (us) { const p = us.split('~'); if (p.length > 32) parsePrice('usIndex', p[3], p[32]); }
         if (csi300) { const p = csi300.split('~'); if (p.length > 32) parsePrice('csi300Index', p[3], p[32]); }
+        updateMarketNote();
     } catch(e) {
         console.warn('行情API失败:', e);
+        updateMarketNote(true);
     }
     
     _marketTimer = setTimeout(() => { _marketTimer = null; }, 8000);
@@ -123,9 +194,46 @@ function updateMarketItem(id, value, change) {
     const el = document.getElementById(id);
     if (!el) return;
     const isUp = change >= 0;
+    marketSnapshot[id] = change;
     el.className = `market-item ${isUp ? 'up' : 'down'}`;
     el.querySelector('.market-val').textContent = value.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     el.querySelector('.market-change').textContent = `${isUp ? '+' : ''}${change.toFixed(2)}%`;
+}
+
+function updateMarketNote(hasError = false) {
+    const note = document.getElementById('marketNote');
+    if (!note) return;
+
+    if (hasError) {
+        note.textContent = '行情接口今天有点慢，先看新闻和高手怎么吵。';
+        note.className = 'market-note neutral';
+        return;
+    }
+
+    const changes = Object.values(marketSnapshot).filter(v => typeof v === 'number' && !Number.isNaN(v));
+    if (changes.length === 0) {
+        note.textContent = '市场还在加载，先别急着给今天下结论。';
+        note.className = 'market-note neutral';
+        return;
+    }
+
+    const upCount = changes.filter(v => v >= 0).length;
+    const avg = changes.reduce((sum, v) => sum + v, 0) / changes.length;
+    const strongestMove = changes.reduce((max, v) => Math.abs(v) > Math.abs(max) ? v : max, 0);
+
+    if (upCount === changes.length) {
+        note.textContent = `四个主要指数都在红区，市场今天心情不错，但别把开心当买入理由。平均 ${avg.toFixed(2)}%。`;
+        note.className = 'market-note up';
+    } else if (upCount === 0) {
+        note.textContent = `主要指数集体偏绿，今天适合少点冲动，多点观察。平均 ${avg.toFixed(2)}%。`;
+        note.className = 'market-note down';
+    } else if (Math.abs(strongestMove) >= 1.5) {
+        note.textContent = '市场分化明显，有指数动静不小。先看是哪类资产在带节奏，再决定要不要围观。';
+        note.className = 'market-note neutral';
+    } else {
+        note.textContent = `市场有涨有跌，属于“大家都在发表意见但没统一结论”。平均 ${avg.toFixed(2)}%。`;
+        note.className = 'market-note neutral';
+    }
 }
 
 // ===== 热门新闻（从news-loader.js加载）=====
@@ -142,16 +250,16 @@ function initPullRefresh() {
     
     realtime.addEventListener('touchmove', e => {
         if (!pulling) return;
-        if (e.touches[0].pageY - startY > 50) { hint.textContent = '松开刷新'; hint.classList.add('active'); }
+        if (e.touches[0].pageY - startY > 50) { hint.textContent = '松手，市场重新开锅'; hint.classList.add('active'); }
     });
     
     realtime.addEventListener('touchend', e => {
         if (pulling && e.changedTouches[0].pageY - startY > 50) {
             refreshRealtime();
-            hint.textContent = '已更新';
-            setTimeout(() => { hint.textContent = '下拉刷新'; hint.classList.remove('active'); }, 1500);
+            hint.textContent = '已更新，热闹续上';
+            setTimeout(() => { hint.textContent = '下拉刷新，不必用力'; hint.classList.remove('active'); }, 1500);
         } else {
-            hint.textContent = '下拉刷新';
+            hint.textContent = '下拉刷新，不必用力';
             hint.classList.remove('active');
         }
         pulling = false;
@@ -225,8 +333,10 @@ async function loadTodayStats() {
             localStorage.setItem('visited_' + today, '1');
         }
         localStorage.setItem('site_stats', JSON.stringify(data));
-        document.getElementById('todayPv').textContent = data.pv;
-        document.getElementById('todayUv').textContent = data.uv;
+        const pvEl = document.getElementById('todayPv');
+        const uvEl = document.getElementById('todayUv');
+        if (pvEl) pvEl.textContent = data.pv;
+        if (uvEl) uvEl.textContent = data.uv;
     } catch(e) {
         // 静默失败
     }

@@ -26,11 +26,11 @@ function oneTapShare() {
     
     // 根据时间生成不同的问候语
     let greeting = '';
-    if (hour < 9) greeting = '早安，新的一天从了解市场开始 ☀️';
-    else if (hour < 12) greeting = '上午好，市场动态一手掌握 📊';
-    else if (hour < 14) greeting = '午间快讯，午后行情抢先看 🍱';
-    else if (hour < 18) greeting = '下午好，今日行情不错过 📈';
-    else greeting = '晚间复盘，投资智库助你决策 🌙';
+    if (hour < 9) greeting = '早安，先看看市场昨晚有没有偷偷加班 ☀️';
+    else if (hour < 12) greeting = '上午好，市场已经开会一阵子了 📊';
+    else if (hour < 14) greeting = '午间快讯，饭可以慢慢吃，消息先看两眼 🍱';
+    else if (hour < 18) greeting = '下午好，看看钱今天都跑哪儿去了 📈';
+    else greeting = '晚间复盘，下班后的脑子也值得温柔对待 🌙';
     
     // 从持仓数据生成摘要
     let holdingsSummary = '';
@@ -46,23 +46,22 @@ function oneTapShare() {
         holdingsSummary = '\n\n📋 最新持仓动态\n' + holdingsSummary;
     }
     
-    const shareText = '🌙 下班学点啥 - 你的投资学习伙伴\n' +
+    const shareText = '🌙 下班学点啥 - 你的下班市场小报\n' +
         '━━━━━━━━━━━━━━━━━━━━\n' +
         greeting + '\n\n' +
-        '🔥 核心功能\n' +
-        '• 实时行情：上证 / 恒生 / 纳指 / 沪深300\n' +
-        '• 热门资讯：每日TOP10财经新闻\n' +
-        '• 投资智库：邓普顿 / 巴菲特 / 芒格 / 段永平\n' +
-        '• 持仓追踪：全球投资大佬持仓变化\n' +
-        '• 市场日历：重要经济事件提醒\n' +
-        '• AI课程：产品经理学习体系' +
+        '今天这里有：\n' +
+        '• 市场速览：上证 / 恒生 / 纳指 / 沪深300\n' +
+        '• 钱圈热闹：财经新闻先看重点\n' +
+        '• 高手视角：邓普顿 / 巴菲特 / 芒格 / 段永平\n' +
+        '• 大佬持仓：看看聪明钱有没有挪窝\n' +
+        '• 下班充电：想学再学，不想学也没事' +
         holdingsSummary + '\n\n' +
         '━━━━━━━━━━━━━━━━━━━━\n' +
-        '👆 点击链接，开启你的投资学习之旅\n' +
+        '👆 点击链接，先看两眼市场，充电随缘\n' +
         '🔗 ' + url;
     
     copyToClipboard(shareText);
-    showToast('✅ 已复制，去微信粘贴发送');
+    showToast('已复制，去微信丢给同事一起摸鱼式进步');
 }
 
 function copyToClipboard(text) {

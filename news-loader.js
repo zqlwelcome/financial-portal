@@ -39,7 +39,7 @@ async function loadHotNews(forceRefresh = false) {
         return;
     }
     
-    el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;font-size:14px;">🔄 获取最新新闻...</div>';
+    el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;font-size:14px;">正在打捞今天的财经热闹...</div>';
     
     try {
         const data = await xhrFetch();
@@ -68,7 +68,7 @@ async function loadHotNews(forceRefresh = false) {
     }
     
     if (newsCache.length === 0) {
-        el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;">暂无新闻</div>';
+        el.innerHTML = '<div class="empty-hint" style="text-align:center;padding:20px;">今天新闻暂时请假了，先喝口水。</div>';
     }
 }
 
@@ -156,7 +156,7 @@ function renderAlerts(data) {
             <div class="alert-content">
                 <div class="alert-title">${data.forex.title}</div>
                 <div class="alert-text">${data.forex.text}</div>
-                <div class="alert-detail">${data.forex.detail || '暂无详细信息'}</div>
+                <div class="alert-detail">${data.forex.detail || '详情还在路上，先别急着下单。'}</div>
             </div>
             <div class="alert-arrow">›</div>
         </div>
@@ -165,7 +165,7 @@ function renderAlerts(data) {
             <div class="alert-content">
                 <div class="alert-title">${data.stock.title}</div>
                 <div class="alert-text">${data.stock.text}</div>
-                <div class="alert-detail">${data.stock.detail || '暂无详细信息'}</div>
+                <div class="alert-detail">${data.stock.detail || '详情还在路上，先别急着下单。'}</div>
             </div>
             <div class="alert-arrow">›</div>
         </div>
@@ -189,7 +189,7 @@ function renderNewsList(news) {
                     <span class="news-source">${item.source || '财经媒体'}</span>
                 </div>
                 <div class="news-title">${item.title}</div>
-                <div class="news-detail">${item.detail || '暂无详细信息'}</div>
+                <div class="news-detail">${item.detail || '详情暂时缺席，标题已经很努力了。'}</div>
             </div>
             <div class="news-arrow">›</div>
         </div>`).join('');
@@ -199,7 +199,7 @@ function renderNewsList(news) {
         html += `
         <div class="news-expand-wrap">
             <button class="news-expand-btn" onclick="_newsAllShown=!_newsAllShown;renderNewsList(newsCache);">
-                ${_newsAllShown ? '收起 <span class="hl-arrow">‹</span>' : `查看全部 ${news.length} 条 <span class="hl-arrow">›</span>`}
+                ${_newsAllShown ? '收起，脑子先缓存一下 <span class="hl-arrow">‹</span>' : `再看 ${news.length - 3} 条热闹 <span class="hl-arrow">›</span>`}
             </button>
         </div>`;
     }
@@ -212,7 +212,7 @@ function renderNewsList(news) {
 function updateRefreshHint(time) {
     const hint = document.getElementById('refreshHint');
     if (hint) {
-        hint.textContent = time ? `更新于 ${time}` : `更新于 ${new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'})}`;
+        hint.textContent = time ? `热乎到 ${time}` : `热乎到 ${new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'})}`;
     }
 }
 

@@ -13,6 +13,11 @@ function renderHoldings() {
 
   // 使用 slide-selector 风格做投资人切换
   el.innerHTML = `
+    <div class="hl-brief">
+      <div class="hl-brief-kicker">看大佬，不抄作业</div>
+      <div class="hl-brief-title">这里适合观察“聪明钱的偏好”，不是跟单按钮</div>
+      <div class="hl-brief-copy">先看他们加了什么、减了什么，再问一句：这是长期判断，还是短期调仓？</div>
+    </div>
     <div class="hl-selector">
       ${[['巴菲特','🤑','buffett'],['段永平','🧑‍💼','duan'],['木头姐','🦊','cathie'],['特朗普','🇺🇸','trump']].map(([name, icon, id], i) => {
         return `<button class="hl-opt ${i === 0 ? 'active' : ''}" data-hl="${id}" onclick="switchInvestor('${id}')">
@@ -55,13 +60,13 @@ function switchInvestor(id) {
       <div class="hl-h-icon">${data.icon}</div>
       <div>
         <div class="hl-h-name">${data.name}</div>
-        <div class="hl-h-sub">总仓位 ${data.totalValue}</div>
+      <div class="hl-h-sub">总仓位 ${data.totalValue} · 先观察，不上头</div>
       </div>
     </div>
 
     <!-- 重大变动区块 -->
     <div class="hl-section">
-      <div class="hl-section-title">📊 本次重大变动</div>
+      <div class="hl-section-title">本次重大变动</div>
       <div class="hl-changelist">
         ${renderChanges(data.changes)}
       </div>
@@ -70,7 +75,7 @@ function switchInvestor(id) {
     <!-- 完整持仓列表 -->
     <div class="hl-section">
       <div class="hl-section-title" style="margin-top:4px;">
-        📋 完整持仓
+        完整持仓
         <span class="hl-count">${data.holdings.length} 只</span>
       </div>
       <div class="hl-holdlist" id="hlHoldList">
@@ -83,7 +88,7 @@ function switchInvestor(id) {
       </div>
     </div>
     <!-- 更新时间戳 -->
-    <div style="text-align:center;font-size:11px;color:#aeaeb2;padding:12px 0 4px 0;">⏱ 数据更新于 ${data.updateDate || '待更新'}</div>
+    <div style="text-align:center;font-size:11px;color:#aeaeb2;padding:12px 0 4px 0;">数据更新于 ${data.updateDate || '待更新'} · 投资有风险，脑子要在线</div>
   `;
 
   // 如果持仓超过8只，折叠后面的
@@ -105,7 +110,7 @@ function switchInvestor(id) {
 
 // ===== 渲染变动列表 =====
 function renderChanges(changes) {
-  if (!changes || changes.length === 0) return '<div class="hl-empty">暂无数据</div>';
+  if (!changes || changes.length === 0) return '<div class="hl-empty">这位今天很安静，可能在喝可乐。</div>';
 
   return changes.map(c => {
     let badge, badgeCls, arrow;
@@ -162,7 +167,7 @@ function renderHoldingItem(h, index) {
         <span class="hl-harrow">›</span>
       </div>
       <div class="hl-hdetail">
-        ${h.comment ? `<div class="hl-hd-comment">💡 ${h.comment}</div>` : ''}
+        ${h.comment ? `<div class="hl-hd-comment">${h.comment}</div>` : ''}
         <div class="hl-hd-data">持仓 ${h.shares} 股 · 市值 ${h.value}</div>
       </div>
     </div>
@@ -194,14 +199,14 @@ function toggleFullHoldings(id) {
     });
     if (wrap) {
       wrap.dataset.expanded = 'false';
-      wrap.querySelector('.hl-expand-btn').innerHTML = '查看完整列表 <span class="hl-arrow">›</span>';
+      wrap.querySelector('.hl-expand-btn').innerHTML = '展开完整持仓 <span class="hl-arrow">›</span>';
     }
   } else {
     // 展开
     items.forEach(item => item.classList.remove('hl-folded'));
     if (wrap) {
       wrap.dataset.expanded = 'true';
-      wrap.querySelector('.hl-expand-btn').innerHTML = '收起 <span class="hl-arrow">‹</span>';
+      wrap.querySelector('.hl-expand-btn').innerHTML = '收起，信息量先到这 <span class="hl-arrow">‹</span>';
     }
   }
 }

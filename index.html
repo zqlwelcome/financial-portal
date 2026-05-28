@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="alert-style.css">
     <link rel="stylesheet" href="walk.css">
-    <link rel="stylesheet" href="course-center-style.css">
+    <link rel="stylesheet" href="course-center-style.css?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
 </head>
@@ -22,20 +22,30 @@
 
     <main class="main">
         <div class="tabs">
-            <button class="tab active" data-tab="finance">📰 财经</button>
-            <button class="tab" data-tab="ai-pm">🔋 充电站</button>
+            <button class="tab active" data-tab="finance">市场速览</button>
+            <button class="tab" data-tab="ai-pm">充电站</button>
         </div>
 
         <!-- 财经区 -->
         <section id="finance" class="section active">
             <div class="sub-tabs">
-                <button class="sub-tab active" data-sub="realtime">⚡ 实时事件</button>
-                <button class="sub-tab" data-sub="daily">🧠 智囊团</button>
-                <button class="sub-tab" data-sub="holdings">📋 投资人持仓</button>
+                <button class="sub-tab active" data-sub="realtime">今日大事</button>
+                <button class="sub-tab" data-sub="daily">高手怎么看</button>
+                <button class="sub-tab" data-sub="holdings">大佬持仓</button>
             </div>
 
             <!-- 实时新闻 -->
             <div id="realtime" class="sub-content active">
+                <div class="afterwork-brief">
+                    <div class="afterwork-kicker" id="afterworkKicker">下班先松口气</div>
+                    <div class="afterwork-title" id="afterworkTitle">先看看钱今天都跑哪儿去了</div>
+                    <div class="afterwork-copy" id="afterworkCopy">几分钟扫一眼市场，不做决策也没关系。成年人很忙，能看懂一点点已经很不错。</div>
+                    <div class="afterwork-tags">
+                        <span id="afterworkTagOne">不构成投资建议</span>
+                        <span id="afterworkTagTwo">看懂一点就赚到</span>
+                        <span id="afterworkTagThree">脑子低电量友好</span>
+                    </div>
+                </div>
                 <div class="market-bar">
                     <div class="market-item" id="shIndex">
                         <span class="market-label">上证</span>
@@ -58,10 +68,11 @@
                         <span class="market-change">--</span>
                     </div>
                 </div>
+                <div class="market-note" id="marketNote">市场还在加载，先别急着给今天下结论。</div>
                 <div id="alertArea"></div>
                 <div class="section-header">
-                    <span class="section-label">🔥 热门 TOP 10</span>
-                    <span class="refresh-hint" id="refreshHint">下拉刷新</span>
+                    <span class="section-label">钱圈今天在吵什么</span>
+                    <span class="refresh-hint" id="refreshHint">下拉刷新，不必用力</span>
                 </div>
                 <div id="hotNewsList" class="news-list"></div>
             </div>
@@ -95,21 +106,25 @@
         </div>
     </div>
 
-    <div class="site-stats" style="text-align:center;padding:8px 0 16px;font-size:12px;color:#aeaeb2;">
-        到访 <a href="https://cloud.umami.is/share/51d4b748-14ec-4708-a003-04ae51b47e83" target="_blank" style="color:#0071e3;text-decoration:none;">实时统计 📊</a>
+    <div class="site-stats">
+        <div class="site-stats-card">
+            <div class="site-stats-kicker">今日小卖部</div>
+            <div class="site-stats-title">今天已有 <span id="todayUv">--</span> 位同事路过，翻了 <span id="todayPv">--</span> 次市场小报</div>
+            <a href="https://cloud.umami.is/share/51d4b748-14ec-4708-a003-04ae51b47e83" target="_blank">看真实访问统计</a>
+        </div>
     </div>
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="51d4b748-14ec-4708-a003-04ae51b47e83"></script>
-    <script src="daily-data.js?v=16"></script>
-    <script src="news-loader.js?v=17"></script>
+    <script src="daily-data.js?v=17"></script>
+    <script src="news-loader.js?v=18"></script>
     <script src="course-data.js?v=17"></script>
-    <script src="course-series-data.js?v=17"></script>
-    <script src="share.js?v=17"></script>
+    <script src="course-series-data.js?v=18"></script>
+    <script src="share.js?v=18"></script>
     <script src="holdings-data.js?v=17"></script>
-    <script src="holdings-render.js?v=17"></script>
-    <script src="course-app.js?v=17"></script>
-    <script src="course-center-app.js?v=17"></script>
-    <script src="app.js?v=17"></script>
+    <script src="holdings-render.js?v=18"></script>
+    <script src="course-app.js?v=18"></script>
+    <script src="course-center-app.js?v=20"></script>
+    <script src="app.js?v=21"></script>
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script>
       (function(){

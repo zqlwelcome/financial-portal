@@ -78,6 +78,7 @@ function renderSummaryContent() {
     const conf = Math.min(10, Math.max(0, moodData.confidence || 5));
     const bars = Array.from({length: 10}, (_, i) => `<span class="a-bar${i < conf ? ' fill' : ''}"></span>`).join('');
     const dims = (moodData.dimensions || []).slice(0, 6);
+    const quickTake = moodData.summary || '今天市场还在整理情绪，先看重点，不急着做决定。';
     const chipHtml = dims.map(d => {
         // 兼容新旧格式
         if (d.label) return `<span class="a-chip"><span class="a-chip-label">${d.label}</span> ${d.value}</span>`;
@@ -90,13 +91,22 @@ function renderSummaryContent() {
         munger:    { name: '芒格',   icon: '🧠', color: '#34c759' },
         duan:      { name: '段永平', icon: '🧑‍💼', color: '#0071e3' }
     };
+
+    const quickHtml = `
+        <div class="a-quick">
+            <div class="a-quick-kicker">下班版一句话</div>
+            <div class="a-quick-title">今天市场不是没脾气，是脾气有点复杂</div>
+            <div class="a-quick-copy">${quickTake}</div>
+            <div class="a-quick-note">先看方向，再看仓位。成年人已经很累了，不必每条新闻都亲自吵赢。</div>
+        </div>
+    `;
     
     // 情绪卡片（可折叠）
     const moodHtml = `
         <div class="a-mood" id="aMood">
             <div class="a-top" onclick="toggleMoodDetail()" style="cursor:pointer;">
                 <div>
-                    <div class="a-label">市场情绪</div>
+                    <div class="a-label">市场温度计</div>
                     <div class="a-mood-status">
                         <span>${moodData.icon}</span>
                         <span>${moodData.mood}</span>
@@ -126,19 +136,19 @@ function renderSummaryContent() {
         `;
     }).join('');
     
-    el.innerHTML = moodHtml + `
+    el.innerHTML = quickHtml + moodHtml + `
         <!-- 统一卡片：智囊团 + 市场日历 + 资金流向 + 板块轮动 -->
         <div class="a-insights">
             <div class="a-insights-tabs-wrapper">
                 <div class="a-insights-tabs">
-                    <button class="a-insights-tab active" onclick="switchInsightTab('braintrust')">🧠 智囊团</button>
-                    <button class="a-insights-tab" onclick="switchInsightTab('calendar')">📅 日历</button>
-                    <button class="a-insights-tab" onclick="switchInsightTab('flow')">💰 全球资金</button>
-                    <button class="a-insights-tab" onclick="switchInsightTab('sector')">📈 全球板块</button>
+                    <button class="a-insights-tab active" onclick="switchInsightTab('braintrust', this)">高手茶话会</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('calendar', this)">本周雷达</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('flow', this)">钱在搬家</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('sector', this)">板块热闹榜</button>
                 </div>
                 <div class="a-insights-hint" id="tabHint">
                     <span class="a-hint-arrow">←</span>
-                    <span class="a-hint-text">左右滑动查看更多</span>
+                    <span class="a-hint-text">左右滑动，看看别人在吵什么</span>
                     <span class="a-hint-arrow">→</span>
                 </div>
             </div>
@@ -160,9 +170,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 美国经济增长数据</div>
-                            <div class="a-calendar-watch">👀 关注：GDP增速是否符合预期</div>
-                            <div class="a-calendar-impact-text">💡 影响：好于预期→美股利好，低于预期→美股利空</div>
+                            <div class="a-calendar-explain">美国经济增长数据</div>
+                            <div class="a-calendar-watch">看点：GDP增速是否符合预期</div>
+                            <div class="a-calendar-impact-text">可能影响：好于预期→美股利好，低于预期→美股利空</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -173,9 +183,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 制造业景气度指标</div>
-                            <div class="a-calendar-watch">👀 关注：PMI是否在50以上</div>
-                            <div class="a-calendar-impact-text">💡 影响：PMI>50→A股利好，PMI<50→A股利空</div>
+                            <div class="a-calendar-explain">制造业景气度指标</div>
+                            <div class="a-calendar-watch">看点：PMI是否在50以上</div>
+                            <div class="a-calendar-impact-text">可能影响：PMI>50→A股利好，PMI<50→A股利空</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -186,9 +196,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 美联储最关注的通胀指标</div>
-                            <div class="a-calendar-watch">👀 关注：通胀是否继续下降</div>
-                            <div class="a-calendar-impact-text">💡 影响：通胀下降→降息预期升温→美股利好</div>
+                            <div class="a-calendar-explain">美联储最关注的通胀指标</div>
+                            <div class="a-calendar-watch">看点：通胀是否继续下降</div>
+                            <div class="a-calendar-impact-text">可能影响：通胀下降→降息预期升温→美股利好</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -199,9 +209,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 欧洲央行是否降息</div>
-                            <div class="a-calendar-watch">👀 关注：降息幅度和未来指引</div>
-                            <div class="a-calendar-impact-text">💡 影响：欧洲降息→欧元贬值→美元升值</div>
+                            <div class="a-calendar-explain">欧洲央行是否降息</div>
+                            <div class="a-calendar-watch">看点：降息幅度和未来指引</div>
+                            <div class="a-calendar-impact-text">可能影响：欧洲降息→欧元贬值→美元升值</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -212,9 +222,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 就业市场状况</div>
-                            <div class="a-calendar-watch">👀 关注：新增就业和失业率</div>
-                            <div class="a-calendar-impact-text">💡 影响：就业强劲→美联储可能推迟降息</div>
+                            <div class="a-calendar-explain">就业市场状况</div>
+                            <div class="a-calendar-watch">看点：新增就业和失业率</div>
+                            <div class="a-calendar-impact-text">可能影响：就业强劲→美联储可能推迟降息</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -225,9 +235,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 原油产量政策</div>
-                            <div class="a-calendar-watch">👀 关注：是否减产</div>
-                            <div class="a-calendar-impact-text">💡 影响：减产→油价上涨→通胀压力增加</div>
+                            <div class="a-calendar-explain">原油产量政策</div>
+                            <div class="a-calendar-watch">看点：是否减产</div>
+                            <div class="a-calendar-impact-text">可能影响：减产→油价上涨→通胀压力增加</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -238,9 +248,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact medium">medium</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 中小企业景气度</div>
-                            <div class="a-calendar-watch">👀 关注：与官方PMI是否一致</div>
-                            <div class="a-calendar-impact-text">💡 影响：好于官方→中小企业复苏</div>
+                            <div class="a-calendar-explain">中小企业景气度</div>
+                            <div class="a-calendar-watch">看点：与官方PMI是否一致</div>
+                            <div class="a-calendar-impact-text">可能影响：好于官方→中小企业复苏</div>
                         </div>
                     </div>
                 </div>
@@ -248,7 +258,7 @@ function renderSummaryContent() {
             
             <!-- 资金流向内容 -->
             <div class="a-insights-content" id="insight-flow">
-                <div class="a-flow-list"><div class="a-flow-hint" onclick="this.style.display='none'"><span class="a-flow-hint-icon">👇</span><span class="a-flow-hint-text">点击任意条目查看详细解读</span></div>
+                <div class="a-flow-list"><div class="a-flow-hint" onclick="this.style.display='none'"><span class="a-flow-hint-text">点开看钱为什么搬家，看完不用立刻搬自己</span></div>
                 </div>
             </div>
             
@@ -262,9 +272,9 @@ function renderSummaryContent() {
                             <span class="a-sector-change">+3.2%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">📌 电力发电、输电、配电公司</div>
-                            <div class="a-sector-reason">🔍 原因：夏季用电高峰+新能源政策</div>
-                            <div class="a-sector-impact">💡 参考：防御性板块，适合稳健型投资者</div>
+                            <div class="a-sector-explain">电力发电、输电、配电公司</div>
+                            <div class="a-sector-reason">原因：夏季用电高峰+新能源政策</div>
+                            <div class="a-sector-impact">参考：防御性板块，适合稳健型投资者</div>
                         </div>
                     </div>
                     <div class="a-sector-item up">
@@ -274,9 +284,9 @@ function renderSummaryContent() {
                             <span class="a-sector-change">+2.8%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">📌 白酒酿造和销售公司</div>
-                            <div class="a-sector-reason">🔍 原因：消费复苏+茅台效应</div>
-                            <div class="a-sector-impact">💡 参考：高端消费品，受经济周期影响大</div>
+                            <div class="a-sector-explain">白酒酿造和销售公司</div>
+                            <div class="a-sector-reason">原因：消费复苏+茅台效应</div>
+                            <div class="a-sector-impact">参考：高端消费品，受经济周期影响大</div>
                         </div>
                     </div>
                     <div class="a-sector-item up">
@@ -286,9 +296,9 @@ function renderSummaryContent() {
                             <span class="a-sector-change">+2.1%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">📌 超级电容器技术公司</div>
-                            <div class="a-sector-reason">🔍 原因：新能源储能需求增长</div>
-                            <div class="a-sector-impact">💡 参考：成长性板块，波动较大</div>
+                            <div class="a-sector-explain">超级电容器技术公司</div>
+                            <div class="a-sector-reason">原因：新能源储能需求增长</div>
+                            <div class="a-sector-impact">参考：成长性板块，波动较大</div>
                         </div>
                     </div>
                     <div class="a-sector-item down">
@@ -298,9 +308,9 @@ function renderSummaryContent() {
                             <span class="a-sector-change">-4.5%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">📌 芯片制造设备公司</div>
-                            <div class="a-sector-reason">🔍 原因：行业周期调整+估值回归</div>
-                            <div class="a-sector-impact">💡 参考：长期看好但短期可能继续调整</div>
+                            <div class="a-sector-explain">芯片制造设备公司</div>
+                            <div class="a-sector-reason">原因：行业周期调整+估值回归</div>
+                            <div class="a-sector-impact">参考：长期看好但短期可能继续调整</div>
                         </div>
                     </div>
                     <div class="a-sector-item down">
@@ -310,9 +320,9 @@ function renderSummaryContent() {
                             <span class="a-sector-change">-3.8%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">📌 AI计算能力相关公司</div>
-                            <div class="a-sector-reason">🔍 原因：前期涨幅过大+获利回吐</div>
-                            <div class="a-sector-impact">💡 参考：AI长期趋势不变，短期需消化估值</div>
+                            <div class="a-sector-explain">AI计算能力相关公司</div>
+                            <div class="a-sector-reason">原因：前期涨幅过大+获利回吐</div>
+                            <div class="a-sector-impact">参考：AI长期趋势不变，短期需消化估值</div>
                         </div>
                     </div>
                 </div>
@@ -363,22 +373,23 @@ function renderExpertContent() {
         el.innerHTML = `
             <div class="a-banner">
                 <span class="a-bi">${m.icon}</span>
-                <div class="a-bn">${m.name} · 解读</div>
+                <div class="a-bn">${m.name}今天怎么想</div>
             </div>
             <div class="a-card" style="border-left-color:${m.color}">
                 <div class="a-card-body">${ex.insight.replace(/\n/g, '<br>')}</div>
             </div>
             <div class="a-card a-action" style="border-left-color:${m.color}">
-                <div class="a-card-body" style="font-weight:500;color:#664d03;">⚡ ${ex.action || '等待数据更新...'}</div>
+                <div class="a-card-label">如果非要做点什么</div>
+                <div class="a-card-body" style="font-weight:500;color:#664d03;">${ex.action || '等待数据更新，先别硬操作。'}</div>
             </div>
             <div class="a-feedback">
                 <span class="a-fb-label">这个判断</span>
-                <button class="a-fb-btn" onclick="fbFeedback('${_currentExpert}','like')">👍 有用</button>
-                <button class="a-fb-btn" onclick="fbFeedback('${_currentExpert}','unlike')">👎 不准</button>
+                <button class="a-fb-btn" onclick="fbFeedback('${_currentExpert}','like')">有点东西</button>
+                <button class="a-fb-btn" onclick="fbFeedback('${_currentExpert}','unlike')">先存疑</button>
             </div>
         `;
     } else {
-        el.innerHTML = '<div style="text-align:center;padding:24px 0;color:var(--text2);">等待数据更新...</div>';
+        el.innerHTML = '<div style="text-align:center;padding:24px 0;color:var(--text2);">高手还没到场，茶先泡着。</div>';
     }
 }
 
@@ -390,7 +401,7 @@ function fbFeedback(expert, type) {
     const btns = document.querySelectorAll('.a-fb-btn');
     btns.forEach(b => { b.disabled = true; b.style.opacity = '0.5'; });
     const label = document.querySelector('.a-fb-label');
-    if (label) label.textContent = type === 'like' ? '✅ 已记录' : '📝 已记录';
+    if (label) label.textContent = type === 'like' ? '已记下：有点东西' : '已记下：先存疑';
     setTimeout(() => {
         btns.forEach(b => { b.disabled = false; b.style.opacity = '1'; });
         if (label) label.textContent = '这个判断';
@@ -465,12 +476,12 @@ function toggleMoodDetail() {
 }
 
 // ===== 切换洞察标签页 =====
-function switchInsightTab(tabName) {
+function switchInsightTab(tabName, target) {
     // 更新标签按钮状态
     document.querySelectorAll('.a-insights-tab').forEach(tab => {
         tab.classList.remove('active');
     });
-    event.target.classList.add('active');
+    if (target) target.classList.add('active');
     
     // 更新内容显示
     document.querySelectorAll('.a-insights-content').forEach(content => {

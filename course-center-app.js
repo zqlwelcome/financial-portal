@@ -86,12 +86,42 @@ function renderCourseCenter() {
         pmSeries.completedLessons = pmCompleted;
         pmSeries.totalLessons = pmTotal;
     }
+
+    const nextLesson = getNextPMLesson(progress);
+    const isAllDone = pmTotal > 0 && pmCompleted === pmTotal;
     
     container.innerHTML = `
         <div class="course-center">
             <div class="course-center-header">
-                <div class="course-center-title">🔋 充电站</div>
-                <div class="course-center-subtitle">给自己充充电，升级打怪中...</div>
+                <div class="course-center-title">下班充电站</div>
+                <div class="course-center-subtitle">想系统补一点的时候再来。内容保持硬核，插不插电都随你。</div>
+            </div>
+
+            <div class="course-value-strip">
+                <div class="course-value-item">
+                    <span class="course-value-label">岗位对齐</span>
+                    <span class="course-value-text">AI PM / 数据 / 设计 / 工程</span>
+                </div>
+                <div class="course-value-item">
+                    <span class="course-value-label">内容口味</span>
+                    <span class="course-value-text">面试能讲，工作能用</span>
+                </div>
+            </div>
+
+            <div class="today-study-card">
+                <div class="today-study-kicker">${isAllDone ? '今日状态' : '可选充电'}</div>
+                <div class="today-study-title">${isAllDone ? '今天可以理直气壮地休息了' : nextLesson.title}</div>
+                <div class="today-study-copy">
+                    ${isAllDone
+                        ? 'AI产品经理路线已经通关，脑子申请带薪年假。'
+                        : `${nextLesson.sectionTitle} · ${nextLesson.time}。不是任务，只是给想多懂一点的人留个入口。`}
+                </div>
+                <div class="today-study-actions">
+                    <button class="today-study-primary" onclick="${isAllDone ? "openSeriesDetail('ai-pm')" : `openLesson('${nextLesson.id}', 'ai-pm')`}">
+                        ${isAllDone ? '回顾充电路线' : '去充一点电'}
+                    </button>
+                    <span class="today-study-progress">${pmCompleted}/${pmTotal} 已完成</span>
+                </div>
             </div>
             
             <div class="course-series-grid">
@@ -99,6 +129,29 @@ function renderCourseCenter() {
             </div>
         </div>
     `;
+}
+
+function getNextPMLesson(progress) {
+    if (typeof COURSES === 'undefined') {
+        return { id: '', title: 'AI产品经理路线', sectionTitle: '先把目录热热身', time: '10分钟' };
+    }
+
+    for (const section of COURSES) {
+        const lesson = section.lessons.find(item => !progress[item.id]);
+        if (lesson) {
+            return {
+                ...lesson,
+                sectionTitle: section.title
+            };
+        }
+    }
+
+    const firstSection = COURSES[0];
+    const firstLesson = firstSection?.lessons?.[0];
+    return {
+        ...firstLesson,
+        sectionTitle: firstSection?.title || 'AI产品经理路线'
+    };
 }
 
 // 渲染系列卡片
@@ -130,6 +183,7 @@ function renderSeriesCard(series) {
             </div>
             <div class="series-title">${series.title}</div>
             <div class="series-desc">${series.description}</div>
+            <div class="series-fit">${getSeriesFit(series.id)}</div>
             ${series.status === 'active' ? `
                 <div class="series-progress">
                     <div class="progress-bar">
@@ -143,6 +197,17 @@ function renderSeriesCard(series) {
             </div>
         </div>
     `;
+}
+
+function getSeriesFit(seriesId) {
+    const fits = {
+        'ai-pm': '适合：想转AI产品、面试要讲清楚AI落地的人',
+        'ai-engineer': '适合：想把Demo做成真系统的人',
+        'ai-analyst': '适合：想让报表少点苦工、多点判断的人',
+        'ai-designer': '适合：想把AI变成设计工作流的人',
+        'ai-founder': '适合：想把想法先跑成MVP的人'
+    };
+    return fits[seriesId] || '适合：想给职业工具箱加一格的人';
 }
 
 // 打开系列详情
@@ -159,7 +224,7 @@ function openSeriesDetail(seriesId) {
     container.innerHTML = `
         <div class="course-center">
             <div class="back-to-center" onclick="renderCourseCenter()">
-                ← 返回学习中心
+                ← 返回充电站
             </div>
             
             <div class="course-detail">
@@ -217,7 +282,7 @@ function renderModule(module, color, seriesId, progress) {
 function renderLesson(lesson, color, seriesId, progress) {
     const isCompleted = progress[lesson.id];
     const statusIcon = isCompleted ? '✓' : '';
-    const statusText = isCompleted ? '已完成' : '点击学习';
+    const statusText = isCompleted ? '已完成' : '随缘看';
     
     return `
         <div class="course-lesson" onclick="openLesson('${lesson.id}', '${seriesId}')">
@@ -251,13 +316,15 @@ function openLesson(lessonId, seriesId) {
         return;
     }
     
-    showToast('🚀 课程内容即将上线，敬请期待！');
+    const series = COURSE_SERIES.find(s => s.id === seriesId);
+    const title = series ? series.title : '这门课';
+    showToast(`这门「${title}」还在备课中，老师正在和咖啡机谈判 ☕`);
 }
 
 // 打开AI产品经理课程
 function openPMLesson(lessonId) {
     if (typeof COURSES === 'undefined') {
-        showToast('❌ 课程数据加载失败');
+        showToast('课程数据没加载出来，先别急，可能是网速在摸鱼');
         return;
     }
     
@@ -275,7 +342,7 @@ function openPMLesson(lessonId) {
     }
     
     if (!lesson) {
-        showToast('❌ 课程未找到');
+        showToast('这节课迷路了，我回头把它抓回来');
         return;
     }
     
@@ -287,7 +354,7 @@ function openPMLesson(lessonId) {
     const body = document.getElementById('modalBody');
     
     if (!modal || !title || !body) {
-        showToast('❌ 课程弹窗加载失败');
+        showToast('课程弹窗没打开，可能它也刚下班');
         return;
     }
     
@@ -301,7 +368,7 @@ function openPMLesson(lessonId) {
         ${lesson.content}
         <div class="lesson-actions">
             <button class="done-btn ${isCompleted ? 'completed' : ''}" onclick="toggleLessonComplete('${lessonId}')">
-                ${isCompleted ? '✓ 已完成（点击取消）' : '✓ 完成打卡'}
+                ${isCompleted ? '已充过电（点击取消）' : '这节我看过了'}
             </button>
         </div>
     `;
@@ -322,10 +389,10 @@ function toggleLessonComplete(lessonId) {
         const btn = document.querySelector('.done-btn');
         if (btn) {
             btn.classList.remove('completed');
-            btn.textContent = '✓ 完成打卡';
+            btn.textContent = '这节我看过了';
         }
         
-        showToast('已取消打卡');
+        showToast('已取消，这节课先放回书架');
     } else {
         // 打卡
         progress[lessonId] = true;

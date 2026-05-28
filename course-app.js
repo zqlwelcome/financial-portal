@@ -9,20 +9,24 @@ let expandedSection = null;
 
 // ===== 初始化 =====
 document.addEventListener('DOMContentLoaded', () => {
+    if (!document.getElementById('courseList')) return;
     renderCourseList();
     updateProgress();
     initModal();
 });
 // 保险：如果DOMContentLoaded已触发，直接执行
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    renderCourseList();
-    updateProgress();
-    initModal();
+    if (document.getElementById('courseList')) {
+        renderCourseList();
+        updateProgress();
+        initModal();
+    }
 }
 
 // ===== 渲染课程列表 =====
 function renderCourseList() {
     const el = document.getElementById('courseList');
+    if (!el) return;
     el.innerHTML = COURSES.map(section => {
         const completedCount = section.lessons.filter(l => courseProgress[l.id]).length;
         const totalCount = section.lessons.length;
