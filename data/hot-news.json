@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 20:15",
+  "updateTime": "2026-05-28 20:20",
   "news": [
     {
       "rank": 1,
@@ -27,7 +27,7 @@
     },
     {
       "rank": 4,
-      "title": "Is the 'debasement trade' dead? Outflows from gold and bitcoin ETFs suggest investors are moving on - MarketWatch",
+      "title": "Is the ‘debasement trade’ dead? Outflows from gold and bitcoin ETFs suggest investors are moving on - MarketWatch",
       "source": "MarketWatch",
       "detail": "黄金价格受避险情绪和美元走势影响，关注地缘局势变化。",
       "lang": "en",
@@ -35,7 +35,7 @@
     },
     {
       "rank": 5,
-      "title": "Robinhood Will Allow Users' AI Agents To Trade Stocks - Forbes",
+      "title": "Robinhood Will Allow Users’ AI Agents To Trade Stocks - Forbes",
       "source": "Forbes",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
@@ -59,14 +59,6 @@
     },
     {
       "rank": 8,
-      "title": "Rally in chip stocks becomes the most hated in history. Here's the data",
-      "source": "CNBC",
-      "detail": "The rally in semiconductor stocks is so incredible, traders can't help but bet against it.",
-      "lang": "en",
-      "score": 32
-    },
-    {
-      "rank": 9,
       "title": "Mistral AI CEO：拟自研芯片 同步加码基础设施建设",
       "source": "环球市场播报",
       "detail": "法国人工智能初创企业Mistral AI首席执行官阿瑟·门施表示，公司正考虑自研芯片，未来或将正式推出相关产品。 这是门施首次公开谈及公司在半导体领域的布局规划。",
@@ -74,10 +66,18 @@
       "score": 30
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "美光AI存储业务爆发，改写芯片行业周期规律",
       "source": "环球市场播报",
       "detail": "美光股价此番大涨，超越了过去三十年存储芯片板块历次上涨行情。 这家存储芯片企业市值在周二突破 1 万亿美元，创下 2011 年 11 月以来单日最佳表现。",
+      "lang": "zh",
+      "score": 30
+    },
+    {
+      "rank": 10,
+      "title": "Mistral AI加码基础设施建设，CEO透露将自研芯片",
+      "source": "环球市场播报",
+      "detail": "核心要点为与OpenAI、安索普等美国企业竞争，Mistral计划加强自研基础设施布局，自研芯片正是重要一环。这家法国初创企业宣布在法国新建一座专用推理数据中心。",
       "lang": "zh",
       "score": 30
     }
