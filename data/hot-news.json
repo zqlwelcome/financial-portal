@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 04:10",
+  "updateTime": "2026-05-29 04:15",
   "news": [
     {
       "rank": 1,
@@ -19,19 +19,19 @@
     },
     {
       "rank": 3,
-      "title": "Stock Market Today: Indexes Rise On U.S.-Iran Deal Hopes; Snowflake Surges, First Solar Breaks Out (Live Coverage) - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 52
-    },
-    {
-      "rank": 4,
       "title": "SpaceX IPO大胆踏入AI经济学未知领域 万亿估值引市场热议",
       "source": "环球市场播报",
       "detail": "马斯克旗下的商业航天公司SpaceX于5月20日正式向美国证券交易委员会提交S-1招股书，启动首次公开募股进程，目标估值高达1.75万亿至2万亿美元，计划募资750亿美元...",
       "lang": "zh",
       "score": 50
+    },
+    {
+      "rank": 4,
+      "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
+      "source": "WSJ",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 49
     },
     {
       "rank": 5,
