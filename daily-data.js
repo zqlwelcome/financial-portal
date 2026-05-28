@@ -170,9 +170,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">美国经济增长数据</div>
-                            <div class="a-calendar-watch">看点：GDP增速是否符合预期</div>
-                            <div class="a-calendar-impact-text">可能影响：好于预期→美股利好，低于预期→美股利空</div>
+                            <div class="a-calendar-explain">📌 美国经济增长数据</div>
+                            <div class="a-calendar-watch">👀 关注：GDP增速是否符合预期</div>
+                            <div class="a-calendar-impact-text">💡 影响：好于预期→美股利好，低于预期→美股利空</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -183,9 +183,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">制造业景气度指标</div>
-                            <div class="a-calendar-watch">看点：PMI是否在50以上</div>
-                            <div class="a-calendar-impact-text">可能影响：PMI>50→A股利好，PMI<50→A股利空</div>
+                            <div class="a-calendar-explain">📌 制造业景气度指标</div>
+                            <div class="a-calendar-watch">👀 关注：PMI是否在50以上</div>
+                            <div class="a-calendar-impact-text">💡 影响：PMI>50→A股利好，PMI<50→A股利空</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -196,9 +196,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">美联储最关注的通胀指标</div>
-                            <div class="a-calendar-watch">看点：通胀是否继续下降</div>
-                            <div class="a-calendar-impact-text">可能影响：通胀下降→降息预期升温→美股利好</div>
+                            <div class="a-calendar-explain">📌 美联储最关注的通胀指标</div>
+                            <div class="a-calendar-watch">👀 关注：通胀是否继续下降</div>
+                            <div class="a-calendar-impact-text">💡 影响：通胀下降→降息预期升温→美股利好</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -209,9 +209,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">欧洲央行是否降息</div>
-                            <div class="a-calendar-watch">看点：降息幅度和未来指引</div>
-                            <div class="a-calendar-impact-text">可能影响：欧洲降息→欧元贬值→美元升值</div>
+                            <div class="a-calendar-explain">📌 欧洲央行是否降息</div>
+                            <div class="a-calendar-watch">👀 关注：降息幅度和未来指引</div>
+                            <div class="a-calendar-impact-text">💡 影响：欧洲降息→欧元贬值→美元升值</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -222,9 +222,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">就业市场状况</div>
-                            <div class="a-calendar-watch">看点：新增就业和失业率</div>
-                            <div class="a-calendar-impact-text">可能影响：就业强劲→美联储可能推迟降息</div>
+                            <div class="a-calendar-explain">📌 就业市场状况</div>
+                            <div class="a-calendar-watch">👀 关注：新增就业和失业率</div>
+                            <div class="a-calendar-impact-text">💡 影响：就业强劲→美联储可能推迟降息</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -235,9 +235,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">原油产量政策</div>
-                            <div class="a-calendar-watch">看点：是否减产</div>
-                            <div class="a-calendar-impact-text">可能影响：减产→油价上涨→通胀压力增加</div>
+                            <div class="a-calendar-explain">📌 原油产量政策</div>
+                            <div class="a-calendar-watch">👀 关注：是否减产</div>
+                            <div class="a-calendar-impact-text">💡 影响：减产→油价上涨→通胀压力增加</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
@@ -248,9 +248,9 @@ function renderSummaryContent() {
                             <span class="a-calendar-impact medium">medium</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">中小企业景气度</div>
-                            <div class="a-calendar-watch">看点：与官方PMI是否一致</div>
-                            <div class="a-calendar-impact-text">可能影响：好于官方→中小企业复苏</div>
+                            <div class="a-calendar-explain">📌 中小企业景气度</div>
+                            <div class="a-calendar-watch">👀 关注：与官方PMI是否一致</div>
+                            <div class="a-calendar-impact-text">💡 影响：好于官方→中小企业复苏</div>
                         </div>
                     </div>
                 </div>
@@ -258,7 +258,7 @@ function renderSummaryContent() {
             
             <!-- 资金流向内容 -->
             <div class="a-insights-content" id="insight-flow">
-                <div class="a-flow-list"><div class="a-flow-hint" onclick="this.style.display='none'"><span class="a-flow-hint-text">点开看钱为什么搬家，看完不用立刻搬自己</span></div>
+                <div class="a-flow-list"><div class="a-flow-hint" onclick="this.style.display='none'"><span class="a-flow-hint-icon">👇</span><span class="a-flow-hint-text">点击任意条目查看详细解读</span></div>
                 </div>
             </div>
             
@@ -272,9 +272,9 @@ function renderSummaryContent() {
                             <span class="a-sector-change">+3.2%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">电力发电、输电、配电公司</div>
-                            <div class="a-sector-reason">原因：夏季用电高峰+新能源政策</div>
-                            <div class="a-sector-impact">参考：防御性板块，适合稳健型投资者</div>
+                            <div class="a-sector-explain">📌 电力发电、输电、配电公司</div>
+                            <div class="a-sector-reason">🔍 原因：夏季用电高峰+新能源政策</div>
+                            <div class="a-sector-impact">💡 参考：防御性板块，适合稳健型投资者</div>
                         </div>
                     </div>
                     <div class="a-sector-item up">
@@ -284,9 +284,9 @@ function renderSummaryContent() {
                             <span class="a-sector-change">+2.8%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">白酒酿造和销售公司</div>
-                            <div class="a-sector-reason">原因：消费复苏+茅台效应</div>
-                            <div class="a-sector-impact">参考：高端消费品，受经济周期影响大</div>
+                            <div class="a-sector-explain">📌 白酒酿造和销售公司</div>
+                            <div class="a-sector-reason">🔍 原因：消费复苏+茅台效应</div>
+                            <div class="a-sector-impact">💡 参考：高端消费品，受经济周期影响大</div>
                         </div>
                     </div>
                     <div class="a-sector-item up">
@@ -296,9 +296,9 @@ function renderSummaryContent() {
                             <span class="a-sector-change">+2.1%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">超级电容器技术公司</div>
-                            <div class="a-sector-reason">原因：新能源储能需求增长</div>
-                            <div class="a-sector-impact">参考：成长性板块，波动较大</div>
+                            <div class="a-sector-explain">📌 超级电容器技术公司</div>
+                            <div class="a-sector-reason">🔍 原因：新能源储能需求增长</div>
+                            <div class="a-sector-impact">💡 参考：成长性板块，波动较大</div>
                         </div>
                     </div>
                     <div class="a-sector-item down">
@@ -308,9 +308,9 @@ function renderSummaryContent() {
                             <span class="a-sector-change">-4.5%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">芯片制造设备公司</div>
-                            <div class="a-sector-reason">原因：行业周期调整+估值回归</div>
-                            <div class="a-sector-impact">参考：长期看好但短期可能继续调整</div>
+                            <div class="a-sector-explain">📌 芯片制造设备公司</div>
+                            <div class="a-sector-reason">🔍 原因：行业周期调整+估值回归</div>
+                            <div class="a-sector-impact">💡 参考：长期看好但短期可能继续调整</div>
                         </div>
                     </div>
                     <div class="a-sector-item down">
@@ -320,9 +320,9 @@ function renderSummaryContent() {
                             <span class="a-sector-change">-3.8%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">AI计算能力相关公司</div>
-                            <div class="a-sector-reason">原因：前期涨幅过大+获利回吐</div>
-                            <div class="a-sector-impact">参考：AI长期趋势不变，短期需消化估值</div>
+                            <div class="a-sector-explain">📌 AI计算能力相关公司</div>
+                            <div class="a-sector-reason">🔍 原因：前期涨幅过大+获利回吐</div>
+                            <div class="a-sector-impact">💡 参考：AI长期趋势不变，短期需消化估值</div>
                         </div>
                     </div>
                 </div>
