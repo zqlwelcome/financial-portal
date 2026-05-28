@@ -1,94 +1,51 @@
 {
-  "updateTime": "2026-05-28 21:35",
-  "macro": {
-    "vix": {
+  "updateTime": "2026-05-28 21:36",
+  "indices": {
+    "usVIX": {
       "name": "VIX恐慌指数",
       "value": "21.67",
       "change": "0.00",
+      "category": "macro",
       "explanation": "衡量市场恐慌程度，>30表示恐慌",
       "impact": "VIX上升→避险情绪升温→资金流出风险资产"
-    }
-  },
-  "regional": {
-    "us_nasdaq": {
+    },
+    "usIXIC": {
       "name": "纳斯达克",
-      "region": "北美",
-      "value": "26621.63",
-      "change": "-0.20"
+      "value": "26636.70",
+      "change": "-0.14",
+      "category": "regional",
+      "explanation": "美国科技股指数",
+      "impact": "反映科技行业资金流向",
+      "region": "🇺🇸 美股"
     },
-    "us_dow": {
+    "usDJI": {
       "name": "道琼斯",
-      "region": "北美",
-      "value": "50458.29",
-      "change": "-0.37"
+      "value": "50427.25",
+      "change": "-0.43",
+      "category": "regional",
+      "explanation": "美国工业股指数",
+      "impact": "反映传统行业资金流向",
+      "region": "🇺🇸 美股"
     },
-    "cn_sh": {
+    "sh000001": {
       "name": "上证指数",
-      "region": "中国",
       "value": "4098.64",
-      "change": "0.12"
+      "change": "0.12",
+      "category": "regional",
+      "explanation": "中国A股代表性指数",
+      "impact": "反映A股市场资金流向",
+      "region": "🇨🇳 A股"
     },
-    "hk_hsi": {
+    "hkHSI": {
       "name": "恒生指数",
-      "region": "香港",
       "value": "25006.160",
-      "change": "-1.27"
+      "change": "-1.27",
+      "category": "regional",
+      "explanation": "香港股市代表性指数",
+      "impact": "反映港股及南向资金流向",
+      "region": "🇭🇰 港股"
     }
   },
-  "assets": {
-    "equity_fund": {
-      "name": "股票基金",
-      "flow": "+125亿美元",
-      "direction": "in",
-      "explanation": "全球股票基金净流入",
-      "impact": "资金流入股市→利好风险资产"
-    },
-    "bond_fund": {
-      "name": "债券基金",
-      "flow": "-85亿美元",
-      "direction": "out",
-      "explanation": "全球债券基金净流出",
-      "impact": "资金流出债市→收益率上升预期"
-    },
-    "gold_etf": {
-      "name": "黄金ETF",
-      "flow": "+18亿美元",
-      "direction": "in",
-      "explanation": "黄金ETF持续净流入",
-      "impact": "避险需求增加→金价支撑"
-    },
-    "crypto_fund": {
-      "name": "加密货币基金",
-      "flow": "+42亿美元",
-      "direction": "in",
-      "explanation": "加密货币基金净流入",
-      "impact": "机构资金入场→加密市场活跃"
-    }
-  },
-  "institutional": {
-    "fed": {
-      "name": "美联储",
-      "action": "维持利率不变",
-      "impact": "鸽派信号→利好风险资产",
-      "explanation": "美联储5月会议维持利率5.25%-5.50%不变"
-    },
-    "ecb": {
-      "name": "欧洲央行",
-      "action": "暗示6月可能降息",
-      "impact": "欧元走弱→美元走强",
-      "explanation": "欧洲央行官员暗示6月可能开始降息周期"
-    },
-    "boj": {
-      "name": "日本央行",
-      "action": "维持超宽松政策",
-      "impact": "日元贬值→套利交易活跃",
-      "explanation": "日本央行维持利率-0.1%不变，继续YCC政策"
-    },
-    "pboc": {
-      "name": "中国央行",
-      "action": "维持LPR不变",
-      "impact": "政策稳健→A股稳定",
-      "explanation": "中国央行维持1年期LPR3.45%不变"
-    }
-  }
+  "etf_flows": [],
+  "bank_news": []
 }
