@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 05:25",
+  "updateTime": "2026-05-29 05:30",
   "news": [
     {
       "rank": 1,
@@ -27,6 +27,14 @@
     },
     {
       "rank": 4,
+      "title": "Stock Market Today: Nasdaq Leads Rise To Record Highs On Iran Deal Hopes; Drone Stocks Fly High - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 52
+    },
+    {
+      "rank": 5,
       "title": "SpaceX IPO大胆踏入AI经济学未知领域 万亿估值引市场热议",
       "source": "环球市场播报",
       "detail": "马斯克旗下的商业航天公司SpaceX于5月20日正式向美国证券交易委员会提交S-1招股书，启动首次公开募股进程，目标估值高达1.75万亿至2万亿美元，计划募资750亿美元...",
@@ -34,15 +42,15 @@
       "score": 50
     },
     {
-      "rank": 5,
-      "title": "Anthropic raises $65 Billion, nears $1T valuation ahead of IPO - TechCrunch",
-      "source": "TechCrunch",
+      "rank": 6,
+      "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
+      "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
-      "score": 45
+      "score": 40
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "美联储巴尔金：AI投资正给中性利率带来压力",
       "source": "环球市场播报",
       "detail": "里士满联储行长巴尔金表示，人工智能（AI）领域的投资正对中性利率构成压力。 巴尔金周四在华盛顿出席一场活动时指出：“一系列与AI相关的因素正显现出通胀压力”...",
@@ -50,7 +58,7 @@
       "score": 38
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "4月PCE数据无助于降息决策，美联储可能被迫按兵不动",
       "source": "环球市场播报",
       "detail": " 最新公布的美国4月个人消费支出价格指数进一步证明，通胀压力并未缓解，这使得市场与美联储官员此前期盼的降息窗口彻底关闭。",
@@ -58,7 +66,7 @@
       "score": 36
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "5月29日美股成交额前20：微软将于下周推出多款自研AI模型",
       "source": "环球市场播报",
       "detail": " 周四美股成交额第1名美光科技收跌0.53%，成交454.75亿美元。在过去一年暴涨684%后，美光科技凭借AI芯片需求与存储周期回暖，股价仍有巨大上涨潜力。",
@@ -66,20 +74,12 @@
       "score": 35
     },
     {
-      "rank": 9,
-      "title": "S&P 500 and Nasdaq close at new records, lifted by tech rally: Live updates ",
-      "source": "CNBC",
-      "detail": "Tech resumed its leadership, and traders weighed a reported agreement between U.S. and Iranian negotiators to extend the ceasefire. ",
+      "rank": 10,
+      "title": "AI Has Caused a Software Winter for Markets. Snowflake’s Success Won’t End It. - Barron's",
+      "source": "Barron's",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "戴尔上调AI服务器销售额展望 预计本财年达600亿美元",
-      "source": "环球市场播报",
-      "detail": "戴尔科技给出的年度销售展望远超分析师预期，得益于人工智能（AI）服务器需求强劲。 这家总部位于德克萨斯州的公司周四在声明中表示，截至2027年1月的财年营收将在约1...",
-      "lang": "zh",
-      "score": 30
     }
   ]
 }
