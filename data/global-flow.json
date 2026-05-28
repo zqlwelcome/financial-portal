@@ -1,10 +1,10 @@
 {
-  "updateTime": "2026-05-28 22:20",
+  "updateTime": "2026-05-28 22:26",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
-      "value": "26785.50",
-      "change": "0.42",
+      "value": "26744.03",
+      "change": "0.26",
       "category": "regional",
       "explanation": "美国科技股指数",
       "impact": "反映科技行业资金流向",
@@ -12,8 +12,8 @@
     },
     "usDJI": {
       "name": "道琼斯",
-      "value": "50703.35",
-      "change": "0.12",
+      "value": "50656.70",
+      "change": "0.02",
       "category": "regional",
       "explanation": "美国工业股指数",
       "impact": "反映传统行业资金流向",
@@ -54,16 +54,6 @@
       "title": "美联储首选通胀指标显示：4月核心通胀同比升至3.3%，符合市场预期",
       "source": "环球市场播报",
       "keyword": "美联储"
-    },
-    {
-      "title": "抗通胀属性减弱，黄金价格跌至两个月低点",
-      "source": "环球市场播报",
-      "keyword": "通胀"
-    },
-    {
-      "title": "美国消费者支出微幅增长 通胀加速升温",
-      "source": "环球市场播报",
-      "keyword": "通胀"
     }
   ]
 }
