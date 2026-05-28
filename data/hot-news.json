@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 22:30",
+  "updateTime": "2026-05-28 22:36",
   "news": [
     {
       "rank": 1,
@@ -19,14 +19,22 @@
     },
     {
       "rank": 3,
-      "title": "GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 - U.S. Bureau of Economic Analysis (BEA) (.gov)",
-      "source": "U.S. Bureau of Economic Analysis (BEA) (.gov)",
+      "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
+      "source": "Barron's",
       "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
-      "score": 42
+      "score": 47
     },
     {
       "rank": 4,
+      "title": "Stock Market Today: Dow Slips, Oil Rises as Mideast Hostilities Flare — Live Updates - WSJ",
+      "source": "WSJ",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 39
+    },
+    {
+      "rank": 5,
       "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
       "source": "CBS News",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -34,20 +42,12 @@
       "score": 38
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
       "lang": "en",
       "score": 38
-    },
-    {
-      "rank": 6,
-      "title": "Stock Market Today: Indexes Start To Move Into The Black; Snowflake Hits A Year-To-Date High (Live Coverage) - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 37
     },
     {
       "rank": 7,
@@ -67,19 +67,19 @@
     },
     {
       "rank": 9,
-      "title": "These Space Stocks Haven’t Joined the Rally Yet - Barron's",
-      "source": "Barron's",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 32
-    },
-    {
-      "rank": 10,
       "title": "全文|理想汽车Q1业绩会实录：自研AI芯片和大模型让“挖人”竞争彻底失效",
       "source": "新浪科技",
       "detail": " 理想汽车公布2026年第一季度财报：一季度累计实现交付量95142辆，同比增长2.5%；整体营收230亿元，季末现金储备943亿元，连续10个季度保持千亿左右的资金规模。",
       "lang": "zh",
       "score": 30
+    },
+    {
+      "rank": 10,
+      "title": "Oil prices jump 2% after Iran says it targeted U.S. air base following fresh American strikes",
+      "source": "CNBC",
+      "detail": "Oil prices rose on Thursday after fresh U.S. strikes in Iran renewed concerns over disruptions to commercial shipping through the Strait of Hormuz.",
+      "lang": "en",
+      "score": 27
     }
   ]
 }

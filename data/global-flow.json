@@ -1,10 +1,10 @@
 {
-  "updateTime": "2026-05-28 22:30",
+  "updateTime": "2026-05-28 22:36",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
-      "value": "26759.95",
-      "change": "0.32",
+      "value": "26729.62",
+      "change": "0.21",
       "category": "regional",
       "explanation": "美国科技股指数",
       "impact": "反映科技行业资金流向",
@@ -12,8 +12,8 @@
     },
     "usDJI": {
       "name": "道琼斯",
-      "value": "50643.88",
-      "change": "0.00",
+      "value": "50593.47",
+      "change": "-0.10",
       "category": "regional",
       "explanation": "美国工业股指数",
       "impact": "反映传统行业资金流向",
