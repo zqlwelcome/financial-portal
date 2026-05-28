@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 05:21",
+  "updateTime": "2026-05-29 05:26",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -73,7 +73,53 @@
       "direction": "in"
     }
   ],
-  "sector_flows": [],
+  "sector_flows": [
+    {
+      "name": "通信设备",
+      "code": "BK0448",
+      "index": 26355.23,
+      "change": 3.07,
+      "flow": 10129772288.0,
+      "flow_str": "+101.30亿",
+      "direction": "in"
+    },
+    {
+      "name": "通信",
+      "code": "BK1215",
+      "index": 8636.89,
+      "change": 2.26,
+      "flow": 10057804288.0,
+      "flow_str": "+100.58亿",
+      "direction": "in"
+    },
+    {
+      "name": "通信网络设备及器件",
+      "code": "BK1591",
+      "index": 16443.65,
+      "change": 4.44,
+      "flow": 8981419264.0,
+      "flow_str": "+89.81亿",
+      "direction": "in"
+    },
+    {
+      "name": "小金属",
+      "code": "BK1027",
+      "index": 4227.93,
+      "change": 3.44,
+      "flow": 4329712896.0,
+      "flow_str": "+43.30亿",
+      "direction": "in"
+    },
+    {
+      "name": "消费电子零部件及组装",
+      "code": "BK1338",
+      "index": 15560.28,
+      "change": 2.09,
+      "flow": 3151375360.0,
+      "flow_str": "+31.51亿",
+      "direction": "in"
+    }
+  ],
   "northbound": {
     "time": "15:00",
     "hgt": 0.0,
