@@ -4,14 +4,14 @@
     "usIXIC": {
       "name": "纳斯达克",
       "region": "🇺🇸 美股",
-      "value": "26890.37",
-      "change": "0.81"
+      "value": "26894.02",
+      "change": "0.82"
     },
     "usDJI": {
       "name": "道琼斯",
       "region": "🇺🇸 美股",
-      "value": "50631.91",
-      "change": "-0.02"
+      "value": "50643.48",
+      "change": "0.00"
     },
     "sh000001": {
       "name": "上证指数",
