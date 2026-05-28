@@ -1,13 +1,13 @@
 {
-  "updateTime": "2026-05-29 02:25",
+  "updateTime": "2026-05-29 02:31",
   "news": [
     {
       "rank": 1,
-      "title": "GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 - U.S. Bureau of Economic Analysis (BEA) (.gov)",
-      "source": "U.S. Bureau of Economic Analysis (BEA) (.gov)",
-      "detail": "国际财经动态，关注后续发展。",
+      "title": "Stock Market Today: Dow wavers, S&P 500 and Nasdaq on pace for record closes on optimism around an Iran deal; bond yields ease, PCE inflation rises, oil higher - MarketWatch",
+      "source": "MarketWatch",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
-      "score": 42
+      "score": 69
     },
     {
       "rank": 2,
@@ -59,14 +59,6 @@
     },
     {
       "rank": 8,
-      "title": "Despite Hitting a $1 Trillion Valuation, Micron Remains My Favorite Stock for 2026 - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 27
-    },
-    {
-      "rank": 9,
       "title": "Oil prices turn lower as U.S.-Iran ceasefire extension awaits Trump approval",
       "source": "CNBC",
       "detail": "Oil prices pulled back Thursday, erasing earlier gains, on a report that U.S. and Iranian negotiators reached an agreement to extend the ceasefire.",
@@ -74,12 +66,20 @@
       "score": 27
     },
     {
-      "rank": 10,
-      "title": "Wix laying off about 20% of its workforce. CEO cites AI, exchange rates in announcing cut - CNBC",
+      "rank": 9,
+      "title": "CFTC bid to vacate order against Winklevoss' crypto exchange 'very unusual': ex-agency chief",
       "source": "CNBC",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "detail": "The Commodity Futures Trading Commission is looking to undo a $5 million civil penalty against the Gemini, which was founded by the Winklevoss twins.",
       "lang": "en",
       "score": 25
+    },
+    {
+      "rank": 10,
+      "title": "无人机个股暴涨：传五角大楼考虑入股该行业",
+      "source": "环球市场播报",
+      "detail": "核心要点《华尔街曰报》报道五角大楼正与无人机企业洽谈资金支持协议后，非凡机器（Unusual Machines） 股价暴涨近 50%。小唐纳德・特朗普是非凡机器的股东兼顾问委员会成...",
+      "lang": "zh",
+      "score": 20
     }
   ]
 }
