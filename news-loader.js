@@ -1,7 +1,7 @@
 /**
  * 新闻和提示 - 稳定版
  * 数据来源：hot-news.json（由cron job每5分钟更新）
- * 交互逻辑：默认显示标题+出处，点击展开详情，再次点击收起
+ * 交互逻辑：默认显示来源+标题，点击展开详情，再次点击收起
  */
 
 // ===== 缓存 =====
@@ -44,22 +44,11 @@ async function loadHotNews(forceRefresh = false) {
     try {
         const data = await xhrFetch();
         if (data && data.news && data.news.length > 0) {
-            const isNew = newsCache.length === 0 || !newsCache[0] || newsCache[0].title !== data.news[0].title;
-            const timeChanged = _lastUpdateTime !== data.updateTime;
-            
-            if (isNew || timeChanged) {
-                _lastUpdateTime = data.updateTime;
-                newsCache = data.news;
-                lastRefreshTime = Date.now();
-                renderNewsList(newsCache);
-                updateRefreshHint(data.updateTime || '刚刚更新');
-                localStorage.setItem('hot_news_cache', JSON.stringify(data.news));
-                localStorage.setItem('hot_news_time', data.updateTime || '');
-                return;
-            }
-            
+            newsCache = data.news;
             lastRefreshTime = Date.now();
-            updateRefreshHint(data.updateTime || '已是最新');
+            renderNewsList(newsCache);
+            updateRefreshHint(data.updateTime || '刚刚更新');
+            localStorage.setItem('hot_news_cache', JSON.stringify(data.news));
             return;
         }
     } catch(e) {
@@ -152,8 +141,8 @@ function xhrFetchAlerts() {
 
 function fallbackAlerts() {
     renderAlerts({
-        forex: { icon: '💱', title: '外汇提示', text: '日元跌破160关口', detail: '日元兑美元汇率跌破160心理关口，创34年新低。日本财务省官员发出警告。' },
-        stock: { icon: '📈', title: '股市动向', text: 'A股放量上涨', detail: 'A股三大指数全线收涨，沪指重返3400点。成交额突破万亿。' }
+        forex: { icon: '💱', title: '外汇提示', text: '日元跌破160关口', detail: '日元兑美元汇率跌破160心理关口，创34年新低。' },
+        stock: { icon: '📈', title: '股市动向', text: 'A股放量上涨', detail: 'A股三大指数全线收涨，沪指重返3400点。' }
     });
 }
 
@@ -190,49 +179,26 @@ function renderNewsList(news) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
     
-    // 前3条
-    const head = news.slice(0, 3);
-    const rest = news.slice(3);
+    const displayNews = _newsAllShown ? news : news.slice(0, 3);
     
-    let html = head.map((item, index) => `
+    let html = displayNews.map((item, index) => `
         <div class="news-item ${expandedNews === index ? 'expanded' : ''}" onclick="toggleNews(${index})">
             <div class="news-rank ${index < 3 ? 'hot' : ''}">${index + 1}</div>
             <div class="news-body">
                 <div class="news-head">
-                    <span class="news-source">${item.source}</span>
+                    <span class="news-source">${item.source || '财经媒体'}</span>
                 </div>
                 <div class="news-title">${item.title}</div>
-                <div class="news-summary">${item.summary || ''}</div>
-                <div class="news-detail">${item.detail || item.summary || '暂无详细信息'}</div>
+                <div class="news-detail">${item.detail || '暂无详细信息'}</div>
             </div>
             <div class="news-arrow">›</div>
         </div>`).join('');
     
-    // 剩余（折叠或展开）
-    if (_newsAllShown) {
-        html += rest.map((item, index) => {
-            const realIndex = index + 3;
-            return `
-            <div class="news-item ${expandedNews === realIndex ? 'expanded' : ''}" onclick="toggleNews(${realIndex})">
-                <div class="news-rank ${realIndex < 3 ? 'hot' : ''}">${realIndex + 1}</div>
-                <div class="news-body">
-                    <div class="news-head">
-                        <span class="news-source">${item.source}</span>
-                    </div>
-                    <div class="news-title">${item.title}</div>
-                    <div class="news-summary">${item.summary || ''}</div>
-                    <div class="news-detail">${item.detail || item.summary || '暂无详细信息'}</div>
-                </div>
-                <div class="news-arrow">›</div>
-            </div>`;
-        }).join('');
-    }
-    
-    // 展开按钮
-    if (rest.length > 0) {
+    // 展开/收起按钮
+    if (news.length > 3) {
         html += `
         <div class="news-expand-wrap">
-            <button class="news-expand-btn" onclick="_newsAllShown=!_newsAllShown;renderNewsList(newsCache);if(!_newsAllShown){setTimeout(function(){var el=document.querySelector('.sub-tabs');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},50)}">
+            <button class="news-expand-btn" onclick="_newsAllShown=!_newsAllShown;renderNewsList(newsCache);">
                 ${_newsAllShown ? '收起 <span class="hl-arrow">‹</span>' : `查看全部 ${news.length} 条 <span class="hl-arrow">›</span>`}
             </button>
         </div>`;
