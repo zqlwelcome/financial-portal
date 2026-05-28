@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 21:40",
+  "updateTime": "2026-05-28 21:45",
   "indices": {
     "usVIX": {
       "name": "VIX恐慌指数",
@@ -11,8 +11,8 @@
     },
     "usIXIC": {
       "name": "纳斯达克",
-      "value": "26620.27",
-      "change": "-0.20",
+      "value": "26606.04",
+      "change": "-0.26",
       "category": "regional",
       "explanation": "美国科技股指数",
       "impact": "反映科技行业资金流向",
@@ -20,8 +20,8 @@
     },
     "usDJI": {
       "name": "道琼斯",
-      "value": "50448.77",
-      "change": "-0.39",
+      "value": "50513.76",
+      "change": "-0.26",
       "category": "regional",
       "explanation": "美国工业股指数",
       "impact": "反映传统行业资金流向",
