@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-29 02:15",
+  "updateTime": "2026-05-29 02:20",
   "news": [
     {
       "rank": 1,
-      "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 49
-    },
-    {
-      "rank": 2,
       "title": "美联储官员穆萨莱姆称不能指望AI降低通胀 与主席沃什看法相左",
       "source": "环球市场播报",
       "detail": " 圣路易斯联邦储备银行行长阿尔伯托·穆萨莱姆表示，政策制定者不能指望人工智能可能带来的生产率激增来缓解高企的通胀。",
@@ -18,7 +10,7 @@
       "score": 38
     },
     {
-      "rank": 3,
+      "rank": 2,
       "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
       "source": "CBS News",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -26,12 +18,20 @@
       "score": 38
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
       "lang": "en",
       "score": 38
+    },
+    {
+      "rank": 4,
+      "title": "Stock Market Today: Nasdaq Leads Gains On Iran Deal Hopes; Best Buy, Dollar Tree Rocket Higher (Live Coverage) - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
     },
     {
       "rank": 5,
