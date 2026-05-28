@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-28 20:20",
+  "updateTime": "2026-05-28 20:25",
   "news": [
     {
       "rank": 1,
-      "title": "Stock Market Today: Dow, S&P 500 and Nasdaq close at record highs on hopes for Iran war ending; oil prices drop; Micron extends epic run - MarketWatch",
-      "source": "MarketWatch",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 54
-    },
-    {
-      "rank": 2,
       "title": "RKLB, ASTS Are Crushing Retail Space Trade On SpaceX IPO Buzz — But One Tiny Underdog Could Be The Real Moonshot - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -18,12 +10,20 @@
       "score": 45
     },
     {
-      "rank": 3,
+      "rank": 2,
       "title": "S&P 500 futures decline as oil rebounds, traders await key inflation reading: Live updates",
       "source": "CNBC",
       "detail": "April's reading of the personal consumption expenditure price index, the Fed's preferred inflation gauge, is due out at 8:30 a.m. on Thursday.",
       "lang": "en",
       "score": 42
+    },
+    {
+      "rank": 3,
+      "title": "S&P 500, Nasdaq, Dow Futures Rise As AI-Driven Tech Rally Overpowers 'Defensive' Iran Strikes: ONDS, NBIS, RCAT, SNOW In Focus - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 40
     },
     {
       "rank": 4,
@@ -35,14 +35,6 @@
     },
     {
       "rank": 5,
-      "title": "Robinhood Will Allow Users’ AI Agents To Trade Stocks - Forbes",
-      "source": "Forbes",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 37
-    },
-    {
-      "rank": 6,
       "title": "韩国综合指数逢低买盘依旧活跃 央行加息预期升温",
       "source": "环球市场播报",
       "detail": " 韩国央行释放加息信号后，韩国综合指数盘中最大跌幅达4.7%，但周四收盘仅小幅收跌，尽显场内投资者顽强的逢低买入意愿。",
@@ -50,7 +42,7 @@
       "score": 36
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "002552，16天10板！A股尾盘异动，多股20%涨停！",
       "source": "",
       "detail": " 今日（5月28日），A股整体探底回升，上证指数、创业板指均围绕4100点展开激烈争夺，深证成指、科创综指、北证50等也均稳步上扬，成交2.99万亿元。",
@@ -58,7 +50,7 @@
       "score": 35
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "Mistral AI CEO：拟自研芯片 同步加码基础设施建设",
       "source": "环球市场播报",
       "detail": "法国人工智能初创企业Mistral AI首席执行官阿瑟·门施表示，公司正考虑自研芯片，未来或将正式推出相关产品。 这是门施首次公开谈及公司在半导体领域的布局规划。",
@@ -66,7 +58,7 @@
       "score": 30
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "美光AI存储业务爆发，改写芯片行业周期规律",
       "source": "环球市场播报",
       "detail": "美光股价此番大涨，超越了过去三十年存储芯片板块历次上涨行情。 这家存储芯片企业市值在周二突破 1 万亿美元，创下 2011 年 11 月以来单日最佳表现。",
@@ -74,12 +66,20 @@
       "score": 30
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "Mistral AI加码基础设施建设，CEO透露将自研芯片",
       "source": "环球市场播报",
       "detail": "核心要点为与OpenAI、安索普等美国企业竞争，Mistral计划加强自研基础设施布局，自研芯片正是重要一环。这家法国初创企业宣布在法国新建一座专用推理数据中心。",
       "lang": "zh",
       "score": 30
+    },
+    {
+      "rank": 10,
+      "title": "Here are Thursday's biggest analyst calls: Nvidia, Tesla, Marvell, Broadcom, Dell, Dick's, Meta, Salesforce & more",
+      "source": "CNBC",
+      "detail": "Here are Thursday's biggest calls on Wall Street.",
+      "lang": "en",
+      "score": 29
     }
   ]
 }
