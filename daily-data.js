@@ -19,7 +19,7 @@ const _EMBEDDED_DATA = {
                 "value": "全球股市震荡，港股恒指险守25000点，A股科技板块拥挤度创新高但消费疲软，张裕业绩暴跌显示传统消费承压。"
             },
             {
-                "label": "💰 资金",
+                "label": "💰 全球资金",
                 "value": "资金从传统消费板块流出，向科技和AI主题集中，但科技板块拥挤度已达历史高位，短期存在回调风险。"
             },
             {
@@ -133,8 +133,8 @@ function renderSummaryContent() {
                 <div class="a-insights-tabs">
                     <button class="a-insights-tab active" onclick="switchInsightTab('braintrust')">🧠 智囊团</button>
                     <button class="a-insights-tab" onclick="switchInsightTab('calendar')">📅 日历</button>
-                    <button class="a-insights-tab" onclick="switchInsightTab('flow')">💰 资金</button>
-                    <button class="a-insights-tab" onclick="switchInsightTab('sector')">📈 板块</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('flow')">💰 全球资金</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('sector')">📈 全球板块</button>
                 </div>
                 <div class="a-insights-hint" id="tabHint">
                     <span class="a-hint-arrow">←</span>
@@ -573,7 +573,7 @@ function assessMood(hotNews) {
         confidence: Math.min(10, Math.max(1, 5 + Math.abs(b - r))),
         dimensions: [
             { label: '📈 趋势', value: b > r + 2 ? '温和上涨' : r > b + 2 ? '偏弱' : '震荡' },
-            { label: '💰 资金', value: '中性' },
+            { label: '💰 全球资金', value: '中性' },
             { label: '🌍 地缘', value: '平稳' },
             { label: '🏭 热点', value: '分散' },
             { label: '😊 情绪', value: Math.abs(b - r) > 3 ? '偏乐观' : '中性' },
