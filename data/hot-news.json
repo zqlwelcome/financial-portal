@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-29 02:31",
+  "updateTime": "2026-05-29 02:35",
   "news": [
     {
       "rank": 1,
-      "title": "Stock Market Today: Dow wavers, S&P 500 and Nasdaq on pace for record closes on optimism around an Iran deal; bond yields ease, PCE inflation rises, oil higher - MarketWatch",
-      "source": "MarketWatch",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 69
-    },
-    {
-      "rank": 2,
       "title": "美联储官员穆萨莱姆称不能指望AI降低通胀 与主席沃什看法相左",
       "source": "环球市场播报",
       "detail": " 圣路易斯联邦储备银行行长阿尔伯托·穆萨莱姆表示，政策制定者不能指望人工智能可能带来的生产率激增来缓解高企的通胀。",
@@ -18,15 +10,7 @@
       "score": 38
     },
     {
-      "rank": 3,
-      "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
-      "source": "CBS News",
-      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
-      "lang": "en",
-      "score": 38
-    },
-    {
-      "rank": 4,
+      "rank": 2,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
@@ -34,7 +18,7 @@
       "score": 38
     },
     {
-      "rank": 5,
+      "rank": 3,
       "title": "Stock Market Today: Nasdaq Leads Gains On Iran Deal Hopes; Best Buy, Dollar Tree Rocket Higher (Live Coverage) - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +26,7 @@
       "score": 37
     },
     {
-      "rank": 6,
+      "rank": 4,
       "title": "AI Has Caused a Software Winter for Markets. Snowflake’s Success Won’t End It. - Barron's",
       "source": "Barron's",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,7 +34,15 @@
       "score": 35
     },
     {
-      "rank": 7,
+      "rank": 5,
+      "title": "Anthropic新一轮融资后估值达9650亿美元 超越OpenAI",
+      "source": "环球市场播报",
+      "detail": "人工智能公司Anthropic PBC在新一轮融资中募资650亿美元，投后估值达到9，650亿美元，超过竞争对手OpenAI。 这轮融资于周四宣布，由Altimeter Capital、Dragoneer...",
+      "lang": "zh",
+      "score": 30
+    },
+    {
+      "rank": 6,
       "title": "Time to buy this once high-flying apparel stock? Jay Woods looks at the charts ahead of earnings",
       "source": "CNBC",
       "detail": "Jay Woods of Freedom Capital Markets takes a close look at Lululemon's charts ahead of its earnings report. ",
@@ -58,12 +50,20 @@
       "score": 29
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "Oil prices turn lower as U.S.-Iran ceasefire extension awaits Trump approval",
       "source": "CNBC",
       "detail": "Oil prices pulled back Thursday, erasing earlier gains, on a report that U.S. and Iranian negotiators reached an agreement to extend the ceasefire.",
       "lang": "en",
       "score": 27
+    },
+    {
+      "rank": 8,
+      "title": "AI part of another tech layoff as Wix CEO announces 20% workforce cut - CNBC",
+      "source": "CNBC",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 25
     },
     {
       "rank": 9,
@@ -75,11 +75,11 @@
     },
     {
       "rank": 10,
-      "title": "无人机个股暴涨：传五角大楼考虑入股该行业",
-      "source": "环球市场播报",
-      "detail": "核心要点《华尔街曰报》报道五角大楼正与无人机企业洽谈资金支持协议后，非凡机器（Unusual Machines） 股价暴涨近 50%。小唐纳德・特朗普是非凡机器的股东兼顾问委员会成...",
-      "lang": "zh",
-      "score": 20
+      "title": "‘Trump accounts’ app launches to manage $1,000 federal investment per child - The Washington Post",
+      "source": "The Washington Post",
+      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "lang": "en",
+      "score": 23
     }
   ]
 }
