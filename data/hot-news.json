@@ -1,8 +1,16 @@
 {
-  "updateTime": "2026-05-29 00:00",
+  "updateTime": "2026-05-29 00:05",
   "news": [
     {
       "rank": 1,
+      "title": "Stock Market Today: Dow slips, S&P 500 and Nasdaq trade in record territory after a report of a looming Iran deal; bond yields ease, PCE inflation rises, oil higher - MarketWatch",
+      "source": "MarketWatch",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 69
+    },
+    {
+      "rank": 2,
       "title": "Snowflake surges 35% toward best day ever on AI frenzy, fueling software rally",
       "source": "CNBC",
       "detail": "The Snowflake rally also lifted shares of ServiceNow, Oracle and Palantir, while Salesforce bucked the trend.",
@@ -10,28 +18,20 @@
       "score": 55
     },
     {
-      "rank": 2,
-      "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 49
-    },
-    {
       "rank": 3,
-      "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
-      "source": "Barron's",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 47
-    },
-    {
-      "rank": 4,
       "title": "GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 - U.S. Bureau of Economic Analysis (BEA) (.gov)",
       "source": "U.S. Bureau of Economic Analysis (BEA) (.gov)",
       "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 42
+    },
+    {
+      "rank": 4,
+      "title": "美联储官员穆萨莱姆称不能指望AI降低通胀 与主席沃什看法相左",
+      "source": "环球市场播报",
+      "detail": " 圣路易斯联邦储备银行行长阿尔伯托·穆萨莱姆表示，政策制定者不能指望人工智能可能带来的生产率激增来缓解高企的通胀。",
+      "lang": "zh",
+      "score": 38
     },
     {
       "rank": 5,
@@ -59,6 +59,14 @@
     },
     {
       "rank": 8,
+      "title": "These Space Stocks Haven’t Joined the Rally Yet - Barron's",
+      "source": "Barron's",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 32
+    },
+    {
+      "rank": 9,
       "title": "Unusual Machines and other drone stocks surge on report Pentagon considering stakes in the industry",
       "source": "CNBC",
       "detail": "Drone stocks surged Thursday on a report the Trump administration is in talks to fund several firms, including one in which Donald Trump Jr. is a shareholder.",
@@ -66,20 +74,12 @@
       "score": 32
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "全文|理想汽车Q1业绩会实录：自研AI芯片和大模型让“挖人”竞争彻底失效",
       "source": "新浪科技",
       "detail": " 理想汽车公布2026年第一季度财报：一季度累计实现交付量95142辆，同比增长2.5%；整体营收230亿元，季末现金储备943亿元，连续10个季度保持千亿左右的资金规模。",
       "lang": "zh",
       "score": 30
-    },
-    {
-      "rank": 10,
-      "title": "Oil prices pull back on report U.S.-Iran agreement to extend ceasefire awaits Trump approval",
-      "source": "CNBC",
-      "detail": "Oil prices pulled back Thursday, erasing earlier gains on a report that U.S. and Iranian negotiators reached an agreement to extend ceasefire.",
-      "lang": "en",
-      "score": 27
     }
   ]
 }
