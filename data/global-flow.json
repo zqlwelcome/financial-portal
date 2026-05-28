@@ -1,18 +1,10 @@
 {
-  "updateTime": "2026-05-28 21:55",
+  "updateTime": "2026-05-28 22:00",
   "indices": {
-    "usVIX": {
-      "name": "VIX恐慌指数",
-      "value": "21.67",
-      "change": "0.00",
-      "category": "macro",
-      "explanation": "衡量市场恐慌程度，>30表示恐慌",
-      "impact": "VIX上升→避险情绪升温→资金流出风险资产"
-    },
     "usIXIC": {
       "name": "纳斯达克",
-      "value": "26630.71",
-      "change": "-0.17",
+      "value": "26680.47",
+      "change": "0.02",
       "category": "regional",
       "explanation": "美国科技股指数",
       "impact": "反映科技行业资金流向",
@@ -20,8 +12,8 @@
     },
     "usDJI": {
       "name": "道琼斯",
-      "value": "50558.19",
-      "change": "-0.17",
+      "value": "50513.89",
+      "change": "-0.26",
       "category": "regional",
       "explanation": "美国工业股指数",
       "impact": "反映传统行业资金流向",
@@ -47,5 +39,11 @@
     }
   },
   "etf_flows": [],
-  "bank_news": []
+  "bank_news": [
+    {
+      "title": "美联储首选通胀指标显示：4月核心通胀同比升至3.3%，符合市场预期",
+      "source": "环球市场播报",
+      "keyword": "美联储"
+    }
+  ]
 }
