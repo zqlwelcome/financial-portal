@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 02:11",
+  "updateTime": "2026-05-29 02:15",
   "news": [
     {
       "rank": 1,
@@ -11,14 +11,6 @@
     },
     {
       "rank": 2,
-      "title": "GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 - U.S. Bureau of Economic Analysis (BEA) (.gov)",
-      "source": "U.S. Bureau of Economic Analysis (BEA) (.gov)",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 42
-    },
-    {
-      "rank": 3,
       "title": "美联储官员穆萨莱姆称不能指望AI降低通胀 与主席沃什看法相左",
       "source": "环球市场播报",
       "detail": " 圣路易斯联邦储备银行行长阿尔伯托·穆萨莱姆表示，政策制定者不能指望人工智能可能带来的生产率激增来缓解高企的通胀。",
@@ -26,7 +18,7 @@
       "score": 38
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
       "source": "CBS News",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -34,7 +26,7 @@
       "score": 38
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
@@ -42,7 +34,7 @@
       "score": 38
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "AI Has Caused a Software Winter for Markets. Snowflake’s Success Won’t End It. - Barron's",
       "source": "Barron's",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,7 +42,7 @@
       "score": 35
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "Time to buy this once high-flying apparel stock? Jay Woods looks at the charts ahead of earnings",
       "source": "CNBC",
       "detail": "Jay Woods of Freedom Capital Markets takes a close look at Lululemon's charts ahead of its earnings report. ",
@@ -58,9 +50,17 @@
       "score": 29
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "Kohl's stock spikes 20% as slumping retailer says sales trends are improving - CNBC",
       "source": "CNBC",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 27
+    },
+    {
+      "rank": 8,
+      "title": "Despite Hitting a $1 Trillion Valuation, Micron Remains My Favorite Stock for 2026 - Yahoo Finance",
+      "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 27
@@ -75,9 +75,9 @@
     },
     {
       "rank": 10,
-      "title": "CFTC bid to vacate order against Winklevoss' crypto exchange 'very unusual': ex-agency chief",
+      "title": "Wix laying off about 20% of its workforce. CEO cites AI, exchange rates in announcing cut - CNBC",
       "source": "CNBC",
-      "detail": "The Commodity Futures Trading Commission is looking to undo a $5 million civil penalty against the Gemini, which was founded by the Winklevoss twins.",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 25
     }
