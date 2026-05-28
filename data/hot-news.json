@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 22:05",
+  "updateTime": "2026-05-28 22:10",
   "news": [
     {
       "rank": 1,
@@ -51,6 +51,14 @@
     },
     {
       "rank": 7,
+      "title": "Robinhood Will Let Customers Use AI Agents To Trade Stocks - Forbes",
+      "source": "Forbes",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 8,
       "title": "欧洲央行会议纪要：如果加息作为选项 一些官员不会反对4月行动",
       "source": "环球市场播报",
       "detail": "欧洲央行的会议纪要显示，该行一些官员在上个月的政策会议上不会反对加息。 欧洲央行4月29日至30日会议的纪要显示：“一些成员指出，最终决策是一个势均力敌的决定。",
@@ -58,7 +66,7 @@
       "score": 36
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "全文|理想汽车Q1业绩会实录：自研AI芯片和大模型让“挖人”竞争彻底失效",
       "source": "新浪科技",
       "detail": " 理想汽车公布2026年第一季度财报：一季度累计实现交付量95142辆，同比增长2.5%；整体营收230亿元，季末现金储备943亿元，连续10个季度保持千亿左右的资金规模。",
@@ -66,20 +74,12 @@
       "score": 30
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Robinhood推出AI代理交易功能，散户可授权人工智能自动炒股",
       "source": "环球市场播报",
       "detail": "美国网红券商Robinhood（纳斯达克代码：HOOD）当地时间5月27日宣布，正式推出“Agentic Trading”功能，允许用户将第三方人工智能代理接入专用投资账户...",
       "lang": "zh",
       "score": 30
-    },
-    {
-      "rank": 10,
-      "title": "Here are Thursday's biggest analyst calls: Nvidia, Tesla, Marvell, Broadcom, Dell, Dick's, Meta, Salesforce & more",
-      "source": "CNBC",
-      "detail": "Here are Thursday's biggest calls on Wall Street.",
-      "lang": "en",
-      "score": 29
     }
   ]
 }
