@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 03:55",
+  "updateTime": "2026-05-29 04:00",
   "news": [
     {
       "rank": 1,
@@ -27,19 +27,19 @@
     },
     {
       "rank": 4,
-      "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 49
-    },
-    {
-      "rank": 5,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
       "lang": "en",
       "score": 38
+    },
+    {
+      "rank": 5,
+      "title": "Stock Market Today: Nasdaq Leads Gains On Iran Deal Hopes; Best Buy, Dollar Tree Rocket Higher (Live Coverage) - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
     },
     {
       "rank": 6,
