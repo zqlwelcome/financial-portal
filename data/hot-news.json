@@ -1,21 +1,21 @@
 {
-  "updateTime": "2026-05-28 23:35",
+  "updateTime": "2026-05-28 23:40",
   "news": [
     {
       "rank": 1,
-      "title": "Stock Market Today: Dow, slips, S&P 500 and Nasdaq trade in record territory after a report of a looming Iran deal; bond yields ease, PCE inflation rises, oil higher - MarketWatch",
-      "source": "MarketWatch",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 69
-    },
-    {
-      "rank": 2,
       "title": "Snowflake surges 35% toward best day ever on AI frenzy, fueling software rally",
       "source": "CNBC",
       "detail": "The Snowflake rally also lifted shares of ServiceNow, Oracle and Palantir, while Salesforce bucked the trend.",
       "lang": "en",
       "score": 55
+    },
+    {
+      "rank": 2,
+      "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
+      "source": "WSJ",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 49
     },
     {
       "rank": 3,
@@ -35,14 +35,6 @@
     },
     {
       "rank": 5,
-      "title": "Best Buy stock climbs 15% on earnings beat as retailer aims to reinvigorate sales",
-      "source": "CNBC",
-      "detail": "Best Buy reported better-than-expected earnings on Thursday as the company works toward turning around its sales slump.",
-      "lang": "en",
-      "score": 39
-    },
-    {
-      "rank": 6,
       "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
       "source": "CBS News",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -50,7 +42,7 @@
       "score": 38
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
@@ -58,7 +50,7 @@
       "score": 38
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "欧洲央行会议纪要：如果加息作为选项 一些官员不会反对4月行动",
       "source": "环球市场播报",
       "detail": "欧洲央行的会议纪要显示，该行一些官员在上个月的政策会议上不会反对加息。 欧洲央行4月29日至30日会议的纪要显示：“一些成员指出，最终决策是一个势均力敌的决定。",
@@ -66,7 +58,7 @@
       "score": 36
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "Unusual Machines and other drone stocks surge on report Pentagon considering stakes in the industry",
       "source": "CNBC",
       "detail": "Drone stocks surged Thursday on a report the Trump administration is in talks to fund several firms, including one in which Donald Trump Jr. is a shareholder.",
@@ -74,12 +66,20 @@
       "score": 32
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "全文|理想汽车Q1业绩会实录：自研AI芯片和大模型让“挖人”竞争彻底失效",
       "source": "新浪科技",
       "detail": " 理想汽车公布2026年第一季度财报：一季度累计实现交付量95142辆，同比增长2.5%；整体营收230亿元，季末现金储备943亿元，连续10个季度保持千亿左右的资金规模。",
       "lang": "zh",
       "score": 30
+    },
+    {
+      "rank": 10,
+      "title": "Oil prices pull back on report U.S.-Iran agreement to extend ceasefire awaits Trump approval",
+      "source": "CNBC",
+      "detail": "Oil prices pulled back Thursday, erasing earlier gains on a report that U.S. and Iranian negotiators reached an agreement to extend ceasefire.",
+      "lang": "en",
+      "score": 27
     }
   ]
 }
