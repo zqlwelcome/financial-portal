@@ -1678,7 +1678,7 @@ body {
     gap: 8px;
 }
 .a-calendar-item {
-    padding: 12px 0;
+    padding: 8px 0;
     border-bottom: 0.5px solid var(--border);
 }
 .a-calendar-item:last-child {
@@ -1722,16 +1722,16 @@ body {
     gap: 12px;
 }
 .a-flow-item {
-    padding: 12px 0;
+    padding: 8px 0;
     border-bottom: 0.5px solid var(--border);
 }
 .a-flow-name {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text2);
     min-width: 70px;
 }
 .a-flow-value {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     min-width: 80px;
     text-align: right;
@@ -1764,7 +1764,7 @@ body {
     gap: 8px;
 }
 .a-sector-item {
-    padding: 12px 0;
+    padding: 8px 0;
     border-bottom: 0.5px solid var(--border);
 }
 .a-sector-item:last-child {
@@ -2050,7 +2050,7 @@ body {
 
 /* ===== 市场日历详细注解 ===== */
 .a-calendar-item {
-    padding: 12px 0;
+    padding: 8px 0;
     border-bottom: 0.5px solid var(--border);
     cursor: pointer;
 }
@@ -2064,8 +2064,8 @@ body {
 }
 .a-calendar-detail {
     display: none;
-    margin-top: 8px;
-    padding: 8px 12px;
+    margin-top: 6px;
+    padding: 6px 10px;
     background: var(--bg);
     border-radius: 8px;
     font-size: 12px;
@@ -2089,7 +2089,7 @@ body {
 
 /* ===== 资金流向详细注解 ===== */
 .a-flow-item {
-    padding: 12px 0;
+    padding: 8px 0;
     border-bottom: 0.5px solid var(--border);
 }
 .a-flow-item:last-child {
@@ -2103,8 +2103,8 @@ body {
 }
 .a-flow-detail {
     display: none;
-    margin-top: 8px;
-    padding: 8px 12px;
+    margin-top: 6px;
+    padding: 6px 10px;
     background: var(--bg);
     border-radius: 8px;
     font-size: 12px;
@@ -2115,7 +2115,8 @@ body {
 }
 .a-flow-explain {
     color: var(--text2);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
+    font-size: 11px;
 }
 .a-flow-meaning {
     color: var(--primary);
@@ -2124,11 +2125,12 @@ body {
 .a-flow-impact {
     color: var(--text);
     font-weight: 500;
+    font-size: 11px;
 }
 
 /* ===== 板块轮动详细注解 ===== */
 .a-sector-item {
-    padding: 12px 0;
+    padding: 8px 0;
     border-bottom: 0.5px solid var(--border);
 }
 .a-sector-item:last-child {
@@ -2142,8 +2144,8 @@ body {
 }
 .a-sector-detail {
     display: none;
-    margin-top: 8px;
-    padding: 8px 12px;
+    margin-top: 6px;
+    padding: 6px 10px;
     background: var(--bg);
     border-radius: 8px;
     font-size: 12px;
@@ -2167,17 +2169,17 @@ body {
 
 /* ===== 资金流向分组样式 ===== */
 .a-flow-category {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 .a-flow-category:last-child {
     margin-bottom: 0;
 }
 .a-flow-category-title {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 8px;
-    padding-bottom: 6px;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
     border-bottom: 0.5px solid var(--border);
 }
 .a-flow-change {
