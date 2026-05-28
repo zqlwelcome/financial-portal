@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 04:15",
+  "updateTime": "2026-05-29 04:20",
   "news": [
     {
       "rank": 1,
@@ -27,19 +27,19 @@
     },
     {
       "rank": 4,
-      "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 49
-    },
-    {
-      "rank": 5,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
       "lang": "en",
       "score": 38
+    },
+    {
+      "rank": 5,
+      "title": "Stock Market Today: Nasdaq Leads Gains On Iran Deal Hopes; Best Buy, Dollar Tree Rocket Higher (Live Coverage) - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
     },
     {
       "rank": 6,
@@ -59,6 +59,14 @@
     },
     {
       "rank": 8,
+      "title": "Anthropic营收达470亿美元超越OpenAI 竞争格局彻底反转",
+      "source": "环球市场播报",
+      "detail": "今年元旦之际，OpenAI管理层若得知公司2026年前五个月月度营收涨幅超50%，想必会倍感欣喜。这一增速基本符合其此前向投资者披露的预期。",
+      "lang": "zh",
+      "score": 30
+    },
+    {
+      "rank": 9,
       "title": "SpaceX万亿IPO背后的隐形风险：星舰停飞、估值泡沫与治理隐忧",
       "source": "环球市场播报",
       "detail": "SpaceX的首次公开募股正在成为2026年全球资本市场最瞩目的事件。这家由埃隆·马斯克掌控的商业航天巨头计划于6月12日登陆纳斯达克，募资750亿美元，目标估值高达1...",
@@ -66,18 +74,10 @@
       "score": 30
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "估值9650亿美元！Anthropic完成650亿美元融资，超越OpenAI登顶AI估值榜首",
       "source": "环球市场播报",
       "detail": "人工智能领域的权力格局正在改写。由前OpenAI高管创立仅五年的Anthropic，近日正式完成650亿美元的H轮融资，投后估值达到9650亿美元，一举超越OpenAI的8520亿美元估值...",
-      "lang": "zh",
-      "score": 30
-    },
-    {
-      "rank": 10,
-      "title": "Anthropic超OpenAI成最具价值AI初创公司，最新融资轮估值接近1万亿美元",
-      "source": "环球市场播报",
-      "detail": "Anthropic如今已成为硅谷最具价值的人工智能公司。 这家AI巨头周四宣布，已完成650亿美元的H轮融资，估值达到9650亿美元。此轮融资使其估值超过了竞争对手AI实验室OpenAI。...",
       "lang": "zh",
       "score": 30
     }
