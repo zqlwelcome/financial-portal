@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 05:10",
+  "updateTime": "2026-05-29 05:16",
   "news": [
     {
       "rank": 1,
@@ -67,17 +67,17 @@
     },
     {
       "rank": 9,
-      "title": "AI Has Caused a Software Winter for Markets. Snowflake’s Success Won’t End It. - Barron's",
-      "source": "Barron's",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
+      "title": "5月29日美股成交额前20：微软将于下周推出多款自研AI模型",
+      "source": "环球市场播报",
+      "detail": " 周四美股成交额第1名美光科技收跌0.53%，成交454.75亿美元。在过去一年暴涨684%后，美光科技凭借AI芯片需求与存储周期回暖，股价仍有巨大上涨潜力。",
+      "lang": "zh",
       "score": 35
     },
     {
       "rank": 10,
-      "title": "S&P 500 and Nasdaq close at new records, lifted by tech rally: Live updates ",
-      "source": "CNBC",
-      "detail": "Tech resumed its leadership, and traders weighed a reported agreement between U.S. and Iranian negotiators to extend the ceasefire. ",
+      "title": "AI Has Caused a Software Winter for Markets. Snowflake’s Success Won’t End It. - Barron's",
+      "source": "Barron's",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 35
     }
