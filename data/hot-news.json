@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 22:36",
+  "updateTime": "2026-05-28 22:40",
   "news": [
     {
       "rank": 1,
@@ -35,6 +35,14 @@
     },
     {
       "rank": 5,
+      "title": "Best Buy stock climbs 15% on earnings beat as retailer aims to reinvigorate sales",
+      "source": "CNBC",
+      "detail": "Best Buy reported better-than-expected earnings on Thursday as the company works toward turning around its sales slump.",
+      "lang": "en",
+      "score": 39
+    },
+    {
+      "rank": 6,
       "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
       "source": "CBS News",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -42,7 +50,7 @@
       "score": 38
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
@@ -50,7 +58,7 @@
       "score": 38
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "Snowflake stock soars on growing enterprise AI demand, AWS partnership - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -58,7 +66,7 @@
       "score": 37
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "欧洲央行会议纪要：如果加息作为选项 一些官员不会反对4月行动",
       "source": "环球市场播报",
       "detail": "欧洲央行的会议纪要显示，该行一些官员在上个月的政策会议上不会反对加息。 欧洲央行4月29日至30日会议的纪要显示：“一些成员指出，最终决策是一个势均力敌的决定。",
@@ -66,20 +74,12 @@
       "score": 36
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "全文|理想汽车Q1业绩会实录：自研AI芯片和大模型让“挖人”竞争彻底失效",
       "source": "新浪科技",
       "detail": " 理想汽车公布2026年第一季度财报：一季度累计实现交付量95142辆，同比增长2.5%；整体营收230亿元，季末现金储备943亿元，连续10个季度保持千亿左右的资金规模。",
       "lang": "zh",
       "score": 30
-    },
-    {
-      "rank": 10,
-      "title": "Oil prices jump 2% after Iran says it targeted U.S. air base following fresh American strikes",
-      "source": "CNBC",
-      "detail": "Oil prices rose on Thursday after fresh U.S. strikes in Iran renewed concerns over disruptions to commercial shipping through the Strait of Hormuz.",
-      "lang": "en",
-      "score": 27
     }
   ]
 }

@@ -1,50 +1,132 @@
 {
-  "updateTime": "2026-05-28 22:36",
+  "updateTime": "2026-05-28 22:40",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
-      "value": "26729.62",
-      "change": "0.21",
-      "category": "regional",
-      "explanation": "美国科技股指数",
-      "impact": "反映科技行业资金流向",
-      "region": "🇺🇸 美股"
+      "region": "🇺🇸 美股",
+      "value": "26725.45",
+      "change": "0.19"
     },
     "usDJI": {
       "name": "道琼斯",
-      "value": "50593.47",
-      "change": "-0.10",
-      "category": "regional",
-      "explanation": "美国工业股指数",
-      "impact": "反映传统行业资金流向",
-      "region": "🇺🇸 美股"
+      "region": "🇺🇸 美股",
+      "value": "50569.57",
+      "change": "-0.15"
     },
     "sh000001": {
       "name": "上证指数",
+      "region": "🇨🇳 A股",
       "value": "4098.64",
-      "change": "0.12",
-      "category": "regional",
-      "explanation": "中国A股代表性指数",
-      "impact": "反映A股市场资金流向",
-      "region": "🇨🇳 A股"
+      "change": "0.12"
     },
     "hkHSI": {
       "name": "恒生指数",
+      "region": "🇭🇰 港股",
       "value": "25006.160",
-      "change": "-1.27",
-      "category": "regional",
-      "explanation": "香港股市代表性指数",
-      "impact": "反映港股及南向资金流向",
-      "region": "🇭🇰 港股"
+      "change": "-1.27"
     }
   },
-  "etf_flows": [],
-  "bank_news": [
+  "etf_flows": [
     {
-      "title": "美国财长贝森特：美国财政部持续推进针对伊朗政权的强力经济打击行动",
-      "source": "环球市场播报",
-      "keyword": "贝森特"
+      "name": "半导体设备ETF国泰",
+      "code": "159516",
+      "price": 1.279,
+      "change": 1.27,
+      "flow": 611577264.0,
+      "flow_str": "+6.12亿",
+      "direction": "in"
     },
+    {
+      "name": "科创芯片ETF嘉实",
+      "code": "588200",
+      "price": 3.798,
+      "change": 2.45,
+      "flow": 518255264.0,
+      "flow_str": "+5.18亿",
+      "direction": "in"
+    },
+    {
+      "name": "科创50ETF华夏",
+      "code": "588000",
+      "price": 1.942,
+      "change": 1.62,
+      "flow": 457386384.0,
+      "flow_str": "+4.57亿",
+      "direction": "in"
+    },
+    {
+      "name": "科创半导体ETF华夏",
+      "code": "588170",
+      "price": 2.607,
+      "change": 1.6,
+      "flow": 376734128.0,
+      "flow_str": "+3.77亿",
+      "direction": "in"
+    },
+    {
+      "name": "通信ETF国泰",
+      "code": "515880",
+      "price": 1.619,
+      "change": 5.2,
+      "flow": 323025200.0,
+      "flow_str": "+3.23亿",
+      "direction": "in"
+    }
+  ],
+  "sector_flows": [
+    {
+      "name": "通信设备",
+      "code": "BK0448",
+      "index": 26355.23,
+      "change": 3.07,
+      "flow": 10129772288.0,
+      "flow_str": "+101.30亿",
+      "direction": "in"
+    },
+    {
+      "name": "通信",
+      "code": "BK1215",
+      "index": 8636.89,
+      "change": 2.26,
+      "flow": 10057804288.0,
+      "flow_str": "+100.58亿",
+      "direction": "in"
+    },
+    {
+      "name": "通信网络设备及器件",
+      "code": "BK1591",
+      "index": 16443.65,
+      "change": 4.44,
+      "flow": 8981419264.0,
+      "flow_str": "+89.81亿",
+      "direction": "in"
+    },
+    {
+      "name": "小金属",
+      "code": "BK1027",
+      "index": 4227.93,
+      "change": 3.44,
+      "flow": 4329712896.0,
+      "flow_str": "+43.30亿",
+      "direction": "in"
+    },
+    {
+      "name": "消费电子零部件及组装",
+      "code": "BK1338",
+      "index": 15560.28,
+      "change": 2.09,
+      "flow": 3151375360.0,
+      "flow_str": "+31.51亿",
+      "direction": "in"
+    }
+  ],
+  "northbound": {
+    "time": "15:00",
+    "hgt": 0.0,
+    "sgt": 5200000.0,
+    "total": 0.0
+  },
+  "bank_news": [
     {
       "title": "欧洲央行会议纪要：如果加息作为选项 一些官员不会反对4月行动",
       "source": "环球市场播报",
