@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 20:45",
+  "updateTime": "2026-05-28 20:50",
   "news": [
     {
       "rank": 1,
@@ -67,17 +67,17 @@
     },
     {
       "rank": 9,
-      "title": "美光AI存储业务爆发，改写芯片行业周期规律",
-      "source": "环球市场播报",
-      "detail": "美光股价此番大涨，超越了过去三十年存储芯片板块历次上涨行情。 这家存储芯片企业市值在周二突破 1 万亿美元，创下 2011 年 11 月以来单日最佳表现。",
-      "lang": "zh",
-      "score": 30
-    },
-    {
-      "rank": 10,
       "title": "Here are Thursday's biggest analyst calls: Nvidia, Tesla, Marvell, Broadcom, Dell, Dick's, Meta, Salesforce & more",
       "source": "CNBC",
       "detail": "Here are Thursday's biggest calls on Wall Street.",
+      "lang": "en",
+      "score": 29
+    },
+    {
+      "rank": 10,
+      "title": "This chip stock has more than tripled in the past year. Analysts say buy more after latest earnings",
+      "source": "CNBC",
+      "detail": "The semiconductor company reported fiscal 2027 first-quarter earnings and revenue that beat consensus estimates. ",
       "lang": "en",
       "score": 29
     }
