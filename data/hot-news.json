@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 22:10",
+  "updateTime": "2026-05-28 22:15",
   "news": [
     {
       "rank": 1,
@@ -11,19 +11,19 @@
     },
     {
       "rank": 2,
+      "title": "Snowflake surges 35% toward best day ever on AI frenzy, fueling software rally",
+      "source": "CNBC",
+      "detail": "The Snowflake rally also lifted shares of ServiceNow, Oracle and Palantir, while Salesforce bucked the trend.",
+      "lang": "en",
+      "score": 55
+    },
+    {
+      "rank": 3,
       "title": "X-FAB股价因AI芯片分析师力荐暴涨77%，散户追捧再掀热潮",
       "source": "环球市场播报",
       "detail": "欧洲芯片制造商X-FAB Silicon Foundries SE（场外市场代码：XFABF）股价在周三交易中一度飙升77%，此前一位在社交媒体平台X上拥有超过40万粉丝的知名交易员发布帖文...",
       "lang": "zh",
       "score": 50
-    },
-    {
-      "rank": 3,
-      "title": "RKLB, ASTS Are Crushing Retail Space Trade On SpaceX IPO Buzz — But One Tiny Underdog Could Be The Real Moonshot - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 45
     },
     {
       "rank": 4,
@@ -35,8 +35,8 @@
     },
     {
       "rank": 5,
-      "title": "Iran War Lifts Fed’s Preferred Inflation Gauge to Highest Level Since May 2023 - The New York Times",
-      "source": "The New York Times",
+      "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
+      "source": "CBS News",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
       "lang": "en",
       "score": 38
@@ -51,8 +51,8 @@
     },
     {
       "rank": 7,
-      "title": "Robinhood Will Let Customers Use AI Agents To Trade Stocks - Forbes",
-      "source": "Forbes",
+      "title": "Snowflake stock soars on growing enterprise AI demand, AWS partnership - Yahoo Finance",
+      "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 37
@@ -67,17 +67,17 @@
     },
     {
       "rank": 9,
-      "title": "全文|理想汽车Q1业绩会实录：自研AI芯片和大模型让“挖人”竞争彻底失效",
-      "source": "新浪科技",
-      "detail": " 理想汽车公布2026年第一季度财报：一季度累计实现交付量95142辆，同比增长2.5%；整体营收230亿元，季末现金储备943亿元，连续10个季度保持千亿左右的资金规模。",
-      "lang": "zh",
-      "score": 30
+      "title": "These Space Stocks Haven’t Joined the Rally Yet - Barron's",
+      "source": "Barron's",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 32
     },
     {
       "rank": 10,
-      "title": "Robinhood推出AI代理交易功能，散户可授权人工智能自动炒股",
-      "source": "环球市场播报",
-      "detail": "美国网红券商Robinhood（纳斯达克代码：HOOD）当地时间5月27日宣布，正式推出“Agentic Trading”功能，允许用户将第三方人工智能代理接入专用投资账户...",
+      "title": "全文|理想汽车Q1业绩会实录：自研AI芯片和大模型让“挖人”竞争彻底失效",
+      "source": "新浪科技",
+      "detail": " 理想汽车公布2026年第一季度财报：一季度累计实现交付量95142辆，同比增长2.5%；整体营收230亿元，季末现金储备943亿元，连续10个季度保持千亿左右的资金规模。",
       "lang": "zh",
       "score": 30
     }
