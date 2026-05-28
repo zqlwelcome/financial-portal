@@ -248,7 +248,7 @@ function renderSummaryContent() {
             
             <!-- 资金流向内容 -->
             <div class="a-insights-content" id="insight-flow">
-                <div class="a-flow-list"><div class="a-flow-hint" onclick="this.style.display='none'"><span class="a-flow-hint-icon">👆</span><span class="a-flow-hint-text">点击任意条目查看详细解读</span></div><div class="a-flow-category"><div class="a-flow-category-title">🌍 全球宏观</div>
+                <div class="a-flow-list"><div class="a-flow-hint" onclick="this.style.display='none'"><span class="a-flow-hint-icon">👇</span><span class="a-flow-hint-text">点击任意条目查看详细解读</span></div><div class="a-flow-category"><div class="a-flow-category-title">🌍 全球宏观</div>
                     <div class="a-flow-item">
                         <div class="a-flow-main" onclick="toggleFlowDetail(this)">
                             <span class="a-flow-name">VIX恐慌指数</span>
