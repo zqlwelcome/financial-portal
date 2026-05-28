@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 21:20",
+  "updateTime": "2026-05-28 21:25",
   "macro": {
     "vix": {
       "name": "VIX恐慌指数",
@@ -14,13 +14,13 @@
       "name": "纳斯达克",
       "region": "北美",
       "value": "26674.73",
-      "change": "0.07"
+      "change": "0.00"
     },
     "us_dow": {
       "name": "道琼斯",
       "region": "北美",
       "value": "50644.28",
-      "change": "0.36"
+      "change": "0.00"
     },
     "cn_sh": {
       "name": "上证指数",
