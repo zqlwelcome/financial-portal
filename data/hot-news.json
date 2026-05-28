@@ -1,21 +1,21 @@
 {
-  "updateTime": "2026-05-29 01:30",
+  "updateTime": "2026-05-29 01:38",
   "news": [
     {
       "rank": 1,
-      "title": "Retail Stocks Surge With US Shoppers Surprising Wall Street - Bloomberg.com",
-      "source": "Bloomberg.com",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 54
-    },
-    {
-      "rank": 2,
       "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 49
+    },
+    {
+      "rank": 2,
+      "title": "GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 - U.S. Bureau of Economic Analysis (BEA) (.gov)",
+      "source": "U.S. Bureau of Economic Analysis (BEA) (.gov)",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 42
     },
     {
       "rank": 3,
