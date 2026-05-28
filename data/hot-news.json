@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 06:16",
+  "updateTime": "2026-05-29 06:20",
   "news": [
     {
       "rank": 1,
@@ -19,6 +19,14 @@
     },
     {
       "rank": 3,
+      "title": "Inflation hits highest level in nearly 3 years, Fed's preferred gauge shows - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "lang": "en",
+      "score": 53
+    },
+    {
+      "rank": 4,
       "title": "Stock Market Today: Nasdaq Leads Rise To Record Highs On Iran Deal Hopes; Drone Stocks Fly High - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -26,7 +34,7 @@
       "score": 52
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "Stock Market Today: Oil Pares Gains as Investors Cling to Hope of Mideast Deal - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -34,7 +42,7 @@
       "score": 49
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,19 +50,11 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "美联储巴尔金：AI投资正给中性利率带来压力",
       "source": "环球市场播报",
       "detail": "里士满联储行长巴尔金表示，人工智能（AI）领域的投资正对中性利率构成压力。 巴尔金周四在华盛顿出席一场活动时指出：“一系列与AI相关的因素正显现出通胀压力”...",
       "lang": "zh",
-      "score": 38
-    },
-    {
-      "rank": 7,
-      "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
-      "source": "CBS News",
-      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
-      "lang": "en",
       "score": 38
     },
     {
