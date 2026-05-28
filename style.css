@@ -2164,3 +2164,37 @@ body {
     color: var(--text);
     font-weight: 500;
 }
+
+/* ===== 资金流向分组样式 ===== */
+.a-flow-category {
+    margin-bottom: 16px;
+}
+.a-flow-category:last-child {
+    margin-bottom: 0;
+}
+.a-flow-category-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 0.5px solid var(--border);
+}
+.a-flow-change {
+    font-size: 12px;
+    font-family: var(--ff-mono);
+    color: var(--text2);
+    min-width: 50px;
+    text-align: right;
+}
+.a-flow-value.up, .a-flow-change.positive { color: var(--green); }
+.a-flow-value.down, .a-flow-change.negative { color: var(--red); }
+
+/* ===== 日历区域标签 ===== */
+.a-calendar-region {
+    font-size: 10px;
+    padding: 2px 6px;
+    background: var(--tag-bg);
+    color: var(--primary);
+    border-radius: 4px;
+}

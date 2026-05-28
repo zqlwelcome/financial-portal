@@ -154,44 +154,35 @@ function renderSummaryContent() {
                 <div class="a-calendar-list">
                     <div class="a-calendar-item">
                         <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">05/28</span>
-                            <span class="a-calendar-event">美联储5月会议纪要公布</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 美联储上次会议的详细记录</div>
-                            <div class="a-calendar-watch">👀 关注：关注美联储对通胀和利率的态度</div>
-                            <div class="a-calendar-impact-text">💡 影响：如果偏鹰派（加息），美股可能下跌；如果偏鸽派（降息），美股可能上涨</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">05/29</span>
                             <span class="a-calendar-event">美国Q1 GDP修正值</span>
+                            <span class="a-calendar-region">🇺🇸 美国</span>
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 美国第一季度经济增长数据的修正版</div>
+                            <div class="a-calendar-explain">📌 美国经济增长数据</div>
                             <div class="a-calendar-watch">👀 关注：GDP增速是否符合预期</div>
-                            <div class="a-calendar-impact-text">💡 影响：GDP好于预期→美股利好；低于预期→美股利空</div>
+                            <div class="a-calendar-impact-text">💡 影响：好于预期→美股利好，低于预期→美股利空</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
                         <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">05/30</span>
                             <span class="a-calendar-event">中国5月官方PMI</span>
+                            <span class="a-calendar-region">🇨🇳 中国</span>
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 制造业采购经理人指数，反映经济景气度</div>
-                            <div class="a-calendar-watch">👀 关注：PMI是否在50以上（扩张）或以下（收缩）</div>
-                            <div class="a-calendar-impact-text">💡 影响：PMI>50→A股利好；PMI<50→A股利空</div>
+                            <div class="a-calendar-explain">📌 制造业景气度指标</div>
+                            <div class="a-calendar-watch">👀 关注：PMI是否在50以上</div>
+                            <div class="a-calendar-impact-text">💡 影响：PMI>50→A股利好，PMI<50→A股利空</div>
                         </div>
                     </div>
                     <div class="a-calendar-item">
                         <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">05/31</span>
-                            <span class="a-calendar-event">美国4月PCE物价指数</span>
+                            <span class="a-calendar-event">美国PCE物价指数</span>
+                            <span class="a-calendar-region">🇺🇸 美国</span>
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
@@ -203,37 +194,53 @@ function renderSummaryContent() {
                     <div class="a-calendar-item">
                         <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
                             <span class="a-calendar-date">06/01</span>
-                            <span class="a-calendar-event">中国5月财新PMI</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 民间版PMI，更关注中小企业</div>
-                            <div class="a-calendar-watch">👀 关注：与官方PMI是否一致</div>
-                            <div class="a-calendar-impact-text">💡 影响：财新PMI好于官方→中小企业复苏→A股利好</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">06/02</span>
-                            <span class="a-calendar-event">美国5月非农就业数据</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 美国就业市场状况</div>
-                            <div class="a-calendar-watch">👀 关注：新增就业人数和失业率</div>
-                            <div class="a-calendar-impact-text">💡 影响：就业强劲→经济好→美联储可能推迟降息</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">06/03</span>
                             <span class="a-calendar-event">欧洲央行利率决议</span>
+                            <span class="a-calendar-region">🇪🇺 欧洲</span>
                             <span class="a-calendar-impact high">high</span>
                         </div>
                         <div class="a-calendar-detail">
                             <div class="a-calendar-explain">📌 欧洲央行是否降息</div>
                             <div class="a-calendar-watch">👀 关注：降息幅度和未来指引</div>
-                            <div class="a-calendar-impact-text">💡 影响：欧洲降息→欧元贬值→美元升值→新兴市场承压</div>
+                            <div class="a-calendar-impact-text">💡 影响：欧洲降息→欧元贬值→美元升值</div>
+                        </div>
+                    </div>
+                    <div class="a-calendar-item">
+                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
+                            <span class="a-calendar-date">06/02</span>
+                            <span class="a-calendar-event">美国非农就业数据</span>
+                            <span class="a-calendar-region">🇺🇸 美国</span>
+                            <span class="a-calendar-impact high">high</span>
+                        </div>
+                        <div class="a-calendar-detail">
+                            <div class="a-calendar-explain">📌 就业市场状况</div>
+                            <div class="a-calendar-watch">👀 关注：新增就业和失业率</div>
+                            <div class="a-calendar-impact-text">💡 影响：就业强劲→美联储可能推迟降息</div>
+                        </div>
+                    </div>
+                    <div class="a-calendar-item">
+                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
+                            <span class="a-calendar-date">06/03</span>
+                            <span class="a-calendar-event">OPEC+产量会议</span>
+                            <span class="a-calendar-region">🌍 全球</span>
+                            <span class="a-calendar-impact high">high</span>
+                        </div>
+                        <div class="a-calendar-detail">
+                            <div class="a-calendar-explain">📌 原油产量政策</div>
+                            <div class="a-calendar-watch">👀 关注：是否减产</div>
+                            <div class="a-calendar-impact-text">💡 影响：减产→油价上涨→通胀压力增加</div>
+                        </div>
+                    </div>
+                    <div class="a-calendar-item">
+                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
+                            <span class="a-calendar-date">06/04</span>
+                            <span class="a-calendar-event">中国财新PMI</span>
+                            <span class="a-calendar-region">🇨🇳 中国</span>
+                            <span class="a-calendar-impact medium">medium</span>
+                        </div>
+                        <div class="a-calendar-detail">
+                            <div class="a-calendar-explain">📌 中小企业景气度</div>
+                            <div class="a-calendar-watch">👀 关注：与官方PMI是否一致</div>
+                            <div class="a-calendar-impact-text">💡 影响：好于官方→中小企业复苏</div>
                         </div>
                     </div>
                 </div>
@@ -241,55 +248,150 @@ function renderSummaryContent() {
             
             <!-- 资金流向内容 -->
             <div class="a-insights-content" id="insight-flow">
-                <div class="a-flow-list">
+                <div class="a-flow-list"><div class="a-flow-category"><div class="a-flow-category-title">🌍 全球宏观</div>
                     <div class="a-flow-item">
                         <div class="a-flow-main" onclick="toggleFlowDetail(this)">
-                            <span class="a-flow-name">北向资金</span>
-                            <span class="a-flow-value out">-52.3亿</span>
-                            <span class="a-flow-bar"><span style="width:30%"></span></span>
+                            <span class="a-flow-name">VIX恐慌指数</span>
+                            <span class="a-flow-value medium">21.67</span>
+                            <span class="a-flow-change"></span>
                         </div>
                         <div class="a-flow-detail">
-                            <div class="a-flow-explain">📌 外资通过港股通买入A股的净额</div>
-                            <div class="a-flow-meaning">📊 含义：负数=外资在卖，正数=外资在买</div>
-                            <div class="a-flow-impact">💡 参考：北向资金被称为'聪明钱'，持续流出可能预示市场调整</div>
+                            <div class="a-flow-explain">📌 衡量市场恐慌程度，>30表示恐慌</div>
+                            <div class="a-flow-impact">💡 影响：VIX上升→避险情绪升温→资金流出风险资产</div>
+                        </div>
+                    </div></div><div class="a-flow-category"><div class="a-flow-category-title">📊 区域市场</div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-name">纳斯达克</span>
+                            <span class="a-flow-value up">26674.73</span>
+                            <span class="a-flow-change">+0.07%</span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">📌 北美市场代表性指数</div>
+                            <div class="a-flow-impact">💡 影响：上涨→反映该地区资金流入</div>
                         </div>
                     </div>
                     <div class="a-flow-item">
                         <div class="a-flow-main" onclick="toggleFlowDetail(this)">
-                            <span class="a-flow-name">主力资金</span>
-                            <span class="a-flow-value out">-128.6亿</span>
-                            <span class="a-flow-bar"><span style="width:20%"></span></span>
+                            <span class="a-flow-name">道琼斯</span>
+                            <span class="a-flow-value up">50644.28</span>
+                            <span class="a-flow-change">+0.36%</span>
                         </div>
                         <div class="a-flow-detail">
-                            <div class="a-flow-explain">📌 大单资金（通常>50万元）的净流向</div>
-                            <div class="a-flow-meaning">📊 含义：负数=机构在卖，正数=机构在买</div>
-                            <div class="a-flow-impact">💡 参考：主力资金流向往往领先于股价变化</div>
+                            <div class="a-flow-explain">📌 北美市场代表性指数</div>
+                            <div class="a-flow-impact">💡 影响：上涨→反映该地区资金流入</div>
                         </div>
                     </div>
                     <div class="a-flow-item">
                         <div class="a-flow-main" onclick="toggleFlowDetail(this)">
-                            <span class="a-flow-name">融资余额</span>
-                            <span class="a-flow-value in">+15.2亿</span>
-                            <span class="a-flow-bar"><span style="width:65%"></span></span>
+                            <span class="a-flow-name">上证指数</span>
+                            <span class="a-flow-value up">4098.64</span>
+                            <span class="a-flow-change">+0.12%</span>
                         </div>
                         <div class="a-flow-detail">
-                            <div class="a-flow-explain">📌 投资者借钱炒股的总规模</div>
-                            <div class="a-flow-meaning">📊 含义：增加=市场杠杆上升，减少=市场杠杆下降</div>
-                            <div class="a-flow-impact">💡 参考：融资余额过高可能预示市场过热</div>
+                            <div class="a-flow-explain">📌 中国市场代表性指数</div>
+                            <div class="a-flow-impact">💡 影响：上涨→反映该地区资金流入</div>
                         </div>
                     </div>
                     <div class="a-flow-item">
                         <div class="a-flow-main" onclick="toggleFlowDetail(this)">
-                            <span class="a-flow-name">ETF净申购</span>
-                            <span class="a-flow-value in">+42.8亿</span>
-                            <span class="a-flow-bar"><span style="width:75%"></span></span>
+                            <span class="a-flow-name">恒生指数</span>
+                            <span class="a-flow-value down">25006.160</span>
+                            <span class="a-flow-change">-1.27%</span>
                         </div>
                         <div class="a-flow-detail">
-                            <div class="a-flow-explain">📌 机构通过ETF入场的净金额</div>
-                            <div class="a-flow-meaning">📊 含义：正数=机构在买入ETF，负数=机构在赎回</div>
-                            <div class="a-flow-impact">💡 参考：ETF净申购通常代表机构看好市场</div>
+                            <div class="a-flow-explain">📌 香港市场代表性指数</div>
+                            <div class="a-flow-impact">💡 影响：下跌→反映该地区资金流出</div>
+                        </div>
+                    </div></div><div class="a-flow-category"><div class="a-flow-category-title">💰 资产流向</div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-name">股票基金</span>
+                            <span class="a-flow-value in">+125亿美元</span>
+                            <span class="a-flow-change"></span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">📌 全球股票基金净流入</div>
+                            <div class="a-flow-impact">💡 影响：资金流入股市→利好风险资产</div>
                         </div>
                     </div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-name">债券基金</span>
+                            <span class="a-flow-value out">-85亿美元</span>
+                            <span class="a-flow-change"></span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">📌 全球债券基金净流出</div>
+                            <div class="a-flow-impact">💡 影响：资金流出债市→收益率上升预期</div>
+                        </div>
+                    </div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-name">黄金ETF</span>
+                            <span class="a-flow-value in">+18亿美元</span>
+                            <span class="a-flow-change"></span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">📌 黄金ETF持续净流入</div>
+                            <div class="a-flow-impact">💡 影响：避险需求增加→金价支撑</div>
+                        </div>
+                    </div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-name">加密货币基金</span>
+                            <span class="a-flow-value in">+42亿美元</span>
+                            <span class="a-flow-change"></span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">📌 加密货币基金净流入</div>
+                            <div class="a-flow-impact">💡 影响：机构资金入场→加密市场活跃</div>
+                        </div>
+                    </div></div><div class="a-flow-category"><div class="a-flow-category-title">🏦 机构动向</div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-name">美联储</span>
+                            <span class="a-flow-value neutral">维持利率不变</span>
+                            <span class="a-flow-change"></span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">📌 美联储5月会议维持利率5.25%-5.50%不变</div>
+                            <div class="a-flow-impact">💡 影响：鸽派信号→利好风险资产</div>
+                        </div>
+                    </div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-name">欧洲央行</span>
+                            <span class="a-flow-value neutral">暗示6月可能降息</span>
+                            <span class="a-flow-change"></span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">📌 欧洲央行官员暗示6月可能开始降息周期</div>
+                            <div class="a-flow-impact">💡 影响：欧元走弱→美元走强</div>
+                        </div>
+                    </div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-name">日本央行</span>
+                            <span class="a-flow-value neutral">维持超宽松政策</span>
+                            <span class="a-flow-change"></span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">📌 日本央行维持利率-0.1%不变，继续YCC政策</div>
+                            <div class="a-flow-impact">💡 影响：日元贬值→套利交易活跃</div>
+                        </div>
+                    </div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-name">中国央行</span>
+                            <span class="a-flow-value neutral">维持LPR不变</span>
+                            <span class="a-flow-change"></span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">📌 中国央行维持1年期LPR3.45%不变</div>
+                            <div class="a-flow-impact">💡 影响：政策稳健→A股稳定</div>
+                        </div>
+                    </div></div>
                 </div>
             </div>
             
@@ -304,7 +406,7 @@ function renderSummaryContent() {
                         </div>
                         <div class="a-sector-detail">
                             <div class="a-sector-explain">📌 电力发电、输电、配电公司</div>
-                            <div class="a-sector-reason">🔍 原因：夏季用电高峰临近+新能源政策支持</div>
+                            <div class="a-sector-reason">🔍 原因：夏季用电高峰+新能源政策</div>
                             <div class="a-sector-impact">💡 参考：防御性板块，适合稳健型投资者</div>
                         </div>
                     </div>
@@ -316,8 +418,8 @@ function renderSummaryContent() {
                         </div>
                         <div class="a-sector-detail">
                             <div class="a-sector-explain">📌 白酒酿造和销售公司</div>
-                            <div class="a-sector-reason">🔍 原因：消费复苏预期+茅台品牌效应</div>
-                            <div class="a-sector-impact">💡 参考：高端消费品，受经济周期影响较大</div>
+                            <div class="a-sector-reason">🔍 原因：消费复苏+茅台效应</div>
+                            <div class="a-sector-impact">💡 参考：高端消费品，受经济周期影响大</div>
                         </div>
                     </div>
                     <div class="a-sector-item up">
@@ -327,7 +429,7 @@ function renderSummaryContent() {
                             <span class="a-sector-change">+2.1%</span>
                         </div>
                         <div class="a-sector-detail">
-                            <div class="a-sector-explain">📌 超级电容器相关技术公司</div>
+                            <div class="a-sector-explain">📌 超级电容器技术公司</div>
                             <div class="a-sector-reason">🔍 原因：新能源储能需求增长</div>
                             <div class="a-sector-impact">💡 参考：成长性板块，波动较大</div>
                         </div>
@@ -353,7 +455,7 @@ function renderSummaryContent() {
                         <div class="a-sector-detail">
                             <div class="a-sector-explain">📌 AI计算能力相关公司</div>
                             <div class="a-sector-reason">🔍 原因：前期涨幅过大+获利回吐</div>
-                            <div class="a-sector-impact">💡 参考：AI长期趋势不变，但短期需要消化估值</div>
+                            <div class="a-sector-impact">💡 参考：AI长期趋势不变，短期需消化估值</div>
                         </div>
                     </div>
                 </div>
