@@ -1,13 +1,13 @@
 {
-  "updateTime": "2026-05-28 21:10",
+  "updateTime": "2026-05-28 21:15",
   "news": [
     {
       "rank": 1,
-      "title": "Fed's inflation gauge heated up in April, cementing that interest rates will remain steady for now - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "title": "Snowflake Surges On Earnings, AI Product Growth, New Amazon Deal - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
-      "score": 63
+      "score": 52
     },
     {
       "rank": 2,
@@ -35,6 +35,14 @@
     },
     {
       "rank": 5,
+      "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows - CNBC",
+      "source": "CNBC",
+      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "lang": "en",
+      "score": 38
+    },
+    {
+      "rank": 6,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
@@ -42,18 +50,10 @@
       "score": 38
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Is the ‘debasement trade’ dead? Outflows from gold and bitcoin ETFs suggest investors are moving on - MarketWatch",
       "source": "MarketWatch",
       "detail": "黄金价格受避险情绪和美元走势影响，关注地缘局势变化。",
-      "lang": "en",
-      "score": 37
-    },
-    {
-      "rank": 7,
-      "title": "Robinhood Will Allow Users’ AI Agents To Trade Stocks - Forbes",
-      "source": "Forbes",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 37
     },
