@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 00:55",
+  "updateTime": "2026-05-29 01:01",
   "news": [
     {
       "rank": 1,
@@ -11,6 +11,14 @@
     },
     {
       "rank": 2,
+      "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
+      "source": "WSJ",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 49
+    },
+    {
+      "rank": 3,
       "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
       "source": "Barron's",
       "detail": "国际财经动态，关注后续发展。",
@@ -18,7 +26,7 @@
       "score": 47
     },
     {
-      "rank": 3,
+      "rank": 4,
       "title": "GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 - U.S. Bureau of Economic Analysis (BEA) (.gov)",
       "source": "U.S. Bureau of Economic Analysis (BEA) (.gov)",
       "detail": "国际财经动态，关注后续发展。",
@@ -26,19 +34,11 @@
       "score": 42
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "美联储官员穆萨莱姆称不能指望AI降低通胀 与主席沃什看法相左",
       "source": "环球市场播报",
       "detail": " 圣路易斯联邦储备银行行长阿尔伯托·穆萨莱姆表示，政策制定者不能指望人工智能可能带来的生产率激增来缓解高企的通胀。",
       "lang": "zh",
-      "score": 38
-    },
-    {
-      "rank": 5,
-      "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
-      "source": "CBS News",
-      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
-      "lang": "en",
       "score": 38
     },
     {
@@ -67,7 +67,7 @@
     },
     {
       "rank": 9,
-      "title": "Wix laying off about 20% of its workforce. CEO cites AI, exchange rates in announcing cut - CNBC",
+      "title": "AI part of another tech layoff as Wix CEO announces 20% workforce cut - CNBC",
       "source": "CNBC",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
@@ -75,8 +75,8 @@
     },
     {
       "rank": 10,
-      "title": "U.S. strikes Iran again. And, DOJ charges Google staffer over Polymarket trades - NPR",
-      "source": "NPR",
+      "title": "OpenAI has vast ad ambitions. Here's where you're most likely to see ads in ChatGPT, now. - Business Insider",
+      "source": "Business Insider",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 25
