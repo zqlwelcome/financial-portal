@@ -263,8 +263,8 @@ function renderSummaryContent() {
                     <div class="a-flow-item">
                         <div class="a-flow-main" onclick="toggleFlowDetail(this)">
                             <span class="a-flow-name">纳斯达克</span>
-                            <span class="a-flow-value neutral">26674.73</span>
-                            <span class="a-flow-change"></span>
+                            <span class="a-flow-value down">26621.63</span>
+                            <span class="a-flow-change">-0.20%</span>
                         </div>
                         <div class="a-flow-detail">
                             <div class="a-flow-explain">📌 北美市场代表性指数</div>
@@ -274,8 +274,8 @@ function renderSummaryContent() {
                     <div class="a-flow-item">
                         <div class="a-flow-main" onclick="toggleFlowDetail(this)">
                             <span class="a-flow-name">道琼斯</span>
-                            <span class="a-flow-value neutral">50644.28</span>
-                            <span class="a-flow-change"></span>
+                            <span class="a-flow-value down">50458.29</span>
+                            <span class="a-flow-change">-0.37%</span>
                         </div>
                         <div class="a-flow-detail">
                             <div class="a-flow-explain">📌 北美市场代表性指数</div>
