@@ -1,17 +1,17 @@
 {
-  "updateTime": "2026-05-29 00:50",
+  "updateTime": "2026-05-29 00:56",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
       "region": "🇺🇸 美股",
-      "value": "26866.13",
+      "value": "26865.65",
       "change": "0.72"
     },
     "usDJI": {
       "name": "道琼斯",
       "region": "🇺🇸 美股",
-      "value": "50677.89",
-      "change": "0.07"
+      "value": "50697.24",
+      "change": "0.10"
     },
     "sh000001": {
       "name": "上证指数",
@@ -120,12 +120,7 @@
       "direction": "in"
     }
   ],
-  "northbound": {
-    "time": "15:00",
-    "hgt": 0.0,
-    "sgt": 5200000.0,
-    "total": 0.0
-  },
+  "northbound": null,
   "bank_news": [
     {
       "title": "欧洲债市：欧债随美债上涨 伊朗局势降温预期缓解通胀担忧",
