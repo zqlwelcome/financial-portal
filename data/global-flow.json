@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 07:15",
+  "updateTime": "2026-05-29 07:20",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -126,11 +126,5 @@
     "sgt": 5200000.0,
     "total": 0.0
   },
-  "bank_news": [
-    {
-      "title": "美联储巴尔金：AI投资正给中性利率带来压力",
-      "source": "环球市场播报",
-      "keyword": "美联储"
-    }
-  ]
+  "bank_news": []
 }

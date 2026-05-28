@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 07:15",
+  "updateTime": "2026-05-29 07:20",
   "news": [
     {
       "rank": 1,
@@ -19,14 +19,6 @@
     },
     {
       "rank": 3,
-      "title": "美联储穆萨莱姆：AI提振经济的“证据不足”，目前不能成为降息理由",
-      "source": "环球市场播报",
-      "detail": "随着美联储政策天平向通胀风险倾斜，内部关于人工智能能否成为“降息通行证”的辩论已公开化。圣路易斯联储主席阿尔伯托·穆萨莱姆周四明确表示...",
-      "lang": "zh",
-      "score": 56
-    },
-    {
-      "rank": 4,
       "title": "Snowflake surges 36% for best day ever on AI frenzy, fueling software rally",
       "source": "CNBC",
       "detail": "The Snowflake rally also lifted shares of ServiceNow, Oracle and Palantir, while Salesforce bucked the trend.",
@@ -34,7 +26,7 @@
       "score": 55
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Inflation hits highest level in nearly 3 years, Fed's preferred gauge shows - ABC News - Breaking News, Latest News and Videos",
       "source": "ABC News - Breaking News, Latest News and Videos",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -42,12 +34,20 @@
       "score": 53
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Stock Market Today: Oil Pares Gains as Investors Cling to Hope of Mideast Deal - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 49
+    },
+    {
+      "rank": 6,
+      "title": "Apollo寻求投资者参与360亿美元债务交易 为Anthropic采购AI芯片",
+      "source": "环球市场播报",
+      "detail": " 阿波罗全球管理公司和黑石集团正寻求为一项约360亿美元的债务融资交易引入更多投资者，以帮助Anthropic PBC构建其人工智能（AI）基础设施。",
+      "lang": "zh",
+      "score": 40
     },
     {
       "rank": 7,
@@ -67,19 +67,19 @@
     },
     {
       "rank": 9,
+      "title": "IBM, Red Hat Pledge $5 Billion for AI-Driven Open Source Security Initiative - WSJ",
+      "source": "WSJ",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 10,
       "title": "4月PCE数据无助于降息决策，美联储可能被迫按兵不动",
       "source": "环球市场播报",
       "detail": " 最新公布的美国4月个人消费支出价格指数进一步证明，通胀压力并未缓解，这使得市场与美联储官员此前期盼的降息窗口彻底关闭。",
       "lang": "zh",
       "score": 36
-    },
-    {
-      "rank": 10,
-      "title": "5月29日美股成交额前20：微软将于下周推出多款自研AI模型",
-      "source": "环球市场播报",
-      "detail": " 周四美股成交额第1名美光科技收跌0.53%，成交454.75亿美元。在过去一年暴涨684%后，美光科技凭借AI芯片需求与存储周期回暖，股价仍有巨大上涨潜力。",
-      "lang": "zh",
-      "score": 35
     }
   ]
 }
