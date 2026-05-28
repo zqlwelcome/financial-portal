@@ -2200,3 +2200,25 @@ body {
     color: var(--primary);
     border-radius: 4px;
 }
+
+/* ===== 资金流向点击提示 ===== */
+.a-flow-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, rgba(0,113,227,0.05), rgba(0,113,227,0.1), rgba(0,113,227,0.05));
+    border-radius: 8px;
+    cursor: pointer;
+    animation: hintPulse 2s ease-in-out infinite;
+}
+.a-flow-hint-icon {
+    font-size: 14px;
+}
+.a-flow-hint-text {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 500;
+}
