@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 02:00",
+  "updateTime": "2026-05-29 02:05",
   "news": [
     {
       "rank": 1,
@@ -27,6 +27,14 @@
     },
     {
       "rank": 4,
+      "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
+      "source": "CBS News",
+      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "lang": "en",
+      "score": 38
+    },
+    {
+      "rank": 5,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
@@ -34,7 +42,7 @@
       "score": 38
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "AI Has Caused a Software Winter for Markets. Snowflake’s Success Won’t End It. - Barron's",
       "source": "Barron's",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +50,15 @@
       "score": 35
     },
     {
-      "rank": 6,
+      "rank": 7,
+      "title": "Time to buy this once high-flying apparel stock? Jay Woods looks at the charts ahead of earnings",
+      "source": "CNBC",
+      "detail": "Jay Woods of Freedom Capital Markets takes a close look at Lululemon's charts ahead of its earnings report. ",
+      "lang": "en",
+      "score": 29
+    },
+    {
+      "rank": 8,
       "title": "Kohl's stock spikes 20% as slumping retailer says sales trends are improving - CNBC",
       "source": "CNBC",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,7 +66,7 @@
       "score": 27
     },
     {
-      "rank": 7,
+      "rank": 9,
       "title": "Oil prices turn lower as U.S.-Iran ceasefire extension awaits Trump approval",
       "source": "CNBC",
       "detail": "Oil prices pulled back Thursday, erasing earlier gains, on a report that U.S. and Iranian negotiators reached an agreement to extend the ceasefire.",
@@ -58,28 +74,12 @@
       "score": 27
     },
     {
-      "rank": 8,
-      "title": "AI play Nebius is surging after mysterious new hedge fund manager reveals stake. Here are his other holdings",
-      "source": "CNBC",
-      "detail": "The fund invests in publicly traded companies expected to benefit from AI adoption — including semiconductor, infrastructure and power firms.",
-      "lang": "en",
-      "score": 25
-    },
-    {
-      "rank": 9,
+      "rank": 10,
       "title": "CFTC bid to vacate order against Winklevoss' crypto exchange 'very unusual': ex-agency chief",
       "source": "CNBC",
       "detail": "The Commodity Futures Trading Commission is looking to undo a $5 million civil penalty against the Gemini, which was founded by the Winklevoss twins.",
       "lang": "en",
       "score": 25
-    },
-    {
-      "rank": 10,
-      "title": "无人机个股暴涨：传五角大楼考虑入股该行业",
-      "source": "环球市场播报",
-      "detail": "核心要点《华尔街曰报》报道五角大楼正与无人机企业洽谈资金支持协议后，非凡机器（Unusual Machines） 股价暴涨近 50%。小唐纳德・特朗普是非凡机器的股东兼顾问委员会成...",
-      "lang": "zh",
-      "score": 20
     }
   ]
 }
