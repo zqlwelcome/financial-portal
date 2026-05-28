@@ -1,11 +1,11 @@
 {
-  "updateTime": "2026-05-29 01:25",
+  "updateTime": "2026-05-29 01:30",
   "news": [
     {
       "rank": 1,
-      "title": "Stock Market Today: S&P 500, Nasdaq Set New All-Time Highs as Oil Turns Lower, Monthly Inflation Data Softer Than Expected - Investopedia",
-      "source": "Investopedia",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "title": "Retail Stocks Surge With US Shoppers Surprising Wall Street - Bloomberg.com",
+      "source": "Bloomberg.com",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 54
     },
@@ -59,25 +59,25 @@
     },
     {
       "rank": 8,
-      "title": "Wix laying off about 20% of its workforce. CEO cites AI, exchange rates in announcing cut - CNBC",
-      "source": "CNBC",
+      "title": "Wix is laying off 20% of staff. Read the memo — and yes, it mentions AI. - Business Insider",
+      "source": "Business Insider",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 25
     },
     {
       "rank": 9,
-      "title": "Billionaire families are reducing their exposure to the U.S., and this is where they’re looking to invest instead - MarketWatch",
-      "source": "MarketWatch",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "title": "AI play Nebius is surging after mysterious new hedge fund manager reveals stake. Here are his other holdings",
+      "source": "CNBC",
+      "detail": "The fund invests in publicly traded companies expected to benefit from AI adoption — including semiconductor, infrastructure and power firms.",
       "lang": "en",
       "score": 25
     },
     {
       "rank": 10,
-      "title": "AI play Nebius is surging after mysterious new hedge fund manager reveals stake. Here are his other holdings",
+      "title": "CFTC bid to vacate order against Winklevoss' crypto exchange 'very unusual': ex-agency chief",
       "source": "CNBC",
-      "detail": "The fund invests in publicly traded companies expected to benefit from AI adoption — including semiconductor, infrastructure and power firms.",
+      "detail": "The Commodity Futures Trading Commission is looking to undo a $5 million civil penalty against the Gemini, which was founded by the Winklevoss twins.",
       "lang": "en",
       "score": 25
     }
