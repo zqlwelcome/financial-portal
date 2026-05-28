@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 04:30",
+  "updateTime": "2026-05-29 04:35",
   "news": [
     {
       "rank": 1,
@@ -27,14 +27,6 @@
     },
     {
       "rank": 4,
-      "title": "RKLB, ASTS Are Crushing Retail Space Trade On SpaceX IPO Buzz — But One Tiny Underdog Could Be The Real Moonshot - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 45
-    },
-    {
-      "rank": 5,
       "title": "美联储巴尔金：AI投资正给中性利率带来压力",
       "source": "环球市场播报",
       "detail": "里士满联储行长巴尔金表示，人工智能（AI）领域的投资正对中性利率构成压力。 巴尔金周四在华盛顿出席一场活动时指出：“一系列与AI相关的因素正显现出通胀压力”...",
@@ -42,7 +34,7 @@
       "score": 38
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
@@ -50,7 +42,7 @@
       "score": 38
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "Stock Market Today: Nasdaq Leads Gains On Iran Deal Hopes; Best Buy, Dollar Tree Rocket Higher (Live Coverage) - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -58,7 +50,7 @@
       "score": 37
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "4月PCE数据无助于降息决策，美联储可能被迫按兵不动",
       "source": "环球市场播报",
       "detail": " 最新公布的美国4月个人消费支出价格指数进一步证明，通胀压力并未缓解，这使得市场与美联储官员此前期盼的降息窗口彻底关闭。",
@@ -66,10 +58,18 @@
       "score": 36
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "AI Has Caused a Software Winter for Markets. Snowflake’s Success Won’t End It. - Barron's",
       "source": "Barron's",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 35
+    },
+    {
+      "rank": 9,
+      "title": "SpaceX’s $80 billion IPO has a catch: 78% of the money is already spoken for - Fortune",
+      "source": "Fortune",
+      "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 35
     },
