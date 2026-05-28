@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 00:21",
+  "updateTime": "2026-05-29 00:25",
   "news": [
     {
       "rank": 1,
@@ -67,19 +67,19 @@
     },
     {
       "rank": 9,
-      "title": "欧洲央行会议纪要：如果加息作为选项 一些官员不会反对4月行动",
-      "source": "环球市场播报",
-      "detail": "欧洲央行的会议纪要显示，该行一些官员在上个月的政策会议上不会反对加息。 欧洲央行4月29日至30日会议的纪要显示：“一些成员指出，最终决策是一个势均力敌的决定。",
-      "lang": "zh",
-      "score": 36
-    },
-    {
-      "rank": 10,
       "title": "Unusual Machines and other drone stocks surge on report Pentagon considering stakes in the industry",
       "source": "CNBC",
       "detail": "Drone stocks surged Thursday on a report the Trump administration is in talks to fund several firms, including one in which Donald Trump Jr. is a shareholder.",
       "lang": "en",
       "score": 32
+    },
+    {
+      "rank": 10,
+      "title": "Oil prices pull back on report U.S.-Iran agreement to extend ceasefire awaits Trump approval",
+      "source": "CNBC",
+      "detail": "Oil prices pulled back Thursday, erasing earlier gains on a report that U.S. and Iranian negotiators reached an agreement to extend ceasefire.",
+      "lang": "en",
+      "score": 27
     }
   ]
 }
