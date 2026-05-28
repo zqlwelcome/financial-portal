@@ -1,75 +1,85 @@
 {
-  "updateTime": "2026-05-28 20:10",
+  "updateTime": "2026-05-28 20:14",
   "news": [
     {
       "rank": 1,
-      "title": "腾讯股价创逾1年新低！市值蒸发2.2万亿港元 马化腾曾坦言AI“船漏水了”",
-      "source": "新浪港股",
-      "detail": "5月28日，腾讯股价盘中再度下探，一度跌至420.4港元，创2025年4月以来最低水平。自去年10月创出阶段高点（677.7港元）后一路下跌至今，腾讯累计跌幅已达37%，市值蒸发了2...",
-      "score": 37
+      "title": "Stock Market Today: Dow, S&P 500 and Nasdaq close at record highs on hopes for Iran war ending; oil prices drop; Micron extends epic run - MarketWatch",
+      "source": "MarketWatch",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 54
     },
     {
       "rank": 2,
-      "title": "韩国综合指数逢低买盘依旧活跃 央行加息预期升温",
-      "source": "环球市场播报",
-      "detail": " 韩国央行释放加息信号后，韩国综合指数盘中最大跌幅达4.7%，但周四收盘仅小幅收跌，尽显场内投资者顽强的逢低买入意愿。",
-      "score": 36
+      "title": "RKLB, ASTS Are Crushing Retail Space Trade On SpaceX IPO Buzz — But One Tiny Underdog Could Be The Real Moonshot - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 45
     },
     {
       "rank": 3,
-      "title": "002552，16天10板！A股尾盘异动，多股20%涨停！",
-      "source": "",
-      "detail": " 今日（5月28日），A股整体探底回升，上证指数、创业板指均围绕4100点展开激烈争夺，深证成指、科创综指、北证50等也均稳步上扬，成交2.99万亿元。",
-      "score": 35
+      "title": "Oil surges after Iran and US trade air strikes - Reuters",
+      "source": "Reuters",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 42
     },
     {
       "rank": 4,
-      "title": "失守4400美元！黄金牛市还在吗？",
-      "source": "新京报",
-      "detail": "转自：贝壳财经 持续低位震荡的金价让投资者开始摇摆。 “黄金跌跌不休，幸好之前清仓了一波黄金。”有投资者直言，虽长期看好黄金，但在金价低位震荡行情下...",
-      "score": 22
+      "title": "S&P 500 futures decline as oil rebounds, traders await key inflation reading: Live updates",
+      "source": "CNBC",
+      "detail": "April's reading of the personal consumption expenditure price index, the Fed's preferred inflation gauge, is due out at 8:30 a.m. on Thursday.",
+      "lang": "en",
+      "score": 42
     },
     {
       "rank": 5,
-      "title": "美国再度空袭伊朗，中东紧张局势冲击亚洲股市",
-      "source": "环球市场播报",
-      "detail": "核心要点美国对伊朗发动新一轮打击，地区局势升温，亚洲股市应声下跌。科威特侦测到导弹与无人机威胁，随即启动防空系统。市场担忧霍尔木兹海峡原油供应受阻...",
-      "score": 22
+      "title": "Is the ‘debasement trade’ dead? Outflows from gold and bitcoin ETFs suggest investors are moving on - MarketWatch",
+      "source": "MarketWatch",
+      "detail": "黄金价格受避险情绪和美元走势影响，关注地缘局势变化。",
+      "lang": "en",
+      "score": 37
     },
     {
       "rank": 6,
-      "title": "分析师警告需求遭破坏：白银在近期暴跌后可能进一步下跌",
-      "source": "环球市场播报",
-      "detail": " 瑞银在5月22日发布的一份报告中指出，白银去年约140%的价格涨幅正抑制各行业的买家需求，其高企的价格水平开始对需求造成压力。",
-      "score": 20
+      "title": "Robinhood Will Allow Users’ AI Agents To Trade Stocks - Forbes",
+      "source": "Forbes",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
     },
     {
       "rank": 7,
-      "title": "英伟达服务器制造商纬颖预计AI领域的供应瓶颈将不止于内存",
+      "title": "韩国综合指数逢低买盘依旧活跃 央行加息预期升温",
       "source": "环球市场播报",
-      "detail": " 英伟达服务器的最大制造商之一纬颖科技警告称，除了内存芯片之外，数据中心关键零部件也开始出现短缺，这可能会拖慢全球AI基础设施建设的速度，或推高其成本。",
-      "score": 20
+      "detail": " 韩国央行释放加息信号后，韩国综合指数盘中最大跌幅达4.7%，但周四收盘仅小幅收跌，尽显场内投资者顽强的逢低买入意愿。",
+      "lang": "zh",
+      "score": 36
     },
     {
       "rank": 8,
-      "title": "Mistral AI CEO：拟自研芯片 同步加码基础设施建设",
-      "source": "环球市场播报",
-      "detail": "法国人工智能初创企业Mistral AI首席执行官阿瑟·门施表示，公司正考虑自研芯片，未来或将正式推出相关产品。 这是门施首次公开谈及公司在半导体领域的布局规划。",
-      "score": 20
+      "title": "002552，16天10板！A股尾盘异动，多股20%涨停！",
+      "source": "",
+      "detail": " 今日（5月28日），A股整体探底回升，上证指数、创业板指均围绕4100点展开激烈争夺，深证成指、科创综指、北证50等也均稳步上扬，成交2.99万亿元。",
+      "lang": "zh",
+      "score": 35
     },
     {
       "rank": 9,
-      "title": "中东冲突导致运费飙升 部分美国液化石油气买家取消发货",
-      "source": "环球市场播报",
-      "detail": "由于中东冲突引发运费飙升，一些美国液化石油气（LPG）买家将原本打算运往亚洲的货物取消装运。 知情人士称，原定于下月从美湾出口码头装运的至少两批货物取消发货...",
-      "score": 20
+      "title": "腾讯股价创逾1年新低！市值蒸发2.2万亿港元 马化腾曾坦言AI“船漏水了”",
+      "source": "新浪港股",
+      "detail": "5月28日，腾讯股价盘中再度下探，一度跌至420.4港元，创2025年4月以来最低水平。自去年10月创出阶段高点（677.7港元）后一路下跌至今，腾讯累计跌幅已达37%，市值蒸发了2...",
+      "lang": "zh",
+      "score": 32
     },
     {
       "rank": 10,
-      "title": "美光AI存储业务爆发，改写芯片行业周期规律",
-      "source": "环球市场播报",
-      "detail": "美光股价此番大涨，超越了过去三十年存储芯片板块历次上涨行情。 这家存储芯片企业市值在周二突破 1 万亿美元，创下 2011 年 11 月以来单日最佳表现。",
-      "score": 20
+      "title": "Rally in chip stocks becomes the most hated in history. Here's the data",
+      "source": "CNBC",
+      "detail": "The rally in semiconductor stocks is so incredible, traders can't help but bet against it.",
+      "lang": "en",
+      "score": 32
     }
   ]
 }
