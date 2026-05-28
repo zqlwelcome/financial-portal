@@ -1,24 +1,16 @@
 {
-  "updateTime": "2026-05-29 01:01",
+  "updateTime": "2026-05-29 01:05",
   "news": [
     {
       "rank": 1,
-      "title": "Stocks Lower After Fed’s Preferred Inflation Gauge Grew at a Slower Pace - WSJ",
-      "source": "WSJ",
-      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "title": "Stock Market Today: Dow, S&P 500 and Nasdaq on pace for record closes on optimism around an Iran deal; bond yields ease, PCE inflation rises, oil higher - MarketWatch",
+      "source": "MarketWatch",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
-      "score": 50
+      "score": 69
     },
     {
       "rank": 2,
-      "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 49
-    },
-    {
-      "rank": 3,
       "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
       "source": "Barron's",
       "detail": "国际财经动态，关注后续发展。",
@@ -26,15 +18,7 @@
       "score": 47
     },
     {
-      "rank": 4,
-      "title": "GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 - U.S. Bureau of Economic Analysis (BEA) (.gov)",
-      "source": "U.S. Bureau of Economic Analysis (BEA) (.gov)",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 42
-    },
-    {
-      "rank": 5,
+      "rank": 3,
       "title": "美联储官员穆萨莱姆称不能指望AI降低通胀 与主席沃什看法相左",
       "source": "环球市场播报",
       "detail": " 圣路易斯联邦储备银行行长阿尔伯托·穆萨莱姆表示，政策制定者不能指望人工智能可能带来的生产率激增来缓解高企的通胀。",
@@ -42,7 +26,7 @@
       "score": 38
     },
     {
-      "rank": 6,
+      "rank": 4,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
@@ -50,7 +34,7 @@
       "score": 38
     },
     {
-      "rank": 7,
+      "rank": 5,
       "title": "Unusual Machines and other drone stocks surge on report Pentagon considering stakes in the industry",
       "source": "CNBC",
       "detail": "Drone stocks surged Thursday on a report the Trump administration is in talks to fund several firms, including one in which Donald Trump Jr. is a shareholder.",
@@ -58,7 +42,7 @@
       "score": 32
     },
     {
-      "rank": 8,
+      "rank": 6,
       "title": "Oil prices pull back on report U.S.-Iran agreement to extend ceasefire awaits Trump approval",
       "source": "CNBC",
       "detail": "Oil prices pulled back Thursday, erasing earlier gains on a report that U.S. and Iranian negotiators reached an agreement to extend ceasefire.",
@@ -66,20 +50,36 @@
       "score": 27
     },
     {
-      "rank": 9,
-      "title": "AI part of another tech layoff as Wix CEO announces 20% workforce cut - CNBC",
+      "rank": 7,
+      "title": "Wix laying off about 20% of its workforce. CEO cites AI, exchange rates in announcing cut - CNBC",
       "source": "CNBC",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 25
     },
     {
-      "rank": 10,
-      "title": "OpenAI has vast ad ambitions. Here's where you're most likely to see ads in ChatGPT, now. - Business Insider",
-      "source": "Business Insider",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "rank": 8,
+      "title": "AI play Nebius is surging after mysterious new hedge fund manager reveals stake. Here are his other holdings",
+      "source": "CNBC",
+      "detail": "The fund invests in publicly traded companies expected to benefit from AI adoption — including semiconductor, infrastructure and power firms.",
       "lang": "en",
       "score": 25
+    },
+    {
+      "rank": 9,
+      "title": "CFTC bid to vacate order against Winklevoss' crypto exchange 'very unusual,' ex-agency chief says",
+      "source": "CNBC",
+      "detail": "The Commodity Futures Trading Commission is looking to undo a $5 million civil penalty against the Gemini, which was founded by the Winklevoss twins.",
+      "lang": "en",
+      "score": 25
+    },
+    {
+      "rank": 10,
+      "title": "无人机个股暴涨：传五角大楼考虑入股该行业",
+      "source": "环球市场播报",
+      "detail": "核心要点《华尔街曰报》报道五角大楼正与无人机企业洽谈资金支持协议后，非凡机器（Unusual Machines） 股价暴涨近 50%。小唐纳德・特朗普是非凡机器的股东兼顾问委员会成...",
+      "lang": "zh",
+      "score": 20
     }
   ]
 }
