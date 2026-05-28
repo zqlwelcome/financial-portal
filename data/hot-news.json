@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 23:00",
+  "updateTime": "2026-05-28 23:05",
   "news": [
     {
       "rank": 1,
@@ -75,11 +75,11 @@
     },
     {
       "rank": 10,
-      "title": "全文|理想汽车Q1业绩会实录：自研AI芯片和大模型让“挖人”竞争彻底失效",
-      "source": "新浪科技",
-      "detail": " 理想汽车公布2026年第一季度财报：一季度累计实现交付量95142辆，同比增长2.5%；整体营收230亿元，季末现金储备943亿元，连续10个季度保持千亿左右的资金规模。",
-      "lang": "zh",
-      "score": 30
+      "title": "Unusual Machines and other drone stocks surge on report Pentagon considering stakes in the industry",
+      "source": "CNBC",
+      "detail": "Drone stocks surged Thursday on a report the Trump administration is in talks to fund several firms, including one in which Donald Trump Jr. is a shareholder.",
+      "lang": "en",
+      "score": 32
     }
   ]
 }
