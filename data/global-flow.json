@@ -1,17 +1,17 @@
 {
-  "updateTime": "2026-05-29 03:21",
+  "updateTime": "2026-05-29 03:26",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
       "region": "🇺🇸 美股",
-      "value": "26899.51",
-      "change": "0.84"
+      "value": "26908.80",
+      "change": "0.88"
     },
     "usDJI": {
       "name": "道琼斯",
       "region": "🇺🇸 美股",
-      "value": "50642.25",
-      "change": "0.00"
+      "value": "50671.90",
+      "change": "0.05"
     },
     "sh000001": {
       "name": "上证指数",
@@ -127,6 +127,11 @@
     "total": 0.0
   },
   "bank_news": [
+    {
+      "title": "Capital Economics：通胀预期难阻AI牛市，标普500年底上看8000点",
+      "source": "环球市场播报",
+      "keyword": "通胀"
+    },
     {
       "title": "贝森特会晤美联储主席 称相信沃什将平衡通胀与增长",
       "source": "环球市场播报",
