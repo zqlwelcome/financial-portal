@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-28 21:15",
+  "updateTime": "2026-05-28 21:20",
   "news": [
     {
       "rank": 1,
-      "title": "Snowflake Surges On Earnings, AI Product Growth, New Amazon Deal - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 52
-    },
-    {
-      "rank": 2,
       "title": "X-FAB股价因AI芯片分析师力荐暴涨77%，散户追捧再掀热潮",
       "source": "环球市场播报",
       "detail": "欧洲芯片制造商X-FAB Silicon Foundries SE（场外市场代码：XFABF）股价在周三交易中一度飙升77%，此前一位在社交媒体平台X上拥有超过40万粉丝的知名交易员发布帖文...",
@@ -18,7 +10,7 @@
       "score": 50
     },
     {
-      "rank": 3,
+      "rank": 2,
       "title": "RKLB, ASTS Are Crushing Retail Space Trade On SpaceX IPO Buzz — But One Tiny Underdog Could Be The Real Moonshot - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -26,7 +18,7 @@
       "score": 45
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "S&P 500, Nasdaq, Dow Futures Rise As AI-Driven Tech Rally Overpowers 'Defensive' Iran Strikes: ONDS, NBIS, RCAT, SNOW In Focus - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -34,7 +26,7 @@
       "score": 40
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows - CNBC",
       "source": "CNBC",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -42,7 +34,7 @@
       "score": 38
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
@@ -50,10 +42,18 @@
       "score": 38
     },
     {
-      "rank": 7,
-      "title": "Is the ‘debasement trade’ dead? Outflows from gold and bitcoin ETFs suggest investors are moving on - MarketWatch",
+      "rank": 6,
+      "title": "Is the ‘debasement trade’ dead? Outflows from gold and bitcoin ETFs suggest investors are moving on. - MarketWatch",
       "source": "MarketWatch",
       "detail": "黄金价格受避险情绪和美元走势影响，关注地缘局势变化。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 7,
+      "title": "Robinhood Will Allow Users’ AI Agents To Trade Stocks - Forbes",
+      "source": "Forbes",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 37
     },
