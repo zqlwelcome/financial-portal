@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-28 22:50",
+  "updateTime": "2026-05-28 22:55",
   "news": [
     {
       "rank": 1,
@@ -27,6 +27,14 @@
     },
     {
       "rank": 4,
+      "title": "GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 - U.S. Bureau of Economic Analysis (BEA) (.gov)",
+      "source": "U.S. Bureau of Economic Analysis (BEA) (.gov)",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 42
+    },
+    {
+      "rank": 5,
       "title": "Stock Market Today: Dow Slips, Oil Rises as Mideast Hostilities Flare — Live Updates - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -34,7 +42,7 @@
       "score": 39
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Best Buy stock climbs 15% on earnings beat as retailer aims to reinvigorate sales",
       "source": "CNBC",
       "detail": "Best Buy reported better-than-expected earnings on Thursday as the company works toward turning around its sales slump.",
@@ -42,7 +50,7 @@
       "score": 39
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "The first inflation report under new Fed chief Kevin Warsh shows prices at highest in nearly 3 years - CBS News",
       "source": "CBS News",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -50,20 +58,12 @@
       "score": 38
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
       "lang": "en",
       "score": 38
-    },
-    {
-      "rank": 8,
-      "title": "Snowflake stock soars on growing enterprise AI demand, AWS partnership - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 37
     },
     {
       "rank": 9,
