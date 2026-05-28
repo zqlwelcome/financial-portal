@@ -1,8 +1,16 @@
 {
-  "updateTime": "2026-05-28 22:00",
+  "updateTime": "2026-05-28 22:05",
   "news": [
     {
       "rank": 1,
+      "title": "Stock Market Today: Dow Falls On Surprise Inflation Data; Snowflake Rockets On Earnings (Live Coverage) - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 64
+    },
+    {
+      "rank": 2,
       "title": "X-FAB股价因AI芯片分析师力荐暴涨77%，散户追捧再掀热潮",
       "source": "环球市场播报",
       "detail": "欧洲芯片制造商X-FAB Silicon Foundries SE（场外市场代码：XFABF）股价在周三交易中一度飙升77%，此前一位在社交媒体平台X上拥有超过40万粉丝的知名交易员发布帖文...",
@@ -10,7 +18,7 @@
       "score": 50
     },
     {
-      "rank": 2,
+      "rank": 3,
       "title": "RKLB, ASTS Are Crushing Retail Space Trade On SpaceX IPO Buzz — But One Tiny Underdog Could Be The Real Moonshot - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -18,15 +26,15 @@
       "score": 45
     },
     {
-      "rank": 3,
-      "title": "Stock Market Today: Dow Opens Lower, Oil Rises as Mideast Hostilities Flare — Live Updates - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "rank": 4,
+      "title": "GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 - U.S. Bureau of Economic Analysis (BEA) (.gov)",
+      "source": "U.S. Bureau of Economic Analysis (BEA) (.gov)",
+      "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
-      "score": 39
+      "score": 42
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "Iran War Lifts Fed’s Preferred Inflation Gauge to Highest Level Since May 2023 - The New York Times",
       "source": "The New York Times",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -34,7 +42,7 @@
       "score": 38
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Core inflation hit an annual rate of 3.3% in April, as expected, Fed’s preferred gauge shows",
       "source": "CNBC",
       "detail": "The PCE price index for April was expected to show an annual inflation rate of 3.8% for all items and 3.3% for core.",
@@ -42,7 +50,15 @@
       "score": 38
     },
     {
-      "rank": 6,
+      "rank": 7,
+      "title": "欧洲央行会议纪要：如果加息作为选项 一些官员不会反对4月行动",
+      "source": "环球市场播报",
+      "detail": "欧洲央行的会议纪要显示，该行一些官员在上个月的政策会议上不会反对加息。 欧洲央行4月29日至30日会议的纪要显示：“一些成员指出，最终决策是一个势均力敌的决定。",
+      "lang": "zh",
+      "score": 36
+    },
+    {
+      "rank": 8,
       "title": "全文|理想汽车Q1业绩会实录：自研AI芯片和大模型让“挖人”竞争彻底失效",
       "source": "新浪科技",
       "detail": " 理想汽车公布2026年第一季度财报：一季度累计实现交付量95142辆，同比增长2.5%；整体营收230亿元，季末现金储备943亿元，连续10个季度保持千亿左右的资金规模。",
@@ -50,7 +66,7 @@
       "score": 30
     },
     {
-      "rank": 7,
+      "rank": 9,
       "title": "Robinhood推出AI代理交易功能，散户可授权人工智能自动炒股",
       "source": "环球市场播报",
       "detail": "美国网红券商Robinhood（纳斯达克代码：HOOD）当地时间5月27日宣布，正式推出“Agentic Trading”功能，允许用户将第三方人工智能代理接入专用投资账户...",
@@ -58,28 +74,12 @@
       "score": 30
     },
     {
-      "rank": 8,
+      "rank": 10,
       "title": "Here are Thursday's biggest analyst calls: Nvidia, Tesla, Marvell, Broadcom, Dell, Dick's, Meta, Salesforce & more",
       "source": "CNBC",
       "detail": "Here are Thursday's biggest calls on Wall Street.",
       "lang": "en",
       "score": 29
-    },
-    {
-      "rank": 9,
-      "title": "Oil prices jump 2% after Iran says it targeted U.S. airbase following fresh American strikes",
-      "source": "CNBC",
-      "detail": "Oil prices rose on Thursday after fresh U.S. strikes in Iran renewed concerns over disruptions to commercial shipping through the Strait of Hormuz.",
-      "lang": "en",
-      "score": 27
-    },
-    {
-      "rank": 10,
-      "title": "Kohl's stock spikes 20% as slumping retailer says sales trends are improving",
-      "source": "CNBC",
-      "detail": "Kohl's reported its best comparable sales growth in four years on Thursday even as it saw revenue decline.",
-      "lang": "en",
-      "score": 27
     }
   ]
 }

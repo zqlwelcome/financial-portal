@@ -1,10 +1,10 @@
 {
-  "updateTime": "2026-05-28 22:01",
+  "updateTime": "2026-05-28 22:05",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
-      "value": "26680.47",
-      "change": "0.02",
+      "value": "26669.33",
+      "change": "-0.02",
       "category": "regional",
       "explanation": "美国科技股指数",
       "impact": "反映科技行业资金流向",
@@ -12,8 +12,8 @@
     },
     "usDJI": {
       "name": "道琼斯",
-      "value": "50513.89",
-      "change": "-0.26",
+      "value": "50463.89",
+      "change": "-0.36",
       "category": "regional",
       "explanation": "美国工业股指数",
       "impact": "反映传统行业资金流向",
@@ -40,6 +40,11 @@
   },
   "etf_flows": [],
   "bank_news": [
+    {
+      "title": "欧洲央行会议纪要：如果加息作为选项 一些官员不会反对4月行动",
+      "source": "环球市场播报",
+      "keyword": "央行"
+    },
     {
       "title": "美联储首选通胀指标显示：4月核心通胀同比升至3.3%，符合市场预期",
       "source": "环球市场播报",
