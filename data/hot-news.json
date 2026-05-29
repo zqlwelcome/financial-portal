@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-30 03:30",
+  "updateTime": "2026-05-30 03:35",
   "news": [
     {
       "rank": 1,
-      "title": "SpaceX据悉将IPO估值目标下调到至少1.8万亿美元",
-      "source": "环球市场播报",
-      "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 媒体4月份报道，其目标估值逾2万亿美元。知情人士透露，这家火箭...",
-      "lang": "zh",
-      "score": 40
-    },
-    {
-      "rank": 2,
       "title": "Dell shocks Wall Street with booming AI server sales. Where analysts see it headed next",
       "source": "CNBC",
       "detail": "Dell reported blowout fiscal first quarter results on Thursday thanks to booming AI server demand, leading many analysts to raise their price targets. ",
@@ -18,7 +10,7 @@
       "score": 37
     },
     {
-      "rank": 3,
+      "rank": 2,
       "title": "德意志银行上调10年期美国国债收益率预期 相信美联储已经完成降息",
       "source": "环球市场播报",
       "detail": " 德意志银行利率策略师上调了今年年底的10年期美国国债收益率预期，理由是预计如今由主席凯文·沃什领导的美联储官员已经结束降息。",
@@ -26,7 +18,7 @@
       "score": 36
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "欧元区四大经济体通胀超出舒适区 为欧洲央行加息提供数据支撑",
       "source": "环球市场播报",
       "detail": "欧元区四大经济体通胀率远超2%，为欧洲央行自2023年以来首次加息提供进一步理由。 周五数据显示，因战争推动能源成本飙升，法国5月份消费者价格指数同比上涨2.8%...",
@@ -34,7 +26,7 @@
       "score": 36
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
@@ -42,7 +34,7 @@
       "score": 35
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Wall Street extends rally on tech strength; Middle East deal stays in focus - Reuters",
       "source": "Reuters",
       "detail": "国际财经动态，关注后续发展。",
@@ -50,12 +42,20 @@
       "score": 32
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "Citadel Securities Reels In Record $4.3 Billion Trading Haul - Bloomberg.com",
       "source": "Bloomberg.com",
       "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 32
+    },
+    {
+      "rank": 7,
+      "title": "纽约时报：天价IPO定价对散户并非好事",
+      "source": "环球市场播报",
+      "detail": " 当SpaceX、OpenAI等明星公司以惊人估值冲刺上市时，普通投资者正面临一个尴尬的现实：天价IPO定价让机构和大股东赚得盆满钵满，却让散户处在“接盘”的不利位置。",
+      "lang": "zh",
+      "score": 30
     },
     {
       "rank": 8,
