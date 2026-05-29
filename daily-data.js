@@ -6,7 +6,7 @@
 let _currentExpert = 'templeton';
 
 // ===== 内嵌数据（替代 remote fetch，避免GitHub Pages缓存问题）=====
-const _EMBEDDED_DATA = const _EMBEDDED_DATA = {
+const _EMBEDDED_DATA = {
     "updateTime": "2026-05-30 04:56",
     "mood": {
         "mood": "科技主导的乐观情绪，但伴随能源与IPO风险预警",
