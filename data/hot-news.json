@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 03:10",
+  "updateTime": "2026-05-30 03:15",
   "news": [
     {
       "rank": 1,
@@ -75,11 +75,11 @@
     },
     {
       "rank": 10,
-      "title": "马斯克言论与IPO文件内容相悖，SpaceX质疑者再添担忧",
-      "source": "环球市场播报",
-      "detail": "核心要点埃隆・马斯克在社交平台 X 上披露了 SpaceX 与安索帕克（Anthropic）合作协议的相关细节，这些内容并未写入公司 IPO 招股书。",
-      "lang": "zh",
-      "score": 30
+      "title": "Oil Prices Slip Amid Trump Demands; Exxon Warns Of Nasty Surprise - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 27
     }
   ]
 }
