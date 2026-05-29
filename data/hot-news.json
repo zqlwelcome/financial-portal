@@ -1,8 +1,16 @@
 {
-  "updateTime": "2026-05-29 09:30",
+  "updateTime": "2026-05-29 09:35",
   "news": [
     {
       "rank": 1,
+      "title": "Dow Jones Futures: Stock Market Hits Highs On U.S.-Iran Deal; Dell Surges On Earnings - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 64
+    },
+    {
+      "rank": 2,
       "title": "Snowflake surges 36% for best day ever on AI frenzy, fueling software rally",
       "source": "CNBC",
       "detail": "The Snowflake rally also lifted shares of ServiceNow, Oracle and Palantir, while Salesforce bucked the trend.",
@@ -10,20 +18,12 @@
       "score": 55
     },
     {
-      "rank": 2,
+      "rank": 3,
       "title": "加息风暴席卷美联储！降息路线图已作废，沃什新官上任“不加息”就算赢",
       "source": "智通财经APP",
       "detail": "凯文·沃什之所以能在美联储主席的竞争中胜出，部分原因在于他规划了一条通往更低利率的路径。然而现在，这位新任美联储掌门人正面临着一个截然不同的局面：在同行决策者纷...",
       "lang": "zh",
       "score": 54
-    },
-    {
-      "rank": 3,
-      "title": "Stock Market Today: Nasdaq Leads Rise To Record Highs On Iran Deal Hopes; Drone Stocks Fly High - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 52
     },
     {
       "rank": 4,
