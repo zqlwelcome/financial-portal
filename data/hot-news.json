@@ -1,21 +1,21 @@
 {
-  "updateTime": "2026-05-29 19:25",
+  "updateTime": "2026-05-29 19:30",
   "news": [
     {
       "rank": 1,
-      "title": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO - TechCrunch",
-      "source": "TechCrunch",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 45
-    },
-    {
-      "rank": 2,
       "title": "DELL’s ‘Monster Quarter’ Sends Stock Soaring: Analysts Cheer, But Retail Debates If Rally Has Gone Too Far - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 42
+    },
+    {
+      "rank": 2,
+      "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
+      "source": "Reuters",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 40
     },
     {
       "rank": 3,
