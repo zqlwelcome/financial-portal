@@ -1,24 +1,16 @@
 {
-  "updateTime": "2026-05-29 20:35",
+  "updateTime": "2026-05-29 20:40",
   "news": [
     {
       "rank": 1,
-      "title": "Dow Jones Futures: Stock Market Hits Highs On U.S.-Iran Deal; Dell Surges On Earnings - Investor's Business Daily",
+      "title": "Dow Jones Futures Rise As Dell, NetApp Surge On Earnings; Oil Falls On U.S.-Iran Deal Hopes - Investor's Business Daily",
       "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
-      "score": 64
+      "score": 54
     },
     {
       "rank": 2,
-      "title": "Stock Market News, May 28, 2026: Oil Pares Gains as Investors Cling to Hope of Mideast Deal - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 49
-    },
-    {
-      "rank": 3,
       "title": "DELL’s ‘Monster Quarter’ Sends Stock Soaring: Analysts Cheer, But Retail Debates If Rally Has Gone Too Far - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -26,7 +18,7 @@
       "score": 42
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "SpaceX希望在IPO中获得1.8万亿美元估值",
       "source": "环球市场播报",
       "detail": "据美国知名财经媒体报道，埃隆·马斯克旗下的SpaceX公司正寻求在其首次公开募股（IPO）中获得至少1.8万亿美元的估值。 该媒体此前曾报道，该公司寻求的估值超过2万亿美元...",
@@ -34,7 +26,7 @@
       "score": 40
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,12 +34,20 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Dan Ives: Anthropic’s growth is 'just the tip of the sphere' for AI rally",
       "source": "CNBC",
       "detail": "Ives' comments come as part of a wider prediction for the Nasdaq to top 30,000 points by 2027, reiterating his call from earlier interviews with CNBC.",
       "lang": "en",
       "score": 40
+    },
+    {
+      "rank": 6,
+      "title": "Oil tumbles, stocks gain on US-Iran deal hopes - Reuters",
+      "source": "Reuters",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 39
     },
     {
       "rank": 7,
