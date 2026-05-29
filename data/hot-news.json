@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 13:00",
+  "updateTime": "2026-05-29 13:05",
   "news": [
     {
       "rank": 1,
@@ -19,6 +19,14 @@
     },
     {
       "rank": 3,
+      "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
+      "source": "Reuters",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 40
+    },
+    {
+      "rank": 4,
       "title": "Samsung's shares surge as much as 6% after company ships next-generation AI memory chip samples",
       "source": "CNBC",
       "detail": "Shares of Samsung Electronics surged after the company began shipping HBM4E chip samples to its customers globally. ",
@@ -26,7 +34,7 @@
       "score": 40
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
       "source": "WSJ",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -34,7 +42,7 @@
       "score": 38
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "The seller of a $2.9 million San Francisco home is accepting payment in Anthropic or OpenAI stock - Business Insider",
       "source": "Business Insider",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +50,7 @@
       "score": 37
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "SpaceX Lowers IPO Valuation Target to at Least $1.8 Trillion - Bloomberg.com",
       "source": "Bloomberg.com",
       "detail": "国际财经动态，关注后续发展。",
@@ -50,20 +58,12 @@
       "score": 35
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
       "lang": "en",
       "score": 35
-    },
-    {
-      "rank": 8,
-      "title": "Anthropic secures $965 billion valuation after raising $65 billion - Reuters",
-      "source": "Reuters",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 27
     },
     {
       "rank": 9,
