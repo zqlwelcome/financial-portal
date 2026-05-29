@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 08:06",
+  "updateTime": "2026-05-29 08:10",
   "news": [
     {
       "rank": 1,
@@ -27,14 +27,6 @@
     },
     {
       "rank": 4,
-      "title": "Inflation hits highest level in nearly 3 years, Fed's preferred gauge shows - ABC News - Breaking News, Latest News and Videos",
-      "source": "ABC News - Breaking News, Latest News and Videos",
-      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
-      "lang": "en",
-      "score": 53
-    },
-    {
-      "rank": 5,
       "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -42,7 +34,7 @@
       "score": 49
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Apollo寻求投资者参与360亿美元债务交易 为Anthropic采购AI芯片",
       "source": "环球市场播报",
       "detail": " 阿波罗全球管理公司和黑石集团正寻求为一项约360亿美元的债务融资交易引入更多投资者，以帮助Anthropic PBC构建其人工智能（AI）基础设施。",
@@ -50,12 +42,20 @@
       "score": 40
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 40
+    },
+    {
+      "rank": 7,
+      "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
+      "source": "WSJ",
+      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "lang": "en",
+      "score": 38
     },
     {
       "rank": 8,
