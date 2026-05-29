@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 16:31",
+  "updateTime": "2026-05-29 16:36",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -73,8 +73,59 @@
       "direction": "in"
     }
   ],
-  "sector_flows": [],
-  "northbound": null,
+  "sector_flows": [
+    {
+      "name": "通信线缆及配套",
+      "code": "BK1592",
+      "index": 29474.23,
+      "change": 2.44,
+      "flow": 6596347904.0,
+      "flow_str": "+65.96亿",
+      "direction": "in"
+    },
+    {
+      "name": "电力",
+      "code": "BK0428",
+      "index": 23405.07,
+      "change": 2.46,
+      "flow": 5561454592.0,
+      "flow_str": "+55.61亿",
+      "direction": "in"
+    },
+    {
+      "name": "公用事业",
+      "code": "BK0427",
+      "index": 11015.54,
+      "change": 1.66,
+      "flow": 5354527488.0,
+      "flow_str": "+53.55亿",
+      "direction": "in"
+    },
+    {
+      "name": "火力发电",
+      "code": "BK1377",
+      "index": 3086.46,
+      "change": 4.31,
+      "flow": 3667068928.0,
+      "flow_str": "+36.67亿",
+      "direction": "in"
+    },
+    {
+      "name": "食品饮料",
+      "code": "BK0438",
+      "index": 27412.95,
+      "change": 1.7,
+      "flow": 2668126464.0,
+      "flow_str": "+26.68亿",
+      "direction": "in"
+    }
+  ],
+  "northbound": {
+    "time": "15:00",
+    "hgt": 0.0,
+    "sgt": 5200000.0,
+    "total": 0.0
+  },
   "bank_news": [
     {
       "title": "法国和西班牙通胀加速 为欧洲央行加息提供数据支撑",
