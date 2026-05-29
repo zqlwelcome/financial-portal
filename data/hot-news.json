@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 07:20",
+  "updateTime": "2026-05-30 07:25",
   "news": [
     {
       "rank": 1,
@@ -59,6 +59,14 @@
     },
     {
       "rank": 8,
+      "title": "Dell, Rocket Lab, Palantir, and More Stocks That Explain the Market Today - Barron's",
+      "source": "Barron's",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 9,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -66,20 +74,12 @@
       "score": 37
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
       "lang": "en",
       "score": 37
-    },
-    {
-      "rank": 10,
-      "title": "通胀风险上升，更多美联储决策者关注加息可能性",
-      "source": "环球市场播报",
-      "detail": "美联储官员周五继续释放信号，称如果中东战争导致本已高企的通胀持续攀升，美国央行未来可能需要加息。 这一货币政策前景的潜在转变...",
-      "lang": "zh",
-      "score": 36
     }
   ]
 }
