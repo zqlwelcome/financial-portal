@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 08:10",
+  "updateTime": "2026-05-29 08:15",
   "news": [
     {
       "rank": 1,
@@ -35,6 +35,14 @@
     },
     {
       "rank": 5,
+      "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
+      "source": "Barron's",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 47
+    },
+    {
+      "rank": 6,
       "title": "Apollo寻求投资者参与360亿美元债务交易 为Anthropic采购AI芯片",
       "source": "环球市场播报",
       "detail": " 阿波罗全球管理公司和黑石集团正寻求为一项约360亿美元的债务融资交易引入更多投资者，以帮助Anthropic PBC构建其人工智能（AI）基础设施。",
@@ -42,7 +50,7 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,7 +58,7 @@
       "score": 40
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
       "source": "WSJ",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -58,7 +66,7 @@
       "score": 38
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "东京通胀率再次放缓 日本央行加息之路变得复杂",
       "source": "环球市场播报",
       "detail": " 东京关键通胀指标意外连续第六个月降温，在日本央行决策者试图证明最早下个月加息的合理性之际，这份数据传递出更加复杂的信号。",
@@ -66,18 +74,10 @@
       "score": 36
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
       "source": "CNBC",
       "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
-      "source": "CNBC",
-      "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
       "lang": "en",
       "score": 35
     }
