@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 17:56",
+  "updateTime": "2026-05-29 18:00",
   "news": [
     {
       "rank": 1,
@@ -67,17 +67,17 @@
     },
     {
       "rank": 9,
-      "title": "South Korea's Kospi, Japan's Topix hit record highs as investors shrug off Iran tensions - CNBC",
-      "source": "CNBC",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 30
-    },
-    {
-      "rank": 10,
       "title": "意大利央行行长：人工智能可提振该国低迷的劳动生产率",
       "source": "环球市场播报",
       "detail": "意大利央行行长法比奥・帕内塔于周五表示，人工智能能够显著改善该国劳动生产率偏低的现状。帕内塔在意大利央行年度大会上发表了上述讲话。",
+      "lang": "zh",
+      "score": 28
+    },
+    {
+      "rank": 10,
+      "title": "意大利央行行长：人工智能可改善本国偏低的劳动生产率",
+      "source": "环球市场播报",
+      "detail": "意大利央行行长周五表示，人工智能能够显著提升该国偏弱的劳动生产率。 他称，若人工智能应用节奏偏缓，每年可拉动意大利劳动生产率提升0.2个百分点；倘若技术普及速度快...",
       "lang": "zh",
       "score": 28
     }
