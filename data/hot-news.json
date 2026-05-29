@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 09:55",
+  "updateTime": "2026-05-29 10:00",
   "news": [
     {
       "rank": 1,
@@ -35,6 +35,14 @@
     },
     {
       "rank": 5,
+      "title": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO - TechCrunch",
+      "source": "TechCrunch",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 45
+    },
+    {
+      "rank": 6,
       "title": "SpaceX据悉将IPO估值目标下调至至少1.8万亿美元",
       "source": "环球市场播报",
       "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 上个月有报道称，其目标估值逾2万亿美元。但知情人士透露，这家火箭...",
@@ -42,18 +50,10 @@
       "score": 40
     },
     {
-      "rank": 6,
-      "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
-      "source": "Reuters",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 40
-    },
-    {
       "rank": 7,
       "title": "Samsung's shares surge as much as 6% company ships next-generation AI memory chip samples",
       "source": "CNBC",
-      "detail": "Shares of Samsung Electronics surged after the company has started to ship HBM4E chip samples to its customers globally. ",
+      "detail": "Shares of Samsung Electronics surged after the company began shipping HBM4E chip samples to its customers globally. ",
       "lang": "en",
       "score": 40
     },
