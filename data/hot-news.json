@@ -1,9 +1,9 @@
 {
-  "updateTime": "2026-05-30 03:05",
+  "updateTime": "2026-05-30 03:10",
   "news": [
     {
       "rank": 1,
-      "title": "Stock Market Today: Major Indexes Hit New All-Time Highs as Dell Leads Tech Gains; S&P 500 on Pace for 9th Straight Weekly Rise; Oil Prices Pull Back - Investopedia",
+      "title": "Stock Market Today: Major Indexes Set Fresh All-Time Highs as Dell Leads Tech Gains; S&P 500 on Pace for 9th Straight Weekly Rise; Oil Prices Pull Back - Investopedia",
       "source": "Investopedia",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
@@ -27,14 +27,6 @@
     },
     {
       "rank": 4,
-      "title": "Stock Market Today: Oil Heads for Biggest Monthly Drop Since 2020 — Live Updates - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 39
-    },
-    {
-      "rank": 5,
       "title": "Dell shocks Wall Street with booming AI server sales. Where analysts see it headed next",
       "source": "CNBC",
       "detail": "Dell reported blowout fiscal first quarter results on Thursday thanks to booming AI server demand, leading many analysts to raise their price targets. ",
@@ -42,7 +34,7 @@
       "score": 37
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "德意志银行上调10年期美国国债收益率预期 相信美联储已经完成降息",
       "source": "环球市场播报",
       "detail": " 德意志银行利率策略师上调了今年年底的10年期美国国债收益率预期，理由是预计如今由主席凯文·沃什领导的美联储官员已经结束降息。",
@@ -50,7 +42,7 @@
       "score": 36
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "欧元区四大经济体通胀超出舒适区 为欧洲央行加息提供数据支撑",
       "source": "环球市场播报",
       "detail": "欧元区四大经济体通胀率远超2%，为欧洲央行自2023年以来首次加息提供进一步理由。 周五数据显示，因战争推动能源成本飙升，法国5月份消费者价格指数同比上涨2.8%...",
@@ -58,7 +50,7 @@
       "score": 36
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
@@ -66,7 +58,7 @@
       "score": 35
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "Citadel Securities Reels In Record $4.3 Billion Trading Haul - Bloomberg",
       "source": "Bloomberg",
       "detail": "国际财经动态，关注后续发展。",
@@ -74,10 +66,18 @@
       "score": 32
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "戴尔股价一度暴涨35% 费城半导体指数有望创互联网泡沫以来最大年度涨幅",
       "source": "环球市场播报",
       "detail": "戴尔科技股价周五暴涨35%。这家电脑及服务器制造商发布炸裂财报后，股价飙升，成为华尔街AI热潮席卷市场的最新例证。 此前，戴尔于周四晚间公布...",
+      "lang": "zh",
+      "score": 30
+    },
+    {
+      "rank": 10,
+      "title": "马斯克言论与IPO文件内容相悖，SpaceX质疑者再添担忧",
+      "source": "环球市场播报",
+      "detail": "核心要点埃隆・马斯克在社交平台 X 上披露了 SpaceX 与安索帕克（Anthropic）合作协议的相关细节，这些内容并未写入公司 IPO 招股书。",
       "lang": "zh",
       "score": 30
     }
