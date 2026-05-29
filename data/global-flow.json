@@ -1,17 +1,17 @@
 {
-  "updateTime": "2026-05-29 21:55",
+  "updateTime": "2026-05-29 22:00",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
       "region": "🇺🇸 美股",
-      "value": "27067.56",
-      "change": "0.56"
+      "value": "27081.40",
+      "change": "0.61"
     },
     "usDJI": {
       "name": "道琼斯",
       "region": "🇺🇸 美股",
-      "value": "50871.39",
-      "change": "0.40"
+      "value": "50826.50",
+      "change": "0.31"
     },
     "sh000001": {
       "name": "上证指数",
@@ -74,12 +74,7 @@
       "direction": "in"
     }
   ],
-  "northbound": {
-    "time": "15:00",
-    "hgt": 0.0,
-    "sgt": 5200000.0,
-    "total": 0.0
-  },
+  "northbound": null,
   "bank_news": [
     {
       "title": "英国央行行长贝利：央行可容许通胀短暂超标 以支持疲弱经济",
