@@ -1,6 +1,5 @@
 {
-<<<<<<< Updated upstream
-  "updateTime": "2026-05-29 15:31",
+  "updateTime": "2026-05-29 15:35",
   "news": [
     {
       "rank": 1,
@@ -20,12 +19,6 @@
     },
     {
       "rank": 3,
-=======
-  "updateTime": "2026-05-29 11:11",
-  "news": [
-    {
-      "rank": 1,
->>>>>>> Stashed changes
       "title": "Samsung's shares surge as much as 6% after company ships next-generation AI memory chip samples",
       "source": "CNBC",
       "detail": "Shares of Samsung Electronics surged after the company began shipping HBM4E chip samples to its customers globally. ",
@@ -33,7 +26,6 @@
       "score": 40
     },
     {
-<<<<<<< Updated upstream
       "rank": 4,
       "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
       "source": "WSJ",
@@ -67,9 +59,6 @@
     },
     {
       "rank": 8,
-=======
-      "rank": 2,
->>>>>>> Stashed changes
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
@@ -77,85 +66,20 @@
       "score": 35
     },
     {
-<<<<<<< Updated upstream
       "rank": 9,
-      "title": "Costco Tops Sales Views But Earnings, Membership Numbers Fall Short - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 27
-    },
-    {
-      "rank": 10,
       "title": "Strait of Hormuz shutdown: A visual guide to world's most critical oil chokepoint",
       "source": "CNBC",
       "detail": "Data shows how the outbreak of the Iran war in February and the closure of the Strait of Hormuz saw trade grind to a halt, triggering a severe global energy shock.",
       "lang": "en",
       "score": 27
-=======
-      "rank": 3,
-      "title": "Anthropic tops OpenAI as most valuable AI startup, nears $1 trillion valuation in latest round",
-      "source": "CNBC",
-      "detail": "Anthropic is now the most valuable AI company in Silicon Valley after a new $65 billion funding round.",
-      "lang": "en",
-      "score": 25
-    },
-    {
-      "rank": 4,
-      "title": "Asia markets rise as investors weigh Iran military activity against signs of temporary U.S.-Iran deal",
-      "source": "CNBC",
-      "detail": "Asia-Pacific markets rose as investors shrugged off renewed Iran tensions against ceasefire optimism.",
-      "lang": "en",
-      "score": 25
-    },
-    {
-      "rank": 5,
-      "title": "LG Electronics' shares surge 24% after showing automotive innovations using Google tech",
-      "source": "CNBC",
-      "detail": "Shares of LG Electronics surged after it unveiled automotive innovations using Google technology. ",
-      "lang": "en",
-      "score": 20
-    },
-    {
-      "rank": 6,
-      "title": "Americans’ savings rate falls to lowest level since 2022 as inflation outpaces paychecks",
-      "source": "CNBC",
-      "detail": "As inflation starts outpacing wages again, Americans have less money to put aside for emergencies and other savings goals.",
-      "lang": "en",
-      "score": 20
-    },
-    {
-      "rank": 7,
-      "title": "Stock futures are little changed as traders eye developments in Middle East: Live updates",
-      "source": "CNBC",
-      "detail": "Boosted by a rally in the tech sector, all three major averages rose to fresh closing highs on Thursday.",
-      "lang": "en",
-      "score": 17
-    },
-    {
-      "rank": 8,
-      "title": "U.S. government is reportedly set to invest in drone industry. These are Wall Street’s favorite plays",
-      "source": "CNBC",
-      "detail": "Analysts believe that stocks such as Unusual Machines and Motorola Solutions are most likely to benefit from heightened interest in the drone industry.",
-      "lang": "en",
-      "score": 17
-    },
-    {
-      "rank": 9,
-      "title": "Stocks making the biggest moves after hours: Dell Technologies, American Eagle Outfitters, Gap & more",
-      "source": "CNBC",
-      "detail": "See which stocks are posting big moves after the bell.",
-      "lang": "en",
-      "score": 17
     },
     {
       "rank": 10,
-      "title": "More workers are raiding their 401(k)s as average balances fall, Fidelity says",
-      "source": "CNBC",
-      "detail": "Retirement account balances sank at the start of 2026 amid market swings, according to Fidelity. At the same time, more savers tapped their accounts for cash.",
-      "lang": "en",
-      "score": 15
->>>>>>> Stashed changes
+      "title": "港股午评：恒指涨1.11% 科指涨1.66% 科网股、内房股普涨 芯片股集体回调 联想大涨逾23% 碧桂园涨超19%",
+      "source": "新浪港股",
+      "detail": "5月29日消息，港股三大指数高开高走。截至午间收盘，恒生指数涨1.11%，报25282.84，恒生科技指数涨1.66%，国企指数涨1.28%。盘面上，科网股普涨，联想涨超23%...",
+      "lang": "zh",
+      "score": 25
     }
   ]
 }
