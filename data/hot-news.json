@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 10:55",
+  "updateTime": "2026-05-29 11:00",
   "news": [
     {
       "rank": 1,
@@ -51,6 +51,14 @@
     },
     {
       "rank": 7,
+      "title": "The seller of a $2.9 million San Francisco home is accepting payment in Anthropic or OpenAI stock - Business Insider",
+      "source": "Business Insider",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 8,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
       "source": "CNBC",
       "detail": "国际财经动态，关注后续发展。",
@@ -58,7 +66,7 @@
       "score": 35
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
@@ -66,20 +74,12 @@
       "score": 35
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "加息预期助推美元录得月度涨幅 但华尔街对进一步涨势持谨慎看法",
       "source": "环球市场播报",
       "detail": "美元本月上涨，交易员已将美国加息预期反映在定价中，但这也让华尔街策略师对美元进一步走升持谨慎态度。 彭博美元指数5月以来上涨0.7%...",
       "lang": "zh",
       "score": 28
-    },
-    {
-      "rank": 10,
-      "title": "Oil Prices Fall As U.S., Iran May End 'Game Of Chicken'; S&P 500 Rises - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 27
     }
   ]
 }
