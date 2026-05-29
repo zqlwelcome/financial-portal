@@ -1,13 +1,13 @@
 {
-  "updateTime": "2026-05-29 19:50",
+  "updateTime": "2026-05-29 19:55",
   "news": [
     {
       "rank": 1,
-      "title": "Interest on the national debt is eating a record 19% of federal revenue — and watchdog warns it will get worse - Fortune",
-      "source": "Fortune",
-      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "title": "Nvidia's Next AI Wave Sparks Big Calls on Micron, Dell, Arm Stocks - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
-      "score": 48
+      "score": 49
     },
     {
       "rank": 2,
@@ -19,11 +19,11 @@
     },
     {
       "rank": 3,
-      "title": "DELL’s ‘Monster Quarter’ Sends Stock Soaring: Analysts Cheer, But Retail Debates If Rally Has Gone Too Far - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "title": "Dell Stock Soars 39% as Earnings Blow Past Wall Street Expectations - Investopedia",
+      "source": "Investopedia",
+      "detail": "企业财报反映经济基本面，关注盈利预期和实际表现的差异。",
       "lang": "en",
-      "score": 42
+      "score": 41
     },
     {
       "rank": 4,
@@ -75,11 +75,11 @@
     },
     {
       "rank": 10,
-      "title": "Stock futures rise slightly as oil falls, traders eye developments in Middle East: Live updates",
+      "title": "South Korea's Kospi, Japan's Topix hit record highs as investors shrug off Iran tensions - CNBC",
       "source": "CNBC",
-      "detail": "Boosted by a rally in the tech sector, all three major averages rose to fresh closing highs on Thursday.",
+      "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
-      "score": 29
+      "score": 30
     }
   ]
 }
