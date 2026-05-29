@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 22:55",
+  "updateTime": "2026-05-29 23:00",
   "news": [
     {
       "rank": 1,
@@ -43,19 +43,19 @@
     },
     {
       "rank": 6,
+      "title": "SpaceX据悉将IPO估值目标下调到至少1.8万亿美元",
+      "source": "环球市场播报",
+      "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 媒体4月份报道，其目标估值逾2万亿美元。知情人士透露，这家火箭...",
+      "lang": "zh",
+      "score": 40
+    },
+    {
+      "rank": 7,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 40
-    },
-    {
-      "rank": 7,
-      "title": "Stock Market Today: Dow Opens Slightly Up; Oil Prices in Focus — Live Updates - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 39
     },
     {
       "rank": 8,
