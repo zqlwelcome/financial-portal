@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 16:01",
+  "updateTime": "2026-05-29 16:06",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -22,8 +22,8 @@
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25140.380",
-      "change": "0.54"
+      "value": "25147.610",
+      "change": "0.57"
     }
   },
   "etf_flows": [
