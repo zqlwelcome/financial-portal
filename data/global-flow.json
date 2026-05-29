@@ -1,17 +1,17 @@
 {
-  "updateTime": "2026-05-30 01:46",
+  "updateTime": "2026-05-30 01:51",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
       "region": "🇺🇸 美股",
-      "value": "26956.18",
-      "change": "0.14"
+      "value": "26950.12",
+      "change": "0.12"
     },
     "usDJI": {
       "name": "道琼斯",
       "region": "🇺🇸 美股",
-      "value": "50977.25",
-      "change": "0.61"
+      "value": "50970.84",
+      "change": "0.60"
     },
     "sh000001": {
       "name": "上证指数",
