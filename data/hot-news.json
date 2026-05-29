@@ -1,21 +1,21 @@
 {
-  "updateTime": "2026-05-30 01:55",
+  "updateTime": "2026-05-30 02:00",
   "news": [
     {
       "rank": 1,
+      "title": "Stock Market Today: Major Indexes Set Fresh All-Time Highs as Dell Leads Tech Gains; S&P 500 on Pace for 9th Straight Weekly Rise; Oil Prices Pull Back - Investopedia",
+      "source": "Investopedia",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 49
+    },
+    {
+      "rank": 2,
       "title": "Dell stock skyrockets 32%, heads for best day ever as AI server revenue soars",
       "source": "CNBC",
       "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
       "lang": "en",
       "score": 47
-    },
-    {
-      "rank": 2,
-      "title": "SpaceX Lowers IPO Valuation Target To At Least $1.8 Trillion: Bloomberg - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 45
     },
     {
       "rank": 3,
@@ -51,6 +51,14 @@
     },
     {
       "rank": 7,
+      "title": "ASTS, RKLB, RDW, LUNR Slip Overnight: SpaceX IPO Hype Loses Orbit After Valuation Target Reportedly Falls Below $2 Trillion - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 35
+    },
+    {
+      "rank": 8,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
@@ -58,7 +66,7 @@
       "score": 35
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "戴尔股价一度暴涨35% 费城半导体指数有望创互联网泡沫以来最大年度涨幅",
       "source": "环球市场播报",
       "detail": "戴尔科技股价周五暴涨35%。这家电脑及服务器制造商发布炸裂财报后，股价飙升，成为华尔街AI热潮席卷市场的最新例证。 此前，戴尔于周四晚间公布...",
@@ -66,20 +74,12 @@
       "score": 30
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "马斯克言论与IPO文件内容相悖，SpaceX质疑者再添担忧",
       "source": "环球市场播报",
       "detail": "核心要点埃隆・马斯克在社交平台 X 上披露了 SpaceX 与安索帕克（Anthropic）合作协议的相关细节，这些内容并未写入公司 IPO 招股书。",
       "lang": "zh",
       "score": 30
-    },
-    {
-      "rank": 10,
-      "title": "Supermajor Warns Oil Prices Could Hit $160 Within Weeks - Crude Oil Prices Today | OilPrice.com",
-      "source": "Crude Oil Prices Today | OilPrice.com",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 29
     }
   ]
 }
