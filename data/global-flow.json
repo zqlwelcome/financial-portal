@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 07:56",
+  "updateTime": "2026-05-29 08:00",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -122,9 +122,9 @@
   ],
   "northbound": {
     "time": "15:00",
-    "hgt": 0.0,
-    "sgt": 5200000.0,
-    "total": 0.0
+    "hgt": 0,
+    "sgt": 0,
+    "total": 0
   },
   "bank_news": [
     {
