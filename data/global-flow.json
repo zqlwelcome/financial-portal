@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 15:21",
+  "updateTime": "2026-05-29 15:26",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -22,8 +22,8 @@
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25231.440",
-      "change": "0.90"
+      "value": "25209.230",
+      "change": "0.81"
     }
   },
   "etf_flows": [
@@ -120,12 +120,7 @@
       "direction": "in"
     }
   ],
-  "northbound": {
-    "time": "15:00",
-    "hgt": 0.0,
-    "sgt": 5200000.0,
-    "total": 0.0
-  },
+  "northbound": null,
   "bank_news": [
     {
       "title": "能源成本攀升 法国通胀创两年多新高",
