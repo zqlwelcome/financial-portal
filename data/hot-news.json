@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 19:35",
+  "updateTime": "2026-05-29 19:40",
   "news": [
     {
       "rank": 1,
@@ -59,14 +59,6 @@
     },
     {
       "rank": 8,
-      "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
-      "source": "CNBC",
-      "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
-      "lang": "en",
-      "score": 35
-    },
-    {
-      "rank": 9,
       "title": "玉健健康IPO：第一大客户竟是海外贸易商收入占比超65% 大客户集中并非行业惯例",
       "source": "新浪证券",
       "detail": "出品：新浪财经上市公司研究院 作者：IPO再融资组/图灵 5月28日，北交所官网披露了宁波玉健健康科技股份有限公司（下称“玉健健康”）回复交易所的问询函公告。",
@@ -74,12 +66,20 @@
       "score": 30
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "AI推动存储芯片价值超越石油",
       "source": "环球市场播报",
       "detail": "若长期合约稳定行业格局，市值破万亿的美光、三星、SK 海力士仍具估值优势SK 海力士称，未来三年市场需求远超自身产能。 如今，存储芯片的价值已然超越石油。",
       "lang": "zh",
       "score": 30
+    },
+    {
+      "rank": 10,
+      "title": "Stock futures rise slightly as oil falls, traders eye developments in Middle East: Live updates",
+      "source": "CNBC",
+      "detail": "Boosted by a rally in the tech sector, all three major averages rose to fresh closing highs on Thursday.",
+      "lang": "en",
+      "score": 29
     }
   ]
 }
