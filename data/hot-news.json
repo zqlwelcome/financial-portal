@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 08:55",
+  "updateTime": "2026-05-29 09:00",
   "news": [
     {
       "rank": 1,
@@ -19,19 +19,19 @@
     },
     {
       "rank": 3,
+      "title": "Inflation hits highest level in nearly 3 years, Fed's preferred gauge shows - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "lang": "en",
+      "score": 53
+    },
+    {
+      "rank": 4,
       "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
       "source": "Barron's",
       "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 47
-    },
-    {
-      "rank": 4,
-      "title": "Apollo寻求投资者参与360亿美元债务交易 为Anthropic采购AI芯片",
-      "source": "环球市场播报",
-      "detail": " 阿波罗全球管理公司和黑石集团正寻求为一项约360亿美元的债务融资交易引入更多投资者，以帮助Anthropic PBC构建其人工智能（AI）基础设施。",
-      "lang": "zh",
-      "score": 40
     },
     {
       "rank": 5,
@@ -43,14 +43,6 @@
     },
     {
       "rank": 6,
-      "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
-      "source": "WSJ",
-      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
-      "lang": "en",
-      "score": 38
-    },
-    {
-      "rank": 7,
       "title": "IBM, Red Hat Pledge $5 Billion for AI-Driven Open Source Security Initiative - WSJ",
       "source": "WSJ",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -58,7 +50,7 @@
       "score": 37
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "东京通胀率再次放缓 日本央行加息之路变得复杂",
       "source": "环球市场播报",
       "detail": " 东京关键通胀指标意外连续第六个月降温，在日本央行决策者试图证明最早下个月加息的合理性之际，这份数据传递出更加复杂的信号。",
@@ -66,7 +58,7 @@
       "score": 36
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
       "source": "CNBC",
       "detail": "国际财经动态，关注后续发展。",
@@ -74,12 +66,20 @@
       "score": 35
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
       "lang": "en",
       "score": 35
+    },
+    {
+      "rank": 10,
+      "title": "三星电子率先交付HBM4E样品 在AI存储芯片竞争中抢占先机",
+      "source": "环球市场播报",
+      "detail": "三星电子称已开始向客户交付业内最先进的12层HBM4E样品，在人工智能（AI）存储芯片竞争中抢占先机。 这家韩国最大企业表示，这款12层HBM4E为48GB容量型...",
+      "lang": "zh",
+      "score": 30
     }
   ]
 }
