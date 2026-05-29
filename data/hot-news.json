@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 02:05",
+  "updateTime": "2026-05-30 02:10",
   "news": [
     {
       "rank": 1,
@@ -19,14 +19,6 @@
     },
     {
       "rank": 3,
-      "title": "SpaceX Lowers IPO Valuation Target To At Least $1.8 Trillion: Bloomberg - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 45
-    },
-    {
-      "rank": 4,
       "title": "SpaceX据悉将IPO估值目标下调到至少1.8万亿美元",
       "source": "环球市场播报",
       "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 媒体4月份报道，其目标估值逾2万亿美元。知情人士透露，这家火箭...",
@@ -34,7 +26,7 @@
       "score": 40
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +34,7 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Dell shocks Wall Street with booming AI server sales. Where analysts see it headed next",
       "source": "CNBC",
       "detail": "Dell reported blowout fiscal first quarter results on Thursday thanks to booming AI server demand, leading many analysts to raise their price targets. ",
@@ -50,7 +42,7 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "德意志银行上调10年期美国国债收益率预期 相信美联储已经完成降息",
       "source": "环球市场播报",
       "detail": " 德意志银行利率策略师上调了今年年底的10年期美国国债收益率预期，理由是预计如今由主席凯文·沃什领导的美联储官员已经结束降息。",
@@ -58,12 +50,20 @@
       "score": 36
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "欧元区四大经济体通胀超出舒适区 为欧洲央行加息提供数据支撑",
       "source": "环球市场播报",
       "detail": "欧元区四大经济体通胀率远超2%，为欧洲央行自2023年以来首次加息提供进一步理由。 周五数据显示，因战争推动能源成本飙升，法国5月份消费者价格指数同比上涨2.8%...",
       "lang": "zh",
       "score": 36
+    },
+    {
+      "rank": 8,
+      "title": "ASTS, RKLB, RDW, LUNR Slip Overnight: SpaceX IPO Hype Loses Orbit After Valuation Target Reportedly Falls Below $2 Trillion - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 35
     },
     {
       "rank": 9,
