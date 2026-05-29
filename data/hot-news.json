@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 21:10",
+  "updateTime": "2026-05-29 21:16",
   "news": [
     {
       "rank": 1,
@@ -11,11 +11,11 @@
     },
     {
       "rank": 2,
-      "title": "Dell Stock Soars 39% as Earnings Blow Past Wall Street Expectations - Investopedia",
-      "source": "Investopedia",
-      "detail": "企业财报反映经济基本面，关注盈利预期和实际表现的差异。",
+      "title": "DELL’s ‘Monster Quarter’ Sends Stock Soaring: Analysts Cheer, But Retail Debates If Rally Has Gone Too Far - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
-      "score": 41
+      "score": 42
     },
     {
       "rank": 3,
@@ -27,19 +27,19 @@
     },
     {
       "rank": 4,
-      "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
-      "source": "Reuters",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 40
-    },
-    {
-      "rank": 5,
       "title": "Dan Ives: Anthropic’s growth is 'just the tip of the sphere' for AI rally",
       "source": "CNBC",
       "detail": "Ives' comments come as part of a wider prediction for the Nasdaq to top 30,000 points by 2027, reiterating his call from earlier interviews with CNBC.",
       "lang": "en",
       "score": 40
+    },
+    {
+      "rank": 5,
+      "title": "Oil tumbles, stocks gain on US-Iran deal hopes - Reuters",
+      "source": "Reuters",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 39
     },
     {
       "rank": 6,
@@ -75,9 +75,9 @@
     },
     {
       "rank": 10,
-      "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
+      "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
       "source": "CNBC",
-      "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
+      "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 35
     }
