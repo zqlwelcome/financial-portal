@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-30 00:00",
+  "updateTime": "2026-05-30 00:05",
   "news": [
     {
       "rank": 1,
-      "title": "Stock Market Today: Dow Rises As Iran Deal Hopes Persist; Dell Soars On Earnings (Live Coverage) - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 49
-    },
-    {
-      "rank": 2,
       "title": "Dell stock skyrockets 32%, heads for best day ever as AI server revenue soars",
       "source": "CNBC",
       "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
@@ -18,7 +10,7 @@
       "score": 47
     },
     {
-      "rank": 3,
+      "rank": 2,
       "title": "SpaceX Said to Cut IPO Value Goal to at Least $1.8 Trillion - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -26,7 +18,7 @@
       "score": 45
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "US stocks gain ground, adding to their records, as Dell soars - AP News",
       "source": "AP News",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -34,7 +26,7 @@
       "score": 42
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "SpaceX据悉将IPO估值目标下调到至少1.8万亿美元",
       "source": "环球市场播报",
       "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 媒体4月份报道，其目标估值逾2万亿美元。知情人士透露，这家火箭...",
@@ -42,15 +34,7 @@
       "score": 40
     },
     {
-      "rank": 6,
-      "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
-      "source": "Reuters",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 40
-    },
-    {
-      "rank": 7,
+      "rank": 5,
       "title": "Stock Market Today: Dow Opens Slightly Up; Oil Prices in Focus — Live Updates - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -58,7 +42,7 @@
       "score": 39
     },
     {
-      "rank": 8,
+      "rank": 6,
       "title": "Nvidia is investing billions into this emerging technology that could change the AI industry",
       "source": "CNBC",
       "detail": "Photonics is considered to be a more efficient alternative to the current process of transferring data using electricity, which could be crucial to the AI boom.",
@@ -66,7 +50,7 @@
       "score": 37
     },
     {
-      "rank": 9,
+      "rank": 7,
       "title": "SentinelOne stock drops 12% as cyber firm trims headcount to boost AI investments",
       "source": "CNBC",
       "detail": "SentinelOne reported earnings after the bell Thursday and issued lackluster guidance for the current quarter and full-year.",
@@ -74,12 +58,28 @@
       "score": 37
     },
     {
-      "rank": 10,
+      "rank": 8,
       "title": "欧元区四大经济体通胀超出舒适区 为欧洲央行加息提供数据支撑",
       "source": "环球市场播报",
       "detail": "欧元区四大经济体通胀率远超2%，为欧洲央行自2023年以来首次加息提供进一步理由。 周五数据显示，因战争推动能源成本飙升，法国5月份消费者价格指数同比上涨2.8%...",
       "lang": "zh",
       "score": 36
+    },
+    {
+      "rank": 9,
+      "title": "美联储理事米歇尔・鲍曼警示：不应因通胀反弹而加息",
+      "source": "环球市场播报",
+      "detail": "核心要点美联储理事米歇尔・鲍曼周五提醒，不应为应对当前物价反弹而采取加息举措。她表示，针对能源价格短期上涨引发的通胀上行贸然加息，会造成不必要的政策收紧...",
+      "lang": "zh",
+      "score": 36
+    },
+    {
+      "rank": 10,
+      "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
+      "source": "CNBC",
+      "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
+      "lang": "en",
+      "score": 35
     }
   ]
 }
