@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 19:10",
+  "updateTime": "2026-05-29 19:15",
   "news": [
     {
       "rank": 1,
@@ -19,11 +19,11 @@
     },
     {
       "rank": 3,
-      "title": "IBM, Red Hat Pledge $5 Billion for AI-Driven Open Source Security Initiative - WSJ",
-      "source": "WSJ",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "title": "Oil tumbles, stocks gain on US-Iran deal hopes - Reuters",
+      "source": "Reuters",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
-      "score": 37
+      "score": 39
     },
     {
       "rank": 4,
