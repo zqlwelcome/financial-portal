@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 08:35",
+  "updateTime": "2026-05-29 08:40",
   "news": [
     {
       "rank": 1,
@@ -59,6 +59,14 @@
     },
     {
       "rank": 8,
+      "title": "IBM, Red Hat Pledge $5 Billion for AI-Driven Open Source Security Initiative - WSJ",
+      "source": "WSJ",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 9,
       "title": "东京通胀率再次放缓 日本央行加息之路变得复杂",
       "source": "环球市场播报",
       "detail": " 东京关键通胀指标意外连续第六个月降温，在日本央行决策者试图证明最早下个月加息的合理性之际，这份数据传递出更加复杂的信号。",
@@ -66,18 +74,10 @@
       "score": 36
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
       "source": "CNBC",
       "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
-      "source": "CNBC",
-      "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
       "lang": "en",
       "score": 35
     }
