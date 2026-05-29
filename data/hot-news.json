@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-30 03:15",
+  "updateTime": "2026-05-30 03:20",
   "news": [
     {
       "rank": 1,
-      "title": "Stock Market Today: Major Indexes Set Fresh All-Time Highs as Dell Leads Tech Gains; S&P 500 on Pace for 9th Straight Weekly Rise; Oil Prices Pull Back - Investopedia",
-      "source": "Investopedia",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 49
-    },
-    {
-      "rank": 2,
       "title": "Dell stock skyrockets 32%, heads for best day ever as AI server revenue soars",
       "source": "CNBC",
       "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
@@ -18,7 +10,7 @@
       "score": 47
     },
     {
-      "rank": 3,
+      "rank": 2,
       "title": "SpaceX据悉将IPO估值目标下调到至少1.8万亿美元",
       "source": "环球市场播报",
       "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 媒体4月份报道，其目标估值逾2万亿美元。知情人士透露，这家火箭...",
@@ -26,7 +18,7 @@
       "score": 40
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "Dell shocks Wall Street with booming AI server sales. Where analysts see it headed next",
       "source": "CNBC",
       "detail": "Dell reported blowout fiscal first quarter results on Thursday thanks to booming AI server demand, leading many analysts to raise their price targets. ",
@@ -34,7 +26,7 @@
       "score": 37
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "德意志银行上调10年期美国国债收益率预期 相信美联储已经完成降息",
       "source": "环球市场播报",
       "detail": " 德意志银行利率策略师上调了今年年底的10年期美国国债收益率预期，理由是预计如今由主席凯文·沃什领导的美联储官员已经结束降息。",
@@ -42,7 +34,7 @@
       "score": 36
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "欧元区四大经济体通胀超出舒适区 为欧洲央行加息提供数据支撑",
       "source": "环球市场播报",
       "detail": "欧元区四大经济体通胀率远超2%，为欧洲央行自2023年以来首次加息提供进一步理由。 周五数据显示，因战争推动能源成本飙升，法国5月份消费者价格指数同比上涨2.8%...",
@@ -50,12 +42,20 @@
       "score": 36
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
       "lang": "en",
       "score": 35
+    },
+    {
+      "rank": 7,
+      "title": "Wall Street extends rally on tech strength; Middle East deal stays in focus - Reuters",
+      "source": "Reuters",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 32
     },
     {
       "rank": 8,
