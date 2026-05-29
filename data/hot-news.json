@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 06:10",
+  "updateTime": "2026-05-30 06:15",
   "news": [
     {
       "rank": 1,
@@ -27,6 +27,14 @@
     },
     {
       "rank": 4,
+      "title": "Citadel Securities posts record $4.3bn in trading revenues on Iran volatility - Financial Times",
+      "source": "Financial Times",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 42
+    },
+    {
+      "rank": 5,
       "title": "Stocks close at record highs with tech leading the way again. Nasdaq gains 8% in May",
       "source": "CNBC",
       "detail": "U.S. equities closed at record highs on Friday, while crude prices slipped, helping the major averages score a winning month, boosted by technology.",
@@ -34,7 +42,7 @@
       "score": 42
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "戴尔股价暴涨32%创历史最佳单日表现，AI服务器营收飙升",
       "source": "环球市场播报",
       "detail": " 戴尔科技股价周五收盘暴涨32.76%，创下历史最佳单日表现。此前公司公布了自2018年重返公开市场以来任一时期的最快营收增速。",
@@ -42,7 +50,7 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Stock Market Today: Oil Heads for Biggest Monthly Drop Since 2020 — Live Updates - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -50,7 +58,7 @@
       "score": 39
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -58,18 +66,10 @@
       "score": 37
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "美财长贝森特称美联储主席凯文·沃什没有降息压力",
       "source": "环球市场播报",
       "detail": "美国财政部长斯科特·贝森特周五表示，新上任的美联储主席凯文·沃什并未面临降息的压力。 在加州举行的里根国家经济论坛会议上，当被问及他是否认同美国总统特朗普希望沃什...",
-      "lang": "zh",
-      "score": 36
-    },
-    {
-      "rank": 9,
-      "title": "德意志银行上调10年期美国国债收益率预期 相信美联储已经完成降息",
-      "source": "环球市场播报",
-      "detail": " 德意志银行利率策略师上调了今年年底的10年期美国国债收益率预期，理由是预计如今由主席凯文·沃什领导的美联储官员已经结束降息。",
       "lang": "zh",
       "score": 36
     },
