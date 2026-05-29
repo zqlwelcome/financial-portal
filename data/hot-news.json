@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 22:45",
+  "updateTime": "2026-05-29 22:50",
   "news": [
     {
       "rank": 1,
@@ -19,6 +19,14 @@
     },
     {
       "rank": 3,
+      "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
+      "source": "Barron's",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 47
+    },
+    {
+      "rank": 4,
       "title": "Dell stock skyrockets 32%, heads for best day ever as AI server revenue soars",
       "source": "CNBC",
       "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
@@ -26,7 +34,7 @@
       "score": 47
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "DELL’s ‘Monster Quarter’ Sends Stock Soaring: Analysts Cheer, But Retail Debates If Rally Has Gone Too Far - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -34,20 +42,12 @@
       "score": 42
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 40
-    },
-    {
-      "rank": 6,
-      "title": "Oil tumbles, stocks gain on US-Iran deal hopes - Reuters",
-      "source": "Reuters",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 39
     },
     {
       "rank": 7,
