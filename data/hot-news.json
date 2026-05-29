@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-29 20:00",
+  "updateTime": "2026-05-29 20:05",
   "news": [
     {
       "rank": 1,
-      "title": "Nvidia's Next AI Wave Sparks Big Calls on Micron, Dell, Arm Stocks - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 49
-    },
-    {
-      "rank": 2,
       "title": "Futures: Dell Surges, Leads Earnings Movers - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -18,15 +10,15 @@
       "score": 42
     },
     {
-      "rank": 3,
-      "title": "Dell Stock Soars 39% as Earnings Blow Past Wall Street Expectations - Investopedia",
-      "source": "Investopedia",
-      "detail": "企业财报反映经济基本面，关注盈利预期和实际表现的差异。",
+      "rank": 2,
+      "title": "DELL’s ‘Monster Quarter’ Sends Stock Soaring: Analysts Cheer, But Retail Debates If Rally Has Gone Too Far - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
-      "score": 41
+      "score": 42
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -34,7 +26,7 @@
       "score": 40
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Nvidia is investing billions into this emerging technology that could change the AI industry",
       "source": "CNBC",
       "detail": "Photonics is considered to be a more efficient alternative to the current process of transferring data using electricity, which could be crucial to the AI boom.",
@@ -42,7 +34,7 @@
       "score": 37
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "法国、意大利和西班牙通胀上涨 为欧洲央行加息提供数据支撑",
       "source": "环球市场播报",
       "detail": "法国、意大利和西班牙通胀上涨，为欧洲央行自2023年以来首次加息提供进一步理由。 周五数据显示，因战争推动能源成本飙升，法国5月份消费者价格指数同比上涨2.8%...",
@@ -50,7 +42,7 @@
       "score": 36
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "ASTS, RKLB, RDW, LUNR Slip Overnight: SpaceX IPO Hype Loses Orbit After Valuation Target Reportedly Falls Below $2 Trillion - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "国际财经动态，关注后续发展。",
@@ -58,7 +50,7 @@
       "score": 35
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "玉健健康IPO：第一大客户竟是海外贸易商收入占比超65% 大客户集中并非行业惯例",
       "source": "新浪证券",
       "detail": "出品：新浪财经上市公司研究院 作者：IPO再融资组/图灵 5月28日，北交所官网披露了宁波玉健健康科技股份有限公司（下称“玉健健康”）回复交易所的问询函公告。",
@@ -66,7 +58,7 @@
       "score": 30
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "AI推动存储芯片价值超越石油",
       "source": "环球市场播报",
       "detail": "若长期合约稳定行业格局，市值破万亿的美光、三星、SK 海力士仍具估值优势SK 海力士称，未来三年市场需求远超自身产能。 如今，存储芯片的价值已然超越石油。",
@@ -74,10 +66,18 @@
       "score": 30
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "South Korea's Kospi, Japan's Topix hit record highs as investors shrug off Iran tensions - CNBC",
       "source": "CNBC",
       "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 30
+    },
+    {
+      "rank": 10,
+      "title": "Micron, Sandisk Score Price-Target Hikes Amid Record Climbs - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 30
     }
