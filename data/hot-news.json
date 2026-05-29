@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-29 22:40",
+  "updateTime": "2026-05-29 22:45",
   "news": [
     {
       "rank": 1,
-      "title": "Fed Governor Michelle Bowman warns against hiking interest rates because of inflation spike",
-      "source": "CNBC",
-      "detail": "Bowman said reacting to the inflation surge, driven primarily by energy prices and tariffs, has proven ineffective.",
-      "lang": "en",
-      "score": 63
-    },
-    {
-      "rank": 2,
       "title": "Stock Market Today: Dow Rises As Iran Deal Hopes Persist; Dell Soars On Earnings (Live Coverage) - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -18,7 +10,7 @@
       "score": 49
     },
     {
-      "rank": 3,
+      "rank": 2,
       "title": "Stock Market Today: Major Indexes Set Fresh All-Time Highs on Final Day of Strong May; Dell Leads Tech Gains; Oil Prices Pull Back - Investopedia",
       "source": "Investopedia",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -26,12 +18,20 @@
       "score": 49
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "Dell stock skyrockets 32%, heads for best day ever as AI server revenue soars",
       "source": "CNBC",
       "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
       "lang": "en",
       "score": 47
+    },
+    {
+      "rank": 4,
+      "title": "DELL’s ‘Monster Quarter’ Sends Stock Soaring: Analysts Cheer, But Retail Debates If Rally Has Gone Too Far - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 42
     },
     {
       "rank": 5,
@@ -43,8 +43,8 @@
     },
     {
       "rank": 6,
-      "title": "Stock Market Today: Dow Opens Slightly Up; Oil Prices in Focus — Live Updates - WSJ",
-      "source": "WSJ",
+      "title": "Oil tumbles, stocks gain on US-Iran deal hopes - Reuters",
+      "source": "Reuters",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 39
