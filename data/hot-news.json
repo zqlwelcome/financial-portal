@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 07:25",
+  "updateTime": "2026-05-30 07:30",
   "news": [
     {
       "rank": 1,
@@ -59,8 +59,8 @@
     },
     {
       "rank": 8,
-      "title": "Dell, Rocket Lab, Palantir, and More Stocks That Explain the Market Today - Barron's",
-      "source": "Barron's",
+      "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks - CNBC",
+      "source": "CNBC",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 37
@@ -75,9 +75,9 @@
     },
     {
       "rank": 10,
-      "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
-      "source": "CNBC",
-      "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
+      "title": "Dell, Rocket Lab, Palantir, and More Stocks That Explain the Market Today - Barron's",
+      "source": "Barron's",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 37
     }
