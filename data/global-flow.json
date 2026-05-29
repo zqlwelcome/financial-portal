@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 09:50",
+  "updateTime": "2026-05-29 09:56",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -16,107 +16,61 @@
     "sh000001": {
       "name": "上证指数",
       "region": "🇨🇳 A股",
-      "value": "4094.72",
-      "change": "-0.10"
+      "value": "4096.88",
+      "change": "-0.04"
     },
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25177.600",
-      "change": "0.69"
+      "value": "25143.280",
+      "change": "0.55"
     }
   },
-  "etf_flows": [
-    {
-      "name": "证券ETF国泰",
-      "code": "512880",
-      "price": 1.045,
-      "change": 2.35,
-      "flow": 290056029.0,
-      "flow_str": "+2.90亿",
-      "direction": "in"
-    },
-    {
-      "name": "沪深300ETF华泰柏瑞",
-      "code": "510300",
-      "price": 4.94,
-      "change": 0.16,
-      "flow": 116858267.0,
-      "flow_str": "+1.17亿",
-      "direction": "in"
-    },
-    {
-      "name": "券商ETF华宝",
-      "code": "512000",
-      "price": 0.499,
-      "change": 2.25,
-      "flow": 88222083.0,
-      "flow_str": "+8822.21万",
-      "direction": "in"
-    },
-    {
-      "name": "中证500ETF南方",
-      "code": "510500",
-      "price": 8.572,
-      "change": -0.89,
-      "flow": 65413064.0,
-      "flow_str": "+6541.31万",
-      "direction": "in"
-    },
-    {
-      "name": "证券ETF天弘",
-      "code": "159841",
-      "price": 0.947,
-      "change": 2.38,
-      "flow": 51426674.0,
-      "flow_str": "+5142.67万",
-      "direction": "in"
-    }
-  ],
+  "etf_flows": [],
   "sector_flows": [
     {
       "name": "印制电路板",
       "code": "BK1340",
-      "index": 12848.16,
-      "change": 0.85,
-      "flow": 3493219584.0,
-      "flow_str": "+34.93亿",
+      "index": 12910.61,
+      "change": 1.34,
+      "flow": 3816969728.0,
+      "flow_str": "+38.17亿",
       "direction": "in"
     },
     {
       "name": "元件",
       "code": "BK0459",
-      "index": 62085.7,
-      "change": 0.16,
-      "flow": 2923753472.0,
-      "flow_str": "+29.24亿",
+      "index": 62309.57,
+      "change": 0.52,
+      "flow": 3188131328.0,
+      "flow_str": "+31.88亿",
       "direction": "in"
     },
     {
       "name": "非银金融",
       "code": "BK1203",
-      "index": 2431.61,
-      "change": 1.68,
-      "flow": 2091441920.0,
-      "flow_str": "+20.91亿",
+      "index": 2429.3,
+      "change": 1.59,
+      "flow": 2346787776.0,
+      "flow_str": "+23.47亿",
       "direction": "in"
     },
     {
       "name": "证券Ⅲ",
       "code": "BK1366",
-      "index": 136285.34,
-      "change": 1.83,
-      "flow": 1920323536.0,
-      "flow_str": "+19.20亿",
+      "index": 136185.0,
+      "change": 1.76,
+      "flow": 2180245760.0,
+      "flow_str": "+21.80亿",
       "direction": "in"
     },
     {
       "name": "证券Ⅱ",
       "code": "BK0473",
-      "index": 136285.34,
-      "change": 1.83,
-      "flow": 1920323536.0,
-      "flow_str": "+19.20亿",
+      "index": 136185.0,
+      "change": 1.76,
+      "flow": 2180245760.0,
+      "flow_str": "+21.80亿",
       "direction": "in"
     }
   ],
