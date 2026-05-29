@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 15:50",
+  "updateTime": "2026-05-29 15:55",
   "news": [
     {
       "rank": 1,
@@ -67,19 +67,19 @@
     },
     {
       "rank": 9,
-      "title": "Strait of Hormuz shutdown: A visual guide to world's most critical oil chokepoint",
-      "source": "CNBC",
-      "detail": "Data shows how the outbreak of the Iran war in February and the closure of the Strait of Hormuz saw trade grind to a halt, triggering a severe global energy shock.",
+      "title": "Costco Tops Sales Views But Earnings, Membership Numbers Fall Short - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 27
     },
     {
       "rank": 10,
-      "title": "Anthropic soars to $965bn valuation, leapfrogging OpenAI - Al Jazeera",
-      "source": "Al Jazeera",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "title": "Strait of Hormuz shutdown: A visual guide to world's most critical oil chokepoint",
+      "source": "CNBC",
+      "detail": "Data shows how the outbreak of the Iran war in February and the closure of the Strait of Hormuz saw trade grind to a halt, triggering a severe global energy shock.",
       "lang": "en",
-      "score": 25
+      "score": 27
     }
   ]
 }
