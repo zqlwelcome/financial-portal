@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 11:20",
+  "updateTime": "2026-05-29 11:26",
   "news": [
     {
       "rank": 1,
@@ -19,14 +19,6 @@
     },
     {
       "rank": 3,
-      "title": "SpaceX据悉将IPO估值目标下调至至少1.8万亿美元",
-      "source": "环球市场播报",
-      "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 上个月有报道称，其目标估值逾2万亿美元。但知情人士透露，这家火箭...",
-      "lang": "zh",
-      "score": 40
-    },
-    {
-      "rank": 4,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -34,7 +26,7 @@
       "score": 40
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Samsung's shares surge as much as 6% after company ships next-generation AI memory chip samples",
       "source": "CNBC",
       "detail": "Shares of Samsung Electronics surged after the company began shipping HBM4E chip samples to its customers globally. ",
@@ -42,7 +34,7 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
       "source": "WSJ",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -50,7 +42,7 @@
       "score": 38
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "The seller of a $2.9 million San Francisco home is accepting payment in Anthropic or OpenAI stock - Business Insider",
       "source": "Business Insider",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -58,7 +50,7 @@
       "score": 37
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
       "source": "CNBC",
       "detail": "国际财经动态，关注后续发展。",
@@ -66,7 +58,7 @@
       "score": 35
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
@@ -74,12 +66,20 @@
       "score": 35
     },
     {
+      "rank": 9,
+      "title": "Oil Prices Fall As U.S., Iran May End 'Game Of Chicken'; S&P 500 Rises - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 27
+    },
+    {
       "rank": 10,
-      "title": "加息预期助推美元录得月度涨幅 但华尔街对进一步涨势持谨慎看法",
-      "source": "环球市场播报",
-      "detail": "美元本月上涨，交易员已将美国加息预期反映在定价中，但这也让华尔街策略师对美元进一步走升持谨慎态度。 彭博美元指数5月以来上涨0.7%...",
-      "lang": "zh",
-      "score": 28
+      "title": "Dell Soars on Raised Outlook for $60 Billion in AI Servers - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 25
     }
   ]
 }
