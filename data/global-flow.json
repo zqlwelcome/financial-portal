@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 09:40",
+  "updateTime": "2026-05-29 09:45",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -16,60 +16,60 @@
     "sh000001": {
       "name": "上证指数",
       "region": "🇨🇳 A股",
-      "value": "4103.52",
-      "change": "0.12"
+      "value": "4105.50",
+      "change": "0.17"
     },
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25161.520",
-      "change": "0.62"
+      "value": "25091.450",
+      "change": "0.34"
     }
   },
   "etf_flows": [
     {
       "name": "证券ETF国泰",
       "code": "512880",
-      "price": 1.035,
-      "change": 1.37,
-      "flow": 103445899.0,
-      "flow_str": "+1.03亿",
+      "price": 1.04,
+      "change": 1.86,
+      "flow": 189999692.0,
+      "flow_str": "+1.90亿",
       "direction": "in"
     },
     {
       "name": "沪深300ETF华泰柏瑞",
       "code": "510300",
-      "price": 4.95,
-      "change": 0.36,
-      "flow": 91111093.0,
-      "flow_str": "+9111.11万",
-      "direction": "in"
-    },
-    {
-      "name": "中证2000ETF华泰柏瑞",
-      "code": "563300",
-      "price": 1.608,
-      "change": 0.12,
-      "flow": 34870247.0,
-      "flow_str": "+3487.02万",
+      "price": 4.956,
+      "change": 0.49,
+      "flow": 110150261.0,
+      "flow_str": "+1.10亿",
       "direction": "in"
     },
     {
       "name": "券商ETF华宝",
       "code": "512000",
-      "price": 0.495,
-      "change": 1.43,
-      "flow": 29390192.0,
-      "flow_str": "+2939.02万",
+      "price": 0.497,
+      "change": 1.84,
+      "flow": 53262965.0,
+      "flow_str": "+5326.30万",
       "direction": "in"
     },
     {
-      "name": "创业板ETF易方达",
-      "code": "159915",
-      "price": 4.125,
-      "change": -0.31,
-      "flow": 25114752.0,
-      "flow_str": "+2511.48万",
+      "name": "中证2000ETF华泰柏瑞",
+      "code": "563300",
+      "price": 1.604,
+      "change": -0.12,
+      "flow": 39633307.0,
+      "flow_str": "+3963.33万",
+      "direction": "in"
+    },
+    {
+      "name": "中证500ETF南方",
+      "code": "510500",
+      "price": 8.64,
+      "change": -0.1,
+      "flow": 39452446.0,
+      "flow_str": "+3945.24万",
       "direction": "in"
     }
   ],
@@ -77,46 +77,46 @@
     {
       "name": "印制电路板",
       "code": "BK1340",
-      "index": 12918.58,
-      "change": 1.4,
-      "flow": 2562893568.0,
-      "flow_str": "+25.63亿",
+      "index": 13057.41,
+      "change": 2.49,
+      "flow": 3135159552.0,
+      "flow_str": "+31.35亿",
       "direction": "in"
     },
     {
       "name": "元件",
       "code": "BK0459",
-      "index": 62536.71,
-      "change": 0.88,
-      "flow": 2247705344.0,
-      "flow_str": "+22.48亿",
-      "direction": "in"
-    },
-    {
-      "name": "消费电子零部件及组装",
-      "code": "BK1338",
-      "index": 15621.52,
-      "change": 0.39,
-      "flow": 923986944.0,
-      "flow_str": "+9.24亿",
-      "direction": "in"
-    },
-    {
-      "name": "消费电子",
-      "code": "BK1037",
-      "index": 2387.73,
-      "change": 0.33,
-      "flow": 920341504.0,
-      "flow_str": "+9.20亿",
+      "index": 63019.83,
+      "change": 1.66,
+      "flow": 2667262720.0,
+      "flow_str": "+26.67亿",
       "direction": "in"
     },
     {
       "name": "非银金融",
       "code": "BK1203",
-      "index": 2417.56,
-      "change": 1.1,
-      "flow": 804823024.0,
-      "flow_str": "+8.05亿",
+      "index": 2422.91,
+      "change": 1.32,
+      "flow": 1352306976.0,
+      "flow_str": "+13.52亿",
+      "direction": "in"
+    },
+    {
+      "name": "证券Ⅲ",
+      "code": "BK1366",
+      "index": 135587.28,
+      "change": 1.31,
+      "flow": 1223943744.0,
+      "flow_str": "+12.24亿",
+      "direction": "in"
+    },
+    {
+      "name": "证券Ⅱ",
+      "code": "BK0473",
+      "index": 135587.28,
+      "change": 1.31,
+      "flow": 1223943744.0,
+      "flow_str": "+12.24亿",
       "direction": "in"
     }
   ],
@@ -131,11 +131,6 @@
       "title": "加息预期助推美元录得月度涨幅 但华尔街对进一步涨势持谨慎看法",
       "source": "环球市场播报",
       "keyword": "加息"
-    },
-    {
-      "title": "加息风暴席卷美联储！降息路线图已作废，沃什新官上任“不加息”就算赢",
-      "source": "智通财经APP",
-      "keyword": "美联储"
     }
   ]
 }

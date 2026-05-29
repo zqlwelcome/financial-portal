@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 09:40",
+  "updateTime": "2026-05-29 09:45",
   "news": [
     {
       "rank": 1,
@@ -35,6 +35,14 @@
     },
     {
       "rank": 5,
+      "title": "SpaceX据悉将IPO估值目标下调至至少1.8万亿美元",
+      "source": "环球市场播报",
+      "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 上个月有报道称，其目标估值逾2万亿美元。但知情人士透露，这家火箭...",
+      "lang": "zh",
+      "score": 40
+    },
+    {
+      "rank": 6,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +50,7 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "IBM, Red Hat Pledge $5 Billion for AI-Driven Open Source Security Initiative - WSJ",
       "source": "WSJ",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,7 +58,7 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
       "source": "CNBC",
       "detail": "国际财经动态，关注后续发展。",
@@ -58,7 +66,7 @@
       "score": 35
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
@@ -66,20 +74,12 @@
       "score": 35
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "三星电子率先交付HBM4E样品 在AI存储芯片竞争中抢占先机",
       "source": "环球市场播报",
       "detail": "三星电子称已开始向客户交付业内最先进的12层HBM4E样品，在人工智能（AI）存储芯片竞争中抢占先机。 这家韩国最大企业表示，这款12层HBM4E为48GB容量型...",
       "lang": "zh",
       "score": 30
-    },
-    {
-      "rank": 10,
-      "title": "加息预期助推美元录得月度涨幅 但华尔街对进一步涨势持谨慎看法",
-      "source": "环球市场播报",
-      "detail": "美元本月上涨，交易员已将美国加息预期反映在定价中，但这也让华尔街策略师对美元进一步走升持谨慎态度。 彭博美元指数5月以来上涨0.7%...",
-      "lang": "zh",
-      "score": 28
     }
   ]
 }
