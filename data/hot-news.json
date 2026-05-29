@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 21:51",
+  "updateTime": "2026-05-29 21:55",
   "news": [
     {
       "rank": 1,
@@ -27,14 +27,6 @@
     },
     {
       "rank": 4,
-      "title": "DELL’s ‘Monster Quarter’ Sends Stock Soaring: Analysts Cheer, But Retail Debates If Rally Has Gone Too Far - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 42
-    },
-    {
-      "rank": 5,
       "title": "SpaceX希望在IPO中获得1.8万亿美元估值",
       "source": "环球市场播报",
       "detail": "据美国知名财经媒体报道，埃隆·马斯克旗下的SpaceX公司正寻求在其首次公开募股（IPO）中获得至少1.8万亿美元的估值。 该媒体此前曾报道，该公司寻求的估值超过2万亿美元...",
@@ -42,7 +34,7 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,12 +42,20 @@
       "score": 40
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "Dan Ives: Anthropic’s growth is 'just the tip of the sphere' for AI rally",
       "source": "CNBC",
       "detail": "Ives' comments come as part of a wider prediction for the Nasdaq to top 30,000 points by 2027, reiterating his call from earlier interviews with CNBC.",
       "lang": "en",
       "score": 40
+    },
+    {
+      "rank": 7,
+      "title": "Stock Market Today: Dow Futures Tick Up; Oil Prices in Focus — Live Updates - WSJ",
+      "source": "WSJ",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 39
     },
     {
       "rank": 8,
