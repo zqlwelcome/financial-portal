@@ -1,8 +1,16 @@
 {
-  "updateTime": "2026-05-30 03:50",
+  "updateTime": "2026-05-30 03:55",
   "news": [
     {
       "rank": 1,
+      "title": "Stock Market Today: Major Indexes Set Fresh All-Time Highs as Dell Leads Tech Gains; S&P 500 on Pace for 9th Straight Weekly Rise; Oil Prices Pull Back - Investopedia",
+      "source": "Investopedia",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 49
+    },
+    {
+      "rank": 2,
       "title": "Stock Market Today: Oil Heads for Biggest Monthly Drop Since 2020 — Live Updates - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -10,7 +18,7 @@
       "score": 39
     },
     {
-      "rank": 2,
+      "rank": 3,
       "title": "Dell shocks Wall Street with booming AI server sales. Where analysts see it headed next",
       "source": "CNBC",
       "detail": "Dell reported blowout fiscal first quarter results on Thursday thanks to booming AI server demand, leading many analysts to raise their price targets. ",
@@ -18,7 +26,7 @@
       "score": 37
     },
     {
-      "rank": 3,
+      "rank": 4,
       "title": "德意志银行上调10年期美国国债收益率预期 相信美联储已经完成降息",
       "source": "环球市场播报",
       "detail": " 德意志银行利率策略师上调了今年年底的10年期美国国债收益率预期，理由是预计如今由主席凯文·沃什领导的美联储官员已经结束降息。",
@@ -26,7 +34,7 @@
       "score": 36
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
@@ -34,7 +42,7 @@
       "score": 35
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Citadel Securities Reels In Record $4.3 Billion Trading Haul - Bloomberg.com",
       "source": "Bloomberg.com",
       "detail": "国际财经动态，关注后续发展。",
@@ -42,7 +50,7 @@
       "score": 32
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "纽约时报：天价IPO定价对散户并非好事",
       "source": "环球市场播报",
       "detail": " 当SpaceX、OpenAI等明星公司以惊人估值冲刺上市时，普通投资者正面临一个尴尬的现实：天价IPO定价让机构和大股东赚得盆满钵满，却让散户处在“接盘”的不利位置。",
@@ -50,7 +58,7 @@
       "score": 30
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "马斯克星舰轰鸣华尔街：SpaceX万亿IPO引发市场狂热",
       "source": "环球市场播报",
       "detail": "SpaceX的首次公开募股正在成为2026年全球资本市场最瞩目的事件。这家由埃隆·马斯克掌控的商业航天巨头计划于6月12日登陆纳斯达克，募资高达750亿美元，目标估值1...",
@@ -58,7 +66,7 @@
       "score": 30
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "戴尔股价一度暴涨35% 费城半导体指数有望创互联网泡沫以来最大年度涨幅",
       "source": "环球市场播报",
       "detail": "戴尔科技股价周五暴涨35%。这家电脑及服务器制造商发布炸裂财报后，股价飙升，成为华尔街AI热潮席卷市场的最新例证。 此前，戴尔于周四晚间公布...",
@@ -66,18 +74,10 @@
       "score": 30
     },
     {
-      "rank": 9,
-      "title": "Oil Prices Fall On Hormuz Hopes, But Exxon Warns Of Nasty Surprise - Investor's Business Daily",
+      "rank": 10,
+      "title": "Oil Prices Slip Amid Trump Demands; Exxon Warns Of Nasty Surprise - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 27
-    },
-    {
-      "rank": 10,
-      "title": "Stocks add to May gains Friday with tech leading the way again. The Nasdaq is up 8% for month: Live updates",
-      "source": "CNBC",
-      "detail": "Boosted by a rally in the tech sector, all three major averages rose to fresh closing highs on Thursday.",
       "lang": "en",
       "score": 27
     }
