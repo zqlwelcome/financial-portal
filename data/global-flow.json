@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 10:26",
+  "updateTime": "2026-05-29 10:31",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -16,29 +16,115 @@
     "sh000001": {
       "name": "上证指数",
       "region": "🇨🇳 A股",
-      "value": "4092.80",
-      "change": "-0.14"
+      "value": "4081.99",
+      "change": "-0.41"
     },
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25091.760",
-      "change": "0.34"
+      "value": "25103.780",
+      "change": "0.39"
     }
   },
-  "etf_flows": [],
-  "sector_flows": [],
+  "etf_flows": [
+    {
+      "name": "证券ETF国泰",
+      "code": "512880",
+      "price": 1.033,
+      "change": 1.18,
+      "flow": 327611824.0,
+      "flow_str": "+3.28亿",
+      "direction": "in"
+    },
+    {
+      "name": "上证50ETF华夏",
+      "code": "510050",
+      "price": 2.987,
+      "change": 0.07,
+      "flow": 141724428.0,
+      "flow_str": "+1.42亿",
+      "direction": "in"
+    },
+    {
+      "name": "沪深300ETF华泰柏瑞",
+      "code": "510300",
+      "price": 4.927,
+      "change": -0.1,
+      "flow": 135263067.0,
+      "flow_str": "+1.35亿",
+      "direction": "in"
+    },
+    {
+      "name": "化工ETF鹏华",
+      "code": "159870",
+      "price": 0.824,
+      "change": -1.08,
+      "flow": 130172698.0,
+      "flow_str": "+1.30亿",
+      "direction": "in"
+    },
+    {
+      "name": "中证500ETF南方",
+      "code": "510500",
+      "price": 8.511,
+      "change": -1.6,
+      "flow": 124804992.0,
+      "flow_str": "+1.25亿",
+      "direction": "in"
+    }
+  ],
+  "sector_flows": [
+    {
+      "name": "电力",
+      "code": "BK0428",
+      "index": 23537.9,
+      "change": 3.04,
+      "flow": 3522122240.0,
+      "flow_str": "+35.22亿",
+      "direction": "in"
+    },
+    {
+      "name": "公用事业",
+      "code": "BK0427",
+      "index": 11090.32,
+      "change": 2.35,
+      "flow": 3444058624.0,
+      "flow_str": "+34.44亿",
+      "direction": "in"
+    },
+    {
+      "name": "印制电路板",
+      "code": "BK1340",
+      "index": 12774.22,
+      "change": 0.27,
+      "flow": 3414062080.0,
+      "flow_str": "+34.14亿",
+      "direction": "in"
+    },
+    {
+      "name": "元件",
+      "code": "BK0459",
+      "index": 61694.32,
+      "change": -0.48,
+      "flow": 2223599872.0,
+      "flow_str": "+22.24亿",
+      "direction": "in"
+    },
+    {
+      "name": "火力发电",
+      "code": "BK1377",
+      "index": 3094.93,
+      "change": 4.59,
+      "flow": 2133037056.0,
+      "flow_str": "+21.33亿",
+      "direction": "in"
+    }
+  ],
   "northbound": {
     "time": "15:00",
     "hgt": 0,
     "sgt": 0,
     "total": 0
   },
-  "bank_news": [
-    {
-      "title": "加息预期助推美元录得月度涨幅 但华尔街对进一步涨势持谨慎看法",
-      "source": "环球市场播报",
-      "keyword": "加息"
-    }
-  ]
+  "bank_news": []
 }
