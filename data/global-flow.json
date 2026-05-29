@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 14:45",
+  "updateTime": "2026-05-29 14:51",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -16,18 +16,64 @@
     "sh000001": {
       "name": "上证指数",
       "region": "🇨🇳 A股",
-      "value": "4063.68",
-      "change": "-0.85"
+      "value": "4061.01",
+      "change": "-0.92"
     },
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25253.170",
+      "value": "25253.190",
       "change": "0.99"
     }
   },
   "etf_flows": [],
-  "sector_flows": [],
+  "sector_flows": [
+    {
+      "name": "通信线缆及配套",
+      "code": "BK1592",
+      "index": 29227.92,
+      "change": 1.59,
+      "flow": 6621819136.0,
+      "flow_str": "+66.22亿",
+      "direction": "in"
+    },
+    {
+      "name": "电力",
+      "code": "BK0428",
+      "index": 23341.17,
+      "change": 2.18,
+      "flow": 5238396416.0,
+      "flow_str": "+52.38亿",
+      "direction": "in"
+    },
+    {
+      "name": "公用事业",
+      "code": "BK0427",
+      "index": 10987.02,
+      "change": 1.39,
+      "flow": 5035165184.0,
+      "flow_str": "+50.35亿",
+      "direction": "in"
+    },
+    {
+      "name": "火力发电",
+      "code": "BK1377",
+      "index": 3080.23,
+      "change": 4.1,
+      "flow": 3427414272.0,
+      "flow_str": "+34.27亿",
+      "direction": "in"
+    },
+    {
+      "name": "食品饮料",
+      "code": "BK0438",
+      "index": 27405.49,
+      "change": 1.67,
+      "flow": 2629987584.0,
+      "flow_str": "+26.30亿",
+      "direction": "in"
+    }
+  ],
   "northbound": {
     "time": "15:00",
     "hgt": 0,

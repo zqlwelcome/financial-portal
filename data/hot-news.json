@@ -1,8 +1,24 @@
 {
-  "updateTime": "2026-05-29 14:45",
+  "updateTime": "2026-05-29 14:50",
   "news": [
     {
       "rank": 1,
+      "title": "Dow Jones Futures: Stock Market Hits Highs On U.S.-Iran Deal; Dell Surges On Earnings - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 64
+    },
+    {
+      "rank": 2,
+      "title": "Dell Stock Soars 39% as Earnings Blow Past Wall Street Expectations - Investopedia",
+      "source": "Investopedia",
+      "detail": "企业财报反映经济基本面，关注盈利预期和实际表现的差异。",
+      "lang": "en",
+      "score": 41
+    },
+    {
+      "rank": 3,
       "title": "Samsung's shares surge as much as 6% after company ships next-generation AI memory chip samples",
       "source": "CNBC",
       "detail": "Shares of Samsung Electronics surged after the company began shipping HBM4E chip samples to its customers globally. ",
@@ -10,7 +26,7 @@
       "score": 40
     },
     {
-      "rank": 2,
+      "rank": 4,
       "title": "AI能压低通胀？沃什刚上任，美联储内部已现“质疑声”",
       "source": "21世纪经济报道",
       "detail": "本月以来，越来越多的美联储官员表示，若通胀未能迅速缓解，可能需要加息。同时，他们对人工智能（AI）能否抑制通胀持怀疑态度。",
@@ -18,7 +34,15 @@
       "score": 38
     },
     {
-      "rank": 3,
+      "rank": 5,
+      "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
+      "source": "WSJ",
+      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "lang": "en",
+      "score": 38
+    },
+    {
+      "rank": 6,
       "title": "Nvidia is investing billions into this emerging technology that could change the AI industry",
       "source": "CNBC",
       "detail": "Photonics is considered to be a more efficient alternative to the current process of transferring data using electricity, which could be crucial to the AI boom.",
@@ -26,7 +50,15 @@
       "score": 37
     },
     {
-      "rank": 4,
+      "rank": 7,
+      "title": "SpaceX Lowers IPO Valuation Target to at Least $1.8 Trillion - Bloomberg.com",
+      "source": "Bloomberg.com",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 35
+    },
+    {
+      "rank": 8,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
@@ -34,52 +66,20 @@
       "score": 35
     },
     {
-      "rank": 5,
+      "rank": 9,
+      "title": "Costco Tops Sales Views But Earnings, Membership Numbers Fall Short - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 27
+    },
+    {
+      "rank": 10,
       "title": "港股午评：恒指涨1.11% 科指涨1.66% 科网股、内房股普涨 芯片股集体回调 联想大涨逾23% 碧桂园涨超19%",
       "source": "新浪港股",
       "detail": "5月29日消息，港股三大指数高开高走。截至午间收盘，恒生指数涨1.11%，报25282.84，恒生科技指数涨1.66%，国企指数涨1.28%。盘面上，科网股普涨，联想涨超23%...",
       "lang": "zh",
       "score": 25
-    },
-    {
-      "rank": 6,
-      "title": "Anthropic tops OpenAI as most valuable AI startup, nears $1 trillion valuation in latest round",
-      "source": "CNBC",
-      "detail": "Anthropic is now the most valuable AI company in Silicon Valley after a new $65 billion funding round.",
-      "lang": "en",
-      "score": 25
-    },
-    {
-      "rank": 7,
-      "title": "美伊停火协议倒计时？原油承压、黄金谨慎，市场聚焦特朗普最终批准",
-      "source": "市场资讯",
-      "detail": "文章来源：汇通财经 大宗商品市场正受到美伊停火乐观情绪的压制。据美国媒体周四（5月28日）报道，双方已达成延长停火60天并重新开放霍尔木兹海峡的谅解备忘录...",
-      "lang": "zh",
-      "score": 24
-    },
-    {
-      "rank": 8,
-      "title": "黄金重返4500美元上方，短期维持区间震荡",
-      "source": "市场资讯",
-      "detail": "文章来源：汇通财经 现货黄金（XAU/USD）周五亚洲交易时段温和反弹，价格重新回升至4500美元附近，此前一交易日金价曾触及近两个月低点。",
-      "lang": "zh",
-      "score": 22
-    },
-    {
-      "rank": 9,
-      "title": "联想股价势创1999年以来最佳单月表现 投资者看好AI驱动的增长前景",
-      "source": "环球市场播报",
-      "detail": " 联想集团股价本月以来已经上涨约一倍，势创1999年以来最大单月涨幅，投资者看好该公司由人工智能（AI）驱动的增长前景。",
-      "lang": "zh",
-      "score": 20
-    },
-    {
-      "rank": 10,
-      "title": "鸿海董事长刘扬伟：公司对AI带动的增长动能“充满信心”",
-      "source": "环球市场播报",
-      "detail": "全球最大电子代工制造商鸿海董事长刘扬伟周五表示，由于人工智能（AI）需求激增，公司对增长动能“充满信心”。刘扬伟在新北市举行的年度股东大会上表示...",
-      "lang": "zh",
-      "score": 20
     }
   ]
 }
