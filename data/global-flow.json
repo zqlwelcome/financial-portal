@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 15:05",
+  "updateTime": "2026-05-29 15:11",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -22,57 +22,11 @@
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25208.520",
-      "change": "0.81"
+      "value": "25239.820",
+      "change": "0.93"
     }
   },
-  "etf_flows": [
-    {
-      "name": "上证50ETF华夏",
-      "code": "510050",
-      "price": 2.997,
-      "change": 0.4,
-      "flow": 389898336.0,
-      "flow_str": "+3.90亿",
-      "direction": "in"
-    },
-    {
-      "name": "证券ETF国泰",
-      "code": "512880",
-      "price": 1.033,
-      "change": 1.18,
-      "flow": 313298672.0,
-      "flow_str": "+3.13亿",
-      "direction": "in"
-    },
-    {
-      "name": "化工ETF鹏华",
-      "code": "159870",
-      "price": 0.816,
-      "change": -2.04,
-      "flow": 267669421.0,
-      "flow_str": "+2.68亿",
-      "direction": "in"
-    },
-    {
-      "name": "沪深300ETF华夏",
-      "code": "510330",
-      "price": 5.124,
-      "change": -0.21,
-      "flow": 170677330.0,
-      "flow_str": "+1.71亿",
-      "direction": "in"
-    },
-    {
-      "name": "酒ETF鹏华",
-      "code": "512690",
-      "price": 0.457,
-      "change": 3.16,
-      "flow": 163628128.0,
-      "flow_str": "+1.64亿",
-      "direction": "in"
-    }
-  ],
+  "etf_flows": [],
   "sector_flows": [
     {
       "name": "通信线缆及配套",
@@ -120,12 +74,7 @@
       "direction": "in"
     }
   ],
-  "northbound": {
-    "time": "15:00",
-    "hgt": 0.0,
-    "sgt": 5200000.0,
-    "total": 0.0
-  },
+  "northbound": null,
   "bank_news": [
     {
       "title": "能源成本攀升 法国通胀创两年多新高",
