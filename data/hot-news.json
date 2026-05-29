@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 01:11",
+  "updateTime": "2026-05-30 01:16",
   "news": [
     {
       "rank": 1,
@@ -11,14 +11,6 @@
     },
     {
       "rank": 2,
-      "title": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO - TechCrunch",
-      "source": "TechCrunch",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 45
-    },
-    {
-      "rank": 3,
       "title": "SpaceX Lowers IPO Valuation Target To At Least $1.8 Trillion: Bloomberg - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -26,7 +18,7 @@
       "score": 45
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "As SpaceX IPO nears, traders think it's a near-certainty Musk becomes the first trillionaire",
       "source": "CNBC",
       "detail": "With buzz about a record-shattering IPO for SpaceX, traders are confident Elon Musk will advance to trillionaire status before 2027.",
@@ -34,11 +26,19 @@
       "score": 45
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "SpaceX据悉将IPO估值目标下调到至少1.8万亿美元",
       "source": "环球市场播报",
       "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 媒体4月份报道，其目标估值逾2万亿美元。知情人士透露，这家火箭...",
       "lang": "zh",
+      "score": 40
+    },
+    {
+      "rank": 5,
+      "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
+      "source": "Reuters",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
       "score": 40
     },
     {
