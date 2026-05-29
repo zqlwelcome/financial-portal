@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-29 18:25",
+  "updateTime": "2026-05-29 18:30",
   "news": [
     {
       "rank": 1,
-      "title": "Dow Jones Futures Fall, Snowflake Surges On Earnings; Fed Inflation Data Due - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
-      "lang": "en",
-      "score": 75
-    },
-    {
-      "rank": 2,
       "title": "Dow Jones Futures: Stock Market Hits Highs On U.S.-Iran Deal; Dell Surges On Earnings - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -18,7 +10,23 @@
       "score": 64
     },
     {
+      "rank": 2,
+      "title": "Stock Market Today: Dow Slips, Oil Pares Gains as Investors Cling to Hope of Mideast Deal — Live Updates - WSJ",
+      "source": "WSJ",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 49
+    },
+    {
       "rank": 3,
+      "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
+      "source": "Barron's",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 47
+    },
+    {
+      "rank": 4,
       "title": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO - TechCrunch",
       "source": "TechCrunch",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -26,7 +34,7 @@
       "score": 45
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "Dell Stock Soars 39% as Earnings Blow Past Wall Street Expectations - Investopedia",
       "source": "Investopedia",
       "detail": "企业财报反映经济基本面，关注盈利预期和实际表现的差异。",
@@ -34,18 +42,10 @@
       "score": 41
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Oil steadies as market awaits possible US-Iran ceasefire deal - Reuters",
       "source": "Reuters",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 37
-    },
-    {
-      "rank": 6,
-      "title": "IBM, Red Hat Pledge $5 Billion for AI-Driven Open Source Security Initiative - WSJ",
-      "source": "WSJ",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 37
     },
@@ -75,9 +75,9 @@
     },
     {
       "rank": 10,
-      "title": "SpaceX lowers IPO valuation target to at least $1.8T: report (SPCX:Pending) - Seeking Alpha",
-      "source": "Seeking Alpha",
-      "detail": "国际财经动态，关注后续发展。",
+      "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
+      "source": "CNBC",
+      "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
       "lang": "en",
       "score": 35
     }
