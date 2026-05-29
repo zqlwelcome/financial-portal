@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 08:50",
+  "updateTime": "2026-05-29 08:55",
   "news": [
     {
       "rank": 1,
@@ -51,6 +51,14 @@
     },
     {
       "rank": 7,
+      "title": "IBM, Red Hat Pledge $5 Billion for AI-Driven Open Source Security Initiative - WSJ",
+      "source": "WSJ",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 8,
       "title": "东京通胀率再次放缓 日本央行加息之路变得复杂",
       "source": "环球市场播报",
       "detail": " 东京关键通胀指标意外连续第六个月降温，在日本央行决策者试图证明最早下个月加息的合理性之际，这份数据传递出更加复杂的信号。",
@@ -58,7 +66,7 @@
       "score": 36
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
       "source": "CNBC",
       "detail": "国际财经动态，关注后续发展。",
@@ -66,20 +74,12 @@
       "score": 35
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
       "lang": "en",
       "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "三星电子率先交付HBM4E样品 在AI存储芯片竞争中抢占先机",
-      "source": "环球市场播报",
-      "detail": "三星电子称已开始向客户交付业内最先进的12层HBM4E样品，在人工智能（AI）存储芯片竞争中抢占先机。 这家韩国最大企业表示，这款12层HBM4E为48GB容量型...",
-      "lang": "zh",
-      "score": 30
     }
   ]
 }
