@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 13:51",
+  "updateTime": "2026-05-29 13:56",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -16,60 +16,60 @@
     "sh000001": {
       "name": "上证指数",
       "region": "🇨🇳 A股",
-      "value": "4090.07",
-      "change": "-0.21"
+      "value": "4079.16",
+      "change": "-0.48"
     },
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25261.320",
-      "change": "1.02"
+      "value": "25252.410",
+      "change": "0.98"
     }
   },
   "etf_flows": [
     {
       "name": "上证50ETF华夏",
       "code": "510050",
-      "price": 3.007,
-      "change": 0.74,
-      "flow": 432580469.0,
-      "flow_str": "+4.33亿",
+      "price": 3.0,
+      "change": 0.5,
+      "flow": 433687644.0,
+      "flow_str": "+4.34亿",
       "direction": "in"
     },
     {
       "name": "证券ETF国泰",
       "code": "512880",
-      "price": 1.04,
-      "change": 1.86,
-      "flow": 353767136.0,
-      "flow_str": "+3.54亿",
+      "price": 1.038,
+      "change": 1.67,
+      "flow": 353477760.0,
+      "flow_str": "+3.53亿",
       "direction": "in"
     },
     {
       "name": "沪深300ETF华泰柏瑞",
       "code": "510300",
-      "price": 4.956,
-      "change": 0.49,
-      "flow": 330228976.0,
-      "flow_str": "+3.30亿",
+      "price": 4.942,
+      "change": 0.2,
+      "flow": 328325424.0,
+      "flow_str": "+3.28亿",
       "direction": "in"
     },
     {
       "name": "化工ETF鹏华",
       "code": "159870",
-      "price": 0.823,
-      "change": -1.2,
-      "flow": 273835105.0,
-      "flow_str": "+2.74亿",
+      "price": 0.82,
+      "change": -1.56,
+      "flow": 267258835.0,
+      "flow_str": "+2.67亿",
       "direction": "in"
     },
     {
-      "name": "酒ETF鹏华",
-      "code": "512690",
-      "price": 0.461,
-      "change": 4.06,
-      "flow": 180720567.0,
-      "flow_str": "+1.81亿",
+      "name": "沪深300ETF华夏",
+      "code": "510330",
+      "price": 5.147,
+      "change": 0.23,
+      "flow": 183168054.0,
+      "flow_str": "+1.83亿",
       "direction": "in"
     }
   ],
@@ -77,45 +77,45 @@
     {
       "name": "通信线缆及配套",
       "code": "BK1592",
-      "index": 29771.6,
-      "change": 3.48,
-      "flow": 6324693760.0,
-      "flow_str": "+63.25亿",
+      "index": 29681.52,
+      "change": 3.16,
+      "flow": 6473003520.0,
+      "flow_str": "+64.73亿",
       "direction": "in"
     },
     {
       "name": "电力",
       "code": "BK0428",
-      "index": 23514.08,
-      "change": 2.93,
-      "flow": 5156420096.0,
-      "flow_str": "+51.56亿",
+      "index": 23436.66,
+      "change": 2.6,
+      "flow": 5110150656.0,
+      "flow_str": "+51.10亿",
       "direction": "in"
     },
     {
       "name": "公用事业",
       "code": "BK0427",
-      "index": 11071.2,
-      "change": 2.17,
-      "flow": 4994466816.0,
-      "flow_str": "+49.94亿",
+      "index": 11034.02,
+      "change": 1.83,
+      "flow": 4934461952.0,
+      "flow_str": "+49.34亿",
       "direction": "in"
     },
     {
       "name": "通信设备",
       "code": "BK0448",
-      "index": 25782.39,
-      "change": -2.17,
-      "flow": 4371911424.0,
-      "flow_str": "+43.72亿",
+      "index": 25679.7,
+      "change": -2.56,
+      "flow": 4113549824.0,
+      "flow_str": "+41.14亿",
       "direction": "in"
     },
     {
-      "name": "印制电路板",
-      "code": "BK1340",
-      "index": 12645.91,
-      "change": -0.74,
-      "flow": 3228474880.0,
+      "name": "火力发电",
+      "code": "BK1377",
+      "index": 3092.75,
+      "change": 4.52,
+      "flow": 3227513088.0,
       "flow_str": "+32.28亿",
       "direction": "in"
     }
@@ -128,8 +128,8 @@
   },
   "bank_news": [
     {
-      "title": "AI能压低通胀？沃什刚上任，美联储内部已现“质疑声”",
-      "source": "21世纪经济报道",
+      "title": "突破5.20%！国债收益率大幅上行，美联储换帅迎大考",
+      "source": "市场资讯",
       "keyword": "美联储"
     }
   ]
