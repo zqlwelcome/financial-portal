@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 21:05",
+  "updateTime": "2026-05-29 21:10",
   "news": [
     {
       "rank": 1,
@@ -51,6 +51,14 @@
     },
     {
       "rank": 7,
+      "title": "欧洲央行管委Simkus：6月后可能需要第二次加息",
+      "source": "环球市场播报",
+      "detail": " 欧洲央行管理委员会成员Gediminas Simkus在接受Econostream Media采访时表示，在市场普遍预期的6月加息之后，欧洲央行可能不得不再度加息。",
+      "lang": "zh",
+      "score": 36
+    },
+    {
+      "rank": 8,
       "title": "法国、意大利和西班牙通胀上涨 为欧洲央行加息提供数据支撑",
       "source": "环球市场播报",
       "detail": "法国、意大利和西班牙通胀上涨，为欧洲央行自2023年以来首次加息提供进一步理由。 周五数据显示，因战争推动能源成本飙升，法国5月份消费者价格指数同比上涨2.8%...",
@@ -58,7 +66,7 @@
       "score": 36
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "ASTS, RKLB, RDW, LUNR Slip Overnight: SpaceX IPO Hype Loses Orbit After Valuation Target Reportedly Falls Below $2 Trillion - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "国际财经动态，关注后续发展。",
@@ -66,20 +74,12 @@
       "score": 35
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
       "lang": "en",
       "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "马斯克表态与 IPO 申报文件内容出现出入，看空SpaceX的人士再度心生担忧",
-      "source": "环球市场播报",
-      "detail": "SpaceX一周前提交了首次公开募股（IPO）申请，而马斯克如今已引发市场困惑。 这家可回收火箭企业即将正式向投资者推介业务，就在此前数日...",
-      "lang": "zh",
-      "score": 30
     }
   ]
 }
