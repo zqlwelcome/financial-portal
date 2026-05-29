@@ -1,9 +1,9 @@
 {
-  "updateTime": "2026-05-30 02:25",
+  "updateTime": "2026-05-30 02:30",
   "news": [
     {
       "rank": 1,
-      "title": "Stock Market Today: Major Indexes Set Fresh All-Time Highs as Dell Leads Tech Gains; S&P 500 on Pace for 9th Straight Weekly Rise; Oil Prices Pull Back - Investopedia",
+      "title": "Stock Market Today: Major Indexes Hit New All-Time Highs as Dell Leads Tech Gains; S&P 500 on Pace for 9th Straight Weekly Rise; Oil Prices Pull Back - Investopedia",
       "source": "Investopedia",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
@@ -67,17 +67,17 @@
     },
     {
       "rank": 9,
-      "title": "Exxon warns oil inventories near record lows, price spike ahead - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 32
-    },
-    {
-      "rank": 10,
       "title": "戴尔股价一度暴涨35% 费城半导体指数有望创互联网泡沫以来最大年度涨幅",
       "source": "环球市场播报",
       "detail": "戴尔科技股价周五暴涨35%。这家电脑及服务器制造商发布炸裂财报后，股价飙升，成为华尔街AI热潮席卷市场的最新例证。 此前，戴尔于周四晚间公布...",
+      "lang": "zh",
+      "score": 30
+    },
+    {
+      "rank": 10,
+      "title": "马斯克言论与IPO文件内容相悖，SpaceX质疑者再添担忧",
+      "source": "环球市场播报",
+      "detail": "核心要点埃隆・马斯克在社交平台 X 上披露了 SpaceX 与安索帕克（Anthropic）合作协议的相关细节，这些内容并未写入公司 IPO 招股书。",
       "lang": "zh",
       "score": 30
     }
