@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 10:31",
+  "updateTime": "2026-05-29 10:36",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -16,60 +16,60 @@
     "sh000001": {
       "name": "上证指数",
       "region": "🇨🇳 A股",
-      "value": "4081.99",
-      "change": "-0.41"
+      "value": "4095.28",
+      "change": "-0.08"
     },
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25103.780",
-      "change": "0.39"
+      "value": "25098.740",
+      "change": "0.37"
     }
   },
   "etf_flows": [
     {
       "name": "证券ETF国泰",
       "code": "512880",
-      "price": 1.033,
-      "change": 1.18,
-      "flow": 327611824.0,
-      "flow_str": "+3.28亿",
+      "price": 1.035,
+      "change": 1.37,
+      "flow": 328975568.0,
+      "flow_str": "+3.29亿",
       "direction": "in"
     },
     {
       "name": "上证50ETF华夏",
       "code": "510050",
-      "price": 2.987,
-      "change": 0.07,
-      "flow": 141724428.0,
-      "flow_str": "+1.42亿",
-      "direction": "in"
-    },
-    {
-      "name": "沪深300ETF华泰柏瑞",
-      "code": "510300",
-      "price": 4.927,
-      "change": -0.1,
-      "flow": 135263067.0,
-      "flow_str": "+1.35亿",
+      "price": 2.994,
+      "change": 0.3,
+      "flow": 171167533.0,
+      "flow_str": "+1.71亿",
       "direction": "in"
     },
     {
       "name": "化工ETF鹏华",
       "code": "159870",
-      "price": 0.824,
-      "change": -1.08,
-      "flow": 130172698.0,
-      "flow_str": "+1.30亿",
+      "price": 0.829,
+      "change": -0.48,
+      "flow": 157893628.0,
+      "flow_str": "+1.58亿",
+      "direction": "in"
+    },
+    {
+      "name": "沪深300ETF华泰柏瑞",
+      "code": "510300",
+      "price": 4.95,
+      "change": 0.36,
+      "flow": 141958924.0,
+      "flow_str": "+1.42亿",
       "direction": "in"
     },
     {
       "name": "中证500ETF南方",
       "code": "510500",
-      "price": 8.511,
-      "change": -1.6,
-      "flow": 124804992.0,
-      "flow_str": "+1.25亿",
+      "price": 8.562,
+      "change": -1.01,
+      "flow": 128689712.0,
+      "flow_str": "+1.29亿",
       "direction": "in"
     }
   ],
@@ -77,46 +77,46 @@
     {
       "name": "电力",
       "code": "BK0428",
-      "index": 23537.9,
-      "change": 3.04,
-      "flow": 3522122240.0,
-      "flow_str": "+35.22亿",
+      "index": 23584.13,
+      "change": 3.24,
+      "flow": 3616509440.0,
+      "flow_str": "+36.17亿",
       "direction": "in"
     },
     {
       "name": "公用事业",
       "code": "BK0427",
-      "index": 11090.32,
-      "change": 2.35,
-      "flow": 3444058624.0,
-      "flow_str": "+34.44亿",
+      "index": 11109.38,
+      "change": 2.52,
+      "flow": 3533961216.0,
+      "flow_str": "+35.34亿",
       "direction": "in"
     },
     {
       "name": "印制电路板",
       "code": "BK1340",
-      "index": 12774.22,
-      "change": 0.27,
-      "flow": 3414062080.0,
-      "flow_str": "+34.14亿",
+      "index": 12914.57,
+      "change": 1.37,
+      "flow": 3473562112.0,
+      "flow_str": "+34.74亿",
       "direction": "in"
     },
     {
       "name": "元件",
       "code": "BK0459",
-      "index": 61694.32,
-      "change": -0.48,
-      "flow": 2223599872.0,
-      "flow_str": "+22.24亿",
+      "index": 62307.38,
+      "change": 0.51,
+      "flow": 2213913088.0,
+      "flow_str": "+22.14亿",
       "direction": "in"
     },
     {
       "name": "火力发电",
       "code": "BK1377",
-      "index": 3094.93,
-      "change": 4.59,
-      "flow": 2133037056.0,
-      "flow_str": "+21.33亿",
+      "index": 3098.74,
+      "change": 4.72,
+      "flow": 2207982080.0,
+      "flow_str": "+22.08亿",
       "direction": "in"
     }
   ],
@@ -126,5 +126,11 @@
     "sgt": 0,
     "total": 0
   },
-  "bank_news": []
+  "bank_news": [
+    {
+      "title": "加息预期助推美元录得月度涨幅 但华尔街对进一步涨势持谨慎看法",
+      "source": "环球市场播报",
+      "keyword": "加息"
+    }
+  ]
 }
