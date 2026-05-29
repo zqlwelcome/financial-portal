@@ -1,29 +1,29 @@
 {
-  "updateTime": "2026-05-30 02:45",
+  "updateTime": "2026-05-30 02:50",
   "news": [
     {
       "rank": 1,
+      "title": "Stock Market Today: Major Indexes Hit New All-Time Highs as Dell Leads Tech Gains; S&P 500 on Pace for 9th Straight Weekly Rise; Oil Prices Pull Back - Investopedia",
+      "source": "Investopedia",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 49
+    },
+    {
+      "rank": 2,
+      "title": "Dell Stock Soars Over 30% as AI Revenue Supercharges Growth - Barron's",
+      "source": "Barron's",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 47
+    },
+    {
+      "rank": 3,
       "title": "Dell stock skyrockets 32%, heads for best day ever as AI server revenue soars",
       "source": "CNBC",
       "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
       "lang": "en",
       "score": 47
-    },
-    {
-      "rank": 2,
-      "title": "US stocks gain ground, adding to their records, as Dell soars - AP News",
-      "source": "AP News",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 42
-    },
-    {
-      "rank": 3,
-      "title": "Dell Stock Soars 30% as Earnings Blow Past Wall Street Expectations - Investopedia",
-      "source": "Investopedia",
-      "detail": "企业财报反映经济基本面，关注盈利预期和实际表现的差异。",
-      "lang": "en",
-      "score": 41
     },
     {
       "rank": 4,
