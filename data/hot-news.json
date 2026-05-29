@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 11:45",
+  "updateTime": "2026-05-29 11:50",
   "news": [
     {
       "rank": 1,
@@ -59,6 +59,14 @@
     },
     {
       "rank": 8,
+      "title": "IBM, Red Hat Pledge $5 Billion for AI-Driven Open Source Security Initiative - WSJ",
+      "source": "WSJ",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 9,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
       "source": "CNBC",
       "detail": "国际财经动态，关注后续发展。",
@@ -66,20 +74,12 @@
       "score": 35
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
       "lang": "en",
       "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "California sues 23andMe, alleging it failed to protect user data in 2023 breach - ABC News - Breaking News, Latest News and Videos",
-      "source": "ABC News - Breaking News, Latest News and Videos",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 30
     }
   ]
 }
