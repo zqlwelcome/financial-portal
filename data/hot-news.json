@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 09:00",
+  "updateTime": "2026-05-29 09:05",
   "news": [
     {
       "rank": 1,
@@ -19,6 +19,14 @@
     },
     {
       "rank": 3,
+      "title": "加息风暴席卷美联储！降息路线图已作废，沃什新官上任“不加息”就算赢",
+      "source": "智通财经APP",
+      "detail": "凯文·沃什之所以能在美联储主席的竞争中胜出，部分原因在于他规划了一条通往更低利率的路径。然而现在，这位新任美联储掌门人正面临着一个截然不同的局面：在同行决策者纷...",
+      "lang": "zh",
+      "score": 54
+    },
+    {
+      "rank": 4,
       "title": "Inflation hits highest level in nearly 3 years, Fed's preferred gauge shows - ABC News - Breaking News, Latest News and Videos",
       "source": "ABC News - Breaking News, Latest News and Videos",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -26,7 +34,7 @@
       "score": 53
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
       "source": "Barron's",
       "detail": "国际财经动态，关注后续发展。",
@@ -34,20 +42,12 @@
       "score": 47
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 40
-    },
-    {
-      "rank": 6,
-      "title": "IBM, Red Hat Pledge $5 Billion for AI-Driven Open Source Security Initiative - WSJ",
-      "source": "WSJ",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 37
     },
     {
       "rank": 7,

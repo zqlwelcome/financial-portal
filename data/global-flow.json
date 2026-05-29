@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 09:00",
+  "updateTime": "2026-05-29 09:06",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -34,5 +34,11 @@
     "sgt": 0,
     "total": 0
   },
-  "bank_news": []
+  "bank_news": [
+    {
+      "title": "加息风暴席卷美联储！降息路线图已作废，沃什新官上任“不加息”就算赢",
+      "source": "智通财经APP",
+      "keyword": "美联储"
+    }
+  ]
 }
