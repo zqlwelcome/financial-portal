@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 13:05",
+  "updateTime": "2026-05-29 13:10",
   "news": [
     {
       "rank": 1,
@@ -67,18 +67,18 @@
     },
     {
       "rank": 9,
+      "title": "California sues 23andMe, alleging it failed to protect user data in 2023 breach - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 30
+    },
+    {
+      "rank": 10,
       "title": "港股午评：恒指涨1.11% 科指涨1.66% 科网股、内房股普涨 芯片股集体回调 联想大涨逾23% 碧桂园涨超19%",
       "source": "新浪港股",
       "detail": "5月29日消息，港股三大指数高开高走。截至午间收盘，恒生指数涨1.11%，报25282.84，恒生科技指数涨1.66%，国企指数涨1.28%。盘面上，科网股普涨，联想涨超23%...",
       "lang": "zh",
-      "score": 25
-    },
-    {
-      "rank": 10,
-      "title": "Asia markets rise as investors weigh Iran military activity against signs of temporary U.S.-Iran deal - CNBC",
-      "source": "CNBC",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
       "score": 25
     }
   ]
