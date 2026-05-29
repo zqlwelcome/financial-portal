@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 03:25",
+  "updateTime": "2026-05-30 03:30",
   "news": [
     {
       "rank": 1,
@@ -51,14 +51,22 @@
     },
     {
       "rank": 7,
-      "title": "Citadel Securities Reels In Record $4.3 Billion Trading Haul - Bloomberg",
-      "source": "Bloomberg",
+      "title": "Citadel Securities Reels In Record $4.3 Billion Trading Haul - Bloomberg.com",
+      "source": "Bloomberg.com",
       "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 32
     },
     {
       "rank": 8,
+      "title": "马斯克星舰轰鸣华尔街：SpaceX万亿IPO引发市场狂热",
+      "source": "环球市场播报",
+      "detail": "SpaceX的首次公开募股正在成为2026年全球资本市场最瞩目的事件。这家由埃隆·马斯克掌控的商业航天巨头计划于6月12日登陆纳斯达克，募资高达750亿美元，目标估值1...",
+      "lang": "zh",
+      "score": 30
+    },
+    {
+      "rank": 9,
       "title": "戴尔股价一度暴涨35% 费城半导体指数有望创互联网泡沫以来最大年度涨幅",
       "source": "环球市场播报",
       "detail": "戴尔科技股价周五暴涨35%。这家电脑及服务器制造商发布炸裂财报后，股价飙升，成为华尔街AI热潮席卷市场的最新例证。 此前，戴尔于周四晚间公布...",
@@ -66,18 +74,10 @@
       "score": 30
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Oil Prices Slip Amid Trump Demands; Exxon Warns Of Nasty Surprise - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 27
-    },
-    {
-      "rank": 10,
-      "title": "Costco Tops Sales Views But Earnings, Membership Numbers Fall Short - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 27
     }
