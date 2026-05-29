@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 09:06",
+  "updateTime": "2026-05-29 09:11",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -16,8 +16,8 @@
     "sh000001": {
       "name": "上证指数",
       "region": "🇨🇳 A股",
-      "value": "4098.64",
-      "change": "0.12"
+      "value": "4098.07",
+      "change": "-0.01"
     },
     "hkHSI": {
       "name": "恒生指数",
