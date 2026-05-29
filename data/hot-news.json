@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 06:15",
+  "updateTime": "2026-05-30 06:20",
   "news": [
     {
       "rank": 1,
@@ -51,6 +51,14 @@
     },
     {
       "rank": 7,
+      "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 40
+    },
+    {
+      "rank": 8,
       "title": "Stock Market Today: Oil Heads for Biggest Monthly Drop Since 2020 — Live Updates - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -58,7 +66,7 @@
       "score": 39
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -66,20 +74,12 @@
       "score": 37
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "美财长贝森特称美联储主席凯文·沃什没有降息压力",
       "source": "环球市场播报",
       "detail": "美国财政部长斯科特·贝森特周五表示，新上任的美联储主席凯文·沃什并未面临降息的压力。 在加州举行的里根国家经济论坛会议上，当被问及他是否认同美国总统特朗普希望沃什...",
       "lang": "zh",
       "score": 36
-    },
-    {
-      "rank": 10,
-      "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
-      "source": "CNBC",
-      "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
-      "lang": "en",
-      "score": 35
     }
   ]
 }
