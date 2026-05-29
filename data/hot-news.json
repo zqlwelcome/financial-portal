@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 11:50",
+  "updateTime": "2026-05-29 11:55",
   "news": [
     {
       "rank": 1,
@@ -11,11 +11,11 @@
     },
     {
       "rank": 2,
-      "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
-      "source": "Barron's",
-      "detail": "国际财经动态，关注后续发展。",
+      "title": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO - TechCrunch",
+      "source": "TechCrunch",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
-      "score": 47
+      "score": 45
     },
     {
       "rank": 3,
@@ -27,14 +27,6 @@
     },
     {
       "rank": 4,
-      "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
-      "source": "Reuters",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 40
-    },
-    {
-      "rank": 5,
       "title": "Samsung's shares surge as much as 6% after company ships next-generation AI memory chip samples",
       "source": "CNBC",
       "detail": "Shares of Samsung Electronics surged after the company began shipping HBM4E chip samples to its customers globally. ",
@@ -42,7 +34,7 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
       "source": "WSJ",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -50,7 +42,7 @@
       "score": 38
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "The seller of a $2.9 million San Francisco home is accepting payment in Anthropic or OpenAI stock - Business Insider",
       "source": "Business Insider",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -58,15 +50,15 @@
       "score": 37
     },
     {
-      "rank": 8,
-      "title": "IBM, Red Hat Pledge $5 Billion for AI-Driven Open Source Security Initiative - WSJ",
-      "source": "WSJ",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "rank": 7,
+      "title": "SpaceX Lowers IPO Valuation Target to at Least $1.8 Trillion - Bloomberg.com",
+      "source": "Bloomberg.com",
+      "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
-      "score": 37
+      "score": 35
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
       "source": "CNBC",
       "detail": "国际财经动态，关注后续发展。",
@@ -74,12 +66,20 @@
       "score": 35
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
       "lang": "en",
       "score": 35
+    },
+    {
+      "rank": 10,
+      "title": "California sues 23andMe, alleging it failed to protect user data in 2023 breach - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 30
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 11:51",
+  "updateTime": "2026-05-29 11:56",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -22,8 +22,8 @@
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25223.650",
-      "change": "0.87"
+      "value": "25258.940",
+      "change": "1.01"
     }
   },
   "etf_flows": [
@@ -73,58 +73,7 @@
       "direction": "in"
     }
   ],
-  "sector_flows": [
-    {
-      "name": "电力",
-      "code": "BK0428",
-      "index": 23476.17,
-      "change": 2.77,
-      "flow": 4307571712.0,
-      "flow_str": "+43.08亿",
-      "direction": "in"
-    },
-    {
-      "name": "公用事业",
-      "code": "BK0427",
-      "index": 11057.6,
-      "change": 2.04,
-      "flow": 4173989632.0,
-      "flow_str": "+41.74亿",
-      "direction": "in"
-    },
-    {
-      "name": "通信线缆及配套",
-      "code": "BK1592",
-      "index": 29729.88,
-      "change": 3.33,
-      "flow": 3983383552.0,
-      "flow_str": "+39.83亿",
-      "direction": "in"
-    },
-    {
-      "name": "印制电路板",
-      "code": "BK1340",
-      "index": 12698.98,
-      "change": -0.32,
-      "flow": 2850734592.0,
-      "flow_str": "+28.51亿",
-      "direction": "in"
-    },
-    {
-      "name": "火力发电",
-      "code": "BK1377",
-      "index": 3093.47,
-      "change": 4.54,
-      "flow": 2479139072.0,
-      "flow_str": "+24.79亿",
-      "direction": "in"
-    }
-  ],
-  "northbound": {
-    "time": "15:00",
-    "hgt": 0,
-    "sgt": 0,
-    "total": 0
-  },
+  "sector_flows": [],
+  "northbound": null,
   "bank_news": []
 }
