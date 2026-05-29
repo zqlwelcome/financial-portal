@@ -1,13 +1,13 @@
 {
-  "updateTime": "2026-05-30 04:15",
+  "updateTime": "2026-05-30 04:20",
   "news": [
     {
       "rank": 1,
-      "title": "Stock Market Today: Major Indexes Close at Records for 3rd Day in Row as Dell Leads Tech Gains; S&P Finishes Higher for 9th Straight Week - Investopedia",
+      "title": "Stock Market Today: Major Indexes Set Fresh All-Time Highs as Dell Leads Tech Gains; S&P 500 on Pace for 9th Straight Weekly Rise; Oil Prices Pull Back - Investopedia",
       "source": "Investopedia",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
-      "score": 52
+      "score": 49
     },
     {
       "rank": 2,
@@ -29,7 +29,7 @@
       "rank": 4,
       "title": "Stocks close at record highs with tech leading the way again. Nasdaq gains 8% in May",
       "source": "CNBC",
-      "detail": "Boosted by a rally in the tech sector, all three major averages rose to fresh closing highs on Thursday.",
+      "detail": "U.S. equities closed at record highs on Friday, while crude prices slipped, helping the major averages score a winning month, boosted by technology.",
       "lang": "en",
       "score": 42
     },
