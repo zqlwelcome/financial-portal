@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 13:21",
+  "updateTime": "2026-05-29 13:25",
   "news": [
     {
       "rank": 1,
@@ -11,6 +11,14 @@
     },
     {
       "rank": 2,
+      "title": "Dell Stock Soars 39% as Earnings Blow Past Wall Street Expectations - Investopedia",
+      "source": "Investopedia",
+      "detail": "企业财报反映经济基本面，关注盈利预期和实际表现的差异。",
+      "lang": "en",
+      "score": 41
+    },
+    {
+      "rank": 3,
       "title": "SpaceX据悉将IPO估值目标下调至至少1.8万亿美元",
       "source": "环球市场播报",
       "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 上个月有报道称，其目标估值逾2万亿美元。但知情人士透露，这家火箭...",
@@ -18,7 +26,7 @@
       "score": 40
     },
     {
-      "rank": 3,
+      "rank": 4,
       "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
       "source": "Reuters",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -26,7 +34,7 @@
       "score": 40
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "Samsung's shares surge as much as 6% after company ships next-generation AI memory chip samples",
       "source": "CNBC",
       "detail": "Shares of Samsung Electronics surged after the company began shipping HBM4E chip samples to its customers globally. ",
@@ -34,7 +42,7 @@
       "score": 40
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
       "source": "WSJ",
       "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
@@ -42,7 +50,7 @@
       "score": 38
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "The seller of a $2.9 million San Francisco home is accepting payment in Anthropic or OpenAI stock - Business Insider",
       "source": "Business Insider",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,7 +58,7 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "SpaceX Lowers IPO Valuation Target to at Least $1.8 Trillion - Bloomberg.com",
       "source": "Bloomberg.com",
       "detail": "国际财经动态，关注后续发展。",
@@ -58,7 +66,7 @@
       "score": 35
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
@@ -66,20 +74,12 @@
       "score": 35
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "South Korea's Kospi, Japan's Topix hit record highs as investors shrug off Iran tensions",
       "source": "CNBC",
       "detail": "Asia-Pacific markets rose as investors shrugged off renewed Iran tensions against ceasefire optimism.",
       "lang": "en",
       "score": 30
-    },
-    {
-      "rank": 10,
-      "title": "港股午评：恒指涨1.11% 科指涨1.66% 科网股、内房股普涨 芯片股集体回调 联想大涨逾23% 碧桂园涨超19%",
-      "source": "新浪港股",
-      "detail": "5月29日消息，港股三大指数高开高走。截至午间收盘，恒生指数涨1.11%，报25282.84，恒生科技指数涨1.66%，国企指数涨1.28%。盘面上，科网股普涨，联想涨超23%...",
-      "lang": "zh",
-      "score": 25
     }
   ]
 }
