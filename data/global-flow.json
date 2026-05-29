@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 10:05",
+  "updateTime": "2026-05-29 10:10",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -16,14 +16,14 @@
     "sh000001": {
       "name": "上证指数",
       "region": "🇨🇳 A股",
-      "value": "4086.35",
-      "change": "-0.30"
+      "value": "4082.89",
+      "change": "-0.38"
     },
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25138.990",
-      "change": "0.53"
+      "value": "25144.310",
+      "change": "0.55"
     }
   },
   "etf_flows": [
@@ -32,26 +32,26 @@
       "code": "512880",
       "price": 1.035,
       "change": 1.37,
-      "flow": 339652128.0,
-      "flow_str": "+3.40亿",
+      "flow": 336603248.0,
+      "flow_str": "+3.37亿",
       "direction": "in"
     },
     {
       "name": "沪深300ETF华泰柏瑞",
       "code": "510300",
-      "price": 4.931,
-      "change": -0.02,
-      "flow": 140648817.0,
-      "flow_str": "+1.41亿",
+      "price": 4.921,
+      "change": -0.22,
+      "flow": 133185801.0,
+      "flow_str": "+1.33亿",
       "direction": "in"
     },
     {
       "name": "中证500ETF南方",
       "code": "510500",
-      "price": 8.545,
-      "change": -1.2,
-      "flow": 119712896.0,
-      "flow_str": "+1.20亿",
+      "price": 8.522,
+      "change": -1.47,
+      "flow": 112799822.0,
+      "flow_str": "+1.13亿",
       "direction": "in"
     },
     {
@@ -59,17 +59,17 @@
       "code": "512000",
       "price": 0.494,
       "change": 1.23,
-      "flow": 98929135.0,
-      "flow_str": "+9892.91万",
+      "flow": 97928870.0,
+      "flow_str": "+9792.89万",
       "direction": "in"
     },
     {
       "name": "上证50ETF华夏",
       "code": "510050",
-      "price": 2.995,
-      "change": 0.34,
-      "flow": 81909228.0,
-      "flow_str": "+8190.92万",
+      "price": 2.99,
+      "change": 0.17,
+      "flow": 82331870.0,
+      "flow_str": "+8233.19万",
       "direction": "in"
     }
   ],
@@ -77,46 +77,46 @@
     {
       "name": "印制电路板",
       "code": "BK1340",
-      "index": 12858.85,
-      "change": 0.93,
-      "flow": 3831021824.0,
-      "flow_str": "+38.31亿",
+      "index": 12817.32,
+      "change": 0.61,
+      "flow": 3550872576.0,
+      "flow_str": "+35.51亿",
       "direction": "in"
     },
     {
       "name": "元件",
       "code": "BK0459",
-      "index": 62148.77,
-      "change": 0.26,
-      "flow": 3179594240.0,
-      "flow_str": "+31.80亿",
+      "index": 61933.7,
+      "change": -0.09,
+      "flow": 2795156736.0,
+      "flow_str": "+27.95亿",
+      "direction": "in"
+    },
+    {
+      "name": "电力",
+      "code": "BK0428",
+      "index": 23471.28,
+      "change": 2.75,
+      "flow": 2489690624.0,
+      "flow_str": "+24.90亿",
+      "direction": "in"
+    },
+    {
+      "name": "公用事业",
+      "code": "BK0427",
+      "index": 11065.97,
+      "change": 2.12,
+      "flow": 2424580096.0,
+      "flow_str": "+24.25亿",
       "direction": "in"
     },
     {
       "name": "非银金融",
       "code": "BK1203",
-      "index": 2415.1,
-      "change": 0.99,
-      "flow": 2186730608.0,
-      "flow_str": "+21.87亿",
-      "direction": "in"
-    },
-    {
-      "name": "证券Ⅲ",
-      "code": "BK1366",
-      "index": 135201.48,
-      "change": 1.02,
-      "flow": 2054273008.0,
-      "flow_str": "+20.54亿",
-      "direction": "in"
-    },
-    {
-      "name": "证券Ⅱ",
-      "code": "BK0473",
-      "index": 135201.48,
-      "change": 1.02,
-      "flow": 2054273008.0,
-      "flow_str": "+20.54亿",
+      "index": 2413.51,
+      "change": 0.93,
+      "flow": 1983396352.0,
+      "flow_str": "+19.83亿",
       "direction": "in"
     }
   ],
