@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 09:35",
+  "updateTime": "2026-05-29 09:40",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -16,60 +16,60 @@
     "sh000001": {
       "name": "上证指数",
       "region": "🇨🇳 A股",
-      "value": "4104.67",
-      "change": "0.15"
+      "value": "4103.52",
+      "change": "0.12"
     },
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25006.160",
-      "change": "0.00"
+      "value": "25161.520",
+      "change": "0.62"
     }
   },
   "etf_flows": [
     {
-      "name": "沪深300ETF华泰柏瑞",
-      "code": "510300",
-      "price": 4.958,
-      "change": 0.53,
-      "flow": 66224391.0,
-      "flow_str": "+6622.44万",
-      "direction": "in"
-    },
-    {
-      "name": "创业板ETF易方达",
-      "code": "159915",
-      "price": 4.159,
-      "change": 0.51,
-      "flow": 39397493.0,
-      "flow_str": "+3939.75万",
-      "direction": "in"
-    },
-    {
       "name": "证券ETF国泰",
       "code": "512880",
-      "price": 1.03,
-      "change": 0.88,
-      "flow": 27394473.0,
-      "flow_str": "+2739.45万",
+      "price": 1.035,
+      "change": 1.37,
+      "flow": 103445899.0,
+      "flow_str": "+1.03亿",
+      "direction": "in"
+    },
+    {
+      "name": "沪深300ETF华泰柏瑞",
+      "code": "510300",
+      "price": 4.95,
+      "change": 0.36,
+      "flow": 91111093.0,
+      "flow_str": "+9111.11万",
       "direction": "in"
     },
     {
       "name": "中证2000ETF华泰柏瑞",
       "code": "563300",
-      "price": 1.611,
-      "change": 0.31,
-      "flow": 23069830.0,
-      "flow_str": "+2306.98万",
+      "price": 1.608,
+      "change": 0.12,
+      "flow": 34870247.0,
+      "flow_str": "+3487.02万",
       "direction": "in"
     },
     {
-      "name": "创业板人工智能ETF华宝",
-      "code": "159363",
-      "price": 1.463,
-      "change": 1.74,
-      "flow": 18329929.0,
-      "flow_str": "+1832.99万",
+      "name": "券商ETF华宝",
+      "code": "512000",
+      "price": 0.495,
+      "change": 1.43,
+      "flow": 29390192.0,
+      "flow_str": "+2939.02万",
+      "direction": "in"
+    },
+    {
+      "name": "创业板ETF易方达",
+      "code": "159915",
+      "price": 4.125,
+      "change": -0.31,
+      "flow": 25114752.0,
+      "flow_str": "+2511.48万",
       "direction": "in"
     }
   ],
@@ -77,46 +77,46 @@
     {
       "name": "印制电路板",
       "code": "BK1340",
-      "index": 12879.73,
-      "change": 1.1,
-      "flow": 1724990400.0,
-      "flow_str": "+17.25亿",
+      "index": 12918.58,
+      "change": 1.4,
+      "flow": 2562893568.0,
+      "flow_str": "+25.63亿",
       "direction": "in"
     },
     {
       "name": "元件",
       "code": "BK0459",
-      "index": 62530.32,
-      "change": 0.87,
-      "flow": 1624956160.0,
-      "flow_str": "+16.25亿",
+      "index": 62536.71,
+      "change": 0.88,
+      "flow": 2247705344.0,
+      "flow_str": "+22.48亿",
       "direction": "in"
     },
     {
-      "name": "通信设备",
-      "code": "BK0448",
-      "index": 26508.66,
-      "change": 0.58,
-      "flow": 1186126592.0,
-      "flow_str": "+11.86亿",
+      "name": "消费电子零部件及组装",
+      "code": "BK1338",
+      "index": 15621.52,
+      "change": 0.39,
+      "flow": 923986944.0,
+      "flow_str": "+9.24亿",
       "direction": "in"
     },
     {
-      "name": "电子",
-      "code": "BK1201",
-      "index": 14628.9,
-      "change": -0.13,
-      "flow": 1102919936.0,
-      "flow_str": "+11.03亿",
-      "direction": "in"
-    },
-    {
-      "name": "通信",
-      "code": "BK1215",
-      "index": 8665.25,
+      "name": "消费电子",
+      "code": "BK1037",
+      "index": 2387.73,
       "change": 0.33,
-      "flow": 1058153216.0,
-      "flow_str": "+10.58亿",
+      "flow": 920341504.0,
+      "flow_str": "+9.20亿",
+      "direction": "in"
+    },
+    {
+      "name": "非银金融",
+      "code": "BK1203",
+      "index": 2417.56,
+      "change": 1.1,
+      "flow": 804823024.0,
+      "flow_str": "+8.05亿",
       "direction": "in"
     }
   ],
