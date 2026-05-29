@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 21:30",
+  "updateTime": "2026-05-29 21:35",
   "news": [
     {
       "rank": 1,
@@ -11,6 +11,14 @@
     },
     {
       "rank": 2,
+      "title": "Nvidia's Next AI Wave Sparks Big Calls on Micron, Dell, Arm Stocks - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 49
+    },
+    {
+      "rank": 3,
       "title": "Dell Stock Soars 39% as Earnings Blow Past Wall Street Expectations - Investopedia",
       "source": "Investopedia",
       "detail": "企业财报反映经济基本面，关注盈利预期和实际表现的差异。",
@@ -18,19 +26,11 @@
       "score": 41
     },
     {
-      "rank": 3,
+      "rank": 4,
       "title": "SpaceX希望在IPO中获得1.8万亿美元估值",
       "source": "环球市场播报",
       "detail": "据美国知名财经媒体报道，埃隆·马斯克旗下的SpaceX公司正寻求在其首次公开募股（IPO）中获得至少1.8万亿美元的估值。 该媒体此前曾报道，该公司寻求的估值超过2万亿美元...",
       "lang": "zh",
-      "score": 40
-    },
-    {
-      "rank": 4,
-      "title": "Anthropic's valuation surges to $965 billion, surpassing OpenAI - Reuters",
-      "source": "Reuters",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
       "score": 40
     },
     {
@@ -43,8 +43,8 @@
     },
     {
       "rank": 6,
-      "title": "Stock Market Today: Dow Futures Tick Up; Oil Prices in Focus — Live Updates - WSJ",
-      "source": "WSJ",
+      "title": "Oil tumbles, stocks gain on US-Iran deal hopes - Reuters",
+      "source": "Reuters",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 39
@@ -75,8 +75,8 @@
     },
     {
       "rank": 10,
-      "title": "ASTS, RKLB, RDW, LUNR Slip Overnight: SpaceX IPO Hype Loses Orbit After Valuation Target Reportedly Falls Below $2 Trillion - Yahoo Finance",
-      "source": "Yahoo Finance",
+      "title": "SpaceX lowers IPO valuation target to at least $1.8T: report (SPCX:Pending) - Seeking Alpha",
+      "source": "Seeking Alpha",
       "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 35
