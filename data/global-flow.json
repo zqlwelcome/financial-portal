@@ -1,17 +1,17 @@
 {
-  "updateTime": "2026-05-30 00:16",
+  "updateTime": "2026-05-30 00:21",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
       "region": "🇺🇸 美股",
-      "value": "27023.09",
-      "change": "0.39"
+      "value": "27003.98",
+      "change": "0.32"
     },
     "usDJI": {
       "name": "道琼斯",
       "region": "🇺🇸 美股",
-      "value": "51007.19",
-      "change": "0.67"
+      "value": "50985.36",
+      "change": "0.62"
     },
     "sh000001": {
       "name": "上证指数",
@@ -120,12 +120,7 @@
       "direction": "in"
     }
   ],
-  "northbound": {
-    "time": "15:00",
-    "hgt": 0.0,
-    "sgt": 5200000.0,
-    "total": 0.0
-  },
+  "northbound": null,
   "bank_news": [
     {
       "title": "欧元区四大经济体通胀超出舒适区 为欧洲央行加息提供数据支撑",
