@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 03:55",
+  "updateTime": "2026-05-30 04:00",
   "news": [
     {
       "rank": 1,
@@ -11,14 +11,6 @@
     },
     {
       "rank": 2,
-      "title": "Stock Market Today: Oil Heads for Biggest Monthly Drop Since 2020 — Live Updates - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 39
-    },
-    {
-      "rank": 3,
       "title": "Dell shocks Wall Street with booming AI server sales. Where analysts see it headed next",
       "source": "CNBC",
       "detail": "Dell reported blowout fiscal first quarter results on Thursday thanks to booming AI server demand, leading many analysts to raise their price targets. ",
@@ -26,7 +18,7 @@
       "score": 37
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "德意志银行上调10年期美国国债收益率预期 相信美联储已经完成降息",
       "source": "环球市场播报",
       "detail": " 德意志银行利率策略师上调了今年年底的10年期美国国债收益率预期，理由是预计如今由主席凯文·沃什领导的美联储官员已经结束降息。",
@@ -34,7 +26,7 @@
       "score": 36
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
@@ -42,10 +34,18 @@
       "score": 35
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Citadel Securities Reels In Record $4.3 Billion Trading Haul - Bloomberg.com",
       "source": "Bloomberg.com",
       "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 32
+    },
+    {
+      "rank": 6,
+      "title": "Exxon warns oil inventories near record lows, price spike ahead - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 32
     },
