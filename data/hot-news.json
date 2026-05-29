@@ -1,40 +1,8 @@
 {
-  "updateTime": "2026-05-29 11:06",
+  "updateTime": "2026-05-29 11:11",
   "news": [
     {
       "rank": 1,
-      "title": "Dow Jones Futures: Stock Market Hits Highs On U.S.-Iran Deal; Dell Surges On Earnings - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 64
-    },
-    {
-      "rank": 2,
-      "title": "9 ‘Hidden’ Space Stocks Haven’t Joined SpaceX IPO Bubble Yet - Barron's",
-      "source": "Barron's",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 47
-    },
-    {
-      "rank": 3,
-      "title": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO - TechCrunch",
-      "source": "TechCrunch",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 45
-    },
-    {
-      "rank": 4,
-      "title": "SpaceX据悉将IPO估值目标下调至至少1.8万亿美元",
-      "source": "环球市场播报",
-      "detail": "据知情人士透露，SpaceX当前对首次公开募股（IPO）的目标估值至少为1.8万亿美元。 上个月有报道称，其目标估值逾2万亿美元。但知情人士透露，这家火箭...",
-      "lang": "zh",
-      "score": 40
-    },
-    {
-      "rank": 5,
       "title": "Samsung's shares surge as much as 6% after company ships next-generation AI memory chip samples",
       "source": "CNBC",
       "detail": "Shares of Samsung Electronics surged after the company began shipping HBM4E chip samples to its customers globally. ",
@@ -42,31 +10,7 @@
       "score": 40
     },
     {
-      "rank": 6,
-      "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
-      "source": "WSJ",
-      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
-      "lang": "en",
-      "score": 38
-    },
-    {
-      "rank": 7,
-      "title": "The seller of a $2.9 million San Francisco home is accepting payment in Anthropic or OpenAI stock - Business Insider",
-      "source": "Business Insider",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 37
-    },
-    {
-      "rank": 8,
-      "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
-      "source": "CNBC",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 35
-    },
-    {
-      "rank": 9,
+      "rank": 2,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
@@ -74,12 +18,68 @@
       "score": 35
     },
     {
+      "rank": 3,
+      "title": "Anthropic tops OpenAI as most valuable AI startup, nears $1 trillion valuation in latest round",
+      "source": "CNBC",
+      "detail": "Anthropic is now the most valuable AI company in Silicon Valley after a new $65 billion funding round.",
+      "lang": "en",
+      "score": 25
+    },
+    {
+      "rank": 4,
+      "title": "Asia markets rise as investors weigh Iran military activity against signs of temporary U.S.-Iran deal",
+      "source": "CNBC",
+      "detail": "Asia-Pacific markets rose as investors shrugged off renewed Iran tensions against ceasefire optimism.",
+      "lang": "en",
+      "score": 25
+    },
+    {
+      "rank": 5,
+      "title": "LG Electronics' shares surge 24% after showing automotive innovations using Google tech",
+      "source": "CNBC",
+      "detail": "Shares of LG Electronics surged after it unveiled automotive innovations using Google technology. ",
+      "lang": "en",
+      "score": 20
+    },
+    {
+      "rank": 6,
+      "title": "Americans’ savings rate falls to lowest level since 2022 as inflation outpaces paychecks",
+      "source": "CNBC",
+      "detail": "As inflation starts outpacing wages again, Americans have less money to put aside for emergencies and other savings goals.",
+      "lang": "en",
+      "score": 20
+    },
+    {
+      "rank": 7,
+      "title": "Stock futures are little changed as traders eye developments in Middle East: Live updates",
+      "source": "CNBC",
+      "detail": "Boosted by a rally in the tech sector, all three major averages rose to fresh closing highs on Thursday.",
+      "lang": "en",
+      "score": 17
+    },
+    {
+      "rank": 8,
+      "title": "U.S. government is reportedly set to invest in drone industry. These are Wall Street’s favorite plays",
+      "source": "CNBC",
+      "detail": "Analysts believe that stocks such as Unusual Machines and Motorola Solutions are most likely to benefit from heightened interest in the drone industry.",
+      "lang": "en",
+      "score": 17
+    },
+    {
+      "rank": 9,
+      "title": "Stocks making the biggest moves after hours: Dell Technologies, American Eagle Outfitters, Gap & more",
+      "source": "CNBC",
+      "detail": "See which stocks are posting big moves after the bell.",
+      "lang": "en",
+      "score": 17
+    },
+    {
       "rank": 10,
-      "title": "加息预期助推美元录得月度涨幅 但华尔街对进一步涨势持谨慎看法",
-      "source": "环球市场播报",
-      "detail": "美元本月上涨，交易员已将美国加息预期反映在定价中，但这也让华尔街策略师对美元进一步走升持谨慎态度。 彭博美元指数5月以来上涨0.7%...",
-      "lang": "zh",
-      "score": 28
+      "title": "More workers are raiding their 401(k)s as average balances fall, Fidelity says",
+      "source": "CNBC",
+      "detail": "Retirement account balances sank at the start of 2026 amid market swings, according to Fidelity. At the same time, more savers tapped their accounts for cash.",
+      "lang": "en",
+      "score": 15
     }
   ]
 }
