@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 18:16",
+  "updateTime": "2026-05-29 18:20",
   "news": [
     {
       "rank": 1,
@@ -59,6 +59,14 @@
     },
     {
       "rank": 8,
+      "title": "法国、意大利和西班牙通胀上涨 为欧洲央行加息提供数据支撑",
+      "source": "环球市场播报",
+      "detail": "法国、意大利和西班牙通胀上涨，为欧洲央行自2023年以来首次加息提供进一步理由。 周五数据显示，因战争推动能源成本飙升，法国5月份消费者价格指数同比上涨2.8%...",
+      "lang": "zh",
+      "score": 36
+    },
+    {
+      "rank": 9,
       "title": "法国和西班牙通胀加速 为欧洲央行加息提供数据支撑",
       "source": "环球市场播报",
       "detail": "法国和西班牙通胀率升至2024年以来最高水平，为欧洲央行加息提供进一步理由。 周五数据显示，因战争推动能源成本飙升，法国5月份消费者价格指数同比上涨2.8%...",
@@ -66,20 +74,12 @@
       "score": 36
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices",
       "source": "CNBC",
       "detail": "Costco saw \"recording-breaking volumes\" of gas sales and said rising fuel prices drove first-time members to its stations. ",
       "lang": "en",
       "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "意大利央行行长：人工智能可提振该国低迷的劳动生产率",
-      "source": "环球市场播报",
-      "detail": "意大利央行行长法比奥・帕内塔于周五表示，人工智能能够显著改善该国劳动生产率偏低的现状。帕内塔在意大利央行年度大会上发表了上述讲话。",
-      "lang": "zh",
-      "score": 28
     }
   ]
 }
