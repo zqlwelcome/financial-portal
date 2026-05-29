@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-29 14:31",
+  "updateTime": "2026-05-29 14:36",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -16,61 +16,107 @@
     "sh000001": {
       "name": "上证指数",
       "region": "🇨🇳 A股",
-      "value": "4064.19",
-      "change": "-0.84"
+      "value": "4067.91",
+      "change": "-0.75"
     },
     "hkHSI": {
       "name": "恒生指数",
       "region": "🇭🇰 港股",
-      "value": "25215.240",
-      "change": "0.84"
+      "value": "25219.790",
+      "change": "0.85"
     }
   },
-  "etf_flows": [],
+  "etf_flows": [
+    {
+      "name": "上证50ETF华夏",
+      "code": "510050",
+      "price": 2.99,
+      "change": 0.17,
+      "flow": 401018416.0,
+      "flow_str": "+4.01亿",
+      "direction": "in"
+    },
+    {
+      "name": "证券ETF国泰",
+      "code": "512880",
+      "price": 1.033,
+      "change": 1.18,
+      "flow": 321226208.0,
+      "flow_str": "+3.21亿",
+      "direction": "in"
+    },
+    {
+      "name": "化工ETF鹏华",
+      "code": "159870",
+      "price": 0.817,
+      "change": -1.92,
+      "flow": 267240456.0,
+      "flow_str": "+2.67亿",
+      "direction": "in"
+    },
+    {
+      "name": "沪深300ETF华泰柏瑞",
+      "code": "510300",
+      "price": 4.927,
+      "change": -0.1,
+      "flow": 192082976.0,
+      "flow_str": "+1.92亿",
+      "direction": "in"
+    },
+    {
+      "name": "酒ETF鹏华",
+      "code": "512690",
+      "price": 0.458,
+      "change": 3.39,
+      "flow": 175890128.0,
+      "flow_str": "+1.76亿",
+      "direction": "in"
+    }
+  ],
   "sector_flows": [
     {
       "name": "通信线缆及配套",
       "code": "BK1592",
-      "index": 29424.4,
-      "change": 2.27,
-      "flow": 6650845696.0,
-      "flow_str": "+66.51亿",
+      "index": 29470.21,
+      "change": 2.43,
+      "flow": 6667714048.0,
+      "flow_str": "+66.68亿",
       "direction": "in"
     },
     {
       "name": "电力",
       "code": "BK0428",
-      "index": 23384.3,
-      "change": 2.37,
-      "flow": 5082884352.0,
-      "flow_str": "+50.83亿",
+      "index": 23399.86,
+      "change": 2.43,
+      "flow": 5139058432.0,
+      "flow_str": "+51.39亿",
       "direction": "in"
     },
     {
       "name": "公用事业",
       "code": "BK0427",
-      "index": 11000.44,
-      "change": 1.52,
-      "flow": 4874793984.0,
-      "flow_str": "+48.75亿",
+      "index": 11009.43,
+      "change": 1.6,
+      "flow": 4927255040.0,
+      "flow_str": "+49.27亿",
       "direction": "in"
     },
     {
       "name": "火力发电",
       "code": "BK1377",
-      "index": 3090.93,
-      "change": 4.46,
-      "flow": 3363967744.0,
-      "flow_str": "+33.64亿",
+      "index": 3091.71,
+      "change": 4.48,
+      "flow": 3385376256.0,
+      "flow_str": "+33.85亿",
       "direction": "in"
     },
     {
       "name": "食品饮料",
       "code": "BK0438",
-      "index": 27392.58,
-      "change": 1.62,
-      "flow": 2509875712.0,
-      "flow_str": "+25.10亿",
+      "index": 27417.57,
+      "change": 1.72,
+      "flow": 2539811328.0,
+      "flow_str": "+25.40亿",
       "direction": "in"
     }
   ],
