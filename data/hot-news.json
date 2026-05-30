@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 23:25",
+  "updateTime": "2026-05-30 23:30",
   "news": [
     {
       "rank": 1,
@@ -67,19 +67,19 @@
     },
     {
       "rank": 9,
-      "title": "SpaceX awarded $6.45B in Space Force contracts ahead of IPO - TechCrunch",
-      "source": "TechCrunch",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 35
-    },
-    {
-      "rank": 10,
       "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
       "source": "CNBC",
       "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
       "lang": "en",
       "score": 32
+    },
+    {
+      "rank": 10,
+      "title": "冲刺全球首位万亿富豪！马斯克回应“SpaceX下调IPO估值”：不实",
+      "source": "滚动播报",
+      "detail": "来源：财联社 当地时间周五，埃隆·马斯克坚决否认了日前媒体报道中有关SpaceX已降低其即将进行的首次公开募股（IPO）目标估值的说法。",
+      "lang": "zh",
+      "score": 30
     }
   ]
 }
