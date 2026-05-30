@@ -1,8 +1,16 @@
 {
-  "updateTime": "2026-05-30 22:50",
+  "updateTime": "2026-05-30 22:56",
   "news": [
     {
       "rank": 1,
+      "title": "These S&P 500 stocks soared the most during the AI-driven May rally - MarketWatch",
+      "source": "MarketWatch",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 62
+    },
+    {
+      "rank": 2,
       "title": "深演智能三天暴涨近8倍，港股在给“AI+”重新定价",
       "source": "滚动播报",
       "detail": "来源：华夏时报 本报（chinatimes.net.cn）记者帅可聪 见习记者 裴萌琪 北京报道 5月27日，北京深演智能科技股份有限公司（下称“深演智能”...",
@@ -10,7 +18,7 @@
       "score": 55
     },
     {
-      "rank": 2,
+      "rank": 3,
       "title": "Stocks including Nvidia and Apple are top picks as market run-up continues, Bank of America says",
       "source": "CNBC",
       "detail": "Bank of America named some of its favorite stocks to buy in June.",
@@ -18,7 +26,7 @@
       "score": 51
     },
     {
-      "rank": 3,
+      "rank": 4,
       "title": "OpenAI据悉讨论将花旗和摩根大通纳入IPO承销商名单",
       "source": "环球市场播报",
       "detail": "据知情人士称，OpenAI已与花旗集团、摩根大通等银行讨论了参与其即将到来的IPO的事宜。 消息人士称，花旗集团、摩根大通可能加入高盛集团、摩根士丹利的行列...",
@@ -26,7 +34,7 @@
       "score": 50
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -34,7 +42,15 @@
       "score": 44
     },
     {
-      "rank": 5,
+      "rank": 6,
+      "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 40
+    },
+    {
+      "rank": 7,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +58,7 @@
       "score": 37
     },
     {
-      "rank": 6,
+      "rank": 8,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
@@ -50,7 +66,7 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 9,
       "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
       "source": "The Verge",
       "detail": "国际财经动态，关注后续发展。",
@@ -58,28 +74,12 @@
       "score": 35
     },
     {
-      "rank": 8,
-      "title": "SpaceX awarded $6.45B in Space Force contracts ahead of IPO - TechCrunch",
-      "source": "TechCrunch",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 35
-    },
-    {
-      "rank": 9,
+      "rank": 10,
       "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
       "source": "CNBC",
       "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
       "lang": "en",
       "score": 32
-    },
-    {
-      "rank": 10,
-      "title": "冲刺全球首位万亿富豪！马斯克回应“SpaceX下调IPO估值”：不实",
-      "source": "滚动播报",
-      "detail": "来源：财联社 当地时间周五，埃隆·马斯克坚决否认了日前媒体报道中有关SpaceX已降低其即将进行的首次公开募股（IPO）目标估值的说法。",
-      "lang": "zh",
-      "score": 30
     }
   ]
 }
