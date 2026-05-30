@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 17:11",
+  "updateTime": "2026-05-30 17:15",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -120,7 +120,12 @@
       "direction": "in"
     }
   ],
-  "northbound": null,
+  "northbound": {
+    "time": "15:00",
+    "hgt": 0.0,
+    "sgt": 5200000.0,
+    "total": 0.0
+  },
   "bank_news": [
     {
       "title": "印度财政部称零售通胀或加速攀升，受季风降水不足及燃料价格上涨影响",
