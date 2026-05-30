@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 01:40",
+  "updateTime": "2026-05-31 01:45",
   "news": [
     {
       "rank": 1,
@@ -11,14 +11,6 @@
     },
     {
       "rank": 2,
-      "title": "Anthropic drops new Claude model as OpenAI IPO race heats up - Yahoo Finance Singapore",
-      "source": "Yahoo Finance Singapore",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 55
-    },
-    {
-      "rank": 3,
       "title": "Stocks including Nvidia and Apple are top picks as market run-up continues, Bank of America says",
       "source": "CNBC",
       "detail": "Bank of America named some of its favorite stocks to buy in June.",
@@ -26,7 +18,7 @@
       "score": 51
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "OpenAI据悉讨论将花旗和摩根大通纳入IPO承销商名单",
       "source": "环球市场播报",
       "detail": "据知情人士称，OpenAI已与花旗集团、摩根大通等银行讨论了参与其即将到来的IPO的事宜。 消息人士称，花旗集团、摩根大通可能加入高盛集团、摩根士丹利的行列...",
@@ -34,7 +26,7 @@
       "score": 50
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Two months, $2.6 billion: How NASA ETF turned SpaceX IPO access into a hot retail trade",
       "source": "CNBC",
       "detail": "With Elon Musk's SpaceX IPO ahead, retail investors are rushing into space-themed ETFs including NASA which offers direct access to the rocket company.",
@@ -42,7 +34,7 @@
       "score": 45
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -50,12 +42,20 @@
       "score": 44
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "Oil market nearing a breaking point, Exxon executive warns - Chron",
       "source": "Chron",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 42
+    },
+    {
+      "rank": 7,
+      "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 40
     },
     {
       "rank": 8,
