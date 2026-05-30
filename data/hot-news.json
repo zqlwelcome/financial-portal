@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 14:25",
+  "updateTime": "2026-05-30 14:30",
   "news": [
     {
       "rank": 1,
@@ -11,6 +11,14 @@
     },
     {
       "rank": 2,
+      "title": "Dow Jones Futures Rise As Dell, NetApp Surge On Earnings; Oil Falls On U.S.-Iran Deal Hopes - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 54
+    },
+    {
+      "rank": 3,
       "title": "Dell stock skyrockets 32% for its best day ever as AI server revenue soars",
       "source": "CNBC",
       "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
@@ -18,7 +26,7 @@
       "score": 47
     },
     {
-      "rank": 3,
+      "rank": 4,
       "title": "Oil market nearing a breaking point, Exxon executive warns - Chron",
       "source": "Chron",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -26,7 +34,7 @@
       "score": 42
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "Stocks close at record highs with tech leading the way again. Nasdaq gains 8% in May",
       "source": "CNBC",
       "detail": "U.S. equities closed at record highs on Friday, while crude prices slipped, helping the major averages score a winning month, boosted by technology.",
@@ -34,7 +42,7 @@
       "score": 42
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,17 +50,9 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 37
-    },
-    {
-      "rank": 7,
-      "title": "Stock Market Gains As Trump Mulls Iran Ceasefire; Dell Soars, Jobs Report Due - Investor's Business Daily",
-      "source": "Investor's Business Daily",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 37
