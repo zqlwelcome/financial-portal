@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 23:15",
+  "updateTime": "2026-05-30 23:20",
   "news": [
     {
       "rank": 1,
@@ -35,6 +35,14 @@
     },
     {
       "rank": 5,
+      "title": "Oil market nearing a breaking point, Exxon executive warns - Chron",
+      "source": "Chron",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 42
+    },
+    {
+      "rank": 6,
       "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +50,7 @@
       "score": 40
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Dell Stock Jumps 33% On Heady AI Data Center Sales - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,7 +58,7 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -58,7 +66,7 @@
       "score": 37
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
@@ -66,20 +74,12 @@
       "score": 37
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
       "source": "The Verge",
       "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
-      "source": "CNBC",
-      "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
-      "lang": "en",
-      "score": 32
     }
   ]
 }
