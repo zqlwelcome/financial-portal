@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 13:30",
+  "updateTime": "2026-05-30 13:35",
   "news": [
     {
       "rank": 1,
@@ -19,14 +19,6 @@
     },
     {
       "rank": 3,
-      "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 44
-    },
-    {
-      "rank": 4,
       "title": "Oil market nearing a breaking point, Exxon executive warns - Chron",
       "source": "Chron",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -34,7 +26,7 @@
       "score": 42
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Stocks close at record highs with tech leading the way again. Nasdaq gains 8% in May",
       "source": "CNBC",
       "detail": "U.S. equities closed at record highs on Friday, while crude prices slipped, helping the major averages score a winning month, boosted by technology.",
@@ -42,15 +34,7 @@
       "score": 42
     },
     {
-      "rank": 6,
-      "title": "戴尔股价暴涨32%创历史最佳单日表现，AI服务器营收飙升",
-      "source": "环球市场播报",
-      "detail": " 戴尔科技股价周五收盘暴涨32.76%，创下历史最佳单日表现。此前公司公布了自2018年重返公开市场以来任一时期的最快营收增速。",
-      "lang": "zh",
-      "score": 40
-    },
-    {
-      "rank": 7,
+      "rank": 5,
       "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -58,7 +42,15 @@
       "score": 40
     },
     {
-      "rank": 8,
+      "rank": 6,
+      "title": "Stock Market Gains As Trump Mulls Iran Ceasefire; Dell Soars, Jobs Report Due - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 7,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
@@ -66,7 +58,7 @@
       "score": 37
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "通胀风险上升，更多美联储决策者关注加息可能性",
       "source": "环球市场播报",
       "detail": "美联储官员周五继续释放信号，称如果中东战争导致本已高企的通胀持续攀升，美国央行未来可能需要加息。 这一货币政策前景的潜在转变...",
@@ -74,12 +66,20 @@
       "score": 36
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "美财长贝森特称美联储主席凯文·沃什没有降息压力",
       "source": "环球市场播报",
       "detail": "美国财政部长斯科特·贝森特周五表示，新上任的美联储主席凯文·沃什并未面临降息的压力。 在加州举行的里根国家经济论坛会议上，当被问及他是否认同美国总统特朗普希望沃什...",
       "lang": "zh",
       "score": 36
+    },
+    {
+      "rank": 10,
+      "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
+      "source": "CNBC",
+      "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
+      "lang": "en",
+      "score": 35
     }
   ]
 }
