@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 11:10",
+  "updateTime": "2026-05-30 11:15",
   "news": [
     {
       "rank": 1,
@@ -11,14 +11,6 @@
     },
     {
       "rank": 2,
-      "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 44
-    },
-    {
-      "rank": 3,
       "title": "Stocks close at record highs with tech leading the way again. Nasdaq gains 8% in May",
       "source": "CNBC",
       "detail": "U.S. equities closed at record highs on Friday, while crude prices slipped, helping the major averages score a winning month, boosted by technology.",
@@ -26,7 +18,7 @@
       "score": 42
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "戴尔股价暴涨32%创历史最佳单日表现，AI服务器营收飙升",
       "source": "环球市场播报",
       "detail": " 戴尔科技股价周五收盘暴涨32.76%，创下历史最佳单日表现。此前公司公布了自2018年重返公开市场以来任一时期的最快营收增速。",
@@ -34,9 +26,17 @@
       "score": 40
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
       "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 40
+    },
+    {
+      "rank": 5,
+      "title": "Markets News, May 29, 2026: Indexes Close at Records as Dell Leads Tech Gains; S&P 500 Rises for 9th Straight Week - Investopedia",
+      "source": "Investopedia",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 40
