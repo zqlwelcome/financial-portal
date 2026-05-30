@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 17:33",
+  "updateTime": "2026-05-30 17:40",
   "news": [
     {
       "rank": 1,
@@ -59,14 +59,6 @@
     },
     {
       "rank": 8,
-      "title": "Micron, Sandisk Score Price-Target Hikes Amid Record Climbs - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 30
-    },
-    {
-      "rank": 9,
       "title": "Oil Prices Suffer Biggest Weekly Collapse in Two Months - Crude Oil Prices Today | OilPrice.com",
       "source": "Crude Oil Prices Today | OilPrice.com",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -74,12 +66,20 @@
       "score": 29
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "Wall Street ends higher, crude prices ease on potential US-Iran truce extension - Reuters",
       "source": "Reuters",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 29
+    },
+    {
+      "rank": 10,
+      "title": "Hegseth praises Asian allies for 'burden-sharing,' calls out China's role in the region",
+      "source": "CNBC",
+      "detail": "Hegseth said that China cannot impose its hegemony on U.S. partners and allies in the region.",
+      "lang": "en",
+      "score": 27
     }
   ]
 }
