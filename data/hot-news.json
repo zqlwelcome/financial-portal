@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 20:26",
+  "updateTime": "2026-05-30 20:30",
   "news": [
     {
       "rank": 1,
@@ -59,14 +59,6 @@
     },
     {
       "rank": 8,
-      "title": "SpaceX awarded $6.45B in Space Force contracts ahead of IPO - TechCrunch",
-      "source": "TechCrunch",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 35
-    },
-    {
-      "rank": 9,
       "title": "冲刺全球首位万亿富豪！马斯克回应“SpaceX下调IPO估值”：不实",
       "source": "滚动播报",
       "detail": "来源：财联社 当地时间周五，埃隆·马斯克坚决否认了日前媒体报道中有关SpaceX已降低其即将进行的首次公开募股（IPO）目标估值的说法。",
@@ -74,12 +66,20 @@
       "score": 30
     },
     {
-      "rank": 10,
-      "title": "Wall Street ends higher, crude prices ease on potential US-Iran truce extension - Reuters",
-      "source": "Reuters",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "rank": 9,
+      "title": "Hegseth praises Asian allies for 'burden-sharing,' calls out China's role in the region",
+      "source": "CNBC",
+      "detail": "Hegseth said that China cannot impose its hegemony on U.S. partners and allies in the region.",
       "lang": "en",
-      "score": 29
+      "score": 27
+    },
+    {
+      "rank": 10,
+      "title": "U.S. support for Taiwan reaffirmed by members of Congress even after Trump called arms sales a 'negotiating chip' with China",
+      "source": "CNBC",
+      "detail": "President Donald Trump has referred to $14 billion in arms sales to the island, which has been approved by Congress, as a \"negotiating chip\" with China.",
+      "lang": "en",
+      "score": 27
     }
   ]
 }
