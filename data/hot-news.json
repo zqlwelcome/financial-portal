@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 17:05",
+  "updateTime": "2026-05-30 17:11",
   "news": [
     {
       "rank": 1,
@@ -27,6 +27,14 @@
     },
     {
       "rank": 4,
+      "title": "Oil market nearing a breaking point, Exxon executive warns - Chron",
+      "source": "Chron",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 42
+    },
+    {
+      "rank": 5,
       "title": "Stocks close at record highs with tech leading the way again. Nasdaq gains 8% in May",
       "source": "CNBC",
       "detail": "U.S. equities closed at record highs on Friday, while crude prices slipped, helping the major averages score a winning month, boosted by technology.",
@@ -34,7 +42,7 @@
       "score": 42
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +50,7 @@
       "score": 37
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Dell shocks Wall Street with booming AI server sales. Where analysts see it headed next",
       "source": "CNBC",
       "detail": "Dell reported blowout fiscal first quarter results on Thursday thanks to booming AI server demand, leading many analysts to raise their price targets. ",
@@ -50,20 +58,12 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
       "lang": "en",
       "score": 37
-    },
-    {
-      "rank": 8,
-      "title": "Exxon warns oil inventories near record lows, price spike ahead - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 32
     },
     {
       "rank": 9,
@@ -75,11 +75,11 @@
     },
     {
       "rank": 10,
-      "title": "Oil Prices Slip Amid Trump Demands; Exxon Warns Of Nasty Surprise - Investor's Business Daily",
+      "title": "Micron, Sandisk Score Price-Target Hikes Amid Record Climbs - Investor's Business Daily",
       "source": "Investor's Business Daily",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
-      "score": 27
+      "score": 30
     }
   ]
 }
