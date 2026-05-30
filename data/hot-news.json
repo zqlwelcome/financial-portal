@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 16:45",
+  "updateTime": "2026-05-30 16:50",
   "news": [
     {
       "rank": 1,
@@ -11,14 +11,6 @@
     },
     {
       "rank": 2,
-      "title": "Dow Jones Futures Rise As Dell, NetApp Surge On Earnings; Oil Falls On U.S.-Iran Deal Hopes - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 54
-    },
-    {
-      "rank": 3,
       "title": "Dell stock skyrockets 32% for its best day ever as AI server revenue soars",
       "source": "CNBC",
       "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
@@ -26,7 +18,7 @@
       "score": 47
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "Stocks close at record highs with tech leading the way again. Nasdaq gains 8% in May",
       "source": "CNBC",
       "detail": "U.S. equities closed at record highs on Friday, while crude prices slipped, helping the major averages score a winning month, boosted by technology.",
@@ -34,7 +26,7 @@
       "score": 42
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +34,7 @@
       "score": 37
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
@@ -50,7 +42,7 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
@@ -58,20 +50,28 @@
       "score": 35
     },
     {
-      "rank": 8,
-      "title": "Exxon warns oil inventories near record lows, price spike ahead - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 32
-    },
-    {
-      "rank": 9,
+      "rank": 7,
       "title": "冲刺全球首位万亿富豪！马斯克回应“SpaceX下调IPO估值”：不实",
       "source": "滚动播报",
       "detail": "来源：财联社 当地时间周五，埃隆·马斯克坚决否认了日前媒体报道中有关SpaceX已降低其即将进行的首次公开募股（IPO）目标估值的说法。",
       "lang": "zh",
       "score": 30
+    },
+    {
+      "rank": 8,
+      "title": "Micron, Sandisk Score Price-Target Hikes Amid Record Climbs - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 30
+    },
+    {
+      "rank": 9,
+      "title": "Supermajor Warns Oil Prices Could Hit $160 Within Weeks - Crude Oil Prices Today | OilPrice.com",
+      "source": "Crude Oil Prices Today | OilPrice.com",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 29
     },
     {
       "rank": 10,
