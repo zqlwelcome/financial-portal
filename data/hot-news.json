@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 14:35",
+  "updateTime": "2026-05-30 14:40",
   "news": [
     {
       "rank": 1,
@@ -59,6 +59,14 @@
     },
     {
       "rank": 8,
+      "title": "Stock Market Gains As Trump Mulls Iran Ceasefire; Dell Soars, Jobs Report Due - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 9,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
@@ -66,20 +74,12 @@
       "score": 37
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
       "lang": "en",
       "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "冲刺全球首位万亿富豪！马斯克回应“SpaceX下调IPO估值”：不实",
-      "source": "滚动播报",
-      "detail": "来源：财联社 当地时间周五，埃隆·马斯克坚决否认了日前媒体报道中有关SpaceX已降低其即将进行的首次公开募股（IPO）目标估值的说法。",
-      "lang": "zh",
-      "score": 30
     }
   ]
 }
