@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 20:05",
+  "updateTime": "2026-05-30 20:10",
   "news": [
     {
       "rank": 1,
@@ -19,6 +19,14 @@
     },
     {
       "rank": 3,
+      "title": "Dow Jones Futures Rise As Dell, NetApp Surge On Earnings; Oil Falls On U.S.-Iran Deal Hopes - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 54
+    },
+    {
+      "rank": 4,
       "title": "OpenAI据悉讨论将花旗和摩根大通纳入IPO承销商名单",
       "source": "环球市场播报",
       "detail": "据知情人士称，OpenAI已与花旗集团、摩根大通等银行讨论了参与其即将到来的IPO的事宜。 消息人士称，花旗集团、摩根大通可能加入高盛集团、摩根士丹利的行列...",
@@ -26,20 +34,12 @@
       "score": 50
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "Dell stock skyrockets 32% for its best day ever as AI server revenue soars",
       "source": "CNBC",
       "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
       "lang": "en",
       "score": 47
-    },
-    {
-      "rank": 5,
-      "title": "4 Market Pros Told Us Whether They'd Buy the SpaceX IPO - Business Insider",
-      "source": "Business Insider",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 45
     },
     {
       "rank": 6,
@@ -51,6 +51,22 @@
     },
     {
       "rank": 7,
+      "title": "Stock Market News, May 29, 2026: Oil Suffers Biggest Monthly Drop Since 2020 - WSJ",
+      "source": "WSJ",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 39
+    },
+    {
+      "rank": 8,
+      "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
+      "source": "Fortune",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 9,
       "title": "Dell shocks Wall Street with booming AI server sales. Where analysts see it headed next",
       "source": "CNBC",
       "detail": "Dell reported blowout fiscal first quarter results on Thursday thanks to booming AI server demand, leading many analysts to raise their price targets. ",
@@ -58,28 +74,12 @@
       "score": 37
     },
     {
-      "rank": 8,
+      "rank": 10,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
       "lang": "en",
       "score": 37
-    },
-    {
-      "rank": 9,
-      "title": "SpaceX awarded $6.45B in Space Force contracts ahead of IPO - TechCrunch",
-      "source": "TechCrunch",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "Costco says it saw 'record-breaking' gas volumes amid rising prices - CNBC",
-      "source": "CNBC",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 35
     }
   ]
 }
