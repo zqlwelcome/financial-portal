@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 16:35",
+  "updateTime": "2026-05-30 16:40",
   "news": [
     {
       "rank": 1,
@@ -35,6 +35,22 @@
     },
     {
       "rank": 5,
+      "title": "Stock Market News, May 29, 2026: Oil Suffers Biggest Monthly Drop Since 2020 - WSJ",
+      "source": "WSJ",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 39
+    },
+    {
+      "rank": 6,
+      "title": "Iran War Keeps Fed’s Inflation Gauge Above Inflation Target - WSJ",
+      "source": "WSJ",
+      "detail": "美联储政策动向对全球市场有重要影响，关注利率决议和政策信号。",
+      "lang": "en",
+      "score": 38
+    },
+    {
+      "rank": 7,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +58,7 @@
       "score": 37
     },
     {
-      "rank": 6,
+      "rank": 8,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
@@ -50,7 +66,7 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 9,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
@@ -58,28 +74,12 @@
       "score": 35
     },
     {
-      "rank": 8,
+      "rank": 10,
       "title": "Exxon warns oil inventories near record lows, price spike ahead - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 32
-    },
-    {
-      "rank": 9,
-      "title": "冲刺全球首位万亿富豪！马斯克回应“SpaceX下调IPO估值”：不实",
-      "source": "滚动播报",
-      "detail": "来源：财联社 当地时间周五，埃隆·马斯克坚决否认了日前媒体报道中有关SpaceX已降低其即将进行的首次公开募股（IPO）目标估值的说法。",
-      "lang": "zh",
-      "score": 30
-    },
-    {
-      "rank": 10,
-      "title": "Oil Prices Slip Amid Trump Demands; Exxon Warns Of Nasty Surprise - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 27
     }
   ]
 }
