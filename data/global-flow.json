@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 12:16",
+  "updateTime": "2026-05-30 12:21",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -126,11 +126,5 @@
     "sgt": 5200000.0,
     "total": 0.0
   },
-  "bank_news": [
-    {
-      "title": "类滞胀风暴来袭 美联储货币政策何处去？",
-      "source": "21世纪经济报道",
-      "keyword": "美联储"
-    }
-  ]
+  "bank_news": []
 }
