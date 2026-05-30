@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 23:35",
+  "updateTime": "2026-05-30 23:40",
   "news": [
     {
       "rank": 1,
@@ -12,10 +12,8 @@
     {
       "rank": 2,
       "title": "Stocks including Nvidia and Apple are top picks as market run-up continues, Bank of America says",
-      "titleZh": "美国银行称：英伟达、苹果等股票仍是市场上涨中的重点选择",
       "source": "CNBC",
       "detail": "Bank of America named some of its favorite stocks to buy in June.",
-      "detailZh": "美国银行列出6月偏好的股票名单，科技龙头仍是机构关注重点。",
       "lang": "en",
       "score": 51
     },
@@ -29,73 +27,59 @@
     },
     {
       "rank": 4,
+      "title": "Two months, $2.6 billion: How NASA ETF turned SpaceX IPO access into a hot retail trade",
+      "source": "CNBC",
+      "detail": "With Elon Musk's SpaceX IPO ahead, retail investors are rushing into space-themed ETFs including NASA which offers direct access to the rocket company.",
+      "lang": "en",
+      "score": 45
+    },
+    {
+      "rank": 5,
       "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
-      "titleZh": "油价回落推动股市再创新高",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "detailZh": "油价下行缓解通胀压力，风险资产情绪得到支撑。",
       "lang": "en",
       "score": 44
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Oil market nearing a breaking point, Exxon executive warns - Chron",
-      "titleZh": "埃克森高管警告：原油市场正接近关键转折点",
       "source": "Chron",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "detailZh": "能源市场供需关系仍然紧张，后续关注产量政策和需求变化。",
       "lang": "en",
       "score": 42
     },
     {
-      "rank": 6,
-      "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
-      "titleZh": "人工智能公司估值创新高，并预告新模型即将发布",
-      "source": "Yahoo Finance",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "detailZh": "人工智能赛道估值继续升温，市场关注新模型发布和商业化空间。",
-      "lang": "en",
-      "score": 40
-    },
-    {
       "rank": 7,
-      "title": "Dell Stock Jumps 33% On Heady AI Data Center Sales - Investor's Business Daily",
-      "titleZh": "戴尔股价大涨，人工智能数据中心销售表现强劲",
-      "source": "Investor's Business Daily",
+      "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
+      "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "detailZh": "人工智能数据中心需求继续拉动硬件公司业绩，产业链热度仍高。",
       "lang": "en",
       "score": 37
     },
     {
       "rank": 8,
-      "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
-      "titleZh": "微软据称正在打造整合编程、聊天和智能工具的超级应用",
-      "source": "Fortune",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "detailZh": "办公和开发工具正在被人工智能重新整合，软件入口竞争继续升级。",
+      "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
+      "source": "CNBC",
+      "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
       "lang": "en",
       "score": 37
     },
     {
       "rank": 9,
-      "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
-      "titleZh": "财经评论员称：戴尔强劲财报让人工智能股票迎来关键一周",
-      "source": "CNBC",
-      "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
-      "detailZh": "戴尔财报重新点燃市场对人工智能和数据中心股票的热情。",
+      "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
+      "source": "The Verge",
+      "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
-      "score": 37
+      "score": 35
     },
     {
       "rank": 10,
-      "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
-      "titleZh": "太空公司上市可能利好创始人，但普通投资者需谨慎",
-      "source": "The Verge",
-      "detail": "国际财经动态，关注后续发展。",
-      "detailZh": "热门公司上市容易带来情绪溢价，普通投资者更需要关注估值和风险。",
+      "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
+      "source": "CNBC",
+      "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
       "lang": "en",
-      "score": 35
+      "score": 32
     }
   ]
 }
