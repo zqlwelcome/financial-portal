@@ -191,6 +191,7 @@ function renderNewsList(news) {
                     <span class="news-source">${display.source}</span>
                 </div>
                 <div class="news-title">${display.title}</div>
+                <div class="news-summary">${display.summary}</div>
                 <div class="news-detail">${display.detail}</div>
             </div>
             <div class="news-arrow">›</div>
@@ -214,9 +215,36 @@ function renderNewsList(news) {
 function getNewsDisplay(item) {
     return {
         title: cleanChineseDisplay(item.titleZh || item.title_zh || toChineseNewsTitle(item.title || '')),
+        summary: cleanChineseDisplay(item.summaryZh || item.summary_zh || toChineseNewsSummary(item)),
         detail: cleanChineseDisplay(item.detailZh || item.detail_zh || toChineseNewsDetail(item.detail || item.title || '')),
         source: cleanChineseDisplay(toChineseSource(item.source || '财经媒体'))
     };
+}
+
+function toChineseNewsSummary(item) {
+    const title = item.titleZh || item.title || '';
+    const detail = item.detailZh || item.detail || '';
+    const text = `${title} ${detail}`.toLowerCase();
+
+    if (/油价|原油|oil|exxon/.test(text)) {
+        return '核心是能源价格变化：油价回落利好通胀预期，但供需和地缘风险还没完全解除。';
+    }
+    if (/英伟达|苹果|nvidia|apple|dell|data center|数据中心/.test(text)) {
+        return '核心是人工智能硬件需求：机构仍看好龙头和数据中心产业链，但估值热度也需要留意。';
+    }
+    if (/openai|anthropic|人工智能|ai|模型/.test(text)) {
+        return '核心是人工智能商业化：估值、模型和产品入口继续升温，市场在重估相关公司的增长空间。';
+    }
+    if (/太空|spacex|space/.test(text)) {
+        return '核心是太空经济热度：热门上市预期带动关注，但普通投资者更要看估值是否已经透支。';
+    }
+    if (/通胀|pce|fed|美联储/.test(text)) {
+        return '核心是利率预期：通胀数据会影响降息节奏，也会牵动美股、美元和成长股表现。';
+    }
+    if (/深演智能|港股/.test(text)) {
+        return '核心是港股人工智能重估：短期涨幅很猛，说明资金在寻找“人工智能+”的新定价标的。';
+    }
+    return '核心是市场正在重新定价：先看它影响的是情绪、估值，还是企业真实基本面。';
 }
 
 function cleanChineseDisplay(text) {
@@ -225,6 +253,7 @@ function cleanChineseDisplay(text) {
         .replace(/\bPCE\b/g, '通胀')
         .replace(/\bGDP\b/g, '经济增长')
         .replace(/\bCEO\b/g, '管理层')
+        .replace(/\bIPO\b/g, '上市')
         .replace(/\bOpenAI\b/g, '人工智能公司')
         .replace(/\bChatGPT\b/g, '聊天机器人')
         .replace(/\bSpaceX\b/g, '太空公司')
@@ -285,15 +314,15 @@ function toChineseNewsDetail(detail) {
 
     const t = detail.toLowerCase();
     if (t.includes('inflation') || t.includes('pce')) {
-        return '通胀指标会影响市场对降息节奏的判断，短期可能继续牵动美股和美元资产。';
+        return '通胀指标会影响市场对降息节奏的判断。若通胀继续偏高，美联储可能更谨慎，成长股和高估值资产会更敏感。';
     }
     if (t.includes('drone') || t.includes('pentagon')) {
-        return '国防产业链消息容易带动主题交易，但仍需区分短期情绪和长期订单。';
+        return '国防产业链消息容易带动主题交易。重点看后续是否有真实订单和预算落地，否则短期涨幅可能更多来自情绪。';
     }
     if (t.includes('oil') || t.includes('iran')) {
-        return '油价对地缘消息敏感，后续关注协议进展及供应端变化。';
+        return '油价对地缘消息敏感。短期看协议进展，长期还要看产油国政策和全球需求变化。';
     }
-    return '海外财经动态，先看影响方向，再看是否真的改变基本面。';
+    return '海外财经动态需要拆两层：第一层看它影响市场情绪，第二层看它是否真的改变企业利润或行业供需。';
 }
 
 // ===== 更新刷新提示 =====

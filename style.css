@@ -534,8 +534,8 @@ body {
     display: block;
     font-size: 13px;
     color: var(--text2);
-    line-height: 1.45;
-    margin-top: 4px;
+    line-height: 1.5;
+    margin-top: 6px;
 }
 
 .news-detail {
@@ -549,7 +549,7 @@ body {
 }
 
 .news-item.expanded .news-detail { display: block; }
-.news-item.expanded .news-summary { display: none; }
+.news-item.expanded .news-summary { color: var(--text-body); }
 .news-item.expanded .news-source { display: none; }
 
 /* ===== 每日简报 ===== */

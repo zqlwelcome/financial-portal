@@ -1,85 +1,113 @@
 {
-  "updateTime": "2026-05-30 23:45",
+  "updateTime": "2026-05-30 23:35",
   "news": [
     {
       "rank": 1,
       "title": "深演智能三天暴涨近8倍，港股在给“AI+”重新定价",
       "source": "滚动播报",
+      "summaryZh": "核心是港股资金在重新定价人工智能应用公司：短期涨幅很猛，说明市场在寻找新的成长叙事。",
       "detail": "来源：华夏时报 本报（chinatimes.net.cn）记者帅可聪 见习记者 裴萌琪 北京报道 5月27日，北京深演智能科技股份有限公司（下称“深演智能”...",
       "lang": "zh",
       "score": 55
     },
     {
       "rank": 2,
-      "title": "Anthropic drops new Claude model as OpenAI IPO race heats up - Yahoo Finance Singapore",
-      "source": "Yahoo Finance Singapore",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 55
-    },
-    {
-      "rank": 3,
       "title": "Stocks including Nvidia and Apple are top picks as market run-up continues, Bank of America says",
+      "titleZh": "美国银行称：英伟达、苹果等股票仍是市场上涨中的重点选择",
       "source": "CNBC",
+      "summaryZh": "核心是机构仍偏好科技龙头：人工智能、消费电子和现金流强的公司继续获得资金关注。",
       "detail": "Bank of America named some of its favorite stocks to buy in June.",
+      "detailZh": "美国银行列出6月偏好的股票名单，科技龙头仍是机构关注重点。",
       "lang": "en",
       "score": 51
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "OpenAI据悉讨论将花旗和摩根大通纳入IPO承销商名单",
+      "titleZh": "人工智能公司据悉讨论将花旗和摩根大通纳入上市承销商名单",
       "source": "环球市场播报",
+      "summaryZh": "核心是人工智能公司上市预期升温：如果承销阵容扩大，资本市场会继续关注人工智能商业化估值。",
       "detail": "据知情人士称，OpenAI已与花旗集团、摩根大通等银行讨论了参与其即将到来的IPO的事宜。 消息人士称，花旗集团、摩根大通可能加入高盛集团、摩根士丹利的行列...",
+      "detailZh": "大型投行参与承销讨论，意味着市场对人工智能龙头上市节奏和估值空间的关注会继续升温。",
       "lang": "zh",
       "score": 50
     },
     {
-      "rank": 5,
-      "title": "Two months, $2.6 billion: How NASA ETF turned SpaceX IPO access into a hot retail trade",
-      "source": "CNBC",
-      "detail": "With Elon Musk's SpaceX IPO ahead, retail investors are rushing into space-themed ETFs including NASA which offers direct access to the rocket company.",
-      "lang": "en",
-      "score": 45
-    },
-    {
-      "rank": 6,
+      "rank": 4,
       "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
+      "titleZh": "油价回落推动股市再创新高",
       "source": "WSJ",
+      "summaryZh": "核心是油价下跌缓解通胀压力：市场会把它理解为利率压力下降，因此风险资产情绪变好。",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "detailZh": "油价下行缓解通胀压力，风险资产情绪得到支撑。",
       "lang": "en",
       "score": 44
     },
     {
-      "rank": 7,
+      "rank": 5,
       "title": "Oil market nearing a breaking point, Exxon executive warns - Chron",
+      "titleZh": "埃克森高管警告：原油市场正接近关键转折点",
       "source": "Chron",
+      "summaryZh": "核心是能源供需可能进入敏感阶段：油价不是只看今天涨跌，还要看后续产量和需求是否失衡。",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "detailZh": "能源市场供需关系仍然紧张，后续关注产量政策和需求变化。",
       "lang": "en",
       "score": 42
     },
     {
-      "rank": 8,
-      "title": "Dell Stock Jumps 33% On Heady AI Data Center Sales - Investor's Business Daily",
-      "source": "Investor's Business Daily",
+      "rank": 6,
+      "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
+      "titleZh": "人工智能公司估值创新高，并预告新模型即将发布",
+      "source": "Yahoo Finance",
+      "summaryZh": "核心是人工智能模型竞争继续推高估值：市场在押注模型能力、企业客户和未来收入空间。",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "detailZh": "人工智能赛道估值继续升温，市场关注新模型发布和商业化空间。",
+      "lang": "en",
+      "score": 40
+    },
+    {
+      "rank": 7,
+      "title": "Dell Stock Jumps 33% On Heady AI Data Center Sales - Investor's Business Daily",
+      "titleZh": "戴尔股价大涨，人工智能数据中心销售表现强劲",
+      "source": "Investor's Business Daily",
+      "summaryZh": "核心是人工智能基础设施需求强：数据中心销售好于预期，说明硬件链条仍有景气度。",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "detailZh": "人工智能数据中心需求继续拉动硬件公司业绩，产业链热度仍高。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 8,
+      "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
+      "titleZh": "微软据称正在打造整合编程、聊天和智能工具的超级应用",
+      "source": "Fortune",
+      "summaryZh": "核心是软件入口竞争升级：微软想把编程、聊天和智能工具整合到一个更高频的平台里。",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "detailZh": "办公和开发工具正在被人工智能重新整合，软件入口竞争继续升级。",
       "lang": "en",
       "score": 37
     },
     {
       "rank": 9,
-      "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
-      "source": "Fortune",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
+      "titleZh": "财经评论员称：戴尔强劲财报让人工智能股票迎来关键一周",
+      "source": "CNBC",
+      "summaryZh": "核心是戴尔财报强化人工智能交易逻辑：接下来市场会观察这股热度能否扩散到更多科技股。",
+      "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
+      "detailZh": "戴尔财报重新点燃市场对人工智能和数据中心股票的热情。",
       "lang": "en",
       "score": 37
     },
     {
       "rank": 10,
-      "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
-      "source": "CNBC",
-      "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
+      "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
+      "titleZh": "太空公司上市可能利好创始人，但普通投资者需谨慎",
+      "source": "The Verge",
+      "summaryZh": "核心是热门公司上市容易自带光环：情绪可能很热，但普通投资者更需要看价格是否合理。",
+      "detail": "国际财经动态，关注后续发展。",
+      "detailZh": "热门公司上市容易带来情绪溢价，普通投资者更需要关注估值和风险。",
       "lang": "en",
-      "score": 37
+      "score": 35
     }
   ]
 }
