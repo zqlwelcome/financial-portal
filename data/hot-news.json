@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 02:00",
+  "updateTime": "2026-05-31 02:05",
   "news": [
     {
       "rank": 1,
@@ -51,6 +51,14 @@
     },
     {
       "rank": 7,
+      "title": "Dell Stock Jumps 33% On Heady AI Data Center Sales - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 8,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
@@ -58,17 +66,9 @@
       "score": 37
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
       "source": "The Verge",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 35
-    },
-    {
-      "rank": 9,
-      "title": "SpaceX awarded $6.45B in Space Force contracts ahead of IPO - TechCrunch",
-      "source": "TechCrunch",
       "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 35
