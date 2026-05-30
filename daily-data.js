@@ -179,95 +179,43 @@ function renderSummaryContent() {
                     <div class="a-radar-copy">看这个不是为了预测市场，而是提前知道哪些数据最可能改变资金情绪。</div>
                 </div>
                 <div class="a-calendar-list">
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">05/29</span>
-                            <span class="a-calendar-event">美国Q1 GDP修正值</span>
-                            <span class="a-calendar-region">🇺🇸 美国</span>
-                            <span class="a-calendar-impact high">high</span>
+                    <div class="a-calendar-item expanded">
+                        <div class="a-calendar-main">
+                            <span class="a-calendar-date">重点</span>
+                            <span class="a-calendar-event">美国通胀数据</span>
+                            <span class="a-calendar-region">美国</span>
+                            <span class="a-calendar-impact high">高</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 美国经济增长数据</div>
-                            <div class="a-calendar-watch">👀 关注：GDP增速是否符合预期</div>
-                            <div class="a-calendar-impact-text">💡 影响：好于预期→美股利好，低于预期→美股利空</div>
+                            <div class="a-calendar-explain"><strong>为什么重要：</strong>它决定市场怎么猜美联储降息节奏。</div>
+                            <div class="a-calendar-watch"><strong>影响谁：</strong>美股成长股、港股科技、美元、黄金。</div>
+                            <div class="a-calendar-impact-text"><strong>怎么获益：</strong>如果通胀低于预期，风险资产更容易松一口气；如果高于预期，高估值股票可能先承压。</div>
                         </div>
                     </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">05/30</span>
-                            <span class="a-calendar-event">中国5月官方PMI</span>
-                            <span class="a-calendar-region">🇨🇳 中国</span>
-                            <span class="a-calendar-impact high">high</span>
+                    <div class="a-calendar-item expanded">
+                        <div class="a-calendar-main">
+                            <span class="a-calendar-date">国内</span>
+                            <span class="a-calendar-event">中国景气度数据</span>
+                            <span class="a-calendar-region">中国</span>
+                            <span class="a-calendar-impact high">高</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 制造业景气度指标</div>
-                            <div class="a-calendar-watch">👀 关注：PMI是否在50以上</div>
-                            <div class="a-calendar-impact-text">💡 影响：PMI>50→A股利好，PMI<50→A股利空</div>
+                            <div class="a-calendar-explain"><strong>为什么重要：</strong>它能看出制造业、消费和中小企业体感有没有改善。</div>
+                            <div class="a-calendar-watch"><strong>影响谁：</strong>A股、港股、消费、工业、周期板块。</div>
+                            <div class="a-calendar-impact-text"><strong>怎么获益：</strong>数据改善时，市场更愿意相信复苏；数据弱时，要更关注高现金流和确定性公司。</div>
                         </div>
                     </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">05/31</span>
-                            <span class="a-calendar-event">美国PCE物价指数</span>
-                            <span class="a-calendar-region">🇺🇸 美国</span>
-                            <span class="a-calendar-impact high">high</span>
+                    <div class="a-calendar-item expanded">
+                        <div class="a-calendar-main">
+                            <span class="a-calendar-date">能源</span>
+                            <span class="a-calendar-event">原油和地缘消息</span>
+                            <span class="a-calendar-region">全球</span>
+                            <span class="a-calendar-impact medium">中</span>
                         </div>
                         <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 美联储最关注的通胀指标</div>
-                            <div class="a-calendar-watch">👀 关注：通胀是否继续下降</div>
-                            <div class="a-calendar-impact-text">💡 影响：通胀下降→降息预期升温→美股利好</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">06/01</span>
-                            <span class="a-calendar-event">欧洲央行利率决议</span>
-                            <span class="a-calendar-region">🇪🇺 欧洲</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 欧洲央行是否降息</div>
-                            <div class="a-calendar-watch">👀 关注：降息幅度和未来指引</div>
-                            <div class="a-calendar-impact-text">💡 影响：欧洲降息→欧元贬值→美元升值</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">06/02</span>
-                            <span class="a-calendar-event">美国非农就业数据</span>
-                            <span class="a-calendar-region">🇺🇸 美国</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 就业市场状况</div>
-                            <div class="a-calendar-watch">👀 关注：新增就业和失业率</div>
-                            <div class="a-calendar-impact-text">💡 影响：就业强劲→美联储可能推迟降息</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">06/03</span>
-                            <span class="a-calendar-event">OPEC+产量会议</span>
-                            <span class="a-calendar-region">🌍 全球</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 原油产量政策</div>
-                            <div class="a-calendar-watch">👀 关注：是否减产</div>
-                            <div class="a-calendar-impact-text">💡 影响：减产→油价上涨→通胀压力增加</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">06/04</span>
-                            <span class="a-calendar-event">中国财新PMI</span>
-                            <span class="a-calendar-region">🇨🇳 中国</span>
-                            <span class="a-calendar-impact medium">medium</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 中小企业景气度</div>
-                            <div class="a-calendar-watch">👀 关注：与官方PMI是否一致</div>
-                            <div class="a-calendar-impact-text">💡 影响：好于官方→中小企业复苏</div>
+                            <div class="a-calendar-explain"><strong>为什么重要：</strong>油价会影响通胀，也会改变能源、航空、化工等行业预期。</div>
+                            <div class="a-calendar-watch"><strong>影响谁：</strong>原油、黄金、能源股、航空股、通胀预期。</div>
+                            <div class="a-calendar-impact-text"><strong>怎么获益：</strong>油价大涨时少追高风险资产；油价回落时，可以观察通胀压力是否缓解。</div>
                         </div>
                     </div>
                 </div>
