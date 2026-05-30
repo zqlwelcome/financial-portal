@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 17:40",
+  "updateTime": "2026-05-30 17:45",
   "news": [
     {
       "rank": 1,
@@ -11,6 +11,14 @@
     },
     {
       "rank": 2,
+      "title": "Anthropic drops new Claude model as OpenAI IPO race heats up - Yahoo Finance Singapore",
+      "source": "Yahoo Finance Singapore",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 55
+    },
+    {
+      "rank": 3,
       "title": "Dell stock skyrockets 32% for its best day ever as AI server revenue soars",
       "source": "CNBC",
       "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
@@ -18,7 +26,7 @@
       "score": 47
     },
     {
-      "rank": 3,
+      "rank": 4,
       "title": "Stocks close at record highs with tech leading the way again. Nasdaq gains 8% in May",
       "source": "CNBC",
       "detail": "U.S. equities closed at record highs on Friday, while crude prices slipped, helping the major averages score a winning month, boosted by technology.",
@@ -26,7 +34,7 @@
       "score": 42
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -34,7 +42,7 @@
       "score": 37
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Dell shocks Wall Street with booming AI server sales. Where analysts see it headed next",
       "source": "CNBC",
       "detail": "Dell reported blowout fiscal first quarter results on Thursday thanks to booming AI server demand, leading many analysts to raise their price targets. ",
@@ -42,7 +50,7 @@
       "score": 37
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
@@ -50,7 +58,7 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "冲刺全球首位万亿富豪！马斯克回应“SpaceX下调IPO估值”：不实",
       "source": "滚动播报",
       "detail": "来源：财联社 当地时间周五，埃隆·马斯克坚决否认了日前媒体报道中有关SpaceX已降低其即将进行的首次公开募股（IPO）目标估值的说法。",
@@ -58,28 +66,20 @@
       "score": 30
     },
     {
-      "rank": 8,
+      "rank": 9,
+      "title": "Micron, Sandisk Score Price-Target Hikes Amid Record Climbs - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 30
+    },
+    {
+      "rank": 10,
       "title": "Oil Prices Suffer Biggest Weekly Collapse in Two Months - Crude Oil Prices Today | OilPrice.com",
       "source": "Crude Oil Prices Today | OilPrice.com",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 29
-    },
-    {
-      "rank": 9,
-      "title": "Wall Street ends higher, crude prices ease on potential US-Iran truce extension - Reuters",
-      "source": "Reuters",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 29
-    },
-    {
-      "rank": 10,
-      "title": "Hegseth praises Asian allies for 'burden-sharing,' calls out China's role in the region",
-      "source": "CNBC",
-      "detail": "Hegseth said that China cannot impose its hegemony on U.S. partners and allies in the region.",
-      "lang": "en",
-      "score": 27
     }
   ]
 }
