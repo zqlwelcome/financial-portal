@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 21:00",
+  "updateTime": "2026-05-30 21:05",
   "news": [
     {
       "rank": 1,
@@ -19,14 +19,6 @@
     },
     {
       "rank": 3,
-      "title": "Dell stock skyrockets 32% for its best day ever as AI server revenue soars",
-      "source": "CNBC",
-      "detail": "Dell reported its fastest pace of revenue growth since returning to the public market in 2018, with AI server revenue soaring 757% over last year.",
-      "lang": "en",
-      "score": 47
-    },
-    {
-      "rank": 4,
       "title": "4 Market Pros Told Us Whether They'd Buy the SpaceX IPO - Business Insider",
       "source": "Business Insider",
       "detail": "国际财经动态，关注后续发展。",
@@ -34,7 +26,7 @@
       "score": 45
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -42,7 +34,7 @@
       "score": 44
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,7 +42,7 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "Dell shocks Wall Street with booming AI server sales. Where analysts see it headed next",
       "source": "CNBC",
       "detail": "Dell reported blowout fiscal first quarter results on Thursday thanks to booming AI server demand, leading many analysts to raise their price targets. ",
@@ -58,7 +50,7 @@
       "score": 37
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
@@ -66,7 +58,7 @@
       "score": 37
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "冲刺全球首位万亿富豪！马斯克回应“SpaceX下调IPO估值”：不实",
       "source": "滚动播报",
       "detail": "来源：财联社 当地时间周五，埃隆·马斯克坚决否认了日前媒体报道中有关SpaceX已降低其即将进行的首次公开募股（IPO）目标估值的说法。",
@@ -74,10 +66,18 @@
       "score": 30
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "Oil Prices Slip Amid Trump Demands; Exxon Warns Of Nasty Surprise - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 27
+    },
+    {
+      "rank": 10,
+      "title": "Oil exports through the Strait of Hormuz might not return to levels seen before the Iran war",
+      "source": "CNBC",
+      "detail": "Iran's blockade of the Strait of Hormuz has seriously challenged freedom of navigation in the sea lane, raising questions about the future.",
       "lang": "en",
       "score": 27
     }
