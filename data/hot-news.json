@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 18:35",
+  "updateTime": "2026-05-30 18:40",
   "news": [
     {
       "rank": 1,
@@ -19,19 +19,19 @@
     },
     {
       "rank": 3,
+      "title": "4 Market Pros Told Us Whether They'd Buy the SpaceX IPO - Business Insider",
+      "source": "Business Insider",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 45
+    },
+    {
+      "rank": 4,
       "title": "Stocks close at record highs with tech leading the way again. Nasdaq gains 8% in May",
       "source": "CNBC",
       "detail": "U.S. equities closed at record highs on Friday, while crude prices slipped, helping the major averages score a winning month, boosted by technology.",
       "lang": "en",
       "score": 42
-    },
-    {
-      "rank": 4,
-      "title": "Stock Market News, May 29, 2026: Oil Suffers Biggest Monthly Drop Since 2020 - WSJ",
-      "source": "WSJ",
-      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 39
     },
     {
       "rank": 5,
@@ -67,19 +67,19 @@
     },
     {
       "rank": 9,
-      "title": "Wall Street ends higher, crude prices ease on potential US-Iran truce extension - Reuters",
-      "source": "Reuters",
+      "title": "Oil Prices Suffer Biggest Weekly Collapse in Two Months - Crude Oil Prices Today | OilPrice.com",
+      "source": "Crude Oil Prices Today | OilPrice.com",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 29
     },
     {
       "rank": 10,
-      "title": "Hegseth praises Asian allies for 'burden-sharing,' calls out China's role in the region",
-      "source": "CNBC",
-      "detail": "Hegseth said that China cannot impose its hegemony on U.S. partners and allies in the region.",
+      "title": "Wall Street ends higher, crude prices ease on potential US-Iran truce extension - Reuters",
+      "source": "Reuters",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
-      "score": 27
+      "score": 29
     }
   ]
 }
