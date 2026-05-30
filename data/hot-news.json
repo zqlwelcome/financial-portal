@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 22:25",
+  "updateTime": "2026-05-30 22:30",
   "news": [
     {
       "rank": 1,
@@ -27,14 +27,6 @@
     },
     {
       "rank": 4,
-      "title": "4 Market Pros Told Us Whether They'd Buy the SpaceX IPO - Business Insider",
-      "source": "Business Insider",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
-      "score": 45
-    },
-    {
-      "rank": 5,
       "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -42,7 +34,7 @@
       "score": 44
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
       "source": "Fortune",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,12 +42,20 @@
       "score": 37
     },
     {
-      "rank": 7,
+      "rank": 6,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
       "lang": "en",
       "score": 37
+    },
+    {
+      "rank": 7,
+      "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
+      "source": "The Verge",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 35
     },
     {
       "rank": 8,
