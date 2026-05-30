@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 00:15",
+  "updateTime": "2026-05-31 00:20",
   "news": [
     {
       "rank": 1,
@@ -67,19 +67,19 @@
     },
     {
       "rank": 9,
-      "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
-      "source": "Fortune",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 37
-    },
-    {
-      "rank": 10,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
       "lang": "en",
       "score": 37
+    },
+    {
+      "rank": 10,
+      "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
+      "source": "The Verge",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 35
     }
   ]
 }
