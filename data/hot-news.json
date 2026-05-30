@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 11:45",
+  "updateTime": "2026-05-30 11:50",
   "news": [
     {
       "rank": 1,
@@ -51,14 +51,6 @@
     },
     {
       "rank": 7,
-      "title": "Exclusive: Microsoft is building a super app that combines coding, chat, and other Copilot AI tools - Fortune",
-      "source": "Fortune",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 37
-    },
-    {
-      "rank": 8,
       "title": "Jim Cramer says Dell’s blowout quarter sets up a crucial week for AI stocks",
       "source": "CNBC",
       "detail": "CNBC’s Jim Cramer said Dell Technologies’ blockbuster quarter reignited enthusiasm around AI and data center stocks.",
@@ -66,7 +58,7 @@
       "score": 37
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "通胀风险上升，更多美联储决策者关注加息可能性",
       "source": "环球市场播报",
       "detail": "美联储官员周五继续释放信号，称如果中东战争导致本已高企的通胀持续攀升，美国央行未来可能需要加息。 这一货币政策前景的潜在转变...",
@@ -74,12 +66,20 @@
       "score": 36
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "美财长贝森特称美联储主席凯文·沃什没有降息压力",
       "source": "环球市场播报",
       "detail": "美国财政部长斯科特·贝森特周五表示，新上任的美联储主席凯文·沃什并未面临降息的压力。 在加州举行的里根国家经济论坛会议上，当被问及他是否认同美国总统特朗普希望沃什...",
       "lang": "zh",
       "score": 36
+    },
+    {
+      "rank": 10,
+      "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
+      "source": "CNBC",
+      "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
+      "lang": "en",
+      "score": 35
     }
   ]
 }
