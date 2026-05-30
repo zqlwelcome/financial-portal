@@ -1823,6 +1823,26 @@ body {
     flex-direction: column;
     gap: 8px;
 }
+
+.a-radar-intro {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.a-radar-kicker {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.a-radar-copy {
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--text2);
+}
 .a-calendar-item {
     padding: 8px 0;
     border-bottom: 0.5px solid var(--border);
@@ -2252,11 +2272,11 @@ body {
 .a-calendar-detail {
     display: none;
     margin-top: 6px;
-    padding: 6px 10px;
+    padding: 10px 12px;
     background: var(--bg);
     border-radius: 8px;
     font-size: 12px;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 .a-calendar-item.expanded .a-calendar-detail {
     display: block;
