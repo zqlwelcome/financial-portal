@@ -155,7 +155,7 @@ function renderSummaryContent() {
             <div class="a-insights-tabs-wrapper">
                 <div class="a-insights-tabs">
                     <button class="a-insights-tab active" onclick="switchInsightTab('braintrust', this)">高手茶话会</button>
-                    <button class="a-insights-tab" onclick="switchInsightTab('calendar', this)">三件大事</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('calendar', this)">本周雷达</button>
                     <button class="a-insights-tab" onclick="switchInsightTab('flow', this)">钱在搬家</button>
                     <button class="a-insights-tab" onclick="switchInsightTab('sector', this)">板块热闹榜</button>
                 </div>
