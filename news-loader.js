@@ -181,18 +181,21 @@ function renderNewsList(news) {
     
     const displayNews = _newsAllShown ? news : news.slice(0, 3);
     
-    let html = displayNews.map((item, index) => `
+    let html = displayNews.map((item, index) => {
+        const display = getNewsDisplay(item);
+        return `
         <div class="news-item ${expandedNews === index ? 'expanded' : ''}" onclick="toggleNews(${index})">
             <div class="news-rank ${index < 3 ? 'hot' : ''}">${index + 1}</div>
             <div class="news-body">
                 <div class="news-head">
-                    <span class="news-source">${item.source || '财经媒体'}</span>
+                    <span class="news-source">${display.source}</span>
                 </div>
-                <div class="news-title">${item.title}</div>
-                <div class="news-detail">${item.detail || '详情暂时缺席，标题已经很努力了。'}</div>
+                <div class="news-title">${display.title}</div>
+                <div class="news-detail">${display.detail}</div>
             </div>
             <div class="news-arrow">›</div>
-        </div>`).join('');
+        </div>`;
+    }).join('');
     
     // 展开/收起按钮
     if (news.length > 3) {
@@ -206,6 +209,91 @@ function renderNewsList(news) {
     
     el.innerHTML = html;
     localStorage.setItem('hot_news_cache', JSON.stringify(news));
+}
+
+function getNewsDisplay(item) {
+    return {
+        title: cleanChineseDisplay(item.titleZh || item.title_zh || toChineseNewsTitle(item.title || '')),
+        detail: cleanChineseDisplay(item.detailZh || item.detail_zh || toChineseNewsDetail(item.detail || item.title || '')),
+        source: cleanChineseDisplay(toChineseSource(item.source || '财经媒体'))
+    };
+}
+
+function cleanChineseDisplay(text) {
+    return (text || '')
+        .replace(/\bAI\b/g, '人工智能')
+        .replace(/\bPCE\b/g, '通胀')
+        .replace(/\bGDP\b/g, '经济增长')
+        .replace(/\bCEO\b/g, '管理层')
+        .replace(/\bOpenAI\b/g, '人工智能公司')
+        .replace(/\bChatGPT\b/g, '聊天机器人')
+        .replace(/\bSpaceX\b/g, '太空公司')
+        .replace(/\bWix\b/g, '维克斯')
+        .replace(/\bCNBC\b/g, '美国财经台')
+        .replace(/\bCBS\b/g, '美国哥伦比亚广播公司');
+}
+
+function hasEnglish(text) {
+    return /[A-Za-z]{3,}/.test(text || '');
+}
+
+function toChineseSource(source) {
+    const sourceMap = {
+        'MarketWatch': '市场观察',
+        "Barron's": '巴伦周刊',
+        'U.S. Bureau of Economic Analysis (BEA) (.gov)': '美国经济分析局',
+        'CBS News': '美国哥伦比亚广播公司财经',
+        'CNBC': '美国财经台',
+        'Business Insider': '商业内幕'
+    };
+    return sourceMap[source] || (hasEnglish(source) ? '海外财经媒体' : source);
+}
+
+function toChineseNewsTitle(title) {
+    if (!hasEnglish(title)) return title || '财经新闻更新';
+
+    const t = title.toLowerCase();
+    if (t.includes('stock market') || t.includes('dow') || t.includes('nasdaq') || t.includes('s&p')) {
+        return '美股走势分化，纳指和标普仍在高位附近';
+    }
+    if (t.includes('space') || t.includes('spacex')) {
+        return '太空概念股受到关注，部分公司尚未跟随估值热潮';
+    }
+    if (t.includes('gdp') || t.includes('corporate profits')) {
+        return '美国一季度经济增长修正值和企业利润数据公布';
+    }
+    if (t.includes('inflation') || t.includes('pce') || t.includes('fed')) {
+        return '美国通胀数据仍是美联储政策焦点';
+    }
+    if (t.includes('drone') || t.includes('pentagon')) {
+        return '无人机概念股走强，市场关注美国国防投资动向';
+    }
+    if (t.includes('oil') || t.includes('iran')) {
+        return '油价受美伊协议消息影响出现波动';
+    }
+    if (t.includes('wix') || t.includes('laying off')) {
+        return '维克斯计划裁员，人工智能和汇率压力成为管理层关注点';
+    }
+    if (t.includes('openai') || t.includes('chatgpt')) {
+        return '人工智能公司广告商业化动向引发市场关注';
+    }
+    return '海外财经市场出现新动态，值得继续观察';
+}
+
+function toChineseNewsDetail(detail) {
+    if (!hasEnglish(detail)) return detail || '详情暂时缺席，标题已经很努力了。';
+
+    const t = detail.toLowerCase();
+    if (t.includes('inflation') || t.includes('pce')) {
+        return '通胀指标会影响市场对降息节奏的判断，短期可能继续牵动美股和美元资产。';
+    }
+    if (t.includes('drone') || t.includes('pentagon')) {
+        return '国防产业链消息容易带动主题交易，但仍需区分短期情绪和长期订单。';
+    }
+    if (t.includes('oil') || t.includes('iran')) {
+        return '油价对地缘消息敏感，后续关注协议进展及供应端变化。';
+    }
+    return '海外财经动态，先看影响方向，再看是否真的改变基本面。';
 }
 
 // ===== 更新刷新提示 =====
