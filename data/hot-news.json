@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 06:45",
+  "updateTime": "2026-05-31 06:50",
   "news": [
     {
       "rank": 1,
@@ -11,6 +11,14 @@
     },
     {
       "rank": 2,
+      "title": "Stocks Surge In May: Why AI Euphoria Is Spreading, What It Means For Investors - Seeking Alpha",
+      "source": "Seeking Alpha",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 52
+    },
+    {
+      "rank": 3,
       "title": "Stocks including Nvidia and Apple are top picks as market run-up continues, Bank of America says",
       "source": "CNBC",
       "detail": "Bank of America named some of its favorite stocks to buy in June.",
@@ -18,7 +26,7 @@
       "score": 51
     },
     {
-      "rank": 3,
+      "rank": 4,
       "title": "OpenAI据悉讨论将花旗和摩根大通纳入IPO承销商名单",
       "source": "环球市场播报",
       "detail": "据知情人士称，OpenAI已与花旗集团、摩根大通等银行讨论了参与其即将到来的IPO的事宜。 消息人士称，花旗集团、摩根大通可能加入高盛集团、摩根士丹利的行列...",
@@ -26,7 +34,7 @@
       "score": 50
     },
     {
-      "rank": 4,
+      "rank": 5,
       "title": "Two months, $2.6 billion: How NASA ETF turned SpaceX IPO access into a hot retail trade",
       "source": "CNBC",
       "detail": "With Elon Musk's SpaceX IPO ahead, retail investors are rushing into space-themed ETFs including NASA which offers direct access to the rocket company.",
@@ -34,7 +42,7 @@
       "score": 45
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
@@ -42,7 +50,7 @@
       "score": 44
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
       "source": "Yahoo Finance",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,7 +58,7 @@
       "score": 40
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "Dell Stock Jumps 33% On Heady AI Data Center Sales - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -58,7 +66,7 @@
       "score": 37
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
       "source": "The Verge",
       "detail": "国际财经动态，关注后续发展。",
@@ -66,20 +74,12 @@
       "score": 35
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "SoftBank pledges €75bn to build Europe’s biggest AI facility in France - Financial Times",
       "source": "Financial Times",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
       "lang": "en",
       "score": 35
-    },
-    {
-      "rank": 10,
-      "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
-      "source": "CNBC",
-      "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
-      "lang": "en",
-      "score": 32
     }
   ]
 }
