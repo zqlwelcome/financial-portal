@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-30 13:41",
+  "updateTime": "2026-05-30 13:45",
   "news": [
     {
       "rank": 1,
@@ -67,19 +67,19 @@
     },
     {
       "rank": 9,
-      "title": "美财长贝森特称美联储主席凯文·沃什没有降息压力",
-      "source": "环球市场播报",
-      "detail": "美国财政部长斯科特·贝森特周五表示，新上任的美联储主席凯文·沃什并未面临降息的压力。 在加州举行的里根国家经济论坛会议上，当被问及他是否认同美国总统特朗普希望沃什...",
-      "lang": "zh",
-      "score": 36
-    },
-    {
-      "rank": 10,
       "title": "SpaceX skeptics have added reason for concern after Musk comments diverge from IPO filing",
       "source": "CNBC",
       "detail": "In a post on X, Elon Musk offered details about SpaceX's deal with Anthropic that weren't included in the company's IPO prospectus. ",
       "lang": "en",
       "score": 35
+    },
+    {
+      "rank": 10,
+      "title": "美国股市：标普500指数九周连涨 AI热潮与美伊协议希望提振市场",
+      "source": "环球市场播报",
+      "detail": "受市场对伊朗和平协议的期待，以及人工智能支出将继续推动企业盈利增长的预期提振，标普500指数周五上涨并再创新高。 标普500指数收涨0.2%，连续第九周上涨。",
+      "lang": "zh",
+      "score": 32
     }
   ]
 }
