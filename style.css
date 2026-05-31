@@ -2408,6 +2408,43 @@ body {
     font-size: 11px;
 }
 
+.a-target-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0;
+}
+
+.a-target-list span,
+.a-target-list b {
+    padding: 4px 7px;
+    border-radius: 7px;
+    font-size: 11px;
+    line-height: 1.25;
+}
+
+.a-target-list span {
+    color: var(--text3);
+    background: var(--card);
+    font-weight: 500;
+}
+
+.a-target-list b {
+    color: var(--primary);
+    background: rgba(0, 113, 227, 0.08);
+    font-weight: 600;
+}
+
+.a-flow-disclaimer {
+    margin-top: 10px;
+    padding: 9px 10px;
+    border-radius: 9px;
+    background: var(--bg);
+    color: var(--text2);
+    font-size: 11px;
+    line-height: 1.55;
+}
+
 /* ===== 板块轮动详细注解 ===== */
 .a-sector-item {
     padding: 8px 0;
