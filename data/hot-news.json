@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 10:00",
+  "updateTime": "2026-05-31 10:05",
   "news": [
     {
       "rank": 1,
@@ -43,14 +43,6 @@
     },
     {
       "rank": 6,
-      "title": "Dell Stock Jumps 33% On Heady AI Data Center Sales - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 37
-    },
-    {
-      "rank": 7,
       "title": "SoftBank pledges €75bn to build Europe’s biggest AI facility in France - Financial Times",
       "source": "Financial Times",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -58,7 +50,7 @@
       "score": 35
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
       "source": "The Verge",
       "detail": "国际财经动态，关注后续发展。",
@@ -66,12 +58,20 @@
       "score": 35
     },
     {
-      "rank": 9,
+      "rank": 8,
       "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
       "source": "CNBC",
       "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
       "lang": "en",
       "score": 32
+    },
+    {
+      "rank": 9,
+      "title": "Nvidia Stock: How the Chip Maker Is Trading Today - Barron's",
+      "source": "Barron's",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 29
     },
     {
       "rank": 10,
