@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 10:35",
+  "updateTime": "2026-05-31 10:40",
   "news": [
     {
       "rank": 1,
@@ -59,6 +59,14 @@
     },
     {
       "rank": 8,
+      "title": "Dell stock surges on deal with Pentagon, making CEO $31B richer overnight - New York Post",
+      "source": "New York Post",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 32
+    },
+    {
+      "rank": 9,
       "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
       "source": "CNBC",
       "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
@@ -66,20 +74,12 @@
       "score": 32
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "The ‘Three A’s’ are keeping the economy afloat during Iran war. Is it enough to avoid recession? - MarketWatch",
       "source": "MarketWatch",
       "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 30
-    },
-    {
-      "rank": 10,
-      "title": "Nvidia Stock: How the Chip Maker Is Trading Today - Barron's",
-      "source": "Barron's",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 29
     }
   ]
 }
