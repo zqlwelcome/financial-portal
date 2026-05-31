@@ -131,6 +131,7 @@ function renderSummaryContent() {
         munger:    { name: '芒格',   icon: '🧠', color: '#34c759' },
         duan:      { name: '段永平', icon: '🧑‍💼', color: '#0071e3' }
     };
+    const radarHtml = getForwardRadarHtml();
 
     const quickHtml = `
         <div class="a-quick" id="expertMoodBanner">
@@ -211,102 +212,10 @@ function renderSummaryContent() {
             <!-- 市场日历内容 -->
             <div class="a-insights-content" id="insight-calendar">
                 <div class="a-radar-intro">
-                    <div class="a-radar-kicker">本周最值得盯的三件事</div>
-                    <div class="a-radar-copy">看这个不是为了预测市场，而是提前知道哪些数据最可能改变资金情绪。</div>
+                    <div class="a-radar-kicker">未来两周热钱雷达</div>
+                    <div class="a-radar-copy">不罗列日历，直接告诉你：哪几件事最可能改变股市、债券、美元、A股和热钱方向。</div>
                 </div>
-                <div class="a-calendar-list">
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">05/29</span>
-                            <span class="a-calendar-event">美国Q1 GDP修正值</span>
-                            <span class="a-calendar-region">🇺🇸 美国</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 美国经济增长数据</div>
-                            <div class="a-calendar-watch">👀 关注：GDP增速是否符合预期</div>
-                            <div class="a-calendar-impact-text">💡 影响：好于预期→美股利好，低于预期→美股利空</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">05/30</span>
-                            <span class="a-calendar-event">中国5月官方PMI</span>
-                            <span class="a-calendar-region">🇨🇳 中国</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 制造业景气度指标</div>
-                            <div class="a-calendar-watch">👀 关注：PMI是否在50以上</div>
-                            <div class="a-calendar-impact-text">💡 影响：PMI>50→A股利好，PMI<50→A股利空</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">05/31</span>
-                            <span class="a-calendar-event">美国PCE物价指数</span>
-                            <span class="a-calendar-region">🇺🇸 美国</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 美联储最关注的通胀指标</div>
-                            <div class="a-calendar-watch">👀 关注：通胀是否继续下降</div>
-                            <div class="a-calendar-impact-text">💡 影响：通胀下降→降息预期升温→美股利好</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">06/01</span>
-                            <span class="a-calendar-event">欧洲央行利率决议</span>
-                            <span class="a-calendar-region">🇪🇺 欧洲</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 欧洲央行是否降息</div>
-                            <div class="a-calendar-watch">👀 关注：降息幅度和未来指引</div>
-                            <div class="a-calendar-impact-text">💡 影响：欧洲降息→欧元贬值→美元升值</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">06/02</span>
-                            <span class="a-calendar-event">美国非农就业数据</span>
-                            <span class="a-calendar-region">🇺🇸 美国</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 就业市场状况</div>
-                            <div class="a-calendar-watch">👀 关注：新增就业和失业率</div>
-                            <div class="a-calendar-impact-text">💡 影响：就业强劲→美联储可能推迟降息</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">06/03</span>
-                            <span class="a-calendar-event">OPEC+产量会议</span>
-                            <span class="a-calendar-region">🌍 全球</span>
-                            <span class="a-calendar-impact high">high</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 原油产量政策</div>
-                            <div class="a-calendar-watch">👀 关注：是否减产</div>
-                            <div class="a-calendar-impact-text">💡 影响：减产→油价上涨→通胀压力增加</div>
-                        </div>
-                    </div>
-                    <div class="a-calendar-item">
-                        <div class="a-calendar-main" onclick="toggleCalendarDetail(this)">
-                            <span class="a-calendar-date">06/04</span>
-                            <span class="a-calendar-event">中国财新PMI</span>
-                            <span class="a-calendar-region">🇨🇳 中国</span>
-                            <span class="a-calendar-impact medium">medium</span>
-                        </div>
-                        <div class="a-calendar-detail">
-                            <div class="a-calendar-explain">📌 中小企业景气度</div>
-                            <div class="a-calendar-watch">👀 关注：与官方PMI是否一致</div>
-                            <div class="a-calendar-impact-text">💡 影响：好于官方→中小企业复苏</div>
-                        </div>
-                    </div>
-                </div>
+                ${radarHtml}
             </div>
             
             <!-- 资金流向内容 -->
@@ -461,6 +370,81 @@ function getTraderMoodLens(moodData) {
             value: '别问今天能不能冲，先问这条新闻会影响利率、盈利、政策还是情绪。只影响情绪的，仓位要轻。'
         }
     ];
+}
+
+function getForwardRadarHtml() {
+    const events = [
+        {
+            date: '2026-06-01',
+            label: '06/01',
+            event: '美国ISM制造业PMI',
+            region: '美国宏观',
+            impact: 'high',
+            result: '结论：这是本周开盘的第一张体检表，交易员会用它判断美国经济是软着陆，还是需求开始变冷。',
+            watch: '强于预期：周期股、工业股可能占优，降息预期降温；弱于预期：债券可能先开心，高估值科技要看利率怎么走。',
+            action: '小白看法：别只看数字高低，看市场反应。如果坏数据反而涨，说明资金在交易“降息”；如果好数据也涨，说明风险偏好还很强。'
+        },
+        {
+            date: '2026-06-03',
+            label: '06/03',
+            event: '美国ISM服务业 + 美联储褐皮书',
+            region: '利率预期',
+            impact: 'high',
+            result: '结论：服务业更接近美国经济真实温度，褐皮书会告诉市场各地区工资、消费和企业信心有没有变弱。',
+            watch: '服务业强、工资粘：降息预期会被压；服务业弱、消费冷：市场会重新押注宽松。',
+            action: '小白看法：这天重点看美债收益率。收益率上行，成长股估值受压；收益率下行，科技和黄金更容易被资金盯上。'
+        },
+        {
+            date: '2026-06-05',
+            label: '06/05',
+            event: '美国非农就业报告',
+            region: '全球核心',
+            impact: 'high',
+            result: '结论：这是本周最能改变热钱方向的数据。就业太强，市场担心降息推迟；就业太弱，市场又会担心经济衰退。',
+            watch: '最理想剧本是“温和降温”：就业不崩、工资不热，风险资产最舒服。',
+            action: '小白看法：非农当天别急着追第一根K线。交易员通常先看就业、工资、失业率三件套，再看市场是不是反应过度。'
+        },
+        {
+            date: '2026-06-10',
+            label: '06/10',
+            event: '中国通胀和社融窗口期',
+            region: '中国资产',
+            impact: 'medium',
+            result: '结论：中国资产接下来要看政策和信用有没有接力。只靠情绪反弹不够，热钱更想看到真实需求或流动性改善。',
+            watch: '社融和信贷改善：A股、港股风险偏好更容易修复；通胀太弱：说明需求还要等政策加码。',
+            action: '小白看法：看中国新闻时别只看“利好”两个字，要问钱有没有真的进实体、进股市、进消费。'
+        },
+        {
+            date: '2026-06-16',
+            label: '06/16-17',
+            event: '美联储FOMC议息会议',
+            region: '全球定价锚',
+            impact: 'high',
+            result: '结论：这是未来两周最大事件。真正重要的不是降不降息，而是点阵图和鲍威尔讲话会不会改变下半年利率路径。',
+            watch: '偏鹰：美元和美债收益率上行，成长股承压；偏鸽：黄金、科技、港股和风险资产更容易喘口气。',
+            action: '小白看法：FOMC前不要把仓位打满。交易员会等“方向确认”，普通人更要留余地。'
+        }
+    ];
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const upcoming = events.filter(item => new Date(`${item.date}T00:00:00`) >= today).slice(0, 4);
+    const visible = upcoming.length ? upcoming : events.slice(-3);
+
+    return `<div class="a-calendar-list">${visible.map(item => `
+        <div class="a-calendar-item expanded">
+            <div class="a-calendar-main">
+                <span class="a-calendar-date">${item.label}</span>
+                <span class="a-calendar-event">${item.event}</span>
+                <span class="a-calendar-region">${item.region}</span>
+                <span class="a-calendar-impact ${item.impact}">${item.impact}</span>
+            </div>
+            <div class="a-calendar-detail">
+                <div class="a-calendar-explain">${item.result}</div>
+                <div class="a-calendar-watch">交易员盯什么：${item.watch}</div>
+                <div class="a-calendar-impact-text">${item.action}</div>
+            </div>
+        </div>
+    `).join('')}</div>`;
 }
 
 function toggleExpertMoodBanner() {
