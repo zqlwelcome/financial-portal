@@ -1,5 +1,0 @@
-name = "learning-platform"
-compatibility_date = "2026-05-24"
-
-[assets]
-directory = "."
