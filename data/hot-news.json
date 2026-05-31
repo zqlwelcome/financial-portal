@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-06-01 03:01",
+  "updateTime": "2026-06-01 03:05",
   "news": [
     {
       "rank": 1,
@@ -35,8 +35,8 @@
     },
     {
       "rank": 5,
-      "title": "SpaceX lands a $4 billion deal right before its IPO - thestreet.com",
-      "source": "thestreet.com",
+      "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
+      "source": "The Verge",
       "detail": "国际财经动态，关注后续发展。",
       "lang": "en",
       "score": 35
@@ -67,19 +67,19 @@
     },
     {
       "rank": 9,
+      "title": "United Airlines flight bound for Minneapolis is diverted because of an unruly passenger - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 30
+    },
+    {
+      "rank": 10,
       "title": "Top Wall Street analysts see robust growth potential in these 3 stocks",
       "source": "CNBC",
       "detail": "Investors keen on capitalizing on the AI boom can track recommendations from top Wall Street analysts",
       "lang": "en",
       "score": 29
-    },
-    {
-      "rank": 10,
-      "title": "China’s factory activity slows in May, raising questions over its economy - AP News",
-      "source": "AP News",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 27
     }
   ]
 }
