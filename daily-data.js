@@ -39,7 +39,7 @@ const _EMBEDDED_DATA = {
                 "value": "美联储官员提及稳定币扩大美元影响力，但经济衰退疑虑未消（‘Three A’s’仅暂时支撑）"
             }
         ],
-        "summary": "今日市场情绪整体偏乐观，但隐含结构性风险：AI主题过热、地缘政治紧张、宏观经济韧性脆弱。投资者需警惕超买后的回调，同时关注防御性资产和监管变化。"
+        "summary": "今天市场的本质不是单纯看多或看空，而是资金在“怕错过人工智能”和“怕宏观/地缘突然翻脸”之间摇摆。强势资产还在吸钱，但机构已经开始更挑剔：只愿意为确定性、现金流和政策受益买单，不愿意无脑追所有热门故事。"
     },
     "experts": {
         "templeton": {
@@ -113,6 +113,12 @@ function renderSummaryContent() {
     const bars = Array.from({length: 10}, (_, i) => `<span class="a-bar${i < conf ? ' fill' : ''}"></span>`).join('');
     const dims = (moodData.dimensions || []).slice(0, 6);
     const quickTake = moodData.summary || '今天市场还在整理情绪，先看重点，不急着做决定。';
+    const traderLensHtml = getTraderMoodLens(moodData).map(item => `
+        <div class="a-trader-line">
+            <span class="a-trader-label">${item.label}</span>
+            <span>${item.value}</span>
+        </div>
+    `).join('');
     const chipHtml = dims.map(d => {
         // 兼容新旧格式
         if (d.label) return `<span class="a-chip"><span class="a-chip-label">${d.label}</span> ${d.value}</span>`;
@@ -128,10 +134,11 @@ function renderSummaryContent() {
 
     const quickHtml = `
         <div class="a-quick">
-            <div class="a-quick-kicker">下班版一句话</div>
-            <div class="a-quick-title">今天市场不是没脾气，是脾气有点复杂</div>
+            <div class="a-quick-kicker">高手怎么看 · 市场情绪</div>
+            <div class="a-quick-title">现在不是牛熊二选一，是资金在挑“谁值得继续相信”</div>
             <div class="a-quick-copy">${quickTake}</div>
-            <div class="a-quick-note">先看方向，再看仓位。成年人已经很累了，不必每条新闻都亲自吵赢。</div>
+            <div class="a-trader-lens">${traderLensHtml}</div>
+            <div class="a-quick-note">免责声明：这里只是帮你建立市场阅读框架，不构成投资建议。真正下单前，请结合自己的现金流、风险承受力和持仓结构。</div>
         </div>
     `;
     
@@ -429,6 +436,23 @@ function renderExpertContent() {
     } else {
         el.innerHTML = '<div style="text-align:center;padding:24px 0;color:var(--text2);">高手还没到场，茶先泡着。</div>';
     }
+}
+
+function getTraderMoodLens(moodData) {
+    return [
+        {
+            label: '资金情绪',
+            value: '热钱仍愿意抱团强势主题，但耐心变短，涨多了就会有人先落袋。'
+        },
+        {
+            label: '机构脑回路',
+            value: '机构不是不买风险，而是更偏好“有业绩、有政策、有现金流”的风险。'
+        },
+        {
+            label: '小白看法',
+            value: '别问今天能不能冲，先问这条新闻会影响利率、盈利、政策还是情绪。只影响情绪的，仓位要轻。'
+        }
+    ];
 }
 
 // ===== 用户反馈 =====

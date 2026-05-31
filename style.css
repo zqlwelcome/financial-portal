@@ -1703,6 +1703,28 @@ body {
     color: var(--text-body);
 }
 
+.a-trader-lens {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.a-trader-line {
+    padding: 9px 10px;
+    border-radius: 10px;
+    background: var(--bg);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text2);
+}
+
+.a-trader-label {
+    display: inline-flex;
+    margin-right: 6px;
+    color: var(--text);
+    font-weight: 700;
+}
+
 .a-quick-note {
     margin-top: 10px;
     padding: 8px 10px;
