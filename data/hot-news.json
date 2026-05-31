@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-06-01 03:15",
+  "updateTime": "2026-06-01 03:23",
   "news": [
     {
       "rank": 1,
@@ -59,14 +59,6 @@
     },
     {
       "rank": 8,
-      "title": "United Airlines flight bound for Minneapolis is diverted because of an unruly passenger - ABC News - Breaking News, Latest News and Videos",
-      "source": "ABC News - Breaking News, Latest News and Videos",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 30
-    },
-    {
-      "rank": 9,
       "title": "Top Wall Street analysts see robust growth potential in these 3 stocks",
       "source": "CNBC",
       "detail": "Investors keen on capitalizing on the AI boom can track recommendations from top Wall Street analysts",
@@ -74,10 +66,18 @@
       "score": 29
     },
     {
-      "rank": 10,
+      "rank": 9,
       "title": "China’s factory activity slows in May, raising questions over its economy - AP News",
       "source": "AP News",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 27
+    },
+    {
+      "rank": 10,
+      "title": "Defense spending, China in Asia and lessons from Ukraine: Takeways from the 2026 IISS Shangri-La Dialogue ",
+      "source": "CNBC",
+      "detail": "The summit sees top world leaders, defence officials and key executives gathering in Singapore from May 29 to 31",
       "lang": "en",
       "score": 27
     }
