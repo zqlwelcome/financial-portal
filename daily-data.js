@@ -133,12 +133,20 @@ function renderSummaryContent() {
     };
 
     const quickHtml = `
-        <div class="a-quick">
-            <div class="a-quick-kicker">高手怎么看 · 市场情绪</div>
-            <div class="a-quick-title">现在不是牛熊二选一，是资金在挑“谁值得继续相信”</div>
-            <div class="a-quick-copy">${quickTake}</div>
-            <div class="a-trader-lens">${traderLensHtml}</div>
-            <div class="a-quick-note">免责声明：这里只是帮你建立市场阅读框架，不构成投资建议。真正下单前，请结合自己的现金流、风险承受力和持仓结构。</div>
+        <div class="a-quick" id="expertMoodBanner">
+            <div class="a-quick-head" onclick="toggleExpertMoodBanner()">
+                <div>
+                    <div class="a-quick-kicker">高手怎么看 · 市场情绪</div>
+                    <div class="a-quick-title">现在不是牛熊二选一，是资金在挑“谁值得继续相信”</div>
+                </div>
+                <span class="a-quick-arrow" id="expertMoodArrow">›</span>
+            </div>
+            <div class="a-quick-preview">点开看交易员视角。先别急着冲，市场不缺机会，缺的是不乱动的手。</div>
+            <div class="a-quick-detail" id="expertMoodDetail">
+                <div class="a-quick-copy">${quickTake}</div>
+                <div class="a-trader-lens">${traderLensHtml}</div>
+                <div class="a-quick-note">免责声明：这里只是帮你建立市场阅读框架，不构成投资建议。真正下单前，请结合自己的现金流、风险承受力和持仓结构。</div>
+            </div>
         </div>
     `;
     
@@ -453,6 +461,17 @@ function getTraderMoodLens(moodData) {
             value: '别问今天能不能冲，先问这条新闻会影响利率、盈利、政策还是情绪。只影响情绪的，仓位要轻。'
         }
     ];
+}
+
+function toggleExpertMoodBanner() {
+    const banner = document.getElementById('expertMoodBanner');
+    const detail = document.getElementById('expertMoodDetail');
+    const arrow = document.getElementById('expertMoodArrow');
+    if (!banner || !detail || !arrow) return;
+
+    const isOpen = banner.classList.toggle('expanded');
+    detail.style.display = isOpen ? 'block' : 'none';
+    arrow.style.transform = isOpen ? 'rotate(90deg)' : 'rotate(0deg)';
 }
 
 // ===== 用户反馈 =====
