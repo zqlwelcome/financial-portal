@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 16:55",
+  "updateTime": "2026-05-31 17:00",
   "news": [
     {
       "rank": 1,
@@ -35,6 +35,14 @@
     },
     {
       "rank": 5,
+      "title": "SoftBank pledges €75bn to build Europe’s biggest AI facility in France - Financial Times",
+      "source": "Financial Times",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 35
+    },
+    {
+      "rank": 6,
       "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
       "source": "The Verge",
       "detail": "国际财经动态，关注后续发展。",
@@ -42,7 +50,7 @@
       "score": 35
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
       "source": "CNBC",
       "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
@@ -50,7 +58,7 @@
       "score": 32
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "首部董秘监管新规落地，筑牢A股公司治理底座",
       "source": "证券市场周刊",
       "detail": "文丨惠凯 4月底，证监会发布首部《上市公司董事会秘书监管规则》，填补专项制度空白。新规从任职门槛、兼职限制、履职保障、责任追究等维度系统规范...",
@@ -58,7 +66,7 @@
       "score": 30
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "The ‘Three A’s’ are keeping the economy afloat during Iran war. Is it enough to avoid recession? - MarketWatch",
       "source": "MarketWatch",
       "detail": "国际财经动态，关注后续发展。",
@@ -66,18 +74,10 @@
       "score": 30
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Oil Prices Slip Amid Trump Demands; Exxon Warns Of Nasty Surprise - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 27
-    },
-    {
-      "rank": 10,
-      "title": "Oil exports through the Strait of Hormuz might not return to levels seen before the Iran war",
-      "source": "CNBC",
-      "detail": "Iran's blockade of the Strait of Hormuz has seriously challenged freedom of navigation in the sea lane, raising questions about the future.",
       "lang": "en",
       "score": 27
     }
