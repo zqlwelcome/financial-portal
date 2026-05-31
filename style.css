@@ -2435,6 +2435,13 @@ body {
     font-weight: 600;
 }
 
+.a-target-list em {
+    margin-left: 3px;
+    color: var(--text3);
+    font-style: normal;
+    font-weight: 600;
+}
+
 .a-flow-disclaimer {
     margin-top: 10px;
     padding: 9px 10px;
