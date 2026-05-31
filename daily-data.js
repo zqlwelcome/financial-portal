@@ -472,7 +472,7 @@ async function buildAutoTradePoolHtml(hotNews) {
     return `
         <div class="a-flow-list">
             <div class="a-flow-hint" onclick="this.style.display='none'"><span class="a-flow-hint-icon">👇</span><span class="a-flow-hint-text">点击情报卡，查看模型判断</span></div>
-            ${cards.map((card, index) => renderTradePoolCard(card, index === 0)).join('')}
+            ${cards.map(card => renderTradePoolCard(card)).join('')}
             <div class="a-flow-item">
                 <div class="a-flow-main" onclick="toggleFlowDetail(this)">
                     <span class="a-flow-category-title">风控底线</span>
@@ -497,20 +497,27 @@ async function buildAutoTradePoolHtml(hotNews) {
     `;
 }
 
-function renderTradePoolCard(card, expanded) {
+function renderTradePoolCard(card) {
+    const primaryTarget = card.targets[0] ? renderTargetBadge(card.targets[0]) : '';
     return `
-        <div class="a-flow-item ${expanded ? 'expanded' : ''}">
+        <div class="a-flow-item trade-card">
             <div class="a-flow-main" onclick="toggleFlowDetail(this)">
-                <span class="a-flow-category-title">${safeText(card.type)}</span>
-                <span class="a-flow-name">${safeText(card.title)}</span>
-                <span class="a-flow-change ${card.score >= 7 ? 'positive' : ''}">${card.score}/10</span>
+                <div class="trade-card-top">
+                    <span class="a-flow-category-title">${safeText(card.type)}</span>
+                    <span class="a-flow-change ${card.score >= 7 ? 'positive' : ''}">${card.score}/10</span>
+                </div>
+                <div class="a-flow-name">${safeText(card.title)}</div>
+                <div class="trade-card-preview">
+                    <span>${card.score >= 7 ? '观察池' : '监控池'}</span>
+                    ${primaryTarget}
+                </div>
             </div>
             <div class="a-flow-detail">
                 <div class="a-flow-explain">事件判断：${safeText(card.reason)}</div>
                 <div class="a-flow-meaning">交易池状态：${safeText(card.status)}</div>
                 <div class="a-target-list">
                     <span>参考关注</span>
-                    ${card.targets.map(target => renderTargetBadge(target)).join('')}
+                    ${card.targets.slice(1).map(target => renderTargetBadge(target)).join('')}
                 </div>
                 <div class="a-flow-impact">操作提示：${safeText(card.action)}</div>
             </div>
