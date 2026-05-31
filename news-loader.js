@@ -44,11 +44,11 @@ async function loadHotNews(forceRefresh = false) {
     try {
         const data = await xhrFetch();
         if (data && data.news && data.news.length > 0) {
-            newsCache = data.news;
+            newsCache = prepareNewsList(data.news);
             lastRefreshTime = Date.now();
             renderNewsList(newsCache);
             updateRefreshHint(data.updateTime || '刚刚更新');
-            localStorage.setItem('hot_news_cache', JSON.stringify(data.news));
+            localStorage.setItem('hot_news_cache', JSON.stringify(newsCache));
             return;
         }
     } catch(e) {
@@ -60,7 +60,7 @@ async function loadHotNews(forceRefresh = false) {
         try {
             const parsed = JSON.parse(cached);
             if (parsed && parsed.length > 0) {
-                newsCache = parsed;
+                newsCache = prepareNewsList(parsed);
                 renderNewsList(newsCache);
                 return;
             }
@@ -175,24 +175,79 @@ function renderAlerts(data) {
 // ===== 渲染新闻列表 =====
 let _newsAllShown = false;
 
+function prepareNewsList(news) {
+    const unique = new Map();
+    (news || []).forEach((item, index) => {
+        const display = getNewsDisplay(item);
+        const key = getNewsEventKey(item, display);
+        const score = getNewsPriorityScore(item, display, index);
+        const candidate = { ...item, _display: display, _rankScore: score };
+        const current = unique.get(key);
+        if (!current || score > current._rankScore) unique.set(key, candidate);
+    });
+
+    return Array.from(unique.values())
+        .sort((a, b) => b._rankScore - a._rankScore)
+        .slice(0, 10);
+}
+
+function getNewsPriorityScore(item, display, index) {
+    const text = `${display.title} ${display.summary} ${display.detail} ${display.source}`.toLowerCase();
+    let score = Number(item.score || 0) + Math.max(0, 10 - index);
+
+    if (isChinaNewsText(text)) score += 9;
+    if (/美联储|通胀|降息|利率|fed|pce/.test(text)) score += 8;
+    if (/人工智能|英伟达|芯片|数据中心|openai|nvidia|ai/.test(text)) score += 7;
+    if (/巴菲特|伯克希尔|芒格|段永平|苹果|可口可乐|腾讯|茅台|黄金|能源|原油/.test(text)) score += 6;
+    if (/中国|a股|港股|人民币|上市公司|监管/.test(text)) score += 5;
+
+    return score;
+}
+
+function getNewsEventKey(item, display) {
+    const text = cleanKeyText(`${item.title || ''} ${item.detail || ''} ${display.title} ${display.detail}`);
+    if (/softbank|软银|france|法国|75bn|75 billion|人工智能facility/.test(text)) return 'softbank-ai-france';
+    if (/spacex|太空公司|太空概念|马斯克/.test(text)) return 'spacex-listing';
+    if (/openai|chatgpt|人工智能公司|聊天机器人|广告商业化/.test(text)) return 'openai-commercial';
+    if (/英伟达|nvidia|dell|micron|cisco|nokia|数据中心|芯片/.test(text)) return 'ai-hardware';
+    if (/油价|原油|oil|opec|伊朗|iran/.test(text)) return 'oil-geopolitics';
+    if (/美联储|通胀|降息|利率|fed|pce|稳定币/.test(text)) return 'fed-rates';
+    if (/a股|董秘|上市公司治理|证监会/.test(text)) return 'a-share-governance';
+    return text.slice(0, 28);
+}
+
+function cleanKeyText(text) {
+    return (text || '').toLowerCase().replace(/[^\u4e00-\u9fa5a-z0-9]/g, '');
+}
+
+function isChinaNewsText(text) {
+    return /中国|a股|港股|沪深|上证|人民币|证监会|腾讯|阿里|小米|茅台|深演智能|上市公司|国内/.test(text);
+}
+
 function renderNewsList(news) {
     const el = document.getElementById('hotNewsList');
     if (!el) return;
+    updateHeadlineBrief(news);
     
     const displayNews = _newsAllShown ? news : news.slice(0, 3);
     
     let html = displayNews.map((item, index) => {
         const display = getNewsDisplay(item);
+        const insight = getNewsInsight(item, display);
+        const articleAction = getArticleAction(item, display);
         return `
         <div class="news-item ${expandedNews === index ? 'expanded' : ''}" onclick="toggleNews(${index})">
             <div class="news-rank ${index < 3 ? 'hot' : ''}">${index + 1}</div>
             <div class="news-body">
-                <div class="news-head">
-                    <span class="news-source">${display.source}</span>
+                <div class="news-title">${escapeHtml(display.title)}</div>
+                <div class="news-detail">
+                    <div class="news-detail-meta">${escapeHtml(display.source)}</div>
+                    <div class="news-summary">${escapeHtml(display.summary)}</div>
+                    <div class="news-insight">
+                        ${insight.map(line => `<p>${escapeHtml(line)}</p>`).join('')}
+                    </div>
+                    <a class="news-original-link" href="${escapeHtml(articleAction.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${escapeHtml(articleAction.label)}</a>
                 </div>
-                <div class="news-title">${display.title}</div>
-                <div class="news-summary">${display.summary}</div>
-                <div class="news-detail">${display.detail}</div>
             </div>
             <div class="news-arrow">›</div>
         </div>`;
@@ -212,12 +267,119 @@ function renderNewsList(news) {
     localStorage.setItem('hot_news_cache', JSON.stringify(news));
 }
 
+function updateHeadlineBrief(news) {
+    if (!news || news.length === 0) return;
+    const globalNews = news.find(item => !isChinaNewsText(newsText(item)));
+    const chinaNews = news.find(item => isChinaNewsText(newsText(item)));
+    const first = globalNews || news[0];
+    const second = chinaNews && chinaNews !== first ? chinaNews : news.find(item => item !== first) || news[1] || first;
+    const firstDisplay = getNewsDisplay(first);
+    const secondDisplay = getNewsDisplay(second);
+    const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+    };
+
+    setText('afterworkKicker', '今日头条雷达');
+    setText('afterworkTitle', `先看：${shortText(firstDisplay.title, 28)}`);
+    setText('afterworkCopy', `全球重点：${shortText(firstDisplay.summary, 54)} 中国重点：${shortText(secondDisplay.summary, 54)}`);
+    setText('afterworkTagOne', firstDisplay.source || '全球大事');
+    setText('afterworkTagTwo', secondDisplay.source || '中国大事');
+    setText('afterworkTagThree', '先看影响');
+}
+
+function newsText(item) {
+    const display = getNewsDisplay(item);
+    return `${display.title} ${display.summary} ${display.detail} ${display.source}`.toLowerCase();
+}
+
+function shortText(text, max) {
+    const value = (text || '').replace(/\s+/g, '');
+    return value.length > max ? `${value.slice(0, max)}...` : value;
+}
+
+function escapeHtml(text) {
+    return String(text || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
 function getNewsDisplay(item) {
+    if (item._display) return item._display;
     return {
         title: cleanChineseDisplay(item.titleZh || item.title_zh || toChineseNewsTitle(item.title || '')),
         summary: cleanChineseDisplay(item.summaryZh || item.summary_zh || toChineseNewsSummary(item)),
-        detail: cleanChineseDisplay(item.detailZh || item.detail_zh || toChineseNewsDetail(item.detail || item.title || '')),
+        detail: cleanChineseDisplay(item.detailZh || item.detail_zh || toChineseNewsDetail(item)),
         source: cleanChineseDisplay(toChineseSource(item.source || '财经媒体'))
+    };
+}
+
+function getNewsInsight(item, display) {
+    const text = `${item.title || ''} ${item.detail || ''} ${display.title} ${display.summary} ${display.detail}`.toLowerCase();
+    const happened = `发生了什么：${shortText(display.detail, 78)}`;
+
+    if (/bank of america|英伟达|苹果|nvidia|apple/.test(text)) {
+        return [
+            happened,
+            '为什么重要：龙头被机构继续点名，说明市场还愿意为人工智能、现金流和护城河付溢价。',
+            '你可以看什么：别只看涨跌，重点看六月资金是否继续抱团，以及估值是不是已经跑在业绩前面。'
+        ];
+    }
+    if (/softbank|软银|france|法国|数据中心|基础设施/.test(text)) {
+        return [
+            happened,
+            '为什么重要：人工智能竞争正在从模型应用延伸到电力、机房和算力基础设施，欧洲也在补课。',
+            '你可以看什么：关注谁提供芯片、服务器、电力和云服务，真正赚钱的可能不只是一家明星公司。'
+        ];
+    }
+    if (/美联储|通胀|降息|利率|fed|pce|稳定币/.test(text)) {
+        return [
+            happened,
+            '为什么重要：利率预期会影响股票估值、债券收益率、美元和人民币压力，是很多资产的共同开关。',
+            '你可以看什么：如果通胀粘住，高估值成长股会更敏感；如果降息预期升温，风险资产容易先兴奋。'
+        ];
+    }
+    if (/油价|原油|oil|opec|伊朗|iran|能源/.test(text)) {
+        return [
+            happened,
+            '为什么重要：油价既影响通胀，也影响航空、化工、消费和能源股利润，传导链条比表面更长。',
+            '你可以看什么：短期看地缘消息，长期看产量和需求。别被一天的油价波动直接带着跑。'
+        ];
+    }
+    if (/a股|港股|中国|证监会|人民币|上市公司|治理/.test(text)) {
+        return [
+            happened,
+            '为什么重要：国内市场消息更直接影响A股、港股和人民币资产，也会影响普通投资者的持仓情绪。',
+            '你可以看什么：政策类新闻先看执行细节，行业类新闻再看订单、利润和估值有没有一起跟上。'
+        ];
+    }
+    if (/spacex|太空|上市|ipo|马斯克/.test(text)) {
+        return [
+            happened,
+            '为什么重要：热门上市故事容易制造想象空间，但普通投资者往往买到的是情绪最热的时候。',
+            '你可以看什么：先分清公司真的在赚钱，还是市场只是在为稀缺故事提前买单。'
+        ];
+    }
+    return [
+        happened,
+        '为什么重要：这类新闻通常会先影响市场情绪，再逐步反映到估值、资金流向或行业预期里。',
+        '你可以看什么：先判断它影响的是短期热闹，还是企业利润和行业供需。后者才更值得持续跟踪。'
+    ];
+}
+
+function getArticleAction(item, display) {
+    const url = item.url || item.link || item.href;
+    if (/^https?:\/\//.test(url || '')) {
+        return { label: '看原文', url };
+    }
+
+    const query = encodeURIComponent(`${display.source} ${display.title}`);
+    return {
+        label: '搜原文',
+        url: `https://www.bing.com/search?q=${query}`
     };
 }
 
@@ -273,7 +435,11 @@ function toChineseSource(source) {
         'U.S. Bureau of Economic Analysis (BEA) (.gov)': '美国经济分析局',
         'CBS News': '美国哥伦比亚广播公司财经',
         'CNBC': '美国财经台',
-        'Business Insider': '商业内幕'
+        'Business Insider': '商业内幕',
+        'WSJ': '华尔街日报',
+        'Bloomberg.com': '彭博',
+        'Financial Times': '金融时报',
+        'The Verge': '科技媒体'
     };
     return sourceMap[source] || (hasEnglish(source) ? '海外财经媒体' : source);
 }
@@ -284,6 +450,15 @@ function toChineseNewsTitle(title) {
     const t = title.toLowerCase();
     if (t.includes('stock market') || t.includes('dow') || t.includes('nasdaq') || t.includes('s&p')) {
         return '美股走势分化，纳指和标普仍在高位附近';
+    }
+    if (t.includes('bank of america') || (t.includes('nvidia') && t.includes('apple'))) {
+        return '美银看好英伟达、苹果等美股龙头六月表现';
+    }
+    if (t.includes('softbank') || t.includes('france')) {
+        return '软银计划在法国加码人工智能基础设施投资';
+    }
+    if (t.includes('nokia') || t.includes('dell') || t.includes('cisco') || t.includes('micron')) {
+        return '老牌科技股因人工智能基础设施需求重新受到关注';
     }
     if (t.includes('space') || t.includes('spacex')) {
         return '太空概念股受到关注，部分公司尚未跟随估值热潮';
@@ -309,10 +484,17 @@ function toChineseNewsTitle(title) {
     return '海外财经市场出现新动态，值得继续观察';
 }
 
-function toChineseNewsDetail(detail) {
+function toChineseNewsDetail(item) {
+    const detail = typeof item === 'string' ? item : (item.detail || item.title || '');
     if (!hasEnglish(detail)) return detail || '详情暂时缺席，标题已经很努力了。';
 
     const t = detail.toLowerCase();
+    if (t.includes('bank of america') || t.includes('nvidia') || t.includes('apple')) {
+        return '机构把英伟达、苹果等龙头列为重点关注对象，核心逻辑是人工智能需求、现金流质量和市场抱团偏好仍在。';
+    }
+    if (t.includes('softbank') || t.includes('france') || t.includes('data center')) {
+        return '软银计划在法国建设人工智能数据中心能力，说明算力基础设施正在成为全球科技竞争的新投资主线。';
+    }
     if (t.includes('inflation') || t.includes('pce')) {
         return '通胀指标会影响市场对降息节奏的判断。若通胀继续偏高，美联储可能更谨慎，成长股和高估值资产会更敏感。';
     }
