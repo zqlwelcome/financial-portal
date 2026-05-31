@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-06-01 01:10",
+  "updateTime": "2026-06-01 01:16",
   "news": [
     {
       "rank": 1,
@@ -35,6 +35,14 @@
     },
     {
       "rank": 5,
+      "title": "SpaceX lands a $4 billion deal right before its IPO - thestreet.com",
+      "source": "thestreet.com",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 35
+    },
+    {
+      "rank": 6,
       "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
       "source": "CNBC",
       "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
@@ -42,7 +50,7 @@
       "score": 32
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "美联储官员沃勒：稳定币将扩大美国政策的影响范围",
       "source": "环球市场播报",
       "detail": "美联储理事沃勒，稳定币在全球范围内的普及，会放大美国央行政策的影响力。 沃勒周日在克罗地亚杜布罗夫尼克的一场活动上表示：“采用稳定币的国家...",
@@ -50,7 +58,7 @@
       "score": 30
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "首部董秘监管新规落地，筑牢A股公司治理底座",
       "source": "证券市场周刊",
       "detail": "文丨惠凯 4月底，证监会发布首部《上市公司董事会秘书监管规则》，填补专项制度空白。新规从任职门槛、兼职限制、履职保障、责任追究等维度系统规范...",
@@ -58,7 +66,7 @@
       "score": 30
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "The ‘Three A’s’ are keeping the economy afloat during Iran war. Is it enough to avoid recession? - MarketWatch",
       "source": "MarketWatch",
       "detail": "国际财经动态，关注后续发展。",
@@ -66,20 +74,12 @@
       "score": 30
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Top Wall Street analysts see robust growth potential in these 3 stocks",
       "source": "CNBC",
       "detail": "Investors keen on capitalizing on the AI boom can track recommendations from top Wall Street analysts",
       "lang": "en",
       "score": 29
-    },
-    {
-      "rank": 10,
-      "title": "Defense spending, China in Asia and lessons from Ukraine: Takeways from the 2026 IISS Shangri-La Dialogue ",
-      "source": "CNBC",
-      "detail": "The summit sees top world leaders, defence officials and key executives gathering in Singapore from May 29 to 31",
-      "lang": "en",
-      "score": 27
     }
   ]
 }
