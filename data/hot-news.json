@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 22:40",
+  "updateTime": "2026-05-31 22:45",
   "news": [
     {
       "rank": 1,
@@ -27,6 +27,14 @@
     },
     {
       "rank": 4,
+      "title": "Tech Stars From the 90s Reborn: Nokia, Dell, Cisco Surge on AI - Bloomberg.com",
+      "source": "Bloomberg.com",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 40
+    },
+    {
+      "rank": 5,
       "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
       "source": "The Verge",
       "detail": "国际财经动态，关注后续发展。",
@@ -34,7 +42,7 @@
       "score": 35
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "SoftBank pledges €75bn to build Europe’s biggest AI facility in France - Financial Times",
       "source": "Financial Times",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -42,7 +50,7 @@
       "score": 35
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
       "source": "CNBC",
       "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
@@ -50,7 +58,7 @@
       "score": 32
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "美联储官员沃勒：稳定币将扩大美国政策的影响范围",
       "source": "环球市场播报",
       "detail": "美联储理事沃勒，稳定币在全球范围内的普及，会放大美国央行政策的影响力。 沃勒周日在克罗地亚杜布罗夫尼克的一场活动上表示：“采用稳定币的国家...",
@@ -58,19 +66,11 @@
       "score": 30
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "首部董秘监管新规落地，筑牢A股公司治理底座",
       "source": "证券市场周刊",
       "detail": "文丨惠凯 4月底，证监会发布首部《上市公司董事会秘书监管规则》，填补专项制度空白。新规从任职门槛、兼职限制、履职保障、责任追究等维度系统规范...",
       "lang": "zh",
-      "score": 30
-    },
-    {
-      "rank": 9,
-      "title": "The ‘Three A’s’ are keeping the economy afloat during Iran war. Is it enough to avoid recession? - MarketWatch",
-      "source": "MarketWatch",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
       "score": 30
     },
     {
