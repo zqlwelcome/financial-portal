@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 09:35",
+  "updateTime": "2026-05-31 09:40",
   "news": [
     {
       "rank": 1,
@@ -43,6 +43,14 @@
     },
     {
       "rank": 6,
+      "title": "Dell Stock Jumps 33% On Heady AI Data Center Sales - Investor's Business Daily",
+      "source": "Investor's Business Daily",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 37
+    },
+    {
+      "rank": 7,
       "title": "SoftBank pledges €75bn to build Europe’s biggest AI facility in France - Financial Times",
       "source": "Financial Times",
       "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
@@ -50,7 +58,7 @@
       "score": 35
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "The SpaceX IPO is great for Elon Musk and terrible for you - The Verge",
       "source": "The Verge",
       "detail": "国际财经动态，关注后续发展。",
@@ -58,7 +66,7 @@
       "score": 35
     },
     {
-      "rank": 8,
+      "rank": 9,
       "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
       "source": "CNBC",
       "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
@@ -66,18 +74,10 @@
       "score": 32
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "Oil Prices Slip Amid Trump Demands; Exxon Warns Of Nasty Surprise - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
-      "lang": "en",
-      "score": 27
-    },
-    {
-      "rank": 10,
-      "title": "Oil exports through the Strait of Hormuz might not return to levels seen before the Iran war",
-      "source": "CNBC",
-      "detail": "Iran's blockade of the Strait of Hormuz has seriously challenged freedom of navigation in the sea lane, raising questions about the future.",
       "lang": "en",
       "score": 27
     }
