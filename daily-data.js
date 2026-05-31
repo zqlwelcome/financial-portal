@@ -194,7 +194,7 @@ function renderSummaryContent() {
                 <div class="a-insights-tabs">
                     <button class="a-insights-tab active" onclick="switchInsightTab('braintrust', this)">高手茶话会</button>
                     <button class="a-insights-tab" onclick="switchInsightTab('calendar', this)">本周雷达</button>
-                    <button class="a-insights-tab" onclick="switchInsightTab('flow', this)">钱在搬家</button>
+                    <button class="a-insights-tab" onclick="switchInsightTab('flow', this)">交易池情报</button>
                     <button class="a-insights-tab" onclick="switchInsightTab('sector', this)">板块热闹榜</button>
                 </div>
                 <div class="a-insights-hint" id="tabHint">
@@ -219,9 +219,62 @@ function renderSummaryContent() {
                 ${radarHtml}
             </div>
             
-            <!-- 资金流向内容 -->
+            <!-- 交易池情报内容 -->
             <div class="a-insights-content" id="insight-flow">
-                <div class="a-flow-list"><div class="a-flow-hint" onclick="this.style.display='none'"><span class="a-flow-hint-icon">👇</span><span class="a-flow-hint-text">点击任意条目查看详细解读</span></div>
+                <div class="a-radar-intro">
+                    <div class="a-radar-kicker">10日事件交易模型</div>
+                    <div class="a-radar-copy">先筛事件，再看标的，最后看仓位。这里不追热闹，只看事件有没有进入交易池的资格。</div>
+                </div>
+                <div class="a-flow-list">
+                    <div class="a-flow-hint" onclick="this.style.display='none'"><span class="a-flow-hint-icon">👇</span><span class="a-flow-hint-text">点击情报卡，查看模型判断</span></div>
+                    <div class="a-flow-item expanded">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-category-title">政策类</span>
+                            <span class="a-flow-name">A股公司治理新规</span>
+                            <span class="a-flow-change positive">7/10</span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">事件判断：监管规则落地，属于政策类有效事件，但短期更偏估值修复，不是立刻增厚利润。</div>
+                            <div class="a-flow-meaning">交易池状态：进入观察池。优先看治理改善、现金流稳定、估值不高的龙头，不看纯题材小票。</div>
+                            <div class="a-flow-impact">操作提示：T0-T3 只允许小仓位观察；若板块已连续大涨，不追。单一行业仓位不超过 20%。</div>
+                        </div>
+                    </div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-category-title">资金行为</span>
+                            <span class="a-flow-name">机构抱团AI龙头</span>
+                            <span class="a-flow-change positive">6/10</span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">事件判断：资金仍在买确定性，但AI交易已拥挤，属于有效事件里的高波动情形。</div>
+                            <div class="a-flow-meaning">交易池状态：只进监控池，不直接满仓。必须检查估值分位、5日涨幅和成交额。</div>
+                            <div class="a-flow-impact">操作提示：若收益率下行且龙头放量，可分批；若连续大涨或估值分位过高，模型拒绝追高。</div>
+                        </div>
+                    </div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-category-title">行业供需</span>
+                            <span class="a-flow-name">油价与地缘风险</span>
+                            <span class="a-flow-change">5/10</span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">事件判断：油价影响通胀和周期板块，但地缘消息容易反复，事件分数中等。</div>
+                            <div class="a-flow-meaning">交易池状态：等待确认。只有供需数据或OPEC政策明确，才升级为有效交易事件。</div>
+                            <div class="a-flow-impact">操作提示：先看原油、黄金、航空消费和能源股反应。没有成交量确认，不做重仓判断。</div>
+                        </div>
+                    </div>
+                    <div class="a-flow-item">
+                        <div class="a-flow-main" onclick="toggleFlowDetail(this)">
+                            <span class="a-flow-category-title">风控底线</span>
+                            <span class="a-flow-name">仓位和退出规则</span>
+                            <span class="a-flow-change negative">硬规则</span>
+                        </div>
+                        <div class="a-flow-detail">
+                            <div class="a-flow-explain">模型规则：单标的不超过 15%，权益总仓不超过 70%，永久保留 30% 现金/固收底仓。</div>
+                            <div class="a-flow-meaning">退出纪律：入场后跌 8% 止损；持有满 10 个交易日，无论盈亏都重新评估并退出旧事件逻辑。</div>
+                            <div class="a-flow-impact">小白翻译：这个模型不是为了猜中每次，而是为了亏的时候小亏，赚的时候吃事件窗口。</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
