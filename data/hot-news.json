@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 21:30",
+  "updateTime": "2026-05-31 21:35",
   "news": [
     {
       "rank": 1,
@@ -67,19 +67,19 @@
     },
     {
       "rank": 9,
-      "title": "首部董秘监管新规落地，筑牢A股公司治理底座",
-      "source": "证券市场周刊",
-      "detail": "文丨惠凯 4月底，证监会发布首部《上市公司董事会秘书监管规则》，填补专项制度空白。新规从任职门槛、兼职限制、履职保障、责任追究等维度系统规范...",
+      "title": "美联储官员沃勒：稳定币将扩大美国政策的影响范围",
+      "source": "环球市场播报",
+      "detail": "美联储理事沃勒，稳定币在全球范围内的普及，会放大美国央行政策的影响力。 沃勒周日在克罗地亚杜布罗夫尼克的一场活动上表示：“采用稳定币的国家...",
       "lang": "zh",
       "score": 30
     },
     {
       "rank": 10,
-      "title": "Top Wall Street analysts see robust growth potential in these 3 stocks",
-      "source": "CNBC",
-      "detail": "Investors keen on capitalizing on the AI boom can track recommendations from top Wall Street analysts",
-      "lang": "en",
-      "score": 29
+      "title": "首部董秘监管新规落地，筑牢A股公司治理底座",
+      "source": "证券市场周刊",
+      "detail": "文丨惠凯 4月底，证监会发布首部《上市公司董事会秘书监管规则》，填补专项制度空白。新规从任职门槛、兼职限制、履职保障、责任追究等维度系统规范...",
+      "lang": "zh",
+      "score": 30
     }
   ]
 }
