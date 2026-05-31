@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 13:45",
+  "updateTime": "2026-05-31 13:50",
   "news": [
     {
       "rank": 1,
@@ -35,11 +35,11 @@
     },
     {
       "rank": 5,
-      "title": "Stock Market Today: Dow Closes Above 51,000; Nasdaq, S&P 500 Make History (Live Coverage) - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
+      "source": "WSJ",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
-      "score": 37
+      "score": 44
     },
     {
       "rank": 6,
@@ -59,6 +59,14 @@
     },
     {
       "rank": 8,
+      "title": "Dell stock surges on deal with Pentagon, making CEO $31B richer overnight - New York Post",
+      "source": "New York Post",
+      "detail": "国际财经动态，关注后续发展。",
+      "lang": "en",
+      "score": 32
+    },
+    {
+      "rank": 9,
       "title": "Micron is one of the most overbought stocks after this week’s rally to new highs",
       "source": "CNBC",
       "detail": "Investors poured love into stocks such as Micron Technology and Dell Technologies this week.",
@@ -66,19 +74,11 @@
       "score": 32
     },
     {
-      "rank": 9,
+      "rank": 10,
       "title": "首部董秘监管新规落地，筑牢A股公司治理底座",
       "source": "证券市场周刊",
       "detail": "文丨惠凯 4月底，证监会发布首部《上市公司董事会秘书监管规则》，填补专项制度空白。新规从任职门槛、兼职限制、履职保障、责任追究等维度系统规范...",
       "lang": "zh",
-      "score": 30
-    },
-    {
-      "rank": 10,
-      "title": "The ‘Three A’s’ are keeping the economy afloat during Iran war. Is it enough to avoid recession? - MarketWatch",
-      "source": "MarketWatch",
-      "detail": "国际财经动态，关注后续发展。",
-      "lang": "en",
       "score": 30
     }
   ]
