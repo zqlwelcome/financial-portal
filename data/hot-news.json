@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 15:35",
+  "updateTime": "2026-05-31 15:40",
   "news": [
     {
       "rank": 1,
@@ -27,19 +27,19 @@
     },
     {
       "rank": 4,
+      "title": "Oil Declines Lift Stocks to Fresh Records - WSJ",
+      "source": "WSJ",
+      "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 44
+    },
+    {
+      "rank": 5,
       "title": "Stock Market News, May 29, 2026: Oil Suffers Biggest Monthly Drop Since 2020 - WSJ",
       "source": "WSJ",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
       "lang": "en",
       "score": 39
-    },
-    {
-      "rank": 5,
-      "title": "Stock Market Today: Dow Closes Above 51,000; Nasdaq, S&P 500 Make History (Live Coverage) - Investor's Business Daily",
-      "source": "Investor's Business Daily",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 37
     },
     {
       "rank": 6,
