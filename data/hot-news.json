@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 21:25",
+  "updateTime": "2026-05-31 21:30",
   "news": [
     {
       "rank": 1,
@@ -75,11 +75,11 @@
     },
     {
       "rank": 10,
-      "title": "The ‘Three A’s’ are keeping the economy afloat during Iran war. Is it enough to avoid recession? - MarketWatch",
-      "source": "MarketWatch",
-      "detail": "国际财经动态，关注后续发展。",
+      "title": "Top Wall Street analysts see robust growth potential in these 3 stocks",
+      "source": "CNBC",
+      "detail": "Investors keen on capitalizing on the AI boom can track recommendations from top Wall Street analysts",
       "lang": "en",
-      "score": 30
+      "score": 29
     }
   ]
 }
