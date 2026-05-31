@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 16:26",
+  "updateTime": "2026-05-31 16:30",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -26,53 +26,7 @@
       "change": "0.70"
     }
   },
-  "etf_flows": [
-    {
-      "name": "上证50ETF华夏",
-      "code": "510050",
-      "price": 2.997,
-      "change": 0.4,
-      "flow": 389898336.0,
-      "flow_str": "+3.90亿",
-      "direction": "in"
-    },
-    {
-      "name": "证券ETF国泰",
-      "code": "512880",
-      "price": 1.033,
-      "change": 1.18,
-      "flow": 313298672.0,
-      "flow_str": "+3.13亿",
-      "direction": "in"
-    },
-    {
-      "name": "化工ETF鹏华",
-      "code": "159870",
-      "price": 0.816,
-      "change": -2.04,
-      "flow": 267669421.0,
-      "flow_str": "+2.68亿",
-      "direction": "in"
-    },
-    {
-      "name": "沪深300ETF华夏",
-      "code": "510330",
-      "price": 5.124,
-      "change": -0.21,
-      "flow": 170677330.0,
-      "flow_str": "+1.71亿",
-      "direction": "in"
-    },
-    {
-      "name": "酒ETF鹏华",
-      "code": "512690",
-      "price": 0.457,
-      "change": 3.16,
-      "flow": 163628128.0,
-      "flow_str": "+1.64亿",
-      "direction": "in"
-    }
-  ],
+  "etf_flows": [],
   "sector_flows": [
     {
       "name": "通信线缆及配套",
