@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 09:30",
+  "updateTime": "2026-05-31 09:35",
   "news": [
     {
       "rank": 1,
@@ -67,17 +67,17 @@
     },
     {
       "rank": 9,
-      "title": "Nvidia Stock: How the Chip Maker Is Trading Today - Barron's",
-      "source": "Barron's",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 29
-    },
-    {
-      "rank": 10,
       "title": "Oil Prices Slip Amid Trump Demands; Exxon Warns Of Nasty Surprise - Investor's Business Daily",
       "source": "Investor's Business Daily",
       "detail": "原油价格受供需关系和地缘政治影响，关注OPEC+产量政策。",
+      "lang": "en",
+      "score": 27
+    },
+    {
+      "rank": 10,
+      "title": "Oil exports through the Strait of Hormuz might not return to levels seen before the Iran war",
+      "source": "CNBC",
+      "detail": "Iran's blockade of the Strait of Hormuz has seriously challenged freedom of navigation in the sea lane, raising questions about the future.",
       "lang": "en",
       "score": 27
     }
