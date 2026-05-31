@@ -1,0 +1,26 @@
+{
+  "buffett": {
+    "changes_count": 10,
+    "holdings_count": 24,
+    "updateDate": "2026-05-15",
+    "last_update": "2026-06-01 00:35"
+  },
+  "duan": {
+    "changes_count": 14,
+    "holdings_count": 12,
+    "updateDate": "2026-05-19",
+    "last_update": "2026-06-01 00:35"
+  },
+  "cathie": {
+    "changes_count": 5,
+    "holdings_count": 10,
+    "updateDate": "2026-Q1",
+    "last_update": "2026-06-01 00:35"
+  },
+  "trump": {
+    "changes_count": 2,
+    "holdings_count": 6,
+    "updateDate": "2026-04",
+    "last_update": "2026-06-01 00:35"
+  }
+}
