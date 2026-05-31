@@ -186,33 +186,107 @@ function prepareNewsList(news) {
         if (!current || score > current._rankScore) unique.set(key, candidate);
     });
 
-    return Array.from(unique.values())
-        .sort((a, b) => b._rankScore - a._rankScore)
+    return diversifyNewsList(Array.from(unique.values())
+        .sort((a, b) => b._rankScore - a._rankScore))
         .slice(0, 10);
 }
 
 function getNewsPriorityScore(item, display, index) {
-    const text = `${display.title} ${display.summary} ${display.detail} ${display.source}`.toLowerCase();
+    const text = getFullNewsText(item, display);
     let score = Number(item.score || 0) + Math.max(0, 10 - index);
 
-    if (isChinaNewsText(text)) score += 9;
-    if (/美联储|通胀|降息|利率|fed|pce/.test(text)) score += 8;
-    if (/人工智能|英伟达|芯片|数据中心|openai|nvidia|ai/.test(text)) score += 7;
-    if (/巴菲特|伯克希尔|芒格|段永平|苹果|可口可乐|腾讯|茅台|黄金|能源|原油/.test(text)) score += 6;
-    if (/中国|a股|港股|人民币|上市公司|监管/.test(text)) score += 5;
+    if (isGlobalEventText(text)) score += 16;
+    if (isChinaNewsText(text)) score += 14;
+    if (isMacroText(text)) score += 14;
+    if (isFinanceText(text)) score += 12;
+    if (isLegalPolicyText(text)) score += 11;
+    if (isCommodityText(text)) score += 10;
+    if (isInstitutionText(text)) score += 9;
+    if (isTechText(text)) score += 5;
 
     return score;
 }
 
+function diversifyNewsList(items) {
+    const categoryOrder = ['macro', 'china', 'commodity', 'geopolitics', 'institution', 'tech', 'other'];
+    const result = [];
+    const used = new Set();
+
+    const take = (item) => {
+        if (used.has(item)) return false;
+        used.add(item);
+        result.push(item);
+        return true;
+    };
+
+    categoryOrder.forEach(category => {
+        const item = items.find(candidate => getNewsCategory(candidate, getNewsDisplay(candidate)) === category && !used.has(candidate));
+        if (item) take(item);
+    });
+
+    items.forEach(take);
+    return result;
+}
+
+function getNewsCategory(item, display) {
+    const text = getFullNewsText(item, display);
+    if (isGlobalEventText(text)) return 'global';
+    if (isChinaNewsText(text)) return 'china';
+    if (isMacroText(text)) return 'macro';
+    if (isFinanceText(text)) return 'finance';
+    if (isLegalPolicyText(text)) return 'policy';
+    if (isCommodityText(text)) return 'commodity';
+    if (isInstitutionText(text)) return 'institution';
+    if (isTechText(text)) return 'tech';
+    return 'other';
+}
+
+function getFullNewsText(item, display) {
+    return `${item.title || ''} ${item.detail || ''} ${display.title} ${display.summary} ${display.detail} ${display.source}`.toLowerCase();
+}
+
+function isGlobalEventText(text) {
+    return /defense|国防|地缘|乌克兰|香格里拉|china in asia|伊朗|iran|war|战争|制裁|election|选举/.test(text);
+}
+
+function isMacroText(text) {
+    return /美联储|通胀|降息|利率|fed|pce|recession|经济衰退|economy|美国经济|经济增长|gdp|就业|美元|人民币/.test(text);
+}
+
+function isFinanceText(text) {
+    return /股市|美股|a股|港股|债券|收益率|银行|稳定币|上市|ipo|资金|估值|利润|财报/.test(text);
+}
+
+function isLegalPolicyText(text) {
+    return /监管|规则|法律|新规|证监会|政策|治理|反垄断|合规|关税/.test(text);
+}
+
+function isCommodityText(text) {
+    return /油价|原油|oil|opec|黄金|能源|commodity|大宗|天然气|铜/.test(text);
+}
+
+function isInstitutionText(text) {
+    return /bank of america|wall street analysts|分析师|机构|巴菲特|伯克希尔|芒格|段永平|对冲基金|基金经理/.test(text);
+}
+
+function isTechText(text) {
+    return /人工智能|英伟达|芯片|数据中心|openai|nvidia|ai|micron|nokia|dell|cisco|spacex|太空|模型|算力/.test(text);
+}
+
 function getNewsEventKey(item, display) {
     const text = cleanKeyText(`${item.title || ''} ${item.detail || ''} ${display.title} ${display.detail}`);
-    if (/softbank|软银|france|法国|75bn|75 billion|人工智能facility/.test(text)) return 'softbank-ai-france';
+    if (/bankofamerica|美银|nvidiaandapple|英伟达苹果/.test(text)) return 'bofa-nvidia-apple';
+    if (/softbank|软银|france|法国|75bn|75billion|人工智能facility/.test(text)) return 'softbank-ai-france';
     if (/spacex|太空公司|太空概念|马斯克/.test(text)) return 'spacex-listing';
     if (/openai|chatgpt|人工智能公司|聊天机器人|广告商业化/.test(text)) return 'openai-commercial';
-    if (/英伟达|nvidia|dell|micron|cisco|nokia|数据中心|芯片/.test(text)) return 'ai-hardware';
+    if (/micron|美光|overbought|超买/.test(text)) return 'micron-overbought';
+    if (/topwallstreetanalysts|wallstreetanalysts|分析师/.test(text)) return 'analyst-stock-picks';
+    if (/threeas|economyafloat|recession|经济衰退/.test(text)) return 'us-economy-resilience';
+    if (/nokiadellcisco|nokia|cisco|老牌科技/.test(text)) return 'legacy-tech-ai';
     if (/油价|原油|oil|opec|伊朗|iran/.test(text)) return 'oil-geopolitics';
     if (/美联储|通胀|降息|利率|fed|pce|稳定币/.test(text)) return 'fed-rates';
     if (/a股|董秘|上市公司治理|证监会/.test(text)) return 'a-share-governance';
+    if (/defensespending|shangrila|香格里拉|ukraine|乌克兰/.test(text)) return 'shangri-la-defense';
     return text.slice(0, 28);
 }
 
@@ -269,7 +343,7 @@ function renderNewsList(news) {
 
 function updateHeadlineBrief(news) {
     if (!news || news.length === 0) return;
-    const globalNews = news.find(item => !isChinaNewsText(newsText(item)));
+    const globalNews = news.find(item => ['global', 'macro', 'finance', 'policy', 'commodity'].includes(getNewsCategory(item, getNewsDisplay(item)))) || news.find(item => !isChinaNewsText(newsText(item)));
     const chinaNews = news.find(item => isChinaNewsText(newsText(item)));
     const first = globalNews || news[0];
     const second = chinaNews && chinaNews !== first ? chinaNews : news.find(item => item !== first) || news[1] || first;
@@ -318,56 +392,83 @@ function getNewsDisplay(item) {
 }
 
 function getNewsInsight(item, display) {
-    const text = `${item.title || ''} ${item.detail || ''} ${display.title} ${display.summary} ${display.detail}`.toLowerCase();
+    const text = getFullNewsText(item, display);
     const happened = `发生了什么：${shortText(display.detail, 78)}`;
+    const lens = getTraderLens(item, display);
 
     if (/bank of america|英伟达|苹果|nvidia|apple/.test(text)) {
         return [
             happened,
             '为什么重要：龙头被机构继续点名，说明市场还愿意为人工智能、现金流和护城河付溢价。',
-            '你可以看什么：别只看涨跌，重点看六月资金是否继续抱团，以及估值是不是已经跑在业绩前面。'
+            lens
         ];
     }
     if (/softbank|软银|france|法国|数据中心|基础设施/.test(text)) {
         return [
             happened,
             '为什么重要：人工智能竞争正在从模型应用延伸到电力、机房和算力基础设施，欧洲也在补课。',
-            '你可以看什么：关注谁提供芯片、服务器、电力和云服务，真正赚钱的可能不只是一家明星公司。'
+            lens
         ];
     }
     if (/美联储|通胀|降息|利率|fed|pce|稳定币/.test(text)) {
         return [
             happened,
             '为什么重要：利率预期会影响股票估值、债券收益率、美元和人民币压力，是很多资产的共同开关。',
-            '你可以看什么：如果通胀粘住，高估值成长股会更敏感；如果降息预期升温，风险资产容易先兴奋。'
+            lens
         ];
     }
     if (/油价|原油|oil|opec|伊朗|iran|能源/.test(text)) {
         return [
             happened,
             '为什么重要：油价既影响通胀，也影响航空、化工、消费和能源股利润，传导链条比表面更长。',
-            '你可以看什么：短期看地缘消息，长期看产量和需求。别被一天的油价波动直接带着跑。'
+            lens
         ];
     }
     if (/a股|港股|中国|证监会|人民币|上市公司|治理/.test(text)) {
         return [
             happened,
             '为什么重要：国内市场消息更直接影响A股、港股和人民币资产，也会影响普通投资者的持仓情绪。',
-            '你可以看什么：政策类新闻先看执行细节，行业类新闻再看订单、利润和估值有没有一起跟上。'
+            lens
         ];
     }
     if (/spacex|太空|上市|ipo|马斯克/.test(text)) {
         return [
             happened,
             '为什么重要：热门上市故事容易制造想象空间，但普通投资者往往买到的是情绪最热的时候。',
-            '你可以看什么：先分清公司真的在赚钱，还是市场只是在为稀缺故事提前买单。'
+            lens
         ];
     }
     return [
         happened,
         '为什么重要：这类新闻通常会先影响市场情绪，再逐步反映到估值、资金流向或行业预期里。',
-        '你可以看什么：先判断它影响的是短期热闹，还是企业利润和行业供需。后者才更值得持续跟踪。'
+        lens
     ];
+}
+
+function getTraderLens(item, display) {
+    const text = getFullNewsText(item, display);
+    if (isGlobalEventText(text)) {
+        return '交易员视角：先看避险情绪和风险溢价，盯美元、黄金、油价、军工和亚洲市场开盘反应。';
+    }
+    if (isMacroText(text)) {
+        return '交易员视角：先判断它会不会改变降息路径，再看债券收益率、美元和高估值成长股怎么重新定价。';
+    }
+    if (isChinaNewsText(text)) {
+        return '交易员视角：先看政策预期是否改善风险偏好，再盯A股、港股、人民币和外资流向有没有同步反应。';
+    }
+    if (isLegalPolicyText(text)) {
+        return '交易员视角：政策和监管会改变行业估值上限，重点看受益方、受压方，以及资金是否从旧逻辑切到新逻辑。';
+    }
+    if (isCommodityText(text)) {
+        return '交易员视角：先拆供给冲击还是需求变化，再看通胀预期、能源股、航空消费和周期股谁先动。';
+    }
+    if (isInstitutionText(text)) {
+        return '交易员视角：机构观点本身不是答案，重点看它是否带来资金抱团、调仓方向和市场共识变化。';
+    }
+    if (isTechText(text)) {
+        return '交易员视角：科技新闻要看订单、算力、利润率和估值四件事，只有热度没有业绩时要小心追高。';
+    }
+    return '交易员视角：先判断这条新闻影响情绪、利率、盈利还是政策，再看相关资产有没有成交量确认。';
 }
 
 function getArticleAction(item, display) {
@@ -457,8 +558,20 @@ function toChineseNewsTitle(title) {
     if (t.includes('softbank') || t.includes('france')) {
         return '软银计划在法国加码人工智能基础设施投资';
     }
-    if (t.includes('nokia') || t.includes('dell') || t.includes('cisco') || t.includes('micron')) {
+    if (t.includes('micron')) {
+        return '美光短期涨幅较快，市场提醒其已进入超买区间';
+    }
+    if (t.includes('nokia') || t.includes('dell') || t.includes('cisco')) {
         return '老牌科技股因人工智能基础设施需求重新受到关注';
+    }
+    if (t.includes('top wall street analysts')) {
+        return '华尔街分析师看好三只具备增长潜力的股票';
+    }
+    if (t.includes('three a') || t.includes('recession')) {
+        return '美国经济仍靠几项支撑因素避免衰退风险';
+    }
+    if (t.includes('defense spending') || t.includes('shangri-la') || t.includes('ukraine')) {
+        return '香格里拉对话聚焦国防开支、中国议题和乌克兰经验';
     }
     if (t.includes('space') || t.includes('spacex')) {
         return '太空概念股受到关注，部分公司尚未跟随估值热潮';
