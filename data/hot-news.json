@@ -1,16 +1,8 @@
 {
-  "updateTime": "2026-05-31 12:40",
+  "updateTime": "2026-05-31 12:45",
   "news": [
     {
       "rank": 1,
-      "title": "Nvidia Stock Could Rally Again if Huang Delivers on AI Growth Targets - Yahoo Finance",
-      "source": "Yahoo Finance",
-      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
-      "lang": "en",
-      "score": 64
-    },
-    {
-      "rank": 2,
       "title": "Stocks including Nvidia and Apple are top picks as market run-up continues, Bank of America says",
       "source": "CNBC",
       "detail": "Bank of America named some of its favorite stocks to buy in June.",
@@ -18,7 +10,7 @@
       "score": 51
     },
     {
-      "rank": 3,
+      "rank": 2,
       "title": "OpenAI据悉讨论将花旗和摩根大通纳入IPO承销商名单",
       "source": "环球市场播报",
       "detail": "据知情人士称，OpenAI已与花旗集团、摩根大通等银行讨论了参与其即将到来的IPO的事宜。 消息人士称，花旗集团、摩根大通可能加入高盛集团、摩根士丹利的行列...",
@@ -26,12 +18,20 @@
       "score": 50
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "Two months, $2.6 billion: How NASA ETF turned SpaceX IPO access into a hot retail trade",
       "source": "CNBC",
       "detail": "With Elon Musk's SpaceX IPO ahead, retail investors are rushing into space-themed ETFs including NASA which offers direct access to the rocket company.",
       "lang": "en",
       "score": 45
+    },
+    {
+      "rank": 4,
+      "title": "Anthropic leapfrogs OpenAI with a record $965 billion valuation and says its ‘Mythos’ AI model is coming soon - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "detail": "AI和芯片行业持续受到关注，英伟达等公司表现对行业有风向标意义。",
+      "lang": "en",
+      "score": 40
     },
     {
       "rank": 5,
