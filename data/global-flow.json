@@ -1,5 +1,5 @@
 {
-  "updateTime": "2026-05-31 10:10",
+  "updateTime": "2026-05-31 10:16",
   "indices": {
     "usIXIC": {
       "name": "纳斯达克",
@@ -120,12 +120,7 @@
       "direction": "in"
     }
   ],
-  "northbound": {
-    "time": "15:00",
-    "hgt": 0.0,
-    "sgt": 5200000.0,
-    "total": 0.0
-  },
+  "northbound": null,
   "bank_news": [
     {
       "title": "欧洲央行管委佩雷拉：必须尽早应对通胀",
